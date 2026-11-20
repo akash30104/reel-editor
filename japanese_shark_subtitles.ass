@@ -1,0 +1,27 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Noto Sans Tamil,54,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,5,2,2,40,40,500,1
+Style: HookSubtitle,Noto Sans Tamil,64,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,6,3,2,40,40,510,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:04.20,HookSubtitle,,0,0,0,,ஜப்பான்ல மக்களுக்கு மீன் ரொம்ப பிடிக்கும்... {\c&H000782EA&}Fish சாப்பிடுவாங்க!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:04.20,0:00:08.30,Default,,0,0,0,,ஆனா அவங்களுக்கு {\c&H000782EA&}Fresh Fish-ஆ{\c&H00FFFFFF&} உடனே கிடைக்காது!
+Dialogue: 0,0:00:08.30,0:00:11.60,Default,,0,0,0,,அப்போ மீனவர்கள் என்ன பண்றாங்கன்னா {\c&H000782EA&}பெரிய தொட்டில{\c&H00FFFFFF&} போடுறாங்க!
+Dialogue: 0,0:00:11.60,0:00:14.00,Default,,0,0,0,,கொண்டு வரும்போது மீன்கள் எல்லாம் {\c&H000782EA&}டல்லா செத்து போயிடுது!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:14.00,0:00:18.00,Default,,0,0,0,,அதை {\c&H000782EA&}உயிரோட வச்சுக்க{\c&H00FFFFFF&} என்ன பண்ணனும் தெரியுமா?
+Dialogue: 0,0:00:18.00,0:00:22.50,Default,,0,0,0,,என்ன பண்றாங்க? {\c&H000782EA&}எப்படி பிரெஷ்ஷா{\c&H00FFFFFF&} வைக்க முடியும்?
+Dialogue: 0,0:00:22.50,0:00:27.80,Default,,0,0,0,,தொட்டிக்குள்ள சின்ன மீன்கள் கூட {\c&H000782EA&}ஒரு சுறா மீனை{\c&H00FFFFFF&} உள்ள போடுறான்!
+Dialogue: 0,0:00:27.80,0:00:32.50,Default,,0,0,0,,சுறா மீன் துரத்தும்போது மீன்கள் {\c&H000782EA&}தப்பிக்க ஓடிக்கிட்டே{\c&H00FFFFFF&} இருக்கும்!
+Dialogue: 0,0:00:32.50,0:00:36.50,Default,,0,0,0,,கரைக்கு வரும்போது எல்லா மீன்களும் {\c&H000782EA&}செம பிரெஷ்ஷா{\c&H00FFFFFF&} இருக்கும்!
+Dialogue: 0,0:00:36.50,0:00:41.50,Default,,0,0,0,,வாழ்க்கையிலயும் Business-லயும் {\c&H000782EA&}சவால்கள் (Stress){\c&H00FFFFFF&} கண்டிப்பா வேணும்!
+Dialogue: 0,0:00:41.50,0:00:47.00,Default,,0,0,0,,அந்த ஸ்ட்ரெஸ் தான் நம்மளை {\c&H000782EA&}Active-ஆ உயிரோட{\c&H00FFFFFF&} ஓட வைக்கும்!
+Dialogue: 0,0:00:47.00,0:00:52.00,Default,,0,0,0,,இதுதான் {\c&H000782EA&}Happy Stress!{\c&H00FFFFFF&} ரிஸ்க் எடுத்து ஜெயிக்கணும்!
+Dialogue: 0,0:00:52.00,0:00:57.80,Default,,0,0,0,,எந்த ஒரு சவாலும் இல்லன்னா வாழ்க்கை {\c&H000782EA&}ரொம்ப வெறுப்பா{\c&H00FFFFFF&} ஆயிடும்!
+Dialogue: 0,0:00:57.80,0:01:03.00,Default,,0,0,0,,அதனால சவால்களை பார்த்து {\c&H000782EA&}பயப்படவே கூடாது!{\c&H00FFFFFF&}
+Dialogue: 0,0:01:03.00,0:01:08.00,Default,,0,0,0,,எதிர்த்து நின்னு போராடுங்க... {\c&H000782EA&}வாழ்க்கையில ஜெயிப்பீங்க!{\c&H00FFFFFF&}

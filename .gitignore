@@ -1,0 +1,61 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.env
+
+# Large raw video & reference files
+RAW VIDEOS/
+RAW_VIDEOS/*
+!RAW_VIDEOS/.gitkeep
+STYLE REFERENCE/
+*.MOV
+*.mov
+*.mkv
+
+# Root level test mp4s
+/*.mp4
+!/assets/**/*.mp4
+
+# Temporary render and analysis directories
+temp_*
+seg_frames/
+ref_analysis/
+audio_topics/
+tools/
+my-video/
+internet_brolls/
+brolls/
+
+# Large uncompressed audio dumps
+*.wav
+
+# Exported large video files
+EXPORT/*.mp4
+!EXPORT/.gitkeep
+
+# Scratch and intermediate debug images
+/*.jpg
+/*.png
+!/header_banner_perfect.png
+!/assets/**/*.png
+!/assets/**/*.jpg
+
+# Scratch Whisper and subtitle transcripts in root
+/*.json
+/*.srt
+/*.vtt
+/*.tsv
+/*.txt
+!/requirements.txt
+
+# OS specific files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.tmp

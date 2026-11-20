@@ -1,0 +1,29 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Noto Sans Tamil,54,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,5,2,2,40,40,500,1
+Style: HookSubtitle,Noto Sans Tamil,64,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,6,3,2,40,40,510,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:03.78,HookSubtitle,,0,0,0,,Career முக்கியமா? இல்ல {\c&H000782EA&}Relationship முக்கியமா?{\c&H00FFFFFF&}
+Dialogue: 0,0:00:03.78,0:00:07.56,Default,,0,0,0,,20s-ல வேலைக்கு ஓடும்போது {\c&H000782EA&}காதலை இழக்கிறோமா?{\c&H00FFFFFF&}
+Dialogue: 0,0:00:07.56,0:00:11.20,Default,,0,0,0,,நம்ம வாழ்க்கையில {\c&H000782EA&}வெற்றி அடையணும்னு{\c&H00FFFFFF&} ஓடுறோம்!
+Dialogue: 0,0:00:11.20,0:00:14.56,Default,,0,0,0,,ஆனா கூட இருக்கிறவங்களுக்கு {\c&H000782EA&}நேரம் கொடுக்க முடியல!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:14.56,0:00:17.34,Default,,0,0,0,,{\c&H000782EA&}கரெக்ட்!{\c&H00FFFFFF&} இது பல பேரோட பெரிய பிரச்சனை!
+Dialogue: 0,0:00:17.34,0:00:19.23,Default,,0,0,0,,அப்போ இதுல {\c&H000782EA&}எதை நாம தேர்ந்தெடுக்கணும்?{\c&H00FFFFFF&}
+Dialogue: 0,0:00:19.23,0:00:23.04,Default,,0,0,0,,முதல்ல ஒன்னு புரிஞ்சுக்கணும்... {\c&H000782EA&}Career Growth{\c&H00FFFFFF&} ரொம்ப அவசியம்!
+Dialogue: 0,0:00:23.04,0:00:28.03,Default,,0,0,0,,ஆனா Relationship-க்காக அதை {\c&H000782EA&}சமரசம் பண்ணா{\c&H00FFFFFF&} பின்னாடி வருந்துவோம்!
+Dialogue: 0,0:00:28.03,0:00:31.08,Default,,0,0,0,,பணம் சம்பாதிக்கலாம்... {\c&H000782EA&}வெற்றி பெறலாம்!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:31.08,0:00:33.63,Default,,0,0,0,,ஆனா உண்மையான அன்பு இல்லனா {\c&H000782EA&}எல்லாம் பாழ்!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:33.63,0:00:38.57,Default,,0,0,0,,ரெண்டுமே வேணும்னா {\c&H000782EA&}Clear Boundaries{\c&H00FFFFFF&} இருக்கணும்!
+Dialogue: 0,0:00:38.57,0:00:44.46,Default,,0,0,0,,வேலை நேரத்துல வேலை... {\c&H000782EA&}உறவுகளுக்கு நேரம்!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:44.46,0:00:47.81,Default,,0,0,0,,அப்போ நம்மை புரிஞ்சிக்கிற {\c&H000782EA&}துணை வேணும்!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:47.81,0:00:52.54,Default,,0,0,0,,கண்டிப்பா! உங்க Partner உங்க {\c&H000782EA&}கனவுகளை மதிக்கணும்!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:52.54,0:00:56.64,Default,,0,0,0,,அப்படிப்பட்ட புரிதல் இருந்தா {\c&H000782EA&}Career-ம் ஜெயிக்கலாம்!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:56.64,0:01:02.60,Default,,0,0,0,,உங்க {\c&H000782EA&}Relationship-ம்{\c&H00FFFFFF&} ரொம்ப அழகா வாழும்!
+Dialogue: 0,0:01:02.60,0:01:08.17,Default,,0,0,0,,இதுதான் உண்மையான {\c&H000782EA&}வாழ்க்கை வெற்றி!{\c&H00FFFFFF&}

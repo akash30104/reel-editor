@@ -1,0 +1,10 @@
+# Core Reel Editor Dependencies
+Pillow>=10.0.0
+numpy>=1.24.0
+tqdm>=4.65.0
+
+# Speech to Text & Transcription
+openai-whisper>=20231117
+
+# Optional: Video downloading utility
+yt-dlp>=2024.0.0

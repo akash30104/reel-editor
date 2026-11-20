@@ -1,0 +1,24 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Noto Sans Tamil,54,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,5,2,2,40,40,500,1
+Style: HookSubtitle,Noto Sans Tamil,62,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,6,3,2,40,40,510,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:05.60,HookSubtitle,,0,0,0,,உங்களுக்கு எப்படி இந்த ஐடியா வந்தது? {\c&H000782EA&}499 Days-ல 1 Lakh பேருக்கு{\c&H00FFFFFF&} வேலை வாங்கி தரேன் சொன்னீங்க?!
+Dialogue: 0,0:00:05.60,0:00:11.10,Default,,0,0,0,,நான் என் கம்பெனில {\c&H000782EA&}ஒரு 1000 பேருக்கு{\c&H00FFFFFF&} வேலை வாங்கி தர போறேன்னு ஆரம்பிச்சேன்...
+Dialogue: 0,0:00:11.10,0:00:16.60,Default,,0,0,0,,ஆனா {\c&H000782EA&}Day 7-லயே 600+ பேருக்கு{\c&H00FFFFFF&} வேலை வாங்கி கொடுத்தாச்சு!
+Dialogue: 0,0:00:16.60,0:00:21.10,Default,,0,0,0,,1000 பேருக்கு முடிக்க முடியுதுன்னா, {\c&H000782EA&}10,000 பேருக்கு{\c&H00FFFFFF&} ஏன் முடிக்க முடியாதுன்னு மாத்துனேன்!
+Dialogue: 0,0:00:21.10,0:00:26.10,Default,,0,0,0,,அப்போ {\c&H000782EA&}Day 39-ல பாத்தீங்கன்னா 5,500 பேருக்கு{\c&H00FFFFFF&} வேலை கொடுத்தாச்சு!
+Dialogue: 0,0:00:26.10,0:00:30.10,Default,,0,0,0,,Day 40 காலையில எழுந்து {\c&H000782EA&}இன்ஸ்டாகிராம் திறந்து{\c&H00FFFFFF&} பார்க்கிறேன்...
+Dialogue: 0,0:00:30.10,0:00:33.40,Default,,0,0,0,,இன்ஸ்டாகிராம் அக்கவுண்ட் {\c&H000782EA&}BANNED!{\c&H00FFFFFF&} எப்படி இருக்கும்?!
+Dialogue: 0,0:00:33.40,0:00:39.10,Default,,0,0,0,,நீங்க கஷ்டப்பட்டு பில்ட் பண்ண எல்லாமே... {\c&H000782EA&}ஒரு நொடியில போயிடுச்சுன்னா{\c&H00FFFFFF&} என்ன பண்ணுவீங்க?!
+Dialogue: 0,0:00:39.10,0:00:43.10,Default,,0,0,0,,மறுபடியும் ஆரம்பிப்பேன்! {\c&H000782EA&}மறுபடியும் ஆரம்பிச்சேன்!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:43.10,0:00:48.60,Default,,0,0,0,,ஒரு NGO இவ்வளவு இன்வெஸ்ட் பண்ணி {\c&H000782EA&}20,000 பேருக்கு வேலை{\c&H00FFFFFF&} தரேன்னு முடிவு பண்ணா...
+Dialogue: 0,0:00:48.60,0:00:54.60,Default,,0,0,0,,நான் ஒரு ஆளா {\c&H000782EA&}1,00,000 பேருக்கு வேலை{\c&H00FFFFFF&} வாங்கி தருவேன்னு முடிவு பண்ணேன்!
+Dialogue: 0,0:00:54.60,0:01:00.10,Default,,0,0,0,,இந்த சவால்தான் நம்மளை {\c&H000782EA&}வேற ஒரு மனிதனா{\c&H00FFFFFF&} மாத்தும்! ஜெயிப்போம்!

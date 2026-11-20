@@ -1,0 +1,29 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Noto Sans Tamil,54,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,5,2,2,40,40,500,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:03.90,Default,,0,0,0,,ஏன் பெண்கள் {\c&H000782EA&}Toxic பசங்க{\c&H00FFFFFF&} மேல போறாங்க?
+Dialogue: 0,0:00:03.90,0:00:06.97,Default,,0,0,0,,ஏன்னா அவங்களுக்கு {\c&H000782EA&}வேணும் ட்ராமாஸ்!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:06.97,0:00:09.69,Default,,0,0,0,,சண்டை போட்டுட்டு {\c&H000782EA&}ஜாலியா இருப்பாங்க!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:09.69,0:00:13.88,Default,,0,0,0,,அமைதியா போனா பலருக்கு {\c&H000782EA&}Bore அடிக்கும்!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:13.88,0:00:16.58,Default,,0,0,0,,வாழ்க்கையில எப்பவும் ஒரு {\c&H000782EA&}Drama நடக்கணும்!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:16.58,0:00:18.51,Default,,0,0,0,,அந்த சண்டையவே அவங்க {\c&H000782EA&}Enjoy பண்ண{\c&H00FFFFFF&} ஆரம்பிச்சுடுறாங்க!
+Dialogue: 0,0:00:18.51,0:00:21.62,Default,,0,0,0,,{\c&H000782EA&}Toxic People-அ{\c&H00FFFFFF&} நாம எப்படி Handle பண்றது?
+Dialogue: 0,0:00:21.62,0:00:25.95,Default,,0,0,0,,அது Office-ஆ இருக்கலாம் இல்ல {\c&H000782EA&}Real Life-ஆ{\c&H00FFFFFF&} இருக்கலாம்!
+Dialogue: 0,0:00:25.95,0:00:28.72,Default,,0,0,0,,நாம ஏன் பண்றோம்னா {\c&H000782EA&}பிடிக்காம பண்றோம்!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:28.72,0:00:30.66,Default,,0,0,0,,{\c&H000782EA&}கரெக்ட்!{\c&H00FFFFFF&} அதுதான் நிஜமான உண்மை!
+Dialogue: 0,0:00:30.66,0:00:34.59,Default,,0,0,0,,மக்கள் வாழ்க்கையில ரொம்ப {\c&H000782EA&}Bored ஆயிடுறாங்க!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:34.59,0:00:38.83,Default,,0,0,0,,அதனாலயே {\c&H000782EA&}தப்பான ஆட்கள்{\c&H00FFFFFF&} கூட சிக்கிக்கிறாங்க!
+Dialogue: 0,0:00:38.83,0:00:42.95,Default,,0,0,0,,அப்போ இதுக்கு {\c&H000782EA&}தீர்வு என்ன?{\c&H00FFFFFF&} நாம என்ன பண்ணனும்?
+Dialogue: 0,0:00:42.95,0:00:46.26,Default,,0,0,0,,முதல்ல நாம {\c&H000782EA&}Clear Boundaries{\c&H00FFFFFF&} போட கத்துக்கணும்!
+Dialogue: 0,0:00:46.26,0:00:51.06,Default,,0,0,0,,எல்லாத்துக்கும் நாம உடனே {\c&H000782EA&}React பண்ணக் கூடாது!{\c&H00FFFFFF&}
+Dialogue: 0,0:00:51.06,0:00:55.91,Default,,0,0,0,,அமைதியா இருந்தாலே {\c&H000782EA&}பாதி பிரச்சனை{\c&H00FFFFFF&} முடிஞ்சுடும்!
+Dialogue: 0,0:00:55.91,0:01:00.75,Default,,0,0,0,,Toxic மனிதர்களை நாம {\c&H000782EA&}மாத்த முடியாது!{\c&H00FFFFFF&}
+Dialogue: 0,0:01:00.75,0:01:07.30,Default,,0,0,0,,நன்றாக யோசித்துப் பாருங்கள் {\c&H000782EA&}நிஜம் புரியும்!{\c&H00FFFFFF&}
