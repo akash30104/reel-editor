@@ -22,7 +22,8 @@ from pathlib import Path
 
 from core.config import (
     PACKAGE_ROOT, ASSETS_DIR, FONTS_DIR, EMOJIS_DIR,
-    AUDIO_DIR, BROLLS_DIR, EXPORT_DIR, RAW_DIR
+    AUDIO_DIR, BROLLS_DIR, EXPORT_DIR, RAW_DIR,
+    get_style_config
 )
 from core.banner import create_header_banner
 from core.subtitle_generator import create_ass_subtitles
@@ -33,6 +34,7 @@ from core.compositor import composite_final_reel, extract_qa_frames
 def parse_args():
     parser = argparse.ArgumentParser(description="Automated Reel Video Editor")
     parser.add_argument("--input", "-i", type=str, help="Path to raw video input file")
+    parser.add_argument("--style", type=str, default="reference_11", help="Preset style to apply (default: 'reference 11')")
     parser.add_argument("--title", "-t", type=str, default="1 Lakh Job Challenge", help="Line 1 Header Title")
     parser.add_argument("--subtitle", "-s", type=str, default="499 Days-ல 1 Lakh Jobs!", help="Line 2 Hook Subtitle")
     parser.add_argument("--emoji1", type=str, default="fire.png", help="Emoji 1 icon filename")
@@ -42,6 +44,7 @@ def parse_args():
 
 def main():
     args = parse_args()
+    style_cfg = get_style_config(args.style)
     EXPORT_DIR.mkdir(parents=True, exist_ok=True)
     RAW_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -74,6 +77,7 @@ def main():
     print(f"\n==========================================")
     print(f"🎬 AUTOMATED REEL EDITOR")
     print(f"==========================================")
+    print(f"Style:    {style_cfg['name']}")
     print(f"Input:    {input_video}")
     print(f"Output:   {output_video}")
     print(f"Title:    {args.title}")
