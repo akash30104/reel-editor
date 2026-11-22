@@ -1,0 +1,48 @@
+[Script Info]
+Title: 4K Running Subtitles
+ScriptType: v4.00+
+PlayResX: 2160
+PlayResY: 3840
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Running,Arial,64,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,2,0,1,10,0,2,80,80,680,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.20,0:00:01.00,Running,,0,0,0,,{\c&H0782EA&}வால்மீகி {\c&HFFFFFF&}எழுதின {\c&HFFFFFF&}மூல {\c&HFFFFFF&}ராமாயணத்துக்கும்,
+Dialogue: 0,0:00:01.00,0:00:01.80,Running,,0,0,0,,{\c&HFFFFFF&}வால்மீகி {\c&H0782EA&}எழுதின {\c&HFFFFFF&}மூல {\c&HFFFFFF&}ராமாயணத்துக்கும்,
+Dialogue: 0,0:00:01.80,0:00:02.60,Running,,0,0,0,,{\c&HFFFFFF&}வால்மீகி {\c&HFFFFFF&}எழுதின {\c&H0782EA&}மூல {\c&HFFFFFF&}ராமாயணத்துக்கும்,
+Dialogue: 0,0:00:02.60,0:00:03.40,Running,,0,0,0,,{\c&HFFFFFF&}வால்மீகி {\c&HFFFFFF&}எழுதின {\c&HFFFFFF&}மூல {\c&H0782EA&}ராமாயணத்துக்கும்,
+Dialogue: 0,0:00:03.60,0:00:04.24,Running,,0,0,0,,{\c&H0782EA&}கம்பர் {\c&HFFFFFF&}எழுதின {\c&HFFFFFF&}காவியத்துக்கும் {\c&HFFFFFF&}என்ன {\c&HFFFFFF&}வித்தியாசம்?
+Dialogue: 0,0:00:04.24,0:00:04.88,Running,,0,0,0,,{\c&HFFFFFF&}கம்பர் {\c&H0782EA&}எழுதின {\c&HFFFFFF&}காவியத்துக்கும் {\c&HFFFFFF&}என்ன {\c&HFFFFFF&}வித்தியாசம்?
+Dialogue: 0,0:00:04.88,0:00:05.52,Running,,0,0,0,,{\c&HFFFFFF&}கம்பர் {\c&HFFFFFF&}எழுதின {\c&H0782EA&}காவியத்துக்கும் {\c&HFFFFFF&}என்ன {\c&HFFFFFF&}வித்தியாசம்?
+Dialogue: 0,0:00:05.52,0:00:06.16,Running,,0,0,0,,{\c&HFFFFFF&}கம்பர் {\c&HFFFFFF&}எழுதின {\c&HFFFFFF&}காவியத்துக்கும் {\c&H0782EA&}என்ன {\c&HFFFFFF&}வித்தியாசம்?
+Dialogue: 0,0:00:06.16,0:00:06.80,Running,,0,0,0,,{\c&HFFFFFF&}கம்பர் {\c&HFFFFFF&}எழுதின {\c&HFFFFFF&}காவியத்துக்கும் {\c&HFFFFFF&}என்ன {\c&H0782EA&}வித்தியாசம்?
+Dialogue: 0,0:00:07.20,0:00:08.53,Running,,0,0,0,,{\c&H0782EA&}வால்மீகி {\c&HFFFFFF&}கதையை {\c&HFFFFFF&}சொன்னாருன்னா,
+Dialogue: 0,0:00:08.53,0:00:09.87,Running,,0,0,0,,{\c&HFFFFFF&}வால்மீகி {\c&H0782EA&}கதையை {\c&HFFFFFF&}சொன்னாருன்னா,
+Dialogue: 0,0:00:09.87,0:00:11.20,Running,,0,0,0,,{\c&HFFFFFF&}வால்மீகி {\c&HFFFFFF&}கதையை {\c&H0782EA&}சொன்னாருன்னா,
+Dialogue: 0,0:00:11.40,0:00:12.28,Running,,0,0,0,,{\c&H0782EA&}கம்பர் {\c&HFFFFFF&}அதை {\c&HFFFFFF&}தமிழ் {\c&HFFFFFF&}உணர்வோட {\c&HFFFFFF&}உயிர்ப்பிச்சாரு!
+Dialogue: 0,0:00:12.28,0:00:13.16,Running,,0,0,0,,{\c&HFFFFFF&}கம்பர் {\c&H0782EA&}அதை {\c&HFFFFFF&}தமிழ் {\c&HFFFFFF&}உணர்வோட {\c&HFFFFFF&}உயிர்ப்பிச்சாரு!
+Dialogue: 0,0:00:13.16,0:00:14.04,Running,,0,0,0,,{\c&HFFFFFF&}கம்பர் {\c&HFFFFFF&}அதை {\c&H0782EA&}தமிழ் {\c&HFFFFFF&}உணர்வோட {\c&HFFFFFF&}உயிர்ப்பிச்சாரு!
+Dialogue: 0,0:00:14.04,0:00:14.92,Running,,0,0,0,,{\c&HFFFFFF&}கம்பர் {\c&HFFFFFF&}அதை {\c&HFFFFFF&}தமிழ் {\c&H0782EA&}உணர்வோட {\c&HFFFFFF&}உயிர்ப்பிச்சாரு!
+Dialogue: 0,0:00:14.92,0:00:15.80,Running,,0,0,0,,{\c&HFFFFFF&}கம்பர் {\c&HFFFFFF&}அதை {\c&HFFFFFF&}தமிழ் {\c&HFFFFFF&}உணர்வோட {\c&H0782EA&}உயிர்ப்பிச்சாரு!
+Dialogue: 0,0:00:16.25,0:00:17.01,Running,,0,0,0,,{\c&H0782EA&}தமிழ் {\c&HFFFFFF&}மொழிக்கு {\c&HFFFFFF&}கம்பர் {\c&HFFFFFF&}கொடுத்த
+Dialogue: 0,0:00:17.01,0:00:17.77,Running,,0,0,0,,{\c&HFFFFFF&}தமிழ் {\c&H0782EA&}மொழிக்கு {\c&HFFFFFF&}கம்பர் {\c&HFFFFFF&}கொடுத்த
+Dialogue: 0,0:00:17.77,0:00:18.54,Running,,0,0,0,,{\c&HFFFFFF&}தமிழ் {\c&HFFFFFF&}மொழிக்கு {\c&H0782EA&}கம்பர் {\c&HFFFFFF&}கொடுத்த
+Dialogue: 0,0:00:18.54,0:00:19.30,Running,,0,0,0,,{\c&HFFFFFF&}தமிழ் {\c&HFFFFFF&}மொழிக்கு {\c&HFFFFFF&}கம்பர் {\c&H0782EA&}கொடுத்த
+Dialogue: 0,0:00:19.50,0:00:20.05,Running,,0,0,0,,{\c&H0782EA&}கவிதை {\c&HFFFFFF&}நயம் {\c&HFFFFFF&}உலகத்துல {\c&HFFFFFF&}வேற {\c&HFFFFFF&}எங்கேயும் {\c&HFFFFFF&}இல்லை!
+Dialogue: 0,0:00:20.05,0:00:20.60,Running,,0,0,0,,{\c&HFFFFFF&}கவிதை {\c&H0782EA&}நயம் {\c&HFFFFFF&}உலகத்துல {\c&HFFFFFF&}வேற {\c&HFFFFFF&}எங்கேயும் {\c&HFFFFFF&}இல்லை!
+Dialogue: 0,0:00:20.60,0:00:21.15,Running,,0,0,0,,{\c&HFFFFFF&}கவிதை {\c&HFFFFFF&}நயம் {\c&H0782EA&}உலகத்துல {\c&HFFFFFF&}வேற {\c&HFFFFFF&}எங்கேயும் {\c&HFFFFFF&}இல்லை!
+Dialogue: 0,0:00:21.15,0:00:21.70,Running,,0,0,0,,{\c&HFFFFFF&}கவிதை {\c&HFFFFFF&}நயம் {\c&HFFFFFF&}உலகத்துல {\c&H0782EA&}வேற {\c&HFFFFFF&}எங்கேயும் {\c&HFFFFFF&}இல்லை!
+Dialogue: 0,0:00:21.70,0:00:22.25,Running,,0,0,0,,{\c&HFFFFFF&}கவிதை {\c&HFFFFFF&}நயம் {\c&HFFFFFF&}உலகத்துல {\c&HFFFFFF&}வேற {\c&H0782EA&}எங்கேயும் {\c&HFFFFFF&}இல்லை!
+Dialogue: 0,0:00:22.25,0:00:22.80,Running,,0,0,0,,{\c&HFFFFFF&}கவிதை {\c&HFFFFFF&}நயம் {\c&HFFFFFF&}உலகத்துல {\c&HFFFFFF&}வேற {\c&HFFFFFF&}எங்கேயும் {\c&H0782EA&}இல்லை!
+Dialogue: 0,0:00:23.20,0:00:24.35,Running,,0,0,0,,{\c&H0782EA&}ஒவ்வொரு {\c&HFFFFFF&}சொல்லிலும் {\c&HFFFFFF&}அன்பையும் {\c&HFFFFFF&}தர்மத்தையும்
+Dialogue: 0,0:00:24.35,0:00:25.50,Running,,0,0,0,,{\c&HFFFFFF&}ஒவ்வொரு {\c&H0782EA&}சொல்லிலும் {\c&HFFFFFF&}அன்பையும் {\c&HFFFFFF&}தர்மத்தையும்
+Dialogue: 0,0:00:25.50,0:00:26.65,Running,,0,0,0,,{\c&HFFFFFF&}ஒவ்வொரு {\c&HFFFFFF&}சொல்லிலும் {\c&H0782EA&}அன்பையும் {\c&HFFFFFF&}தர்மத்தையும்
+Dialogue: 0,0:00:26.65,0:00:27.80,Running,,0,0,0,,{\c&HFFFFFF&}ஒவ்வொரு {\c&HFFFFFF&}சொல்லிலும் {\c&HFFFFFF&}அன்பையும் {\c&H0782EA&}தர்மத்தையும்
+Dialogue: 0,0:00:28.00,0:00:29.18,Running,,0,0,0,,{\c&H0782EA&}அழகா {\c&HFFFFFF&}வடித்த {\c&HFFFFFF&}கவிச்சக்கரவர்த்தி {\c&HFFFFFF&}கம்பர்!
+Dialogue: 0,0:00:29.18,0:00:30.35,Running,,0,0,0,,{\c&HFFFFFF&}அழகா {\c&H0782EA&}வடித்த {\c&HFFFFFF&}கவிச்சக்கரவர்த்தி {\c&HFFFFFF&}கம்பர்!
+Dialogue: 0,0:00:30.35,0:00:31.52,Running,,0,0,0,,{\c&HFFFFFF&}அழகா {\c&HFFFFFF&}வடித்த {\c&H0782EA&}கவிச்சக்கரவர்த்தி {\c&HFFFFFF&}கம்பர்!
+Dialogue: 0,0:00:31.52,0:00:32.70,Running,,0,0,0,,{\c&HFFFFFF&}அழகா {\c&HFFFFFF&}வடித்த {\c&HFFFFFF&}கவிச்சக்கரவர்த்தி {\c&H0782EA&}கம்பர்!

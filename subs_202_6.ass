@@ -1,0 +1,54 @@
+[Script Info]
+Title: 4K Running Subtitles
+ScriptType: v4.00+
+PlayResX: 2160
+PlayResY: 3840
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Running,Arial,64,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,2,0,1,10,0,2,80,80,680,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.20,0:00:00.80,Running,,0,0,0,,{\c&H0782EA&}அவ்வளவு {\c&HFFFFFF&}வலிமை {\c&HFFFFFF&}இருந்தும் {\c&HFFFFFF&}ராவணன் {\c&HFFFFFF&}ஏன்
+Dialogue: 0,0:00:00.80,0:00:01.40,Running,,0,0,0,,{\c&HFFFFFF&}அவ்வளவு {\c&H0782EA&}வலிமை {\c&HFFFFFF&}இருந்தும் {\c&HFFFFFF&}ராவணன் {\c&HFFFFFF&}ஏன்
+Dialogue: 0,0:00:01.40,0:00:02.00,Running,,0,0,0,,{\c&HFFFFFF&}அவ்வளவு {\c&HFFFFFF&}வலிமை {\c&H0782EA&}இருந்தும் {\c&HFFFFFF&}ராவணன் {\c&HFFFFFF&}ஏன்
+Dialogue: 0,0:00:02.00,0:00:02.60,Running,,0,0,0,,{\c&HFFFFFF&}அவ்வளவு {\c&HFFFFFF&}வலிமை {\c&HFFFFFF&}இருந்தும் {\c&H0782EA&}ராவணன் {\c&HFFFFFF&}ஏன்
+Dialogue: 0,0:00:02.60,0:00:03.20,Running,,0,0,0,,{\c&HFFFFFF&}அவ்வளவு {\c&HFFFFFF&}வலிமை {\c&HFFFFFF&}இருந்தும் {\c&HFFFFFF&}ராவணன் {\c&H0782EA&}ஏன்
+Dialogue: 0,0:00:03.40,0:00:04.25,Running,,0,0,0,,{\c&H0782EA&}கடைசியில {\c&HFFFFFF&}தன் {\c&HFFFFFF&}சாம்ராஜ்யத்தையே {\c&HFFFFFF&}இழந்தான்?
+Dialogue: 0,0:00:04.25,0:00:05.10,Running,,0,0,0,,{\c&HFFFFFF&}கடைசியில {\c&H0782EA&}தன் {\c&HFFFFFF&}சாம்ராஜ்யத்தையே {\c&HFFFFFF&}இழந்தான்?
+Dialogue: 0,0:00:05.10,0:00:05.95,Running,,0,0,0,,{\c&HFFFFFF&}கடைசியில {\c&HFFFFFF&}தன் {\c&H0782EA&}சாம்ராஜ்யத்தையே {\c&HFFFFFF&}இழந்தான்?
+Dialogue: 0,0:00:05.95,0:00:06.80,Running,,0,0,0,,{\c&HFFFFFF&}கடைசியில {\c&HFFFFFF&}தன் {\c&HFFFFFF&}சாம்ராஜ்யத்தையே {\c&H0782EA&}இழந்தான்?
+Dialogue: 0,0:00:07.25,0:00:08.01,Running,,0,0,0,,{\c&H0782EA&}பத்து {\c&HFFFFFF&}தலை {\c&HFFFFFF&}அறிவு {\c&HFFFFFF&}இருந்தாலும்... {\c&HFFFFFF&}தலைக்கனம் {\c&HFFFFFF&}இருந்தா,
+Dialogue: 0,0:00:08.01,0:00:08.77,Running,,0,0,0,,{\c&HFFFFFF&}பத்து {\c&H0782EA&}தலை {\c&HFFFFFF&}அறிவு {\c&HFFFFFF&}இருந்தாலும்... {\c&HFFFFFF&}தலைக்கனம் {\c&HFFFFFF&}இருந்தா,
+Dialogue: 0,0:00:08.77,0:00:09.53,Running,,0,0,0,,{\c&HFFFFFF&}பத்து {\c&HFFFFFF&}தலை {\c&H0782EA&}அறிவு {\c&HFFFFFF&}இருந்தாலும்... {\c&HFFFFFF&}தலைக்கனம் {\c&HFFFFFF&}இருந்தா,
+Dialogue: 0,0:00:09.53,0:00:10.28,Running,,0,0,0,,{\c&HFFFFFF&}பத்து {\c&HFFFFFF&}தலை {\c&HFFFFFF&}அறிவு {\c&H0782EA&}இருந்தாலும்... {\c&HFFFFFF&}தலைக்கனம் {\c&HFFFFFF&}இருந்தா,
+Dialogue: 0,0:00:10.28,0:00:11.04,Running,,0,0,0,,{\c&HFFFFFF&}பத்து {\c&HFFFFFF&}தலை {\c&HFFFFFF&}அறிவு {\c&HFFFFFF&}இருந்தாலும்... {\c&H0782EA&}தலைக்கனம் {\c&HFFFFFF&}இருந்தா,
+Dialogue: 0,0:00:11.04,0:00:11.80,Running,,0,0,0,,{\c&HFFFFFF&}பத்து {\c&HFFFFFF&}தலை {\c&HFFFFFF&}அறிவு {\c&HFFFFFF&}இருந்தாலும்... {\c&HFFFFFF&}தலைக்கனம் {\c&H0782EA&}இருந்தா,
+Dialogue: 0,0:00:12.00,0:00:12.80,Running,,0,0,0,,{\c&H0782EA&}அங்கே {\c&HFFFFFF&}அழிவு {\c&HFFFFFF&}நிச்சயம்னு {\c&HFFFFFF&}நிரூபிச்சது {\c&HFFFFFF&}அவனோட {\c&HFFFFFF&}ஈகோ!
+Dialogue: 0,0:00:12.80,0:00:13.60,Running,,0,0,0,,{\c&HFFFFFF&}அங்கே {\c&H0782EA&}அழிவு {\c&HFFFFFF&}நிச்சயம்னு {\c&HFFFFFF&}நிரூபிச்சது {\c&HFFFFFF&}அவனோட {\c&HFFFFFF&}ஈகோ!
+Dialogue: 0,0:00:13.60,0:00:14.40,Running,,0,0,0,,{\c&HFFFFFF&}அங்கே {\c&HFFFFFF&}அழிவு {\c&H0782EA&}நிச்சயம்னு {\c&HFFFFFF&}நிரூபிச்சது {\c&HFFFFFF&}அவனோட {\c&HFFFFFF&}ஈகோ!
+Dialogue: 0,0:00:14.40,0:00:15.20,Running,,0,0,0,,{\c&HFFFFFF&}அங்கே {\c&HFFFFFF&}அழிவு {\c&HFFFFFF&}நிச்சயம்னு {\c&H0782EA&}நிரூபிச்சது {\c&HFFFFFF&}அவனோட {\c&HFFFFFF&}ஈகோ!
+Dialogue: 0,0:00:15.20,0:00:16.00,Running,,0,0,0,,{\c&HFFFFFF&}அங்கே {\c&HFFFFFF&}அழிவு {\c&HFFFFFF&}நிச்சயம்னு {\c&HFFFFFF&}நிரூபிச்சது {\c&H0782EA&}அவனோட {\c&HFFFFFF&}ஈகோ!
+Dialogue: 0,0:00:16.00,0:00:16.80,Running,,0,0,0,,{\c&HFFFFFF&}அங்கே {\c&HFFFFFF&}அழிவு {\c&HFFFFFF&}நிச்சயம்னு {\c&HFFFFFF&}நிரூபிச்சது {\c&HFFFFFF&}அவனோட {\c&H0782EA&}ஈகோ!
+Dialogue: 0,0:00:17.25,0:00:17.73,Running,,0,0,0,,{\c&H0782EA&}ஈகோ {\c&HFFFFFF&}ஒரு {\c&HFFFFFF&}தீ {\c&HFFFFFF&}மாதிரி... {\c&HFFFFFF&}மத்தவங்களை {\c&HFFFFFF&}எரிக்கிறதுக்கு {\c&HFFFFFF&}முன்னாடி,
+Dialogue: 0,0:00:17.73,0:00:18.21,Running,,0,0,0,,{\c&HFFFFFF&}ஈகோ {\c&H0782EA&}ஒரு {\c&HFFFFFF&}தீ {\c&HFFFFFF&}மாதிரி... {\c&HFFFFFF&}மத்தவங்களை {\c&HFFFFFF&}எரிக்கிறதுக்கு {\c&HFFFFFF&}முன்னாடி,
+Dialogue: 0,0:00:18.21,0:00:18.69,Running,,0,0,0,,{\c&HFFFFFF&}ஈகோ {\c&HFFFFFF&}ஒரு {\c&H0782EA&}தீ {\c&HFFFFFF&}மாதிரி... {\c&HFFFFFF&}மத்தவங்களை {\c&HFFFFFF&}எரிக்கிறதுக்கு {\c&HFFFFFF&}முன்னாடி,
+Dialogue: 0,0:00:18.69,0:00:19.16,Running,,0,0,0,,{\c&HFFFFFF&}ஈகோ {\c&HFFFFFF&}ஒரு {\c&HFFFFFF&}தீ {\c&H0782EA&}மாதிரி... {\c&HFFFFFF&}மத்தவங்களை {\c&HFFFFFF&}எரிக்கிறதுக்கு {\c&HFFFFFF&}முன்னாடி,
+Dialogue: 0,0:00:19.16,0:00:19.64,Running,,0,0,0,,{\c&HFFFFFF&}ஈகோ {\c&HFFFFFF&}ஒரு {\c&HFFFFFF&}தீ {\c&HFFFFFF&}மாதிரி... {\c&H0782EA&}மத்தவங்களை {\c&HFFFFFF&}எரிக்கிறதுக்கு {\c&HFFFFFF&}முன்னாடி,
+Dialogue: 0,0:00:19.64,0:00:20.12,Running,,0,0,0,,{\c&HFFFFFF&}ஈகோ {\c&HFFFFFF&}ஒரு {\c&HFFFFFF&}தீ {\c&HFFFFFF&}மாதிரி... {\c&HFFFFFF&}மத்தவங்களை {\c&H0782EA&}எரிக்கிறதுக்கு {\c&HFFFFFF&}முன்னாடி,
+Dialogue: 0,0:00:20.12,0:00:20.60,Running,,0,0,0,,{\c&HFFFFFF&}ஈகோ {\c&HFFFFFF&}ஒரு {\c&HFFFFFF&}தீ {\c&HFFFFFF&}மாதிரி... {\c&HFFFFFF&}மத்தவங்களை {\c&HFFFFFF&}எரிக்கிறதுக்கு {\c&H0782EA&}முன்னாடி,
+Dialogue: 0,0:00:20.80,0:00:22.13,Running,,0,0,0,,{\c&H0782EA&}முதல்ல {\c&HFFFFFF&}உங்களையே {\c&HFFFFFF&}சாம்பலாக்கிடும்!
+Dialogue: 0,0:00:22.13,0:00:23.47,Running,,0,0,0,,{\c&HFFFFFF&}முதல்ல {\c&H0782EA&}உங்களையே {\c&HFFFFFF&}சாம்பலாக்கிடும்!
+Dialogue: 0,0:00:23.47,0:00:24.80,Running,,0,0,0,,{\c&HFFFFFF&}முதல்ல {\c&HFFFFFF&}உங்களையே {\c&H0782EA&}சாம்பலாக்கிடும்!
+Dialogue: 0,0:00:25.20,0:00:26.12,Running,,0,0,0,,{\c&H0782EA&}எவ்வளவு {\c&HFFFFFF&}உயரத்துக்கு {\c&HFFFFFF&}போனாலும் {\c&HFFFFFF&}அடக்கம் {\c&HFFFFFF&}இல்லேன்னா,
+Dialogue: 0,0:00:26.12,0:00:27.04,Running,,0,0,0,,{\c&HFFFFFF&}எவ்வளவு {\c&H0782EA&}உயரத்துக்கு {\c&HFFFFFF&}போனாலும் {\c&HFFFFFF&}அடக்கம் {\c&HFFFFFF&}இல்லேன்னா,
+Dialogue: 0,0:00:27.04,0:00:27.96,Running,,0,0,0,,{\c&HFFFFFF&}எவ்வளவு {\c&HFFFFFF&}உயரத்துக்கு {\c&H0782EA&}போனாலும் {\c&HFFFFFF&}அடக்கம் {\c&HFFFFFF&}இல்லேன்னா,
+Dialogue: 0,0:00:27.96,0:00:28.88,Running,,0,0,0,,{\c&HFFFFFF&}எவ்வளவு {\c&HFFFFFF&}உயரத்துக்கு {\c&HFFFFFF&}போனாலும் {\c&H0782EA&}அடக்கம் {\c&HFFFFFF&}இல்லேன்னா,
+Dialogue: 0,0:00:28.88,0:00:29.80,Running,,0,0,0,,{\c&HFFFFFF&}எவ்வளவு {\c&HFFFFFF&}உயரத்துக்கு {\c&HFFFFFF&}போனாலும் {\c&HFFFFFF&}அடக்கம் {\c&H0782EA&}இல்லேன்னா,
+Dialogue: 0,0:00:30.00,0:00:30.96,Running,,0,0,0,,{\c&H0782EA&}கீழே {\c&HFFFFFF&}விழும்போது {\c&HFFFFFF&}தாங்க {\c&HFFFFFF&}ஆள் {\c&HFFFFFF&}இருக்காது!
+Dialogue: 0,0:00:30.96,0:00:31.92,Running,,0,0,0,,{\c&HFFFFFF&}கீழே {\c&H0782EA&}விழும்போது {\c&HFFFFFF&}தாங்க {\c&HFFFFFF&}ஆள் {\c&HFFFFFF&}இருக்காது!
+Dialogue: 0,0:00:31.92,0:00:32.88,Running,,0,0,0,,{\c&HFFFFFF&}கீழே {\c&HFFFFFF&}விழும்போது {\c&H0782EA&}தாங்க {\c&HFFFFFF&}ஆள் {\c&HFFFFFF&}இருக்காது!
+Dialogue: 0,0:00:32.88,0:00:33.84,Running,,0,0,0,,{\c&HFFFFFF&}கீழே {\c&HFFFFFF&}விழும்போது {\c&HFFFFFF&}தாங்க {\c&H0782EA&}ஆள் {\c&HFFFFFF&}இருக்காது!
+Dialogue: 0,0:00:33.84,0:00:34.80,Running,,0,0,0,,{\c&HFFFFFF&}கீழே {\c&HFFFFFF&}விழும்போது {\c&HFFFFFF&}தாங்க {\c&HFFFFFF&}ஆள் {\c&H0782EA&}இருக்காது!

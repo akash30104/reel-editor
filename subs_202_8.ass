@@ -1,0 +1,50 @@
+[Script Info]
+Title: 4K Running Subtitles
+ScriptType: v4.00+
+PlayResX: 2160
+PlayResY: 3840
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Running,Arial,64,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,2,0,1,10,0,2,80,80,680,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.20,0:00:01.20,Running,,0,0,0,,{\c&H0782EA&}ராமாயணம் {\c&HFFFFFF&}நமக்கு {\c&HFFFFFF&}கத்துக்கொடுக்கிற
+Dialogue: 0,0:00:01.20,0:00:02.20,Running,,0,0,0,,{\c&HFFFFFF&}ராமாயணம் {\c&H0782EA&}நமக்கு {\c&HFFFFFF&}கத்துக்கொடுக்கிற
+Dialogue: 0,0:00:02.20,0:00:03.20,Running,,0,0,0,,{\c&HFFFFFF&}ராமாயணம் {\c&HFFFFFF&}நமக்கு {\c&H0782EA&}கத்துக்கொடுக்கிற
+Dialogue: 0,0:00:03.40,0:00:04.08,Running,,0,0,0,,{\c&H0782EA&}மிக {\c&HFFFFFF&}முக்கியமான {\c&HFFFFFF&}வாழ்க்கை {\c&HFFFFFF&}பாடம் {\c&HFFFFFF&}என்ன?
+Dialogue: 0,0:00:04.08,0:00:04.76,Running,,0,0,0,,{\c&HFFFFFF&}மிக {\c&H0782EA&}முக்கியமான {\c&HFFFFFF&}வாழ்க்கை {\c&HFFFFFF&}பாடம் {\c&HFFFFFF&}என்ன?
+Dialogue: 0,0:00:04.76,0:00:05.44,Running,,0,0,0,,{\c&HFFFFFF&}மிக {\c&HFFFFFF&}முக்கியமான {\c&H0782EA&}வாழ்க்கை {\c&HFFFFFF&}பாடம் {\c&HFFFFFF&}என்ன?
+Dialogue: 0,0:00:05.44,0:00:06.12,Running,,0,0,0,,{\c&HFFFFFF&}மிக {\c&HFFFFFF&}முக்கியமான {\c&HFFFFFF&}வாழ்க்கை {\c&H0782EA&}பாடம் {\c&HFFFFFF&}என்ன?
+Dialogue: 0,0:00:06.12,0:00:06.80,Running,,0,0,0,,{\c&HFFFFFF&}மிக {\c&HFFFFFF&}முக்கியமான {\c&HFFFFFF&}வாழ்க்கை {\c&HFFFFFF&}பாடம் {\c&H0782EA&}என்ன?
+Dialogue: 0,0:00:07.25,0:00:08.16,Running,,0,0,0,,{\c&H0782EA&}வெற்றி, {\c&HFFFFFF&}தோல்வி, {\c&HFFFFFF&}இன்பம், {\c&HFFFFFF&}துன்பம் {\c&HFFFFFF&}எல்லாத்தையும்
+Dialogue: 0,0:00:08.16,0:00:09.07,Running,,0,0,0,,{\c&HFFFFFF&}வெற்றி, {\c&H0782EA&}தோல்வி, {\c&HFFFFFF&}இன்பம், {\c&HFFFFFF&}துன்பம் {\c&HFFFFFF&}எல்லாத்தையும்
+Dialogue: 0,0:00:09.07,0:00:09.98,Running,,0,0,0,,{\c&HFFFFFF&}வெற்றி, {\c&HFFFFFF&}தோல்வி, {\c&H0782EA&}இன்பம், {\c&HFFFFFF&}துன்பம் {\c&HFFFFFF&}எல்லாத்தையும்
+Dialogue: 0,0:00:09.98,0:00:10.89,Running,,0,0,0,,{\c&HFFFFFF&}வெற்றி, {\c&HFFFFFF&}தோல்வி, {\c&HFFFFFF&}இன்பம், {\c&H0782EA&}துன்பம் {\c&HFFFFFF&}எல்லாத்தையும்
+Dialogue: 0,0:00:10.89,0:00:11.80,Running,,0,0,0,,{\c&HFFFFFF&}வெற்றி, {\c&HFFFFFF&}தோல்வி, {\c&HFFFFFF&}இன்பம், {\c&HFFFFFF&}துன்பம் {\c&H0782EA&}எல்லாத்தையும்
+Dialogue: 0,0:00:12.00,0:00:12.96,Running,,0,0,0,,{\c&H0782EA&}சமமா {\c&HFFFFFF&}ஏத்துக்கிட்டு {\c&HFFFFFF&}தர்மத்தோடு {\c&HFFFFFF&}வாழ {\c&HFFFFFF&}கத்துக்கணும்!
+Dialogue: 0,0:00:12.96,0:00:13.92,Running,,0,0,0,,{\c&HFFFFFF&}சமமா {\c&H0782EA&}ஏத்துக்கிட்டு {\c&HFFFFFF&}தர்மத்தோடு {\c&HFFFFFF&}வாழ {\c&HFFFFFF&}கத்துக்கணும்!
+Dialogue: 0,0:00:13.92,0:00:14.88,Running,,0,0,0,,{\c&HFFFFFF&}சமமா {\c&HFFFFFF&}ஏத்துக்கிட்டு {\c&H0782EA&}தர்மத்தோடு {\c&HFFFFFF&}வாழ {\c&HFFFFFF&}கத்துக்கணும்!
+Dialogue: 0,0:00:14.88,0:00:15.84,Running,,0,0,0,,{\c&HFFFFFF&}சமமா {\c&HFFFFFF&}ஏத்துக்கிட்டு {\c&HFFFFFF&}தர்மத்தோடு {\c&H0782EA&}வாழ {\c&HFFFFFF&}கத்துக்கணும்!
+Dialogue: 0,0:00:15.84,0:00:16.80,Running,,0,0,0,,{\c&HFFFFFF&}சமமா {\c&HFFFFFF&}ஏத்துக்கிட்டு {\c&HFFFFFF&}தர்மத்தோடு {\c&HFFFFFF&}வாழ {\c&H0782EA&}கத்துக்கணும்!
+Dialogue: 0,0:00:17.25,0:00:18.09,Running,,0,0,0,,{\c&H0782EA&}எந்த {\c&HFFFFFF&}சூழ்நிலையிலும் {\c&HFFFFFF&}நற்குணத்தை {\c&HFFFFFF&}விட்டுடாதீங்க...
+Dialogue: 0,0:00:18.09,0:00:18.93,Running,,0,0,0,,{\c&HFFFFFF&}எந்த {\c&H0782EA&}சூழ்நிலையிலும் {\c&HFFFFFF&}நற்குணத்தை {\c&HFFFFFF&}விட்டுடாதீங்க...
+Dialogue: 0,0:00:18.93,0:00:19.76,Running,,0,0,0,,{\c&HFFFFFF&}எந்த {\c&HFFFFFF&}சூழ்நிலையிலும் {\c&H0782EA&}நற்குணத்தை {\c&HFFFFFF&}விட்டுடாதீங்க...
+Dialogue: 0,0:00:19.76,0:00:20.60,Running,,0,0,0,,{\c&HFFFFFF&}எந்த {\c&HFFFFFF&}சூழ்நிலையிலும் {\c&HFFFFFF&}நற்குணத்தை {\c&H0782EA&}விட்டுடாதீங்க...
+Dialogue: 0,0:00:20.80,0:00:21.47,Running,,0,0,0,,{\c&H0782EA&}அதுதான் {\c&HFFFFFF&}உங்களை {\c&HFFFFFF&}தலைமுறை {\c&HFFFFFF&}கடந்து {\c&HFFFFFF&}வாழ {\c&HFFFFFF&}வைக்கும்!
+Dialogue: 0,0:00:21.47,0:00:22.13,Running,,0,0,0,,{\c&HFFFFFF&}அதுதான் {\c&H0782EA&}உங்களை {\c&HFFFFFF&}தலைமுறை {\c&HFFFFFF&}கடந்து {\c&HFFFFFF&}வாழ {\c&HFFFFFF&}வைக்கும்!
+Dialogue: 0,0:00:22.13,0:00:22.80,Running,,0,0,0,,{\c&HFFFFFF&}அதுதான் {\c&HFFFFFF&}உங்களை {\c&H0782EA&}தலைமுறை {\c&HFFFFFF&}கடந்து {\c&HFFFFFF&}வாழ {\c&HFFFFFF&}வைக்கும்!
+Dialogue: 0,0:00:22.80,0:00:23.47,Running,,0,0,0,,{\c&HFFFFFF&}அதுதான் {\c&HFFFFFF&}உங்களை {\c&HFFFFFF&}தலைமுறை {\c&H0782EA&}கடந்து {\c&HFFFFFF&}வாழ {\c&HFFFFFF&}வைக்கும்!
+Dialogue: 0,0:00:23.47,0:00:24.13,Running,,0,0,0,,{\c&HFFFFFF&}அதுதான் {\c&HFFFFFF&}உங்களை {\c&HFFFFFF&}தலைமுறை {\c&HFFFFFF&}கடந்து {\c&H0782EA&}வாழ {\c&HFFFFFF&}வைக்கும்!
+Dialogue: 0,0:00:24.13,0:00:24.80,Running,,0,0,0,,{\c&HFFFFFF&}அதுதான் {\c&HFFFFFF&}உங்களை {\c&HFFFFFF&}தலைமுறை {\c&HFFFFFF&}கடந்து {\c&HFFFFFF&}வாழ {\c&H0782EA&}வைக்கும்!
+Dialogue: 0,0:00:25.20,0:00:26.35,Running,,0,0,0,,{\c&H0782EA&}இந்த {\c&HFFFFFF&}உண்மையை {\c&HFFFFFF&}புரிஞ்சுகிட்டா {\c&HFFFFFF&}போதும்...
+Dialogue: 0,0:00:26.35,0:00:27.50,Running,,0,0,0,,{\c&HFFFFFF&}இந்த {\c&H0782EA&}உண்மையை {\c&HFFFFFF&}புரிஞ்சுகிட்டா {\c&HFFFFFF&}போதும்...
+Dialogue: 0,0:00:27.50,0:00:28.65,Running,,0,0,0,,{\c&HFFFFFF&}இந்த {\c&HFFFFFF&}உண்மையை {\c&H0782EA&}புரிஞ்சுகிட்டா {\c&HFFFFFF&}போதும்...
+Dialogue: 0,0:00:28.65,0:00:29.80,Running,,0,0,0,,{\c&HFFFFFF&}இந்த {\c&HFFFFFF&}உண்மையை {\c&HFFFFFF&}புரிஞ்சுகிட்டா {\c&H0782EA&}போதும்...
+Dialogue: 0,0:00:30.00,0:00:30.96,Running,,0,0,0,,{\c&H0782EA&}வாழ்க்கையில {\c&HFFFFFF&}எந்த {\c&HFFFFFF&}புயல் {\c&HFFFFFF&}வந்தாலும் {\c&HFFFFFF&}ஜெயிக்கலாம்!
+Dialogue: 0,0:00:30.96,0:00:31.92,Running,,0,0,0,,{\c&HFFFFFF&}வாழ்க்கையில {\c&H0782EA&}எந்த {\c&HFFFFFF&}புயல் {\c&HFFFFFF&}வந்தாலும் {\c&HFFFFFF&}ஜெயிக்கலாம்!
+Dialogue: 0,0:00:31.92,0:00:32.88,Running,,0,0,0,,{\c&HFFFFFF&}வாழ்க்கையில {\c&HFFFFFF&}எந்த {\c&H0782EA&}புயல் {\c&HFFFFFF&}வந்தாலும் {\c&HFFFFFF&}ஜெயிக்கலாம்!
+Dialogue: 0,0:00:32.88,0:00:33.84,Running,,0,0,0,,{\c&HFFFFFF&}வாழ்க்கையில {\c&HFFFFFF&}எந்த {\c&HFFFFFF&}புயல் {\c&H0782EA&}வந்தாலும் {\c&HFFFFFF&}ஜெயிக்கலாம்!
+Dialogue: 0,0:00:33.84,0:00:34.80,Running,,0,0,0,,{\c&HFFFFFF&}வாழ்க்கையில {\c&HFFFFFF&}எந்த {\c&HFFFFFF&}புயல் {\c&HFFFFFF&}வந்தாலும் {\c&H0782EA&}ஜெயிக்கலாம்!

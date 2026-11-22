@@ -2,6 +2,7 @@ import os
 import subprocess
 from pathlib import Path
 from typing import List, Tuple
+from PIL import Image
 from core.config import (
     CANVAS_WIDTH, CANVAS_HEIGHT,
     VIDEO_WIDTH, VIDEO_HEIGHT, VIDEO_Y,
@@ -26,12 +27,24 @@ def composite_final_reel(
     - High-quality H.264 video and 192kbps AAC audio
     """
     dur_str = f"{duration:.2f}"
-    fonts_dir_name = str(FONTS_DIR)
+    fonts_dir_name = str(FONTS_DIR.resolve())
+    concat_video_path = str(Path(concat_video_path).resolve())
+    mastered_audio_path = str(Path(mastered_audio_path).resolve())
+    banner_png_path = str(Path(banner_png_path).resolve())
+    output_mp4_path = str(Path(output_mp4_path).resolve())
+
+    # Dynamically position banner flush on top of the video window (VIDEO_Y = 558)
+    try:
+        with Image.open(banner_png_path) as bimg:
+            actual_banner_h = bimg.size[1]
+    except Exception:
+        actual_banner_h = BANNER_HEIGHT
+    actual_banner_y = VIDEO_Y - actual_banner_h
 
     filter_complex = (
         f"color=c=black:s={CANVAS_WIDTH}x{CANVAS_HEIGHT}:r=30:d={dur_str}[bg];"
         f"[bg][0:v]overlay=0:{VIDEO_Y}[base];"
-        f"[base][2:v]overlay=0:{BANNER_Y}[frame];"
+        f"[base][2:v]overlay=0:{actual_banner_y}[frame];"
         f"[frame]ass=filename='{Path(ass_subtitle_path).name}':fontsdir='{fonts_dir_name}'[vout]"
     )
 

@@ -40,13 +40,13 @@ def extract_cut_chunk(
             output_chunk_path
         ]
     else:
-        # Camera framing from 4K/1080p source
+        # Camera framing from 4K/1080p source (Anchored for full subject coverage)
         if speaker == 2:
-            # Speaker 2 (Host / Right)
-            crop_rect = "1565:1362:2100:300" if zoom else "1800:1567:1950:250"
+            # Speaker 2 (Host / Woman / Right)
+            crop_rect = "1800:1565:1880:595" if zoom else "2068:1800:1772:360"
         else:
-            # Speaker 1 (Guest / Left)
-            crop_rect = "1565:1362:350:300" if zoom else "1800:1567:200:250"
+            # Speaker 1 (Guest / Man / Left)
+            crop_rect = "1800:1565:80:595" if zoom else "2068:1800:0:360"
 
         if is_hook_flash:
             # 0.6s black & white flash to high energy color hook

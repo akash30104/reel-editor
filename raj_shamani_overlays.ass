@@ -1,0 +1,29 @@
+[Script Info]
+Title: Raj Shamani Podcast Landscape Overlays
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: TeaserQuote,Arial,48,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,1,0,1,6,0,2,100,100,160,1
+Style: LowerThirdSpeaker,Arial,32,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,1,0,1,4,0,1,80,80,90,1
+Style: LowerThirdChapter,Arial,28,&H000782EA,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,1,0,1,4,0,1,80,80,50,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:08.50,TeaserQuote,,0,0,0,,{\an2\c&HFFFFFF&}சாதி, குலம் பார்க்காம உன்னோடு நாங்க\Nஐவர் ஆனோம்னு கட்டியணைச்சாரு ராமர்!
+Dialogue: 1,0:00:08.50,0:00:16.00,TeaserQuote,,0,0,0,,{\an2\c&HFFFFFF&}அரியணை ஏற வேண்டிய நாள்ல...\Nவனவாசம் போக சொன்னா எந்த மனுஷன் ஏத்துக்குவான்?
+Dialogue: 1,0:00:16.00,0:00:25.00,TeaserQuote,,0,0,0,,{\an2\c&HFFFFFF&}பத்து தலை அறிவு இருந்தாலும், தலைக்கனம் இருந்தா\Nஅங்கே அழிவு நிச்சயம்!
+Dialogue: 1,0:00:25.00,0:00:33.00,TeaserQuote,,0,0,0,,{\an2\c&HFFFFFF&}ராமாயணம் வெறும் கதை இல்லை...\Nநாம் எப்படி வாழணும்னு கற்றுக்கொடுக்கிற வாழ்க்கை நெறி!
+Dialogue: 1,0:00:58.00,0:01:12.00,LowerThirdSpeaker,,0,0,0,,{\c&H0782EA&}LAVEN LOKESH BARANI \N{\c&HFFFFFF&\fs24}Host, LLB's Podcast | Founder, Plant Green Inertia
+Dialogue: 1,0:01:15.00,0:01:28.00,LowerThirdSpeaker,,0,0,0,,{\c&H0782EA&}SPECIAL GUEST \N{\c&HFFFFFF&\fs24}Tamil Literature & Philosophy Researcher
+Dialogue: 1,0:00:55.00,0:01:10.00,LowerThirdChapter,,0,0,0,,{\c&H0782EA&\b1}CHAPTER 1: The Ramayana Metaphor & Modern Stories
+Dialogue: 1,0:04:30.00,0:04:45.00,LowerThirdChapter,,0,0,0,,{\c&H0782EA&\b1}CHAPTER 2: Kambar vs Valmiki - The Power of Tamil Literature
+Dialogue: 1,0:08:15.00,0:08:30.00,LowerThirdChapter,,0,0,0,,{\c&H0782EA&\b1}CHAPTER 3: The 14-Year Sacrifice of Rama's Vanavasam
+Dialogue: 1,0:12:40.00,0:12:55.00,LowerThirdChapter,,0,0,0,,{\c&H0782EA&\b1}CHAPTER 4: Guhan & Rama - Brotherhood Transcending Caste & Class
+Dialogue: 1,0:17:10.00,0:17:25.00,LowerThirdChapter,,0,0,0,,{\c&H0782EA&\b1}CHAPTER 5: Unconditional Love Without Expectations
+Dialogue: 1,0:21:30.00,0:21:45.00,LowerThirdChapter,,0,0,0,,{\c&H0782EA&\b1}CHAPTER 6: Ego & The Fall of Emperors
+Dialogue: 1,0:26:00.00,0:26:15.00,LowerThirdChapter,,0,0,0,,{\c&H0782EA&\b1}CHAPTER 7: Dasharatha's Promise - Truth Greater Than Life
+Dialogue: 1,0:30:45.00,0:31:00.00,LowerThirdChapter,,0,0,0,,{\c&H0782EA&\b1}CHAPTER 8: Timeless Lessons for Modern Relationships & Life

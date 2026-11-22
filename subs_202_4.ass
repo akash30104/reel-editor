@@ -1,0 +1,47 @@
+[Script Info]
+Title: 4K Running Subtitles
+ScriptType: v4.00+
+PlayResX: 2160
+PlayResY: 3840
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Running,Arial,64,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,2,0,1,10,0,2,80,80,680,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.20,0:00:01.20,Running,,0,0,0,,{\c&H0782EA&}வேடுவத் {\c&HFFFFFF&}தலைவன் {\c&HFFFFFF&}குகனை
+Dialogue: 0,0:00:01.20,0:00:02.20,Running,,0,0,0,,{\c&HFFFFFF&}வேடுவத் {\c&H0782EA&}தலைவன் {\c&HFFFFFF&}குகனை
+Dialogue: 0,0:00:02.20,0:00:03.20,Running,,0,0,0,,{\c&HFFFFFF&}வேடுவத் {\c&HFFFFFF&}தலைவன் {\c&H0782EA&}குகனை
+Dialogue: 0,0:00:03.40,0:00:04.08,Running,,0,0,0,,{\c&H0782EA&}ராமர் {\c&HFFFFFF&}எப்படி {\c&HFFFFFF&}தன் {\c&HFFFFFF&}சகோதரனா {\c&HFFFFFF&}ஏத்துக்கிட்டாரு?
+Dialogue: 0,0:00:04.08,0:00:04.76,Running,,0,0,0,,{\c&HFFFFFF&}ராமர் {\c&H0782EA&}எப்படி {\c&HFFFFFF&}தன் {\c&HFFFFFF&}சகோதரனா {\c&HFFFFFF&}ஏத்துக்கிட்டாரு?
+Dialogue: 0,0:00:04.76,0:00:05.44,Running,,0,0,0,,{\c&HFFFFFF&}ராமர் {\c&HFFFFFF&}எப்படி {\c&H0782EA&}தன் {\c&HFFFFFF&}சகோதரனா {\c&HFFFFFF&}ஏத்துக்கிட்டாரு?
+Dialogue: 0,0:00:05.44,0:00:06.12,Running,,0,0,0,,{\c&HFFFFFF&}ராமர் {\c&HFFFFFF&}எப்படி {\c&HFFFFFF&}தன் {\c&H0782EA&}சகோதரனா {\c&HFFFFFF&}ஏத்துக்கிட்டாரு?
+Dialogue: 0,0:00:06.12,0:00:06.80,Running,,0,0,0,,{\c&HFFFFFF&}ராமர் {\c&HFFFFFF&}எப்படி {\c&HFFFFFF&}தன் {\c&HFFFFFF&}சகோதரனா {\c&H0782EA&}ஏத்துக்கிட்டாரு?
+Dialogue: 0,0:00:07.25,0:00:08.12,Running,,0,0,0,,{\c&H0782EA&}சாதி, {\c&HFFFFFF&}குலம், {\c&HFFFFFF&}அந்தஸ்து {\c&HFFFFFF&}எதையும் {\c&HFFFFFF&}பார்க்காம...
+Dialogue: 0,0:00:08.12,0:00:08.99,Running,,0,0,0,,{\c&HFFFFFF&}சாதி, {\c&H0782EA&}குலம், {\c&HFFFFFF&}அந்தஸ்து {\c&HFFFFFF&}எதையும் {\c&HFFFFFF&}பார்க்காம...
+Dialogue: 0,0:00:08.99,0:00:09.86,Running,,0,0,0,,{\c&HFFFFFF&}சாதி, {\c&HFFFFFF&}குலம், {\c&H0782EA&}அந்தஸ்து {\c&HFFFFFF&}எதையும் {\c&HFFFFFF&}பார்க்காம...
+Dialogue: 0,0:00:09.86,0:00:10.73,Running,,0,0,0,,{\c&HFFFFFF&}சாதி, {\c&HFFFFFF&}குலம், {\c&HFFFFFF&}அந்தஸ்து {\c&H0782EA&}எதையும் {\c&HFFFFFF&}பார்க்காம...
+Dialogue: 0,0:00:10.73,0:00:11.60,Running,,0,0,0,,{\c&HFFFFFF&}சாதி, {\c&HFFFFFF&}குலம், {\c&HFFFFFF&}அந்தஸ்து {\c&HFFFFFF&}எதையும் {\c&H0782EA&}பார்க்காம...
+Dialogue: 0,0:00:11.80,0:00:12.80,Running,,0,0,0,,{\c&H0782EA&}உன்னோடு {\c&HFFFFFF&}நாங்க {\c&HFFFFFF&}ஐவர் {\c&HFFFFFF&}ஆனோம்னு {\c&HFFFFFF&}கட்டியணைச்சாரு!
+Dialogue: 0,0:00:12.80,0:00:13.80,Running,,0,0,0,,{\c&HFFFFFF&}உன்னோடு {\c&H0782EA&}நாங்க {\c&HFFFFFF&}ஐவர் {\c&HFFFFFF&}ஆனோம்னு {\c&HFFFFFF&}கட்டியணைச்சாரு!
+Dialogue: 0,0:00:13.80,0:00:14.80,Running,,0,0,0,,{\c&HFFFFFF&}உன்னோடு {\c&HFFFFFF&}நாங்க {\c&H0782EA&}ஐவர் {\c&HFFFFFF&}ஆனோம்னு {\c&HFFFFFF&}கட்டியணைச்சாரு!
+Dialogue: 0,0:00:14.80,0:00:15.80,Running,,0,0,0,,{\c&HFFFFFF&}உன்னோடு {\c&HFFFFFF&}நாங்க {\c&HFFFFFF&}ஐவர் {\c&H0782EA&}ஆனோம்னு {\c&HFFFFFF&}கட்டியணைச்சாரு!
+Dialogue: 0,0:00:15.80,0:00:16.80,Running,,0,0,0,,{\c&HFFFFFF&}உன்னோடு {\c&HFFFFFF&}நாங்க {\c&HFFFFFF&}ஐவர் {\c&HFFFFFF&}ஆனோம்னு {\c&H0782EA&}கட்டியணைச்சாரு!
+Dialogue: 0,0:00:17.25,0:00:17.92,Running,,0,0,0,,{\c&H0782EA&}கங்கை {\c&HFFFFFF&}நதிக்கரையில {\c&HFFFFFF&}நடந்த {\c&HFFFFFF&}இந்த {\c&HFFFFFF&}சந்திப்பு,
+Dialogue: 0,0:00:17.92,0:00:18.59,Running,,0,0,0,,{\c&HFFFFFF&}கங்கை {\c&H0782EA&}நதிக்கரையில {\c&HFFFFFF&}நடந்த {\c&HFFFFFF&}இந்த {\c&HFFFFFF&}சந்திப்பு,
+Dialogue: 0,0:00:18.59,0:00:19.26,Running,,0,0,0,,{\c&HFFFFFF&}கங்கை {\c&HFFFFFF&}நதிக்கரையில {\c&H0782EA&}நடந்த {\c&HFFFFFF&}இந்த {\c&HFFFFFF&}சந்திப்பு,
+Dialogue: 0,0:00:19.26,0:00:19.93,Running,,0,0,0,,{\c&HFFFFFF&}கங்கை {\c&HFFFFFF&}நதிக்கரையில {\c&HFFFFFF&}நடந்த {\c&H0782EA&}இந்த {\c&HFFFFFF&}சந்திப்பு,
+Dialogue: 0,0:00:19.93,0:00:20.60,Running,,0,0,0,,{\c&HFFFFFF&}கங்கை {\c&HFFFFFF&}நதிக்கரையில {\c&HFFFFFF&}நடந்த {\c&HFFFFFF&}இந்த {\c&H0782EA&}சந்திப்பு,
+Dialogue: 0,0:00:20.80,0:00:22.13,Running,,0,0,0,,{\c&H0782EA&}மனிதகுலத்துக்கே {\c&HFFFFFF&}சமத்துவத்தை {\c&HFFFFFF&}கற்றுக்கொடுத்தது!
+Dialogue: 0,0:00:22.13,0:00:23.47,Running,,0,0,0,,{\c&HFFFFFF&}மனிதகுலத்துக்கே {\c&H0782EA&}சமத்துவத்தை {\c&HFFFFFF&}கற்றுக்கொடுத்தது!
+Dialogue: 0,0:00:23.47,0:00:24.80,Running,,0,0,0,,{\c&HFFFFFF&}மனிதகுலத்துக்கே {\c&HFFFFFF&}சமத்துவத்தை {\c&H0782EA&}கற்றுக்கொடுத்தது!
+Dialogue: 0,0:00:25.20,0:00:26.08,Running,,0,0,0,,{\c&H0782EA&}உண்மையான {\c&HFFFFFF&}நட்புக்கு {\c&HFFFFFF&}அடையாளம் {\c&HFFFFFF&}அந்தஸ்து {\c&HFFFFFF&}இல்லை...
+Dialogue: 0,0:00:26.08,0:00:26.96,Running,,0,0,0,,{\c&HFFFFFF&}உண்மையான {\c&H0782EA&}நட்புக்கு {\c&HFFFFFF&}அடையாளம் {\c&HFFFFFF&}அந்தஸ்து {\c&HFFFFFF&}இல்லை...
+Dialogue: 0,0:00:26.96,0:00:27.84,Running,,0,0,0,,{\c&HFFFFFF&}உண்மையான {\c&HFFFFFF&}நட்புக்கு {\c&H0782EA&}அடையாளம் {\c&HFFFFFF&}அந்தஸ்து {\c&HFFFFFF&}இல்லை...
+Dialogue: 0,0:00:27.84,0:00:28.72,Running,,0,0,0,,{\c&HFFFFFF&}உண்மையான {\c&HFFFFFF&}நட்புக்கு {\c&HFFFFFF&}அடையாளம் {\c&H0782EA&}அந்தஸ்து {\c&HFFFFFF&}இல்லை...
+Dialogue: 0,0:00:28.72,0:00:29.60,Running,,0,0,0,,{\c&HFFFFFF&}உண்மையான {\c&HFFFFFF&}நட்புக்கு {\c&HFFFFFF&}அடையாளம் {\c&HFFFFFF&}அந்தஸ்து {\c&H0782EA&}இல்லை...
+Dialogue: 0,0:00:29.80,0:00:31.47,Running,,0,0,0,,{\c&H0782EA&}இதயத்தின் {\c&HFFFFFF&}தூய்மை {\c&HFFFFFF&}மட்டும்தான்!
+Dialogue: 0,0:00:31.47,0:00:33.13,Running,,0,0,0,,{\c&HFFFFFF&}இதயத்தின் {\c&H0782EA&}தூய்மை {\c&HFFFFFF&}மட்டும்தான்!
+Dialogue: 0,0:00:33.13,0:00:34.80,Running,,0,0,0,,{\c&HFFFFFF&}இதயத்தின் {\c&HFFFFFF&}தூய்மை {\c&H0782EA&}மட்டும்தான்!

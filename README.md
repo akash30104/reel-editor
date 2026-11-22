@@ -31,29 +31,6 @@ An automated video editing pipeline engineered to turn raw podcast / interview f
 
 ---
 
-## 🌟 Reference Style Presets
-
-### REFERENCE 11 (Signature Master Template)
-![Reference 11 Anchor Frame](assets/references/reference_11.jpg)
-
-**Reference 11** is the master default style for interview and podcast reels:
-- **Two-Line Persistent `#EA8207` Header Banner** with Twemojis (1080x150, locked at $y = 408$).
-- **Zero-Yellow Subtitles**: Pure white dialogue (`#FFFFFF`), signature orange keyword highlights (`#EA8207`), and 5px solid black stroke (`#000000`).
-- **Letterbox Layout**: 1080x1920 canvas with 1080x940 video window at $y = 558$.
-- **Clean Solid Black Bars**: No progress bar, no floating chest badges.
-- **Ducked Lo-Fi BGM**: Ducked at `-20 dB` under speech + EBU R128 loudness normalization to `-14.0 LUFS`.
-- **100% External Stock B-Rolls**: Cinematic cuts matched to spoken topics.
-
-Whenever requested:
-> *"Edit this raw video in style of Reference 11"*
-
-Simply run:
-```bash
-python edit_reel.py --input "RAW_VIDEOS/your_video.mov" --style "reference 11"
-```
-
----
-
 ## 🚀 Setup on ANY New Laptop (Windows / macOS / Linux)
 
 ### 1. Prerequisites

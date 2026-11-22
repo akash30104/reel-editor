@@ -1,0 +1,51 @@
+[Script Info]
+Title: 4K Reference Matched Running Subtitles
+ScriptType: v4.00+
+PlayResX: 2160
+PlayResY: 3840
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Running,Noto Sans Tamil,104,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,2,0,1,8,0,2,120,120,920,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.20,0:00:00.70,Running,,0,0,0,,{\c&H0782EA&}அரியணை {\c&HFFFFFF&}ஏற {\c&HFFFFFF&}வேண்டிய
+Dialogue: 0,0:00:00.70,0:00:01.20,Running,,0,0,0,,{\c&HFFFFFF&}அரியணை {\c&H0782EA&}ஏற {\c&HFFFFFF&}வேண்டிய
+Dialogue: 0,0:00:01.20,0:00:01.70,Running,,0,0,0,,{\c&HFFFFFF&}அரியணை {\c&HFFFFFF&}ஏற {\c&H0782EA&}வேண்டிய
+Dialogue: 0,0:00:01.70,0:00:03.20,Running,,0,0,0,,{\c&H0782EA&}நாள்ல...
+Dialogue: 0,0:00:03.40,0:00:03.97,Running,,0,0,0,,{\c&H0782EA&}வனவாசம் {\c&HFFFFFF&}போகணும்னு {\c&HFFFFFF&}சொன்னா
+Dialogue: 0,0:00:03.97,0:00:04.53,Running,,0,0,0,,{\c&HFFFFFF&}வனவாசம் {\c&H0782EA&}போகணும்னு {\c&HFFFFFF&}சொன்னா
+Dialogue: 0,0:00:04.53,0:00:05.10,Running,,0,0,0,,{\c&HFFFFFF&}வனவாசம் {\c&HFFFFFF&}போகணும்னு {\c&H0782EA&}சொன்னா
+Dialogue: 0,0:00:05.10,0:00:05.95,Running,,0,0,0,,{\c&H0782EA&}எப்படி {\c&HFFFFFF&}இருக்கும்?
+Dialogue: 0,0:00:05.95,0:00:06.80,Running,,0,0,0,,{\c&HFFFFFF&}எப்படி {\c&H0782EA&}இருக்கும்?
+Dialogue: 0,0:00:07.25,0:00:07.91,Running,,0,0,0,,{\c&H0782EA&}எந்த {\c&HFFFFFF&}ஒரு {\c&HFFFFFF&}வருத்தமும்
+Dialogue: 0,0:00:07.91,0:00:08.57,Running,,0,0,0,,{\c&HFFFFFF&}எந்த {\c&H0782EA&}ஒரு {\c&HFFFFFF&}வருத்தமும்
+Dialogue: 0,0:00:08.57,0:00:09.22,Running,,0,0,0,,{\c&HFFFFFF&}எந்த {\c&HFFFFFF&}ஒரு {\c&H0782EA&}வருத்தமும்
+Dialogue: 0,0:00:09.22,0:00:10.21,Running,,0,0,0,,{\c&H0782EA&}கோபமும் {\c&HFFFFFF&}இல்லாம,
+Dialogue: 0,0:00:10.21,0:00:11.20,Running,,0,0,0,,{\c&HFFFFFF&}கோபமும் {\c&H0782EA&}இல்லாம,
+Dialogue: 0,0:00:11.40,0:00:12.13,Running,,0,0,0,,{\c&H0782EA&}அப்பா {\c&HFFFFFF&}சொன்ன {\c&HFFFFFF&}வாக்கை
+Dialogue: 0,0:00:12.13,0:00:12.87,Running,,0,0,0,,{\c&HFFFFFF&}அப்பா {\c&H0782EA&}சொன்ன {\c&HFFFFFF&}வாக்கை
+Dialogue: 0,0:00:12.87,0:00:13.60,Running,,0,0,0,,{\c&HFFFFFF&}அப்பா {\c&HFFFFFF&}சொன்ன {\c&H0782EA&}வாக்கை
+Dialogue: 0,0:00:13.60,0:00:14.33,Running,,0,0,0,,{\c&H0782EA&}காப்பாத்த {\c&HFFFFFF&}காட்டுக்கு {\c&HFFFFFF&}போனார்!
+Dialogue: 0,0:00:14.33,0:00:15.07,Running,,0,0,0,,{\c&HFFFFFF&}காப்பாத்த {\c&H0782EA&}காட்டுக்கு {\c&HFFFFFF&}போனார்!
+Dialogue: 0,0:00:15.07,0:00:15.80,Running,,0,0,0,,{\c&HFFFFFF&}காப்பாத்த {\c&HFFFFFF&}காட்டுக்கு {\c&H0782EA&}போனார்!
+Dialogue: 0,0:00:16.25,0:00:16.81,Running,,0,0,0,,{\c&H0782EA&}பதவியும் {\c&HFFFFFF&}பணமும் {\c&HFFFFFF&}முக்கியம்
+Dialogue: 0,0:00:16.81,0:00:17.37,Running,,0,0,0,,{\c&HFFFFFF&}பதவியும் {\c&H0782EA&}பணமும் {\c&HFFFFFF&}முக்கியம்
+Dialogue: 0,0:00:17.37,0:00:17.93,Running,,0,0,0,,{\c&HFFFFFF&}பதவியும் {\c&HFFFFFF&}பணமும் {\c&H0782EA&}முக்கியம்
+Dialogue: 0,0:00:17.93,0:00:19.60,Running,,0,0,0,,{\c&H0782EA&}இல்லை...
+Dialogue: 0,0:00:19.80,0:00:20.47,Running,,0,0,0,,{\c&H0782EA&}தர்மமும் {\c&HFFFFFF&}கடமையும் {\c&HFFFFFF&}தான்
+Dialogue: 0,0:00:20.47,0:00:21.13,Running,,0,0,0,,{\c&HFFFFFF&}தர்மமும் {\c&H0782EA&}கடமையும் {\c&HFFFFFF&}தான்
+Dialogue: 0,0:00:21.13,0:00:21.80,Running,,0,0,0,,{\c&HFFFFFF&}தர்மமும் {\c&HFFFFFF&}கடமையும் {\c&H0782EA&}தான்
+Dialogue: 0,0:00:21.80,0:00:22.80,Running,,0,0,0,,{\c&H0782EA&}முக்கியம்னு {\c&HFFFFFF&}காட்டுனாரு!
+Dialogue: 0,0:00:22.80,0:00:23.80,Running,,0,0,0,,{\c&HFFFFFF&}முக்கியம்னு {\c&H0782EA&}காட்டுனாரு!
+Dialogue: 0,0:00:24.20,0:00:24.97,Running,,0,0,0,,{\c&H0782EA&}வாழ்க்கை {\c&HFFFFFF&}கஷ்டத்தை {\c&HFFFFFF&}தரும்போது
+Dialogue: 0,0:00:24.97,0:00:25.73,Running,,0,0,0,,{\c&HFFFFFF&}வாழ்க்கை {\c&H0782EA&}கஷ்டத்தை {\c&HFFFFFF&}தரும்போது
+Dialogue: 0,0:00:25.73,0:00:26.50,Running,,0,0,0,,{\c&HFFFFFF&}வாழ்க்கை {\c&HFFFFFF&}கஷ்டத்தை {\c&H0782EA&}தரும்போது
+Dialogue: 0,0:00:26.50,0:00:27.65,Running,,0,0,0,,{\c&H0782EA&}தப்பிச்சு {\c&HFFFFFF&}ஓடாதீங்க...
+Dialogue: 0,0:00:27.65,0:00:28.80,Running,,0,0,0,,{\c&HFFFFFF&}தப்பிச்சு {\c&H0782EA&}ஓடாதீங்க...
+Dialogue: 0,0:00:29.00,0:00:29.80,Running,,0,0,0,,{\c&H0782EA&}அமைதியா {\c&HFFFFFF&}ஏத்துக்கிட்டு {\c&HFFFFFF&}நிமிர்ந்து
+Dialogue: 0,0:00:29.80,0:00:30.60,Running,,0,0,0,,{\c&HFFFFFF&}அமைதியா {\c&H0782EA&}ஏத்துக்கிட்டு {\c&HFFFFFF&}நிமிர்ந்து
+Dialogue: 0,0:00:30.60,0:00:31.40,Running,,0,0,0,,{\c&HFFFFFF&}அமைதியா {\c&HFFFFFF&}ஏத்துக்கிட்டு {\c&H0782EA&}நிமிர்ந்து
+Dialogue: 0,0:00:31.40,0:00:33.80,Running,,0,0,0,,{\c&H0782EA&}நில்லுங்க!

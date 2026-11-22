@@ -1,0 +1,47 @@
+[Script Info]
+Title: 4K Running Subtitles
+ScriptType: v4.00+
+PlayResX: 2160
+PlayResY: 3840
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Running,Arial,64,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,2,0,1,10,0,2,80,80,680,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.20,0:00:00.95,Running,,0,0,0,,{\c&H0782EA&}இன்னைக்கு {\c&HFFFFFF&}ஒரு {\c&HFFFFFF&}வார்த்தை {\c&HFFFFFF&}சொன்னா,
+Dialogue: 0,0:00:00.95,0:00:01.70,Running,,0,0,0,,{\c&HFFFFFF&}இன்னைக்கு {\c&H0782EA&}ஒரு {\c&HFFFFFF&}வார்த்தை {\c&HFFFFFF&}சொன்னா,
+Dialogue: 0,0:00:01.70,0:00:02.45,Running,,0,0,0,,{\c&HFFFFFF&}இன்னைக்கு {\c&HFFFFFF&}ஒரு {\c&H0782EA&}வார்த்தை {\c&HFFFFFF&}சொன்னா,
+Dialogue: 0,0:00:02.45,0:00:03.20,Running,,0,0,0,,{\c&HFFFFFF&}இன்னைக்கு {\c&HFFFFFF&}ஒரு {\c&HFFFFFF&}வார்த்தை {\c&H0782EA&}சொன்னா,
+Dialogue: 0,0:00:03.40,0:00:04.25,Running,,0,0,0,,{\c&H0782EA&}அடுத்த {\c&HFFFFFF&}நிமிஷமே {\c&HFFFFFF&}மாத்திப் {\c&HFFFFFF&}பேசுறாங்க!
+Dialogue: 0,0:00:04.25,0:00:05.10,Running,,0,0,0,,{\c&HFFFFFF&}அடுத்த {\c&H0782EA&}நிமிஷமே {\c&HFFFFFF&}மாத்திப் {\c&HFFFFFF&}பேசுறாங்க!
+Dialogue: 0,0:00:05.10,0:00:05.95,Running,,0,0,0,,{\c&HFFFFFF&}அடுத்த {\c&HFFFFFF&}நிமிஷமே {\c&H0782EA&}மாத்திப் {\c&HFFFFFF&}பேசுறாங்க!
+Dialogue: 0,0:00:05.95,0:00:06.80,Running,,0,0,0,,{\c&HFFFFFF&}அடுத்த {\c&HFFFFFF&}நிமிஷமே {\c&HFFFFFF&}மாத்திப் {\c&H0782EA&}பேசுறாங்க!
+Dialogue: 0,0:00:07.25,0:00:08.16,Running,,0,0,0,,{\c&H0782EA&}சொல் {\c&HFFFFFF&}தவறாமைங்கிறது {\c&HFFFFFF&}தான் {\c&HFFFFFF&}ஒரு {\c&HFFFFFF&}மனுஷனோட
+Dialogue: 0,0:00:08.16,0:00:09.07,Running,,0,0,0,,{\c&HFFFFFF&}சொல் {\c&H0782EA&}தவறாமைங்கிறது {\c&HFFFFFF&}தான் {\c&HFFFFFF&}ஒரு {\c&HFFFFFF&}மனுஷனோட
+Dialogue: 0,0:00:09.07,0:00:09.98,Running,,0,0,0,,{\c&HFFFFFF&}சொல் {\c&HFFFFFF&}தவறாமைங்கிறது {\c&H0782EA&}தான் {\c&HFFFFFF&}ஒரு {\c&HFFFFFF&}மனுஷனோட
+Dialogue: 0,0:00:09.98,0:00:10.89,Running,,0,0,0,,{\c&HFFFFFF&}சொல் {\c&HFFFFFF&}தவறாமைங்கிறது {\c&HFFFFFF&}தான் {\c&H0782EA&}ஒரு {\c&HFFFFFF&}மனுஷனோட
+Dialogue: 0,0:00:10.89,0:00:11.80,Running,,0,0,0,,{\c&HFFFFFF&}சொல் {\c&HFFFFFF&}தவறாமைங்கிறது {\c&HFFFFFF&}தான் {\c&HFFFFFF&}ஒரு {\c&H0782EA&}மனுஷனோட
+Dialogue: 0,0:00:12.00,0:00:12.96,Running,,0,0,0,,{\c&H0782EA&}மிகப்பெரிய {\c&HFFFFFF&}நற்குணம்... {\c&HFFFFFF&}அதற்காக {\c&HFFFFFF&}உயிரையே {\c&HFFFFFF&}கொடுத்தாங்க!
+Dialogue: 0,0:00:12.96,0:00:13.92,Running,,0,0,0,,{\c&HFFFFFF&}மிகப்பெரிய {\c&H0782EA&}நற்குணம்... {\c&HFFFFFF&}அதற்காக {\c&HFFFFFF&}உயிரையே {\c&HFFFFFF&}கொடுத்தாங்க!
+Dialogue: 0,0:00:13.92,0:00:14.88,Running,,0,0,0,,{\c&HFFFFFF&}மிகப்பெரிய {\c&HFFFFFF&}நற்குணம்... {\c&H0782EA&}அதற்காக {\c&HFFFFFF&}உயிரையே {\c&HFFFFFF&}கொடுத்தாங்க!
+Dialogue: 0,0:00:14.88,0:00:15.84,Running,,0,0,0,,{\c&HFFFFFF&}மிகப்பெரிய {\c&HFFFFFF&}நற்குணம்... {\c&HFFFFFF&}அதற்காக {\c&H0782EA&}உயிரையே {\c&HFFFFFF&}கொடுத்தாங்க!
+Dialogue: 0,0:00:15.84,0:00:16.80,Running,,0,0,0,,{\c&HFFFFFF&}மிகப்பெரிய {\c&HFFFFFF&}நற்குணம்... {\c&HFFFFFF&}அதற்காக {\c&HFFFFFF&}உயிரையே {\c&H0782EA&}கொடுத்தாங்க!
+Dialogue: 0,0:00:17.25,0:00:17.81,Running,,0,0,0,,{\c&H0782EA&}காலம் {\c&HFFFFFF&}மாறும்... {\c&HFFFFFF&}ஆனா {\c&HFFFFFF&}நீங்க {\c&HFFFFFF&}கொடுத்த {\c&HFFFFFF&}வாக்கு
+Dialogue: 0,0:00:17.81,0:00:18.37,Running,,0,0,0,,{\c&HFFFFFF&}காலம் {\c&H0782EA&}மாறும்... {\c&HFFFFFF&}ஆனா {\c&HFFFFFF&}நீங்க {\c&HFFFFFF&}கொடுத்த {\c&HFFFFFF&}வாக்கு
+Dialogue: 0,0:00:18.37,0:00:18.93,Running,,0,0,0,,{\c&HFFFFFF&}காலம் {\c&HFFFFFF&}மாறும்... {\c&H0782EA&}ஆனா {\c&HFFFFFF&}நீங்க {\c&HFFFFFF&}கொடுத்த {\c&HFFFFFF&}வாக்கு
+Dialogue: 0,0:00:18.93,0:00:19.48,Running,,0,0,0,,{\c&HFFFFFF&}காலம் {\c&HFFFFFF&}மாறும்... {\c&HFFFFFF&}ஆனா {\c&H0782EA&}நீங்க {\c&HFFFFFF&}கொடுத்த {\c&HFFFFFF&}வாக்கு
+Dialogue: 0,0:00:19.48,0:00:20.04,Running,,0,0,0,,{\c&HFFFFFF&}காலம் {\c&HFFFFFF&}மாறும்... {\c&HFFFFFF&}ஆனா {\c&HFFFFFF&}நீங்க {\c&H0782EA&}கொடுத்த {\c&HFFFFFF&}வாக்கு
+Dialogue: 0,0:00:20.04,0:00:20.60,Running,,0,0,0,,{\c&HFFFFFF&}காலம் {\c&HFFFFFF&}மாறும்... {\c&HFFFFFF&}ஆனா {\c&HFFFFFF&}நீங்க {\c&HFFFFFF&}கொடுத்த {\c&H0782EA&}வாக்கு
+Dialogue: 0,0:00:20.80,0:00:21.80,Running,,0,0,0,,{\c&H0782EA&}உங்க {\c&HFFFFFF&}நேர்மையை {\c&HFFFFFF&}உலகத்துக்கு {\c&HFFFFFF&}பறைசாற்றும்!
+Dialogue: 0,0:00:21.80,0:00:22.80,Running,,0,0,0,,{\c&HFFFFFF&}உங்க {\c&H0782EA&}நேர்மையை {\c&HFFFFFF&}உலகத்துக்கு {\c&HFFFFFF&}பறைசாற்றும்!
+Dialogue: 0,0:00:22.80,0:00:23.80,Running,,0,0,0,,{\c&HFFFFFF&}உங்க {\c&HFFFFFF&}நேர்மையை {\c&H0782EA&}உலகத்துக்கு {\c&HFFFFFF&}பறைசாற்றும்!
+Dialogue: 0,0:00:23.80,0:00:24.80,Running,,0,0,0,,{\c&HFFFFFF&}உங்க {\c&HFFFFFF&}நேர்மையை {\c&HFFFFFF&}உலகத்துக்கு {\c&H0782EA&}பறைசாற்றும்!
+Dialogue: 0,0:00:25.20,0:00:26.35,Running,,0,0,0,,{\c&H0782EA&}வாக்கு {\c&HFFFFFF&}தவறாத {\c&HFFFFFF&}மனிதனுக்கு {\c&HFFFFFF&}என்னைக்குமே
+Dialogue: 0,0:00:26.35,0:00:27.50,Running,,0,0,0,,{\c&HFFFFFF&}வாக்கு {\c&H0782EA&}தவறாத {\c&HFFFFFF&}மனிதனுக்கு {\c&HFFFFFF&}என்னைக்குமே
+Dialogue: 0,0:00:27.50,0:00:28.65,Running,,0,0,0,,{\c&HFFFFFF&}வாக்கு {\c&HFFFFFF&}தவறாத {\c&H0782EA&}மனிதனுக்கு {\c&HFFFFFF&}என்னைக்குமே
+Dialogue: 0,0:00:28.65,0:00:29.80,Running,,0,0,0,,{\c&HFFFFFF&}வாக்கு {\c&HFFFFFF&}தவறாத {\c&HFFFFFF&}மனிதனுக்கு {\c&H0782EA&}என்னைக்குமே
+Dialogue: 0,0:00:30.00,0:00:32.40,Running,,0,0,0,,{\c&H0782EA&}தோல்விங்கிறதே {\c&HFFFFFF&}கிடையாது!
+Dialogue: 0,0:00:32.40,0:00:34.80,Running,,0,0,0,,{\c&HFFFFFF&}தோல்விங்கிறதே {\c&H0782EA&}கிடையாது!

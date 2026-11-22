@@ -1,61 +1,35 @@
-# Python artifacts
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
+# Environments
+.venv/
 env/
 venv/
-ENV/
-.env
+__pycache__/
+*.pyc
 
-# Large raw video & reference files
-RAW VIDEOS/
-RAW_VIDEOS/*
-!RAW_VIDEOS/.gitkeep
-STYLE REFERENCE/
-*.MOV
+# Heavy media assets and temporary renders
+*.mp4
 *.mov
-*.mkv
-
-# Root level test mp4s
-/*.mp4
-!/assets/**/*.mp4
-
-# Temporary render and analysis directories
-temp_*
-seg_frames/
-ref_analysis/
-audio_topics/
-tools/
-my-video/
-internet_brolls/
-brolls/
-
-# Large uncompressed audio dumps
 *.wav
+*.mkv
+*.m4a
+*.avi
+*.raw
 
-# Exported large video files
-EXPORT/*.mp4
-!EXPORT/.gitkeep
+# Temporary frames, test images, QA renders
+*.png
+*.jpg
+*.jpeg
+referance_frames/
 
-# Scratch and intermediate debug images
-/*.jpg
-/*.png
-!/header_banner_perfect.png
-!/assets/**/*.png
-!/assets/**/*.jpg
+# Cache and demucs output
+demucs_run_1/
+demucs_runs/
+.cache/
+EXPORT/
+RAW_VIDEOS/
+assets/brolls/
+assets/audio/*.wav
 
-# Scratch Whisper and subtitle transcripts in root
-/*.json
-/*.srt
-/*.vtt
-/*.tsv
-/*.txt
-!/requirements.txt
-
-# OS specific files
+# Temp text files
+*.txt
+*.log
 .DS_Store
-Thumbs.db
-Desktop.ini
-*.tmp

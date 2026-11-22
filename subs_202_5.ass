@@ -1,0 +1,50 @@
+[Script Info]
+Title: 4K Running Subtitles
+ScriptType: v4.00+
+PlayResX: 2160
+PlayResY: 3840
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Running,Arial,64,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,2,0,1,10,0,2,80,80,680,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.20,0:00:00.95,Running,,0,0,0,,{\c&H0782EA&}ராமர் {\c&HFFFFFF&}படுத்து {\c&HFFFFFF&}தூங்குறதை {\c&HFFFFFF&}பார்த்து
+Dialogue: 0,0:00:00.95,0:00:01.70,Running,,0,0,0,,{\c&HFFFFFF&}ராமர் {\c&H0782EA&}படுத்து {\c&HFFFFFF&}தூங்குறதை {\c&HFFFFFF&}பார்த்து
+Dialogue: 0,0:00:01.70,0:00:02.45,Running,,0,0,0,,{\c&HFFFFFF&}ராமர் {\c&HFFFFFF&}படுத்து {\c&H0782EA&}தூங்குறதை {\c&HFFFFFF&}பார்த்து
+Dialogue: 0,0:00:02.45,0:00:03.20,Running,,0,0,0,,{\c&HFFFFFF&}ராமர் {\c&HFFFFFF&}படுத்து {\c&HFFFFFF&}தூங்குறதை {\c&H0782EA&}பார்த்து
+Dialogue: 0,0:00:03.40,0:00:04.08,Running,,0,0,0,,{\c&H0782EA&}குகன் {\c&HFFFFFF&}ஏன் {\c&HFFFFFF&}அவ்வளவு {\c&HFFFFFF&}கண்ணீர் {\c&HFFFFFF&}விட்டாரு?
+Dialogue: 0,0:00:04.08,0:00:04.76,Running,,0,0,0,,{\c&HFFFFFF&}குகன் {\c&H0782EA&}ஏன் {\c&HFFFFFF&}அவ்வளவு {\c&HFFFFFF&}கண்ணீர் {\c&HFFFFFF&}விட்டாரு?
+Dialogue: 0,0:00:04.76,0:00:05.44,Running,,0,0,0,,{\c&HFFFFFF&}குகன் {\c&HFFFFFF&}ஏன் {\c&H0782EA&}அவ்வளவு {\c&HFFFFFF&}கண்ணீர் {\c&HFFFFFF&}விட்டாரு?
+Dialogue: 0,0:00:05.44,0:00:06.12,Running,,0,0,0,,{\c&HFFFFFF&}குகன் {\c&HFFFFFF&}ஏன் {\c&HFFFFFF&}அவ்வளவு {\c&H0782EA&}கண்ணீர் {\c&HFFFFFF&}விட்டாரு?
+Dialogue: 0,0:00:06.12,0:00:06.80,Running,,0,0,0,,{\c&HFFFFFF&}குகன் {\c&HFFFFFF&}ஏன் {\c&HFFFFFF&}அவ்வளவு {\c&HFFFFFF&}கண்ணீர் {\c&H0782EA&}விட்டாரு?
+Dialogue: 0,0:00:07.25,0:00:08.16,Running,,0,0,0,,{\c&H0782EA&}அரண்மனையில {\c&HFFFFFF&}தூங்க {\c&HFFFFFF&}வேண்டியவர் {\c&HFFFFFF&}புல் {\c&HFFFFFF&}தரையில...
+Dialogue: 0,0:00:08.16,0:00:09.07,Running,,0,0,0,,{\c&HFFFFFF&}அரண்மனையில {\c&H0782EA&}தூங்க {\c&HFFFFFF&}வேண்டியவர் {\c&HFFFFFF&}புல் {\c&HFFFFFF&}தரையில...
+Dialogue: 0,0:00:09.07,0:00:09.98,Running,,0,0,0,,{\c&HFFFFFF&}அரண்மனையில {\c&HFFFFFF&}தூங்க {\c&H0782EA&}வேண்டியவர் {\c&HFFFFFF&}புல் {\c&HFFFFFF&}தரையில...
+Dialogue: 0,0:00:09.98,0:00:10.89,Running,,0,0,0,,{\c&HFFFFFF&}அரண்மனையில {\c&HFFFFFF&}தூங்க {\c&HFFFFFF&}வேண்டியவர் {\c&H0782EA&}புல் {\c&HFFFFFF&}தரையில...
+Dialogue: 0,0:00:10.89,0:00:11.80,Running,,0,0,0,,{\c&HFFFFFF&}அரண்மனையில {\c&HFFFFFF&}தூங்க {\c&HFFFFFF&}வேண்டியவர் {\c&HFFFFFF&}புல் {\c&H0782EA&}தரையில...
+Dialogue: 0,0:00:12.00,0:00:12.96,Running,,0,0,0,,{\c&H0782EA&}அந்த {\c&HFFFFFF&}வேதனையை {\c&HFFFFFF&}அவனால {\c&HFFFFFF&}தாங்கவே {\c&HFFFFFF&}முடியல!
+Dialogue: 0,0:00:12.96,0:00:13.92,Running,,0,0,0,,{\c&HFFFFFF&}அந்த {\c&H0782EA&}வேதனையை {\c&HFFFFFF&}அவனால {\c&HFFFFFF&}தாங்கவே {\c&HFFFFFF&}முடியல!
+Dialogue: 0,0:00:13.92,0:00:14.88,Running,,0,0,0,,{\c&HFFFFFF&}அந்த {\c&HFFFFFF&}வேதனையை {\c&H0782EA&}அவனால {\c&HFFFFFF&}தாங்கவே {\c&HFFFFFF&}முடியல!
+Dialogue: 0,0:00:14.88,0:00:15.84,Running,,0,0,0,,{\c&HFFFFFF&}அந்த {\c&HFFFFFF&}வேதனையை {\c&HFFFFFF&}அவனால {\c&H0782EA&}தாங்கவே {\c&HFFFFFF&}முடியல!
+Dialogue: 0,0:00:15.84,0:00:16.80,Running,,0,0,0,,{\c&HFFFFFF&}அந்த {\c&HFFFFFF&}வேதனையை {\c&HFFFFFF&}அவனால {\c&HFFFFFF&}தாங்கவே {\c&H0782EA&}முடியல!
+Dialogue: 0,0:00:17.25,0:00:17.92,Running,,0,0,0,,{\c&H0782EA&}எந்த {\c&HFFFFFF&}எதிர்பார்ப்பும் {\c&HFFFFFF&}இல்லாம {\c&HFFFFFF&}அன்பு {\c&HFFFFFF&}செலுத்துறதுதான்,
+Dialogue: 0,0:00:17.92,0:00:18.59,Running,,0,0,0,,{\c&HFFFFFF&}எந்த {\c&H0782EA&}எதிர்பார்ப்பும் {\c&HFFFFFF&}இல்லாம {\c&HFFFFFF&}அன்பு {\c&HFFFFFF&}செலுத்துறதுதான்,
+Dialogue: 0,0:00:18.59,0:00:19.26,Running,,0,0,0,,{\c&HFFFFFF&}எந்த {\c&HFFFFFF&}எதிர்பார்ப்பும் {\c&H0782EA&}இல்லாம {\c&HFFFFFF&}அன்பு {\c&HFFFFFF&}செலுத்துறதுதான்,
+Dialogue: 0,0:00:19.26,0:00:19.93,Running,,0,0,0,,{\c&HFFFFFF&}எந்த {\c&HFFFFFF&}எதிர்பார்ப்பும் {\c&HFFFFFF&}இல்லாம {\c&H0782EA&}அன்பு {\c&HFFFFFF&}செலுத்துறதுதான்,
+Dialogue: 0,0:00:19.93,0:00:20.60,Running,,0,0,0,,{\c&HFFFFFF&}எந்த {\c&HFFFFFF&}எதிர்பார்ப்பும் {\c&HFFFFFF&}இல்லாம {\c&HFFFFFF&}அன்பு {\c&H0782EA&}செலுத்துறதுதான்,
+Dialogue: 0,0:00:20.80,0:00:21.60,Running,,0,0,0,,{\c&H0782EA&}இந்த {\c&HFFFFFF&}உலகத்திலேயே {\c&HFFFFFF&}மிக {\c&HFFFFFF&}உயர்ந்த {\c&HFFFFFF&}குணம்!
+Dialogue: 0,0:00:21.60,0:00:22.40,Running,,0,0,0,,{\c&HFFFFFF&}இந்த {\c&H0782EA&}உலகத்திலேயே {\c&HFFFFFF&}மிக {\c&HFFFFFF&}உயர்ந்த {\c&HFFFFFF&}குணம்!
+Dialogue: 0,0:00:22.40,0:00:23.20,Running,,0,0,0,,{\c&HFFFFFF&}இந்த {\c&HFFFFFF&}உலகத்திலேயே {\c&H0782EA&}மிக {\c&HFFFFFF&}உயர்ந்த {\c&HFFFFFF&}குணம்!
+Dialogue: 0,0:00:23.20,0:00:24.00,Running,,0,0,0,,{\c&HFFFFFF&}இந்த {\c&HFFFFFF&}உலகத்திலேயே {\c&HFFFFFF&}மிக {\c&H0782EA&}உயர்ந்த {\c&HFFFFFF&}குணம்!
+Dialogue: 0,0:00:24.00,0:00:24.80,Running,,0,0,0,,{\c&HFFFFFF&}இந்த {\c&HFFFFFF&}உலகத்திலேயே {\c&HFFFFFF&}மிக {\c&HFFFFFF&}உயர்ந்த {\c&H0782EA&}குணம்!
+Dialogue: 0,0:00:25.20,0:00:26.35,Running,,0,0,0,,{\c&H0782EA&}உங்களை {\c&HFFFFFF&}உண்மையா {\c&HFFFFFF&}நேசிக்கிறவங்களை {\c&HFFFFFF&}என்னைக்குமே,
+Dialogue: 0,0:00:26.35,0:00:27.50,Running,,0,0,0,,{\c&HFFFFFF&}உங்களை {\c&H0782EA&}உண்மையா {\c&HFFFFFF&}நேசிக்கிறவங்களை {\c&HFFFFFF&}என்னைக்குமே,
+Dialogue: 0,0:00:27.50,0:00:28.65,Running,,0,0,0,,{\c&HFFFFFF&}உங்களை {\c&HFFFFFF&}உண்மையா {\c&H0782EA&}நேசிக்கிறவங்களை {\c&HFFFFFF&}என்னைக்குமே,
+Dialogue: 0,0:00:28.65,0:00:29.80,Running,,0,0,0,,{\c&HFFFFFF&}உங்களை {\c&HFFFFFF&}உண்மையா {\c&HFFFFFF&}நேசிக்கிறவங்களை {\c&H0782EA&}என்னைக்குமே,
+Dialogue: 0,0:00:30.00,0:00:31.20,Running,,0,0,0,,{\c&H0782EA&}அவங்க {\c&HFFFFFF&}அன்பை {\c&HFFFFFF&}குறைச்சு {\c&HFFFFFF&}மதிப்பிடாதீங்க!
+Dialogue: 0,0:00:31.20,0:00:32.40,Running,,0,0,0,,{\c&HFFFFFF&}அவங்க {\c&H0782EA&}அன்பை {\c&HFFFFFF&}குறைச்சு {\c&HFFFFFF&}மதிப்பிடாதீங்க!
+Dialogue: 0,0:00:32.40,0:00:33.60,Running,,0,0,0,,{\c&HFFFFFF&}அவங்க {\c&HFFFFFF&}அன்பை {\c&H0782EA&}குறைச்சு {\c&HFFFFFF&}மதிப்பிடாதீங்க!
+Dialogue: 0,0:00:33.60,0:00:34.80,Running,,0,0,0,,{\c&HFFFFFF&}அவங்க {\c&HFFFFFF&}அன்பை {\c&HFFFFFF&}குறைச்சு {\c&H0782EA&}மதிப்பிடாதீங்க!

@@ -1,0 +1,197 @@
+[
+  {
+    "reel_id": "Reel 1",
+    "topic": "IS PDA IN PUBLIC WRONG? 💔🔥",
+    "archetype": "The Taboo Debate / Moral Conflict",
+    "creator_framework": "Galloway / Hormozi",
+    "retention_score": 40,
+    "triggers_detected": [
+      {
+        "word": "Public Display of Affection",
+        "sentiment": "taboo_culture",
+        "weight": 15,
+        "en": "PDA Controversy"
+      },
+      {
+        "word": "வெளியே",
+        "sentiment": "public_sphere",
+        "weight": 10,
+        "en": "Public / Outside"
+      }
+    ],
+    "three_layer_hook": {
+      "layer_1_visual": "Guest leaning forward with animated hand gesture, immediate cut to bustling city crosswalk B-roll at 1.8s.",
+      "layer_2_verbal": "நாம ஏன் ஃபர்ஸ்ட் வெளியே போறோம்? Public Display of Affection தான் பண்றாங்க!",
+      "layer_3_on_screen_text": "IS PDA IN PUBLIC WRONG? 💔🔥"
+    },
+    "speaker_pacing": "Guest opens aggressively with counter-question (0.0s - 3.2s) -> Host listens with high focus.",
+    "retention_guarantee_checklist": {
+      "specific_noun_present": true,
+      "no_throat_clearing": true,
+      "audio_starts_at_first_frame": true,
+      "high_contrast_banner": true
+    }
+  },
+  {
+    "reel_id": "Reel 2",
+    "topic": "WOULD YOU ACCEPT YOUR MOM'S EX? 💔⚠️",
+    "archetype": "The Sacred Emotional Dilemma",
+    "creator_framework": "Kallaway Emotional Anchor",
+    "retention_score": 45,
+    "triggers_detected": [
+      {
+        "word": "அம்மா",
+        "sentiment": "deep_emotion",
+        "weight": 15,
+        "en": "Mother"
+      },
+      {
+        "word": "எக்ஸ்",
+        "sentiment": "taboo",
+        "weight": 15,
+        "en": "Ex-partner"
+      }
+    ],
+    "three_layer_hook": {
+      "layer_1_visual": "Close-up eye contact from host challenging social taboo, instant dramatic zoom on guest's emotional reaction.",
+      "layer_2_verbal": "நீ ஒரு பையன்... உங்க அம்மா அவங்களோட எக்ஸ்-ஐ ஏத்துக்க முடியுமா?",
+      "layer_3_on_screen_text": "WOULD YOU ACCEPT YOUR MOM'S EX? 💔⚠️"
+    },
+    "speaker_pacing": "Host confronts guest with a deeply personal, shocking dilemma -> Guest's face freezes in contemplation.",
+    "retention_guarantee_checklist": {
+      "specific_noun_present": true,
+      "no_throat_clearing": true,
+      "audio_starts_at_first_frame": true,
+      "high_contrast_banner": true
+    }
+  },
+  {
+    "reel_id": "Reel 3",
+    "topic": "A HOUSE WITHOUT A WOMAN IS JUST A ROOM! 🏠❤️",
+    "archetype": "The Counter-Intuitive Truth",
+    "creator_framework": "Hormozi Contrarian",
+    "retention_score": 77,
+    "triggers_detected": [
+      {
+        "word": "பாதுகாப்பு",
+        "sentiment": "masculinity/protection",
+        "weight": 12,
+        "en": "Protection"
+      },
+      {
+        "word": "பொம்பளை",
+        "sentiment": "gender_roles",
+        "weight": 14,
+        "en": "Woman"
+      },
+      {
+        "word": "ஆண்",
+        "sentiment": "masculinity",
+        "weight": 12,
+        "en": "Man"
+      },
+      {
+        "word": "வீடு",
+        "sentiment": "family_foundation",
+        "weight": 12,
+        "en": "Home / Sanctuary"
+      },
+      {
+        "word": "ரூம்",
+        "sentiment": "empty_space",
+        "weight": 12,
+        "en": "Just a Room"
+      }
+    ],
+    "three_layer_hook": {
+      "layer_1_visual": "Dramatic black & white color grade, hands raised creating wide framing silhouette, transitions to warm golden home B-roll.",
+      "layer_2_verbal": "ஆண்களால வெறும் பாதுகாப்பு மட்டும்தான் தர முடியும்... பொம்பளை இல்லாத வீடு வெறும் ரூம் தான்!",
+      "layer_3_on_screen_text": "A HOUSE WITHOUT A WOMAN IS JUST A ROOM! 🏠❤️"
+    },
+    "speaker_pacing": "Guest raises both hands in passionate realization (0.0s) -> delivers raw philosophical verdict.",
+    "retention_guarantee_checklist": {
+      "specific_noun_present": true,
+      "no_throat_clearing": true,
+      "audio_starts_at_first_frame": true,
+      "high_contrast_banner": true
+    }
+  },
+  {
+    "reel_id": "Reel 4",
+    "topic": "CASIO WATCH: REPAIR, DON'T REPLACE! ⌚💎",
+    "archetype": "The Pattern Interrupt Metaphor",
+    "creator_framework": "MrBeast Specific Noun / Welsh",
+    "retention_score": 56,
+    "triggers_detected": [
+      {
+        "word": "Casio",
+        "sentiment": "concrete_brand_prop",
+        "weight": 15,
+        "en": "Casio (Pattern Interrupt Prop)"
+      },
+      {
+        "word": "வாட்ச்",
+        "sentiment": "object_metaphor",
+        "weight": 14,
+        "en": "Watch Metaphor"
+      },
+      {
+        "word": "ரூம்",
+        "sentiment": "empty_space",
+        "weight": 12,
+        "en": "Just a Room"
+      }
+    ],
+    "three_layer_hook": {
+      "layer_1_visual": "Physical object prop acting as instant pattern interrupt: viewer sees Casio watch gesture before guest delivers metaphor.",
+      "layer_2_verbal": "நீங்க ஒரு Casio ஷோரூம் போயி... வாட்ச் பழசான உடனே தூக்கி எறிஞ்சிடுவீங்களா?",
+      "layer_3_on_screen_text": "CASIO WATCH: REPAIR, DON'T REPLACE! ⌚💎"
+    },
+    "speaker_pacing": "Guest looks directly at his own wrist watch, holding it up as a visual prop -> delivers loyalty analogy.",
+    "retention_guarantee_checklist": {
+      "specific_noun_present": true,
+      "no_throat_clearing": true,
+      "audio_starts_at_first_frame": true,
+      "high_contrast_banner": true
+    }
+  },
+  {
+    "reel_id": "Reel 5",
+    "topic": "CAN A WIFE EVER REPLACE A MOTHER? 🥺❤️",
+    "archetype": "The Sacred Emotional Dilemma",
+    "creator_framework": "Kallaway Emotional Anchor",
+    "retention_score": 56,
+    "triggers_detected": [
+      {
+        "word": "அம்மா",
+        "sentiment": "deep_emotion",
+        "weight": 15,
+        "en": "Mother"
+      },
+      {
+        "word": "வைஃப்",
+        "sentiment": "relationship",
+        "weight": 14,
+        "en": "Wife (Colloquial)"
+      },
+      {
+        "word": "அன்பு",
+        "sentiment": "unconditional_love",
+        "weight": 12,
+        "en": "Pure Love"
+      }
+    ],
+    "three_layer_hook": {
+      "layer_1_visual": "Soft empathetic lighting, open palm gesture of vulnerability, followed by mother-child silhouette emotional B-roll.",
+      "layer_2_verbal": "அம்மாவோட இடத்துல வைஃப்-ஐ வைக்கவே முடியாது... அம்மாவோட அன்பு தனி!",
+      "layer_3_on_screen_text": "CAN A WIFE EVER REPLACE A MOTHER? 🥺❤️"
+    },
+    "speaker_pacing": "Female guest speaks with calm, unshakeable maternal conviction -> host nods in silent agreement.",
+    "retention_guarantee_checklist": {
+      "specific_noun_present": true,
+      "no_throat_clearing": true,
+      "audio_starts_at_first_frame": true,
+      "high_contrast_banner": true
+    }
+  }
+]
