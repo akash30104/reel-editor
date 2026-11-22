@@ -233,7 +233,7 @@ base_vid = WORKSPACE / "ref11_base.mp4"
 pro_audio = WORKSPACE / "reel1_pro_mastered_audio.wav"
 final_out = EXPORT_DIR / "Reel_1_Reference_11_Style.mp4"
 
-# Composite Final Video with full-range RGB color pipeline to preserve exact #FF8400
+# Composite Final Video with clean Rec.709 SDR color pipeline to guarantee radiant orange in QuickTime/iOS
 subprocess.run([
     "ffmpeg", "-y",
     "-i", str(base_vid),
@@ -241,15 +241,18 @@ subprocess.run([
     "-i", str(subs_mov),
     "-i", str(pro_audio),
     "-filter_complex",
-    f"[0:v]format=rgba[base];"
+    f"[0:v]setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709:range=tv,format=rgba[base];"
     f"[base][1:v]overlay=0:{BANNER_Y}:format=rgb[v_banner];"
     f"[v_banner][2:v]overlay=0:{SUBS_Y}:format=rgb[v_rgb];"
-    f"[v_rgb]scale=in_range=full:out_range=full,format=yuv420p[v]",
+    f"[v_rgb]format=yuv420p[v]",
     "-map", "[v]", "-map", "3:a",
     "-c:v", "libx264", "-preset", "slow", "-crf", "18",
-    "-color_range", "pc", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
+    "-pix_fmt", "yuv420p",
+    "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", "-color_range", "tv",
+    "-bsf:v", "h264_metadata=colour_primaries=1:transfer_characteristics=1:matrix_coefficients=1:video_full_range_flag=0",
     "-c:a", "aac", "-b:a", "320k", "-ar", "48000",
     "-shortest",
+    "-movflags", "+faststart",
     str(final_out)
 ], check=True)
 
