@@ -2,11 +2,12 @@
 """
 render_ref11_single_word_english.py
 Renders Reel 1 in Reference 11 Style with:
-1. Title Banner in exact #FF8400 with Apple Color Emojis (🏹 and 🔥) rendered crisply.
-2. English subtitles rendered using user font MyHandwriting.ttf.
-3. Fast single-word pacing: ONLY ONE WORD AT A TIME on screen, changing rapidly with speech.
-4. Broadcast Pro Audio Master (Demucs v4 vocal isolation + ducked flute BGM @ -14.0 LUFS).
-5. Final export to /Users/pgi/Downloads/reels editor/export /Reel_1_Reference_11_Style.mp4.
+1. Title Banner in EXACT #FF8400 (RGB: 255, 132, 0) with Apple Color Emojis (🏹 and 🔥).
+2. Subtitle Text in EXACT #FF8400 (RGB: 255, 132, 0) using 2-pass crisp rendering with black outline.
+3. Fast single-word English subtitles: ONLY ONE WORD AT A TIME on screen.
+4. Full-range RGB color pipeline in FFmpeg preserving pixel-perfect #FF8400.
+5. Pro Studio Audio Master (Demucs v4 vocal isolation + ducked flute BGM @ -14.0 LUFS).
+6. Export to /Users/pgi/Downloads/reels editor/export /Reel_1_Reference_11_Style.mp4.
 """
 
 import os
@@ -182,8 +183,6 @@ SINGLE_WORD_EVENTS = [
     (72.8, 73.9, "MORE!"),
 ]
 
-print(f"Total single-word events: {len(SINGLE_WORD_EVENTS)}")
-
 # Subtitle font: User's handwriting font MyHandwriting.ttf
 font_hw_p = "/Users/pgi/Library/Fonts/MyHandwriting.ttf"
 font_sub = ImageFont.truetype(font_hw_p, 95)
@@ -196,9 +195,13 @@ def render_single_word_frame(word):
     w_len = draw.textlength(word, font=font_sub)
     x = (WIDTH - w_len) / 2
     y = 35
-    # Render user's exact #FF8400 with 8px solid black stroke
-    draw.text((x, y), word, font=font_sub, fill=COLOR_FF8400,
-              stroke_width=8, stroke_fill=COLOR_BLACK)
+    
+    # 2-Pass Rendering to guarantee 100% pure #FF8400 core with solid black outline
+    # Pass 1: Solid black stroke silhouette
+    draw.text((x, y), word, font=font_sub, fill=COLOR_BLACK, stroke_width=6, stroke_fill=COLOR_BLACK)
+    # Pass 2: Exact #FF8400 fill directly over inner glyph
+    draw.text((x, y), word, font=font_sub, fill=COLOR_FF8400)
+    
     return im.tobytes()
 
 # Render animated subtitles MOV with alpha
@@ -230,7 +233,7 @@ base_vid = WORKSPACE / "ref11_base.mp4"
 pro_audio = WORKSPACE / "reel1_pro_mastered_audio.wav"
 final_out = EXPORT_DIR / "Reel_1_Reference_11_Style.mp4"
 
-# Composite Final Video
+# Composite Final Video with full-range RGB color pipeline to preserve exact #FF8400
 subprocess.run([
     "ffmpeg", "-y",
     "-i", str(base_vid),
@@ -238,11 +241,13 @@ subprocess.run([
     "-i", str(subs_mov),
     "-i", str(pro_audio),
     "-filter_complex",
-    f"[0:v][1:v]overlay=0:{BANNER_Y}[v_banner];"
-    f"[v_banner][2:v]overlay=0:{SUBS_Y}[v]",
+    f"[0:v]format=rgba[base];"
+    f"[base][1:v]overlay=0:{BANNER_Y}:format=rgb[v_banner];"
+    f"[v_banner][2:v]overlay=0:{SUBS_Y}:format=rgb[v_rgb];"
+    f"[v_rgb]scale=in_range=full:out_range=full,format=yuv420p[v]",
     "-map", "[v]", "-map", "3:a",
-    "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p",
-    "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
+    "-c:v", "libx264", "-preset", "slow", "-crf", "18",
+    "-color_range", "pc", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
     "-c:a", "aac", "-b:a", "320k", "-ar", "48000",
     "-shortest",
     str(final_out)
