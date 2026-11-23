@@ -159,7 +159,7 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 ## 11. Reference 4 Master Specification (Split-Screen Kinetic Highlight Banner Short) [LOCKED MASTER STANDARD]
 
 > [!IMPORTANT]
-> **PERMANENTLY LOCKED MASTER STANDARD**: Reference 4 style is officially locked. Whenever instructed to edit a raw video in **Reference 4** (`refeance 4` / `Reference 4 Style`), the editor must strictly execute the following parameters defined in `templates/template_ref4.json` and demonstrated in `render_ref4_splitscreen.py`. No deviations in framing, B-roll pacing, subtitle banner design, or outro card animation are permitted.
+> **PERMANENTLY LOCKED MASTER STANDARD**: Reference 4 style is officially locked. Whenever instructed to edit a raw video in **Reference 4** (`refeance 4` / `Reference 4 Style`), the editor must strictly execute the following parameters defined in `templates/template_ref4.json` and demonstrated in `render_ref4_final.py`. No deviations in framing, B-roll pacing, subtitle banner design, or audio balance are permitted.
 
 ### 1. Framing & B-Roll
 - **Main Layout (50/50 Vertical Split-Screen)**:
@@ -174,16 +174,17 @@ Before any reel is marked ready, `validate.py` automatically asserts:
   - Centered on a pure black 9:16 canvas (`1080×1920`) in **letterbox style** (`16:9` aspect ratio, `1080×608` centered at $Y = 656$).
   - Smooth transitions alternating between split-screen dialogue and visual cutaways.
 
-### 2. Subtitle Banner & Exact Placement
+### 2. Subtitle Banner & Exact Speech Synchronization
 - **Trigger Rule**: **Do NOT subtitle every word**. Display kinetic callout banners **ONLY** on key hooks, dates, percentages, and core takeaways.
-- **Anchor Position**: Full-width, semi-transparent dark horizontal strip (`rgba(10, 10, 10, 0.82)`) anchored across the **exact center seam** ($Y = 960$) between the two speakers ($Y = 830 \text{ to } 1090$, total height $260\text{px}$).
-- **Framing Borders**: Thin white horizontal top and bottom border lines (`2px`, `#FFFFFF`) framing the strip cleanly at $Y = 830$ and $Y = 1090$.
-- **Typography & Complex Text Shaping**:
-  - **Supporting Words / Numbers**: Medium white bold-italic sans-serif (`Arial Bold Italic`, size 42, `#FFFFFF`) positioned neatly at $Y = 865$.
-  - **Focal Keyword**: Large golden-yellow stylized Tamil font (`Tamil Sangam MN`, size 90, `#FFD700`) centered inside the strip at $Y = 945$ with a soft dark drop shadow and solid dark stroke outline (`#000000`), rendered via HarfBuzz COMPLEX text shaping (`libass`) for authentic Tamil ligature accuracy.
-- **Animation**:
-  - Border lines and banner appear crisply on the beat.
-  - Supporting and focal words pop in sequentially as spoken, holding through the thought, and cut cleanly out at the end of the phrase.
+- **Anchor Position & Expanded Scale**: Full-width, semi-transparent dark horizontal strip (`rgba(10, 10, 10, 0.88)`) anchored across the **exact center seam** ($Y = 960$) between the two speakers ($Y = 780 \text{ to } 1140$, total height $360\text{px}$).
+- **Framing Borders**: Crisp white horizontal top and bottom border lines (`3px`, `#FFFFFF`) framing the strip cleanly at $Y = 780$ and $Y = 1140$.
+- **Enlarged High-Impact Typography**:
+  - **Supporting Words / Numbers**: Extra large white bold-italic sans-serif (`Arial Bold Italic`, size **`56px`**, `#FFFFFF`) positioned neatly at $Y = 815$.
+  - **Focal Keyword**: Massive golden-yellow stylized Tamil font (`Tamil Sangam MN`, size **`115px`**, `#FFD700`) centered inside the strip at $Y = 915$ with a soft dark drop shadow (5px offset) and solid 4px dark stroke outline (`#000000`), rendered via HarfBuzz COMPLEX text shaping (`libass`) for authentic Tamil ligature accuracy.
+- **Exact Acoustic Speech Synchronization**:
+  - Banner cues must strictly match the acoustic speech onsets measured from the dialogue track (`precise_words.json`).
+  - Text must never appear before a speaker starts talking (e.g., Host begins speaking at `3.5s`, not at `0.8s`).
+  - Banners hold through the spoken thought and cut cleanly out when the phrase concludes.
 
 ### 3. Audio & Outro
 - **Audio Master & Mandatory Mild Music**:
@@ -191,12 +192,8 @@ Before any reel is marked ready, `validate.py` automatically asserts:
   - **Mandatory mild background music**: Soft emotional instrumental flute/strings background music bed (`ramayan_flute_bgm.mp3`) mixed at **`-23 dB`** under speech with smooth head and tail fades.
   - Strictly no whooshes, risers, or pop sound effects.
   - **Zero Watermarks**: No watermark in top-right corner or anywhere on the frame.
-- **Outro Card (Last 4.5 Seconds)**:
-  - During the final 4.5 seconds ($t = \text{total\_dur} - 4.5\text{s}$ to end), cut cleanly to a pure black canvas.
-  - **Centered White Channel Card**: Clean rounded card (`760×440px`, `#FFFFFF`) with speaker portrait circular avatar, channel title (`VIRAL PODCAST`, `Arial Bold` 36px), and subscriber count (`@tamilpodcast • 1.2M subscribers`, `Arial` 22px).
-  - **Animated Subscribe Button Click**:
-    - First 1.5s: Bright red `"SUBSCRIBE"` pill button (`#E62117`).
-    - After 1.5s: Transitions dynamically with a simulated click to dark gray `"🔔 SUBSCRIBED"` pill button (`#282828`).
-  - **Call to Action**: `"Watch full video on"` with official red YouTube play logo and white `"YouTube"` text centered below the card ($Y = 1150..1220$).
+- **Outro Rule (NO Subscribe Card)**:
+  - **Subscribe card is completely removed**.
+  - Dialogue and split-screen interaction play naturally through to the decisive spoken climax and natural conclusion ($t = 74.0\text{s}$).
 
 
