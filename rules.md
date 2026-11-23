@@ -138,8 +138,8 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 - **Font & Fill**: **Impact** (`/System/Library/Fonts/Supplemental/Impact.ttf`, size 64pt), **Pure White (`#FFFFFF`)** with crisp **`3.5px solid black outline` (`#000000`)** and multi-layer soft dark drop shadow (`rgba(0, 0, 0, 0.85)` offset `4px, 4px`, blur `6px`).
 - **Safe Zone & Face Protection Guarantee**:
   - **NEVER COVER THE SPEAKER'S FACE, EYES, NOSE, OR MOUTH**.
-  - All subtitles are strictly anchored at the **lower chest / torso** ($Y \approx 1130$ on 1080x1920 canvas, local $Y \approx 474$ inside the 608px video window).
-  - Since the speaker's face is positioned at $Y = 750 \text{ to } 950$, placing subtitles at $Y \approx 1130$ guarantees over 180px of clear headroom, completely clear of the face.
+  - All subtitles are strictly anchored at the **lower torso / bottom edge** ($Y \approx 1170$ on 1080x1920 canvas, local $Y \approx 514$ inside the 608px video window).
+  - Since the speaker's face is positioned at $Y = 750 \text{ to } 950$, placing subtitles at $Y \approx 1170$ guarantees over 220px of clear headroom, completely clear of the face and resting right above the bottom letterbox border.
 - **Pacing**: Rapid **1 to 3 words per burst** (`0.8s to 1.5s` per burst). Exactly ONE burst is displayed on screen at any single moment. When the next burst triggers, the previous burst vanishes cleanly.
 
 ---

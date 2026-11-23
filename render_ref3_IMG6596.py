@@ -18,7 +18,7 @@ Master Renderer for IMG_6596.MOV in Exact Reference 3 Style:
    - Color: Pure White (#FFFFFF)
    - Stroke: 3.5px solid black outline (#000000)
    - Drop Shadow: Multi-pass dark shadow (rgba(0, 0, 0, 220))
-   - Placement: Lower chest / torso (Y = 1130 on 1080x1920 canvas)
+   - Placement: Lower torso / bottom frame (Y = 1170 on 1080x1920 canvas)
    - SAFETY GUARANTEE: NEVER ON THE FACE (speaker face is at Y = 750 to 950)
    - Language: Tanglish with high-energy punctuation (e.g. COLLEGE STUDENT...!, PRIVATE LIMITED...!)
    - Pacing: Fast 1 to 3 words per burst (0.8s to 1.5s per burst)
@@ -51,7 +51,7 @@ HEIGHT = 1920
 VIDEO_W = 1080
 VIDEO_H = 608
 VIDEO_Y = 656
-SUBS_Y = 1070
+SUBS_Y = 1125
 SUBS_H = 160
 
 START_TIME = 176.0
@@ -97,7 +97,7 @@ CUTS = [
     (11.5, 7.0, "ganesh"),   # Ganesh: My name is Ganesh, College student, start company from scratch
     (18.5, 3.5, "punch"),    # Ganesh punch-in: Zero knowledge, zero idea!
     (22.0, 5.0, "ganesh"),   # Ganesh: Research founders on social media
-    (27.0, 5.5, "ganesh"),   # Ganesh: Local broker meet panni connect aanom
+    (27.0, 5.5, "ganesh"),   # Ganesh: Lokesh bro meet panni connect aanom
     (32.5, 4.5, "ganesh"),   # Ganesh: Mentoring kaga contact pannom
     (37.0, 4.5, "host"),     # Host: Super Ganesh!
     (41.5, 5.0, "host"),     # Host: Business started ah illa ideation stage ah?
@@ -198,7 +198,7 @@ SUBTITLE_CUES = [
     # Journey & Mentorship
     (22.0, 24.5, "FOUNDERS AH..."),
     (24.5, 27.0, "SOCIAL MEDIA LA RESEARCH!"),
-    (27.0, 29.8, "LOCAL BROKERS MEET PANNI..."),
+    (27.0, 29.8, "LOKESH BRO MEET PANNI..."),
     (29.8, 32.5, "CONNECT AANOM!"),
     (32.5, 34.8, "NEXT TIME..."),
     (34.8, 37.0, "MENTORING KAGA!"),
@@ -306,7 +306,8 @@ qa_cues = [
     (14.0, "qa_ref3_6596_ganesh_student_t14.0s.png"),
     (19.5, "qa_ref3_6596_punch_zeroknowledge_t19.5s.png"),
     (25.0, "qa_ref3_6596_ganesh_research_t25.0s.png"),
-    (30.5, "qa_ref3_6596_ganesh_broker_t30.5s.png"),
+    (28.5, "qa_ref3_6596_ganesh_lokeshbro_t28.5s.png"),
+    (30.5, "qa_ref3_6596_ganesh_connect_t30.5s.png"),
     (35.5, "qa_ref3_6596_ganesh_mentor_t35.5s.png"),
     (42.5, "qa_ref3_6596_host_ideation_t42.5s.png"),
     (48.0, "qa_ref3_6596_ganesh_registered_t48.0s.png"),
