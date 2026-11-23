@@ -73,10 +73,17 @@
   },
   "subtitles": {
     "style": "kinetic_dynamic_zones",
+    "language": "Tanglish",
+    "visual_lead_ms": 60,
     "font_family": "Anton",
     "font_path": "assets/fonts/Anton-Regular.ttf",
     "fallback_font_path": "assets/fonts/NotoSansTamil-Bold.ttf",
     "primary_color": "#FFE500",
+    "stroke": {
+      "enabled": true,
+      "width_px": 3,
+      "color": "rgba(0, 0, 0, 0.94)"
+    },
     "drop_shadow": {
       "enabled": true,
       "color": "rgba(0, 0, 0, 0.85)",

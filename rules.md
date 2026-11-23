@@ -131,15 +131,20 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 - **Watermark**: **REMOVED / DISABLED**. Strictly **no watermark** in the top-right corner or anywhere on the frame. Clean, distraction-free aesthetic.
 
 ### 3. Subtitle Style & Exact Kinetic Placement
-- **Font & Fill**: Bold condensed sans-serif (**Anton** / **Impact**), vibrant **Electric Yellow (`#FFE500` / RGB: 255, 229, 0)** with a soft dark drop shadow (`rgba(0,0,0,0.85)` offset `4px, 4px`, blur `6px`). The yellow text color ensures ultra-high contrast and readability against both the background wall and clothing.
+- **Language**: **TANGLISH (Romanized Tamil + English keywords matching spoken audio)**. Modeled directly on the Reference 3 video (`referance/referance 3/vidssave.com kisthenics podcast... 720P.mp4`):
+  - Spoken Tamil is transcribed phonetically in Roman script (e.g. `RAMAYANATHULA IRUNDHU...`, `NAAM ENNA...`, `HANUMAN-A PATHI MATTUM...`, `LATENT POTENTIAL IRUKKU!`, `SOLLAAMA KOLLAAMA POYITAANGA!`, `LOYALTY-E ILLA!`, `SELFLESS LOYALTY DHAAN!`, etc.).
+  - Spoken English phrases are rendered in English (`EVERYBODY IN THIS WORLD IS LIKE HANUMAN!`, `THAT'S THE MENTOR!`, `LOYALTY!`, `LIVE EXAMPLE!`).
+  - **Zero Content Mismatch**: Never fabricate mythical storylines or conceptual English summaries that do not match what the speaker is saying. Subtitles must strictly reflect the authentic spoken topic and real-life examples.
+- **Font & Fill**: Bold condensed sans-serif (**Anton** / **Impact**), vibrant **Electric Yellow (`#FFE500` / RGB: 255, 229, 0)** with a 3px dark stroke outline (`#000000`) and a multi-layer soft dark drop shadow (`rgba(0,0,0,0.85)` offset `4px, 4px`, blur `6px`). The yellow text color ensures ultra-high contrast and readability against both the background wall and clothing.
 - **Chunking & Pacing**: Rapid **1 to 3 words per beat**. Use `"..."` and `"!"` to control dramatic pacing and impact.
+- **Zero Latency / Visual Lead (-60ms to -80ms)**: Subtitle frames trigger with a 60ms to 80ms visual lead relative to the acoustic syllable onset. This compensates for human visual latency and ensures the viewer reads the text with crisp, instantaneous synchronization without any perceived lag or delay.
 - **Safe Zone Protection**: All text must reside strictly within the 16:9 video frame boundaries ($Y = 656 \text{ to } 1264$). **Never cover the speaker's face, eyes, or mouth**.
 - **Dynamic Placement Zones (Rotated per phrase)**:
-  - **Zone A (Left)**: Left of the speaker's head/shoulder ($X = 70 \text{ to } 390$, left-aligned, vertical center $Y \approx 820$).
-  - **Zone B (Right)**: Right of the speaker's head/shoulder ($X = 690 \text{ to } 1010$, right-aligned, vertical center $Y \approx 820$).
-  - **Zone C (Bottom-Center)**: Lower third of the video frame, directly above the bottom gradient ($X = 540$, center-aligned, vertical center $Y \approx 1180$).
+  - **Zone A (Left)**: Left of the speaker's head/shoulder ($X = 75 \text{ to } 390$, left-aligned, vertical center $Y \approx 785$).
+  - **Zone B (Right)**: Right of the speaker's head/shoulder ($X = 690 \text{ to } 1005$, right-aligned, vertical center $Y \approx 785$).
+  - **Zone C (Bottom-Center)**: Lower third of the video frame, directly above the bottom gradient ($X = 540$, center-aligned, vertical center $Y \approx 1140$).
 - **Hierarchy & Kinetic Animation**:
   - **Pop-in Sharp**: Words pop onto the screen sharply on the exact spoken beat. Zero slow fades or blurry zooms.
-  - **Scale Hierarchy**: Emphasized/hook words scale **`1.3x to 1.5x`** larger than supporting words.
-  - **Cluster Stacking & Reset**: Stack 2 to 3 sequential phrases across different zones (e.g. Zone A $\rightarrow$ Zone B $\rightarrow$ Zone C) to form a brief visual kinetic cluster, then **clear all text cleanly** at the start of the next sentence.
+  - **Scale Hierarchy**: Emphasized/hook words scale **`1.4x`** larger than supporting words.
+  - **Cluster Stacking & Reset**: Stack 2 to 3 sequential phrases across different zones (e.g. Zone A $\rightarrow$ Zone B $\rightarrow$ Zone C) to form a brief visual kinetic cluster, then **clear all text cleanly** at the start of the next sentence. When a zone receives a new phrase within the same cluster, it cleanly updates that zone.
 
