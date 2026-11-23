@@ -1,0 +1,124 @@
+{
+  "template_id": "template_ref3",
+  "name": "Reference 3 - Minimalist Motivational Kinetic Short",
+  "version": "1.0.0",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "background_color": "#000000"
+  },
+  "camera_and_framing": {
+    "mode": "letterbox_middle_third",
+    "video_width": 1080,
+    "video_height": 608,
+    "x": 0,
+    "y": 656,
+    "aspect_ratio": "16:9",
+    "motion": "static_only",
+    "allow_jump_cuts": false,
+    "allow_zooms": false,
+    "allow_broll": false,
+    "gradient_fade_bottom": {
+      "enabled": true,
+      "height_px": 90,
+      "y_start": 1174,
+      "y_end": 1264,
+      "fade_to_color": "#000000"
+    }
+  },
+  "color_grade": {
+    "style": "warm_desaturated_cinematic",
+    "contrast": 1.12,
+    "saturation": 0.85,
+    "shadow_depth": "deep_blacks",
+    "temperature": "warm",
+    "ffmpeg_eq_filter": "eq=contrast=1.12:saturation=0.85:brightness=-0.02,colorbalance=rs=0.04:gs=0.02:bs=-0.04"
+  },
+  "audio_mastering": {
+    "voice_target_lufs": -14.0,
+    "voice_true_peak_dbtp": -1.0,
+    "bgm_style": "low_volume_emotional_instrumental",
+    "bgm_ducking_level_db": -22.0,
+    "sfx_enabled": false,
+    "remove_noise": true
+  },
+  "watermark": {
+    "enabled": true,
+    "text": "AK",
+    "position": "top_right_video_frame",
+    "x": 1030,
+    "y": 680,
+    "align": "right",
+    "font_family": "Anton",
+    "font_path": "assets/fonts/Anton-Regular.ttf",
+    "font_size": 26,
+    "fill_color": "rgba(255, 255, 255, 0.40)",
+    "shadow": true
+  },
+  "subtitles": {
+    "style": "kinetic_dynamic_zones",
+    "font_family": "Anton",
+    "font_path": "assets/fonts/Anton-Regular.ttf",
+    "fallback_font_path": "assets/fonts/NotoSansTamil-Bold.ttf",
+    "primary_color": "#FFFFFF",
+    "drop_shadow": {
+      "enabled": true,
+      "color": "rgba(0, 0, 0, 0.85)",
+      "offset_x": 4,
+      "offset_y": 4,
+      "blur_radius": 6
+    },
+    "base_font_size": 52,
+    "emphasis_scale": 1.4,
+    "chunking": {
+      "min_words": 1,
+      "max_words": 3,
+      "pacing_punctuation": ["...", "!"]
+    },
+    "safe_zone": {
+      "video_top_y": 656,
+      "video_bottom_y": 1264,
+      "speaker_face_protection_box": {
+        "x_min": 380,
+        "x_max": 700,
+        "y_min": 670,
+        "y_max": 1000
+      }
+    },
+    "placement_zones": {
+      "zone_a": {
+        "name": "Left Shoulder",
+        "description": "Left of speaker head/shoulder",
+        "x_anchor": 70,
+        "y_center": 820,
+        "max_width": 320,
+        "align": "left"
+      },
+      "zone_b": {
+        "name": "Right Shoulder",
+        "description": "Right of speaker head/shoulder",
+        "x_anchor": 1010,
+        "y_center": 820,
+        "max_width": 320,
+        "align": "right"
+      },
+      "zone_c": {
+        "name": "Bottom-Center",
+        "description": "Lower third of video frame, above gradient",
+        "x_anchor": 540,
+        "y_center": 1180,
+        "max_width": 960,
+        "align": "center"
+      }
+    },
+    "animation_and_hierarchy": {
+      "pop_sharp": true,
+      "allow_slow_fades": false,
+      "sequential_clustering": {
+        "max_stacked_phrases": 3,
+        "clear_trigger": "sentence_start"
+      }
+    }
+  }
+}

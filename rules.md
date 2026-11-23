@@ -104,3 +104,34 @@ Before any reel is marked ready, `validate.py` automatically asserts:
    - Background music loudness is between $-25\text{ dB}$ and $-20\text{ dB}$.
    - Voice loudness is $-14.0 \pm 0.5\text{ LUFS}$.
 5. **Sync Tolerance**: Audio-subtitle alignment drift $< 100\text{ms}$.
+
+---
+
+## 10. Reference 3 Master Specification (Minimalist Motivational Kinetic Short)
+
+> **Trigger**: Whenever instructed to edit a raw video in **Reference 3** (`refeance 3` / `Reference 3 Style`), the editor must strictly execute the following parameters defined in `templates/template_ref3.json` and measured from `references/ref3/reference_3_source.mp4`.
+
+### 1. Canvas & Camera
+- **Canvas**: Pure black (`#000000`) 9:16 vertical canvas (`1080×1920 @ 30fps`).
+- **Framing**: Center the 16:9 clip in the middle third ($Y = 656 \text{ to } 1264$, height $608\text{px}$) letterbox style.
+- **Gradient Fade**: Soft black gradient fade on the bottom edge of the video frame ($Y = 1174 \text{ to } 1264$, $90\text{px}$ fade height) dissolving the speaker's torso into the pure black lower canvas.
+- **Motion Protocol**: Static shot only. Absolutely **no jump cuts, zooms, punch-ins, or B-roll**.
+
+### 2. Color & Audio
+- **Cinematic Color Grade**: Warm, slightly desaturated cinematic grade with deep rich blacks (`eq=contrast=1.12:saturation=0.85:brightness=-0.02,colorbalance=rs=0.04:gs=0.02:bs=-0.04`).
+- **Audio Master**: Clean, crisp, prominent dialogue normalized to broadcast standard **`-14.0 LUFS`** / **`-1.0 dBTP`**. Ambient, low-volume emotional instrumental background music ducked to **`-22 dB`**. Strictly **no whooshes, risers, or pop sound effects**.
+- **Watermark**: Low-opacity logo or initials in the top-right corner of the 16:9 video frame ($X = 1030, Y = 680$, opacity $40\%$, soft shadow).
+
+### 3. Subtitle Style & Exact Kinetic Placement
+- **Font & Fill**: Bold condensed sans-serif (**Anton** / **Impact**), pure crisp white (`#FFFFFF`) with a soft dark drop shadow (`rgba(0,0,0,0.85)` offset `4px, 4px`, blur `6px`).
+- **Chunking & Pacing**: Rapid **1 to 3 words per beat**. Use `"..."` and `"!"` to control dramatic pacing and impact.
+- **Safe Zone Protection**: All text must reside strictly within the 16:9 video frame boundaries ($Y = 656 \text{ to } 1264$). **Never cover the speaker's face, eyes, or mouth** (Protected Face Exclusion Zone: $X = [380..700], Y = [670..1000]$).
+- **Dynamic Placement Zones (Rotated per phrase)**:
+  - **Zone A (Left)**: Left of the speaker's head/shoulder ($X = 70 \text{ to } 390$, left-aligned, vertical center $Y \approx 820$).
+  - **Zone B (Right)**: Right of the speaker's head/shoulder ($X = 690 \text{ to } 1010$, right-aligned, vertical center $Y \approx 820$).
+  - **Zone C (Bottom-Center)**: Lower third of the video frame, directly above the bottom gradient ($X = 540$, center-aligned, vertical center $Y \approx 1180$).
+- **Hierarchy & Kinetic Animation**:
+  - **Pop-in Sharp**: Words pop onto the screen sharply on the exact spoken beat. Zero slow fades or blurry zooms.
+  - **Scale Hierarchy**: Emphasized/hook words scale **`1.3x to 1.5x`** larger than supporting words.
+  - **Cluster Stacking & Reset**: Stack 2 to 3 sequential phrases across different zones (e.g. Zone A $\rightarrow$ Zone B $\rightarrow$ Zone C) to form a brief visual kinetic cluster, then **clear all text cleanly** at the start of the next sentence.
+
