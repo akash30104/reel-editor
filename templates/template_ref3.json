@@ -91,11 +91,13 @@
       "offset_y": 4,
       "blur_radius": 6
     },
-    "display_mode": "single_sentence_at_a_time",
-    "max_sentences_on_screen": 1,
+    "display_mode": "random_spaces_kinetic",
+    "max_bursts_on_screen": 1,
     "allow_phrase_stacking": false,
-    "base_font_size": 62,
-    "hero_font_size": 72,
+    "pacing": "fast_1_to_3_words",
+    "visual_lead_ms": 50,
+    "base_font_size": 54,
+    "hero_font_size": 68,
     "safe_zone": {
       "video_top_y": 656,
       "video_bottom_y": 1264,
@@ -106,17 +108,19 @@
         "y_max": 1000
       }
     },
-    "placement": {
-      "name": "Lower Third Center",
-      "x_center": 540,
-      "y_center": 1135,
-      "max_width": 960,
-      "align": "center"
+    "safe_spaces": {
+      "L_MID": {"x": 220, "y": 810, "max_w": 340, "align": "center"},
+      "R_MID": {"x": 860, "y": 810, "max_w": 340, "align": "center"},
+      "B_CTR": {"x": 540, "y": 1140, "max_w": 920, "align": "center"},
+      "L_TOP": {"x": 220, "y": 740, "max_w": 340, "align": "center"},
+      "R_TOP": {"x": 860, "y": 740, "max_w": 340, "align": "center"},
+      "L_LOW": {"x": 250, "y": 1050, "max_w": 380, "align": "center"},
+      "R_LOW": {"x": 830, "y": 1050, "max_w": 380, "align": "center"}
     },
     "animation_and_hierarchy": {
       "pop_sharp": true,
       "allow_slow_fades": false,
-      "single_sentence_transition": "crisp_cut"
+      "burst_transition": "crisp_cut"
     }
   }
 }

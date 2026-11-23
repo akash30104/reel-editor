@@ -139,12 +139,17 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 - **Chunking & Pacing**: Rapid **1 to 3 words per beat**. Use `"..."` and `"!"` to control dramatic pacing and impact.
 - **Zero Latency / Visual Lead (-60ms to -80ms)**: Subtitle frames trigger with a 60ms to 80ms visual lead relative to the acoustic syllable onset. This compensates for human visual latency and ensures the viewer reads the text with crisp, instantaneous synchronization without any perceived lag or delay.
 - **Safe Zone Protection**: All text must reside strictly within the 16:9 video frame boundaries ($Y = 656 \text{ to } 1264$). **Never cover the speaker's face, eyes, or mouth**.
-- **Strictly 1 Sentence at a Time Rule**:
-  - **Only 1 sentence on screen at a time**: Exactly one active sentence is displayed on screen at any single moment.
-  - **Zero visual clutter / No multi-zone stacking**: Never display multiple phrases or multiple zones simultaneously. Left/right/bottom simultaneous stacking is strictly prohibited.
-  - **Screen Placement**: Lower Third Center ($X = 540$, vertical center $Y \approx 1135$), safely inside the 16:9 video frame boundaries and directly above the bottom gradient fade, leaving the speaker's face and eyes completely unobstructed.
-  - **Clean Transitions**: When a sentence finishes and the next sentence begins, the previous sentence clears completely with a crisp cut.
-- **Hierarchy & Kinetic Animation**:
-  - **Pop-in Sharp**: Words pop onto the screen sharply on the exact spoken beat with `-60ms` visual lead time. Zero slow fades or blurry zooms.
-  - **Scale Hierarchy**: Emphasized/hook sentences scale **`1.15x to 1.2x`** larger for dynamic impact.
+- **Dynamic Random Spaces (Reference 3 Kinetic Specification)**:
+  - **Random Safe Spaces**: Subtitles dynamically pop in across safe spaces around the speaker inside the 16:9 frame:
+    * `L_MID`: Left of head/shoulder ($X \approx 220, Y \approx 810$).
+    * `R_MID`: Right of head/shoulder ($X \approx 860, Y \approx 810$).
+    * `B_CTR`: Bottom Center lower-third ($X = 540, Y \approx 1140$, above bottom gradient).
+    * `L_TOP`: Upper Left ($X \approx 220, Y \approx 740$).
+    * `R_TOP`: Upper Right ($X \approx 860, Y \approx 740$).
+    * `L_LOW`: Lower Left ($X \approx 250, Y \approx 1050$).
+    * `R_LOW`: Lower Right ($X \approx 830, Y \approx 1050$).
+  - **Strictly 1 Burst on Screen at a Time**: Exactly ONE burst is displayed on screen at any single moment. Never stack multiple phrases across different spaces at the same time. When the next burst triggers, the previous burst vanishes cleanly.
+  - **Fast Pacing**: Rapid 1 to 3 words per burst (`0.8s to 1.6s` per burst) for high-energy kinetic rhythm.
+  - **Razor-Sharp Acoustic Sync**: Subtitle triggers feature a `-50ms` visual lead time aligned directly to spoken syllable onsets. Words pop in sharply on beat with zero perceived lag.
+  - **Hierarchy**: Emphasized/hook words scale dynamically (`1.2x to 1.35x`) larger for punchy emphasis.
 

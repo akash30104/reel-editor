@@ -12,12 +12,19 @@ Renders Reel 1 in strict accordance with Reference 3 Master Specification:
    - Warm, slightly desaturated cinematic grade with deep blacks.
    - Clean prominent dialogue (-14.0 LUFS) over mandatory mild emotional instrumental BGM (-23 dB). No whooshes/pop SFX.
    - Zero watermarks (clean 100% distraction-free frame).
-3. SUBTITLE STYLE - STRICTLY 1 SENTENCE AT A TIME:
-   - "Only 1 sentence in the screen at the time" (Zero stacking, zero multiple zones simultaneously).
-   - Position: Lower Third Center (X=540, Y=1135), safely inside 16:9 frame, above gradient fade, never covering face.
-   - Language: TANGLISH (Phonetic Romanized Tamil + English words matching spoken audio).
+3. SUBTITLE STYLE - RANDOM SPACES LIKE REFERENCE 3 (ONLY 1 ON SCREEN AT A TIME, FAST & PERFECT SYNC):
+   - Fast, punchy 1-3 word bursts (0.8s - 1.6s each).
+   - Subtitles jump dynamically across random safe spaces around speaker:
+     * L_MID (Left of head/shoulder)
+     * R_MID (Right of head/shoulder)
+     * B_CTR (Bottom Center lower third)
+     * L_TOP (Upper Left)
+     * R_TOP (Upper Right)
+     * L_LOW (Lower Left)
+     * R_LOW (Lower Right)
+   - STRICTLY ONLY 1 BURST ON SCREEN AT ANY MOMENT (Zero stacking, previous text instantly disappears).
+   - -50ms visual lead for razor-sharp on-beat sync.
    - Font: Anton bold condensed, electric yellow (#FFE500), 3.5px solid dark stroke outline + multi-layer soft dark drop shadow.
-   - Timing: -60ms visual lead time for crisp, instantaneous synchronization.
 4. EXPORT:
    - /Users/pgi/Downloads/reels editor/export /Reel_1_Reference_3_Style.mp4
 """
@@ -99,83 +106,131 @@ if not grad_overlay_png.exists():
 pro_dialogue = WORKSPACE / "reel1_pro_mastered_audio.wav"
 bgm_music = ASSETS_DIR / "audio" / "ramayan_flute_bgm.mp3"
 
-# 4. Single-Sentence Subtitle Engine (STRICTLY 1 SENTENCE AT A TIME)
+# 4. Dynamic Random Spaces Subtitle Engine (Reference 3 Kinetic Specification)
 font_p = str(ASSETS_DIR / "fonts" / "Anton-Regular.ttf")
-font_std = ImageFont.truetype(font_p, 62)
-font_hero = ImageFont.truetype(font_p, 72)
 
-# Precise Non-Overlapping Single Sentence Timeline
-# (start_sec, end_sec, text, is_hero_emphasis)
-# ONLY ONE sentence is active at any point in time!
-SINGLE_SENTENCES = [
-    # Host (0.0s - 8.6s)
-    (2.0, 4.3, "RAMAYANATHULA IRUNDHU...", False),
-    (4.3, 8.2, "NAAM ENNA VAAZHKAI PAADAM\nEDUTHUKKANUM?", True),
+# Safe Placement Spaces around the speaker (All safely inside 16:9 frame Y=656..1264, never covering face X=400..680, Y=760..980)
+SPACES = {
+    "L_MID": {"x": 220, "y": 810, "max_w": 340, "align": "center"},
+    "R_MID": {"x": 860, "y": 810, "max_w": 340, "align": "center"},
+    "B_CTR": {"x": 540, "y": 1140, "max_w": 920, "align": "center"},
+    "L_TOP": {"x": 220, "y": 740, "max_w": 340, "align": "center"},
+    "R_TOP": {"x": 860, "y": 740, "max_w": 340, "align": "center"},
+    "L_LOW": {"x": 250, "y": 1050, "max_w": 380, "align": "center"},
+    "R_LOW": {"x": 830, "y": 1050, "max_w": 380, "align": "center"},
+}
 
-    # Guest (8.6s - 74.0s)
-    (8.5, 10.4, "NAAN VANDHU...", False),
-    (10.4, 12.8, "HANUMAN-A PATHI MATTUM\nPESA NENAIKKIREN!", True),
-    (12.8, 15.4, "EVERYBODY IN THIS WORLD\nIS LIKE HANUMAN!", True),
+# Fast Kinetic Bursts Timeline (38 rapid bursts, 1.0s to 1.6s each)
+# Each item: (start_sec, end_sec, space_key, text, is_hero_scale)
+# Non-overlapping: Exactly ONE burst active at any single moment!
+FAST_KINETIC_BURSTS = [
+    # 1. Host Opening Hook (0.0s - 8.6s)
+    (3.40, 4.20, "L_MID", "RAMAYANATHULA...", False),
+    (4.20, 4.80, "R_MID", "NAAM ENNA...", False),
+    (4.80, 6.30, "B_CTR", "VAAZHKAI PAADAM\nEDUTHUKKANUM?", True),
+    (6.40, 7.30, "L_TOP", "ADHU NEENGA...", False),
+    (7.30, 8.60, "R_TOP", "EDUKKURADHA PORUTHU!", False),
 
-    (15.7, 17.5, "NAMAKKULLA...", False),
-    (17.5, 19.1, "LATENT POTENTIAL IRUKKU!", True),
-    (19.1, 22.3, "SOMEONE HAS TO SHOW IT...\nTHAT'S THE MENTOR!", True),
+    # 2. Guest Monologue Hook - Hanuman (8.6s - 15.4s)
+    (8.70, 10.50, "L_MID", "NAAN VANDHU...", False),
+    (10.50, 11.80, "R_MID", "HANUMAN-A PATHI...", True),
+    (11.80, 13.00, "B_CTR", "MATTUM PESA NENAIKKIREN!", True),
+    (13.10, 14.10, "L_LOW", "EVERYBODY IN THIS WORLD...", False),
+    (14.10, 15.40, "R_LOW", "IS LIKE HANUMAN!", True),
 
-    (22.4, 24.1, "MENTOR IRUNDHAA JAIKKALAAM!", False),
-    (24.1, 26.0, "RENDAAVADHU... LOYALTY!", True),
+    # 3. Latent Potential & Mentor (15.5s - 20.6s)
+    (15.80, 16.80, "L_MID", "NAMAKKULLA...", False),
+    (16.80, 17.80, "R_MID", "LATENT POTENTIAL IRUKKU!", True),
+    (17.80, 19.10, "B_CTR", "SOMEONE HAS TO SHOW IT...", False),
+    (19.10, 20.60, "R_TOP", "THAT'S THE MENTOR!", True),
 
-    (26.2, 28.4, "INNAIKKU VANDHAVAR...", False),
-    (28.4, 30.2, "ROMBA VARUTHAPPATTAAR!", True),
-    (30.3, 33.0, "AVAR STAFF 2 YEARS\nVELA PAATHUTTU...", False),
-    (33.0, 36.0, "SOLLAAMA KOLLAAMA\nPOYITAANGA!", True),
+    # 4. Winning with Mentor & Loyalty (20.7s - 26.0s)
+    (20.80, 22.40, "L_TOP", "MENTOR IRUNDHAA...", False),
+    (22.40, 23.60, "R_MID", "JAIKKALAAM!", True),
+    (23.60, 24.60, "L_MID", "RENDAAVADHU...", False),
+    (24.60, 26.00, "B_CTR", "LOYALTY!", True),
 
-    (36.3, 38.0, "AVAR SOLLUMPODHU...", False),
-    (38.0, 40.0, "ROMBA UPSET AAYITAARU!", True),
-    (40.1, 42.2, "LOYAL-AA IRUNDHURUNDHAA...", False),
-    (42.2, 44.0, "AVANGA KOODAVE\nIRUNDHURUPPAANGA!", True),
+    # 5. Live Example - Friend's Staff Left After 2 Years (26.1s - 36.0s)
+    (26.20, 28.20, "L_MID", "INNAIKKU VANDHA...", False),
+    (28.20, 30.20, "R_MID", "ORUTHAR ROMBA UPSET!", True),
+    (30.40, 31.80, "L_LOW", "AVAR STAFF...", False),
+    (31.80, 33.40, "R_LOW", "2 YEARS VELA PAATHUTTU...", False),
+    (33.40, 36.00, "B_CTR", "SOLLAAMA POYITAANGA!", True),
 
-    (44.2, 46.8, "INNAIKKU PALA PERKITTA...", False),
-    (46.8, 48.8, "LOYALTY-E ILLA!", True),
-    (48.8, 55.4, "IDHU ORU LIVE EXAMPLE!", True),
+    # 6. If they had Loyalty (36.2s - 44.0s)
+    (36.40, 38.00, "L_TOP", "AVAR SOLLUMPODHU...", False),
+    (38.00, 40.00, "R_TOP", "ROMBA UPSET AAYITAARU!", True),
+    (40.20, 42.00, "L_MID", "LOYAL-AA IRUNDHURUNDHAA...", False),
+    (42.00, 44.00, "B_CTR", "AVANGA IRUNDHURUPPAANGA!", True),
 
-    (55.8, 57.8, "AVAR SOLLUMPODHU...", False),
-    (57.8, 60.4, "ROMBA KASHTAMAA POCHU...", False),
-    (60.4, 63.6, "HANUMAN MAADHIRI\nLOYAL PEOPLE ENGEY?", True),
+    # 7. People Lack Loyalty Today (44.1s - 55.4s)
+    (44.20, 46.80, "L_MID", "INNAIKKU PALA PERKITTA...", False),
+    (46.80, 48.80, "R_MID", "LOYALTY-E ILLA!", True),
+    (48.80, 51.50, "L_LOW", "IDHU ORU...", False),
+    (51.50, 55.40, "B_CTR", "LIVE EXAMPLE!", True),
 
-    (63.8, 65.8, "HANUMAN KAATTIYA...", False),
-    (65.8, 68.6, "SELFLESS LOYALTY DHAAN!", True),
-    (68.6, 73.8, "LIFE-ODA GREATEST LESSON!", True)
+    # 8. Hanuman's Selfless Loyalty vs Today (55.6s - 63.6s)
+    (55.80, 57.80, "L_TOP", "AVAR SOLLUMPODHU...", False),
+    (57.80, 60.20, "R_MID", "ROMBA KASHTAMAA POCHU...", False),
+    (60.20, 62.00, "L_MID", "HANUMAN MAADHIRI...", False),
+    (62.00, 63.60, "B_CTR", "LOYAL PEOPLE ENGEY?", True),
+
+    # 9. Climax - Life's Greatest Lesson (63.7s - 73.8s)
+    (63.80, 65.80, "L_MID", "HANUMAN KAATTIYA...", False),
+    (65.80, 68.60, "R_MID", "SELFLESS LOYALTY DHAAN!", True),
+    (68.60, 73.80, "B_CTR", "LIFE-ODA GREATEST LESSON!", True)
 ]
 
-def render_single_sentence_frame(sentence_tuple):
+def get_fitted_font_and_text(draw, text, space_key, is_hero):
+    s = SPACES[space_key]
+    max_w = s["max_w"]
+    base_sz = 68 if "CTR" in space_key else (58 if is_hero else 50)
+
+    # Word wrapping for lateral spaces if needed
+    words = text.split()
+    if len(words) > 2 and "CTR" not in space_key and "\n" not in text:
+        mid = len(words) // 2
+        text = " ".join(words[:mid]) + "\n" + " ".join(words[mid:])
+
+    sz = base_sz
+    while sz >= 32:
+        f = ImageFont.truetype(font_p, sz)
+        bbox = draw.multiline_textbbox((0, 0), text, font=f, align="center")
+        w = bbox[2] - bbox[0]
+        if w <= max_w:
+            return f, text
+        sz -= 2
+    return ImageFont.truetype(font_p, 32), text
+
+def render_kinetic_burst_frame(burst_tuple):
     """
-    Renders exactly ONE sentence at Lower Third Center (X=540, Y=1135).
-    Safely within 16:9 frame, above gradient fade, never covering speaker's face.
+    Renders strictly ONE burst at its assigned random space.
+    Previous burst is cleared completely for zero visual clutter.
     """
     im = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
-    if not sentence_tuple:
+    if not burst_tuple:
         return im.tobytes()
 
-    text, is_hero = sentence_tuple
+    space_key, text, is_hero = burst_tuple
+    s = SPACES[space_key]
     draw = ImageDraw.Draw(im)
-    f = font_hero if is_hero else font_std
 
-    # Measure text bounding box
-    bbox = draw.multiline_textbbox((0, 0), text, font=f, align="center")
+    f, fitted_text = get_fitted_font_and_text(draw, text, space_key, is_hero)
+
+    bbox = draw.multiline_textbbox((0, 0), fitted_text, font=f, align="center")
     text_w = bbox[2] - bbox[0]
     text_h = bbox[3] - bbox[1]
 
-    # Center horizontally at X=540, center vertically at Y=1135
-    draw_x = 540 - text_w // 2
-    draw_y = 1135 - text_h // 2
+    draw_x = s["x"] - text_w // 2
+    draw_y = s["y"] - text_h // 2
 
-    # 1. Multi-layer soft dark drop shadow
+    # 1. Multi-layer soft dark drop shadow for maximum 3D punch
     for ox, oy, alpha in [(6, 6, 220), (4, 4, 180), (2, 2, 140)]:
-        draw.multiline_text((draw_x + ox, draw_y + oy), text, font=f, fill=(0, 0, 0, alpha), align="center")
+        draw.multiline_text((draw_x + ox, draw_y + oy), fitted_text, font=f, fill=(0, 0, 0, alpha), align="center")
 
     # 2. Electric Yellow with 3.5px solid dark stroke outline
     draw.multiline_text(
-        (draw_x, draw_y), text, font=f,
+        (draw_x, draw_y), fitted_text, font=f,
         fill=(255, 229, 0, 255),
         stroke_width=3,
         stroke_fill=(0, 0, 0, 240),
@@ -186,36 +241,36 @@ def render_single_sentence_frame(sentence_tuple):
 
 # Render animated subtitles MOV with alpha
 subs_mov = WORKSPACE / "ref3_kinetic_subs.mov"
-print("🎬 Rendering dynamic 1-sentence-at-a-time subtitle stream...")
+print("🎬 Rendering dynamic random-space kinetic subtitle stream...")
 proc = subprocess.Popen([
     "ffmpeg", "-y", "-f", "rawvideo", "-pix_fmt", "rgba", "-s", f"{WIDTH}x{HEIGHT}",
     "-framerate", "30", "-i", "-", "-c:v", "png", "-pix_fmt", "rgba", str(subs_mov)
 ], stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 total_frames = int(round(TOTAL_DUR * 30))
-blank_bytes = render_single_sentence_frame(None)
+blank_bytes = render_kinetic_burst_frame(None)
 
 for f_idx in range(total_frames):
     t_sec = f_idx / 30.0
-    active_sentence = None
+    active_burst = None
 
-    # Find the single active sentence at timestamp t_sec
-    for st, et, txt, is_hero in SINGLE_SENTENCES:
+    # Find the single active burst at timestamp t_sec
+    for st, et, space_key, txt, is_hero in FAST_KINETIC_BURSTS:
         if st <= t_sec < et:
-            active_sentence = (txt, is_hero)
+            active_burst = (space_key, txt, is_hero)
             break
 
-    raw_frame = render_single_sentence_frame(active_sentence) if active_sentence else blank_bytes
+    raw_frame = render_kinetic_burst_frame(active_burst) if active_burst else blank_bytes
     proc.stdin.write(raw_frame)
 
 proc.stdin.close()
 proc.wait()
-print(f"✅ 1-sentence subtitle animated video rendered: {subs_mov}")
+print(f"✅ Random-space kinetic subtitles video rendered: {subs_mov}")
 
 # 5. Final Master Assembly:
 # Base 16:9 centered in 1080x1920 (pad=1080:1920:0:656:color=black)
 # Overlay bottom gradient fade (ref3_gradient_overlay.png)
-# Overlay 1-sentence subtitles (ref3_kinetic_subs.mov)
+# Overlay random-space kinetic subtitles (ref3_kinetic_subs.mov)
 # Mux Pro Audio Master (-14 LUFS) with mild instrumental BGM (-23 dB)
 final_out = EXPORT_DIR / "Reel_1_Reference_3_Style.mp4"
 print(f"🎬 Assembling final Reel 1 in Reference 3 Style to: {final_out}")
@@ -249,15 +304,15 @@ subprocess.run([
 
 print(f"🎉 FINAL REEL 1 IN REFERENCE 3 STYLE EXPORTED: {final_out}")
 
-# Extract Verification QA Frames
-subprocess.run(["ffmpeg", "-y", "-ss", "5.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t5.5s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "11.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t11.5s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "14.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t14.0s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "18.2", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t18.2s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "25.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t25.0s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "34.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t34.5s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "43.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t43.0s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "50.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t50.0s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "62.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t62.0s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "70.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t70.5s.png")], check=True)
+# Extract Verification QA Frames for each random space
+subprocess.run(["ffmpeg", "-y", "-ss", "3.8", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_space_t3.8s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "5.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_space_t5.5s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "11.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_space_t11.0s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "14.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_space_t14.5s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "19.8", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_space_t19.8s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "25.2", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_space_t25.2s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "34.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_space_t34.5s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "41.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_space_t41.0s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "47.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_space_t47.5s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "70.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_space_t70.5s.png")], check=True)
 print("✅ QA verification frames extracted successfully!")
