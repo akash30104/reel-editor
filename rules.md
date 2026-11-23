@@ -164,22 +164,23 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 ### 1. Framing & B-Roll
 - **Main Layout (50/50 Vertical Split-Screen)**:
   - Exact 50/50 vertical split-screen on a `1080×1920 @ 30fps` canvas.
-  - **Host Top Half**: Crop and center the host camera to `1080×960` occupying $Y = 0 \text{ to } 960$ (`crop=2160:1920:1530:120,scale=1080:960`).
-  - **Guest Bottom Half**: Crop and center the guest camera to `1080×960` occupying $Y = 960 \text{ to } 1920$ (`crop=2160:1920:190:120,scale=1080:960`).
-  - **Framing**: Static framing only.
+  - **Cinematic Medium Close-Up (MCU) Framing**: Both speakers fill their respective halves with tight, intimate framing (head near top, shoulders/chest filling the frame, no excessive empty wall space):
+    - **Host (Woman) Top Half**: Crop `1012×900` from $(2094, 680)$, scaled to `1080×960` occupying $Y = 0 \text{ to } 960$.
+    - **Guest (Man) Bottom Half**: Crop `1012×900` from $(494, 830)$, scaled to `1080×960` occupying $Y = 960 \text{ to } 1920$.
+    - **Center Seam**: Clean 2px dark seam separating the two halves at $Y = 960$.
   - **Color Grade**: Warm natural studio grade (`eq=contrast=1.08:saturation=0.92:brightness=-0.01,colorbalance=rs=0.03:gs=0.01:bs=-0.03`).
 - **Cinematic B-Roll Cutaways**:
   - Every **3–6 seconds**, cut to relevant topic footage or movie clips.
   - Centered on a pure black 9:16 canvas (`1080×1920`) in **letterbox style** (`16:9` aspect ratio, `1080×608` centered at $Y = 656$).
-  - Smooth transitions alternating between split-screen dialogue and immersive visual cutaways.
+  - Smooth transitions alternating between split-screen dialogue and visual cutaways.
 
 ### 2. Subtitle Banner & Exact Placement
 - **Trigger Rule**: **Do NOT subtitle every word**. Display kinetic callout banners **ONLY** on key hooks, dates, percentages, and core takeaways.
-- **Anchor Position**: Full-width, semi-transparent dark horizontal strip (`rgba(12, 12, 12, 0.84)`) anchored across the **exact center seam** ($Y = 960$) between the two speakers ($Y = 885 \text{ to } 1035$, total height $150\text{px}$).
-- **Framing Borders**: Thin white horizontal top and bottom border lines (`2px`, `#FFFFFF`) framing the strip cleanly at $Y = 885$ and $Y = 1035$.
-- **Typography & Hierarchy**:
-  - **Supporting Words / Numbers**: Medium white bold-italic sans-serif (`Arial Bold Italic`, ~34px, `#FFFFFF`) positioned neatly above the main keyword ($Y = 902$).
-  - **Focal Keyword**: Large golden-yellow stylized/bold font (`Anton`, ~64px, `#FFCC00`) centered inside the strip ($Y = 948$) with a soft dark drop shadow and solid dark stroke outline (`#000000`).
+- **Anchor Position**: Full-width, semi-transparent dark horizontal strip (`rgba(10, 10, 10, 0.82)`) anchored across the **exact center seam** ($Y = 960$) between the two speakers ($Y = 830 \text{ to } 1090$, total height $260\text{px}$).
+- **Framing Borders**: Thin white horizontal top and bottom border lines (`2px`, `#FFFFFF`) framing the strip cleanly at $Y = 830$ and $Y = 1090$.
+- **Typography & Complex Text Shaping**:
+  - **Supporting Words / Numbers**: Medium white bold-italic sans-serif (`Arial Bold Italic`, size 42, `#FFFFFF`) positioned neatly at $Y = 865$.
+  - **Focal Keyword**: Large golden-yellow stylized Tamil font (`Tamil Sangam MN`, size 90, `#FFD700`) centered inside the strip at $Y = 945$ with a soft dark drop shadow and solid dark stroke outline (`#000000`), rendered via HarfBuzz COMPLEX text shaping (`libass`) for authentic Tamil ligature accuracy.
 - **Animation**:
   - Border lines and banner appear crisply on the beat.
   - Supporting and focal words pop in sequentially as spoken, holding through the thought, and cut cleanly out at the end of the phrase.
@@ -192,10 +193,10 @@ Before any reel is marked ready, `validate.py` automatically asserts:
   - **Zero Watermarks**: No watermark in top-right corner or anywhere on the frame.
 - **Outro Card (Last 4.5 Seconds)**:
   - During the final 4.5 seconds ($t = \text{total\_dur} - 4.5\text{s}$ to end), cut cleanly to a pure black canvas.
-  - **Centered White Channel Card**: Clean rounded card (`760×340px`, `#FFFFFF`) with channel avatar (`"P"`, saffron circle `#EB8207`), channel title (`VIRAL PODCAST`, `Arial Bold` 36px), and subscriber count (`@tamilpodcast • 1.2M subscribers`, `Arial` 24px).
+  - **Centered White Channel Card**: Clean rounded card (`760×440px`, `#FFFFFF`) with speaker portrait circular avatar, channel title (`VIRAL PODCAST`, `Arial Bold` 36px), and subscriber count (`@tamilpodcast • 1.2M subscribers`, `Arial` 22px).
   - **Animated Subscribe Button Click**:
     - First 1.5s: Bright red `"SUBSCRIBE"` pill button (`#E62117`).
     - After 1.5s: Transitions dynamically with a simulated click to dark gray `"🔔 SUBSCRIBED"` pill button (`#282828`).
-  - **Call to Action**: `"▶ Watch full video on YouTube"` centered below the card ($Y = 1140$) in crisp white `Arial Bold` 32px.
+  - **Call to Action**: `"Watch full video on"` with official red YouTube play logo and white `"YouTube"` text centered below the card ($Y = 1150..1220$).
 
 

@@ -1,7 +1,7 @@
 {
   "template_id": "template_ref4",
   "name": "Reference 4 - Split-Screen Kinetic Highlight Banner Short",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "LOCKED_MASTER_STANDARD",
   "locked": true,
   "canvas": {
@@ -12,27 +12,36 @@
   },
   "framing_and_broll": {
     "layout": "vertical_split_screen_50_50",
+    "framing_style": "cinematic_medium_close_up",
     "host_camera": {
+      "speaker": "woman_host",
       "placement": "top_half",
       "x": 0,
       "y": 0,
       "width": 1080,
       "height": 960,
-      "crop_x": 1530,
-      "crop_y": 120,
-      "crop_w": 2160,
-      "crop_h": 1920
+      "crop_x": 2094,
+      "crop_y": 680,
+      "crop_w": 1012,
+      "crop_h": 900
     },
     "guest_camera": {
+      "speaker": "man_guest",
       "placement": "bottom_half",
       "x": 0,
       "y": 960,
       "width": 1080,
       "height": 960,
-      "crop_x": 190,
-      "crop_y": 120,
-      "crop_w": 2160,
-      "crop_h": 1920
+      "crop_x": 494,
+      "crop_y": 830,
+      "crop_w": 1012,
+      "crop_h": 900
+    },
+    "center_seam_line": {
+      "enabled": true,
+      "y": 960,
+      "height_px": 2,
+      "color": "#000000"
     },
     "motion": "static_framing_only",
     "broll_cutaways": {
@@ -58,10 +67,10 @@
     "subtitle_every_word": false,
     "position": "center_seam_horizontal_strip",
     "strip_y_center": 960,
-    "strip_y_top": 885,
-    "strip_y_bottom": 1035,
-    "strip_height": 150,
-    "strip_fill": "rgba(12, 12, 12, 0.84)",
+    "strip_y_top": 830,
+    "strip_y_bottom": 1090,
+    "strip_height": 260,
+    "strip_fill": "rgba(10, 10, 10, 0.82)",
     "strip_borders": {
       "top_line_color": "rgba(255, 255, 255, 1.0)",
       "bottom_line_color": "rgba(255, 255, 255, 1.0)",
@@ -70,24 +79,23 @@
     "typography": {
       "supporting_text": {
         "font_family": "Arial Bold Italic",
-        "font_size": 34,
+        "font_size": 42,
         "color": "#FFFFFF",
-        "position": "above_focal_keyword",
-        "y": 902
+        "y": 865
       },
       "focal_keyword": {
-        "font_family": "Anton",
-        "font_size": 64,
-        "color": "#FFCC00",
-        "stroke_color": "rgba(0, 0, 0, 0.86)",
-        "stroke_width": 2,
+        "font_family": "Tamil Sangam MN",
+        "font_size": 90,
+        "color": "#FFD700",
+        "stroke_color": "#000000",
+        "stroke_width": 3,
         "drop_shadow": {
           "color": "rgba(0, 0, 0, 0.78)",
           "offset_x": 4,
           "offset_y": 4
         },
-        "position": "centered_in_strip",
-        "y": 948
+        "y": 945,
+        "complex_text_shaping": "HarfBuzz"
       }
     },
     "animation": {
@@ -114,42 +122,37 @@
     "channel_card": {
       "shape": "rounded_rectangle",
       "width": 760,
-      "height": 340,
+      "height": 440,
       "x0": 160,
-      "y0": 720,
+      "y0": 620,
       "x1": 920,
       "y1": 1060,
-      "corner_radius": 20,
+      "corner_radius": 24,
       "fill": "#FFFFFF",
       "avatar": {
-        "cx": 270,
-        "cy": 840,
-        "radius": 52,
-        "fill": "#EB8207",
-        "text": "P"
+        "type": "speaker_portrait_circle",
+        "cx": 540,
+        "cy": 725,
+        "radius": 65
       },
       "title": {
         "text": "VIRAL PODCAST",
         "font": "Arial Bold",
         "size": 36,
-        "color": "#0F0F0F",
-        "x": 360,
+        "color": "#121212",
         "y": 810
       },
       "subtitle": {
         "text": "@tamilpodcast • 1.2M subscribers",
         "font": "Arial",
-        "size": 24,
-        "color": "#646464",
-        "x": 360,
+        "size": 22,
+        "color": "#6E6E6E",
         "y": 856
       },
       "subscribe_button": {
-        "x0": 360,
-        "y0": 930,
-        "x1": 640,
-        "y1": 1000,
-        "radius": 35,
+        "width": 280,
+        "height": 68,
+        "radius": 34,
         "state_initial": {
           "duration_sec": 1.5,
           "fill": "#E62117",
@@ -159,19 +162,25 @@
         "state_clicked": {
           "trigger_sec": 1.5,
           "duration_sec": 3.0,
-          "fill": "#282828",
+          "fill": "#232323",
           "text": "🔔 SUBSCRIBED",
           "text_color": "#FFFFFF"
         }
       }
     },
-    "cta_text": {
-      "text": "▶ Watch full video on YouTube",
+    "cta": {
+      "prompt_text": "Watch full video on",
       "font": "Arial Bold",
-      "size": 32,
+      "size": 34,
       "color": "#FFFFFF",
-      "y": 1140,
-      "align": "center"
+      "y": 1150,
+      "youtube_logo": {
+        "enabled": true,
+        "icon_color": "#FF0000",
+        "text_color": "#FFFFFF",
+        "font_size": 46,
+        "y": 1215
+      }
     }
   }
 }
