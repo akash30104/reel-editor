@@ -42,8 +42,8 @@ VID_Y = 656
 TOTAL_DUR = 74.0
 
 # 1. Base Video Generation with Active Speaker Tracking
-# - Host segment (0.0s - 8.0s): Host asks question -> Crop to host (X=1530)
-# - Guest segment (8.0s - 74.0s): Guest gives monologue -> Crop to guest (X=190)
+# - Host segment (0.0s - 8.6s): Host asks question -> Crop to host (X=1530)
+# - Guest segment (8.6s - 74.0s): Guest gives monologue -> Crop to guest (X=190)
 # Both cropped to 16:9 (2160x1215), scaled to 1080x608, and color-graded
 base_cut_mp4 = WORKSPACE / "ref3_speakers_base.mp4"
 if not base_cut_mp4.exists():
@@ -61,14 +61,14 @@ if not base_cut_mp4.exists():
         "colorbalance=rs=0.04:gs=0.02:bs=-0.04,setsar=1,fps=30"
     )
     subprocess.run([
-        "ffmpeg", "-y", "-ss", "1988.0", "-t", "8.0",
+        "ffmpeg", "-y", "-ss", "1988.0", "-t", "8.6",
         "-i", str(RAW_VIDEO), "-vf", vf_host, "-an",
         "-c:v", "libx264", "-preset", "fast", "-crf", "18",
         "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
         str(host_mp4)
     ], check=True)
     subprocess.run([
-        "ffmpeg", "-y", "-ss", "1996.0", "-t", "66.0",
+        "ffmpeg", "-y", "-ss", "1996.6", "-t", "65.4",
         "-i", str(RAW_VIDEO), "-vf", vf_guest, "-an",
         "-c:v", "libx264", "-preset", "fast", "-crf", "18",
         "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
@@ -126,73 +126,56 @@ ZONES = {
 # Each phrase: (phrase_start, zone, text, is_emphasized)
 # When a new phrase starts, it stacks into the current cluster until cluster_end clears it!
 KINETIC_CLUSTERS = [
-    # Sentence 1: Hook Question (0.5s - 7.8s)
-    (0.5, 7.8, [
-        (0.5, "A", "WHAT LIFE LESSON...", False),
-        (2.6, "B", "FROM\nRAMAYANA?", True),
-        (5.2, "C", "WHAT IS THE TRUTH!?", True)
+    # Sentence 1: Hook Question (2.0s - 8.6s) - Host asks about Ramayana lesson
+    (2.0, 8.6, [
+        (2.2, "A", "FROM RAMAYANA...", False),
+        (4.2, "B", "WHAT LIFE LESSON...", True),
+        (6.4, "C", "SHOULD WE LEARN?", True)
     ]),
 
-    # Sentence 2: Hanuman Revelation (8.2s - 16.5s)
-    (8.2, 16.5, [
-        (8.2, "A", "I ONLY WANT...", False),
-        (10.5, "B", "TO TALK ABOUT\nHANUMAN!", True),
-        (13.6, "C", "BECAUSE IN THIS WORLD...", False)
+    # Sentence 2 Part 1: Hanuman Hook (8.6s - 13.4s) - Guest begins monologue
+    (8.6, 13.4, [
+        (9.0, "A", "I ONLY WANT...", False),
+        (11.0, "B", "TO TALK ABOUT\nHANUMAN!", True)
     ]),
 
-    # Sentence 2 Climax: Everyone is like Hanuman (16.8s - 20.3s)
-    (16.8, 20.3, [
-        (16.8, "C", "EVERYONE IS LIKE\nHANUMAN!", True)
+    # Sentence 2 Part 2: Everyone is like Hanuman (13.4s - 20.4s)
+    (13.4, 20.4, [
+        (13.8, "A", "IN THIS WORLD...", False),
+        (16.5, "C", "EVERYONE IS LIKE\nHANUMAN!", True)
     ]),
 
-    # Sentence 3: The Latent Potential (20.6s - 28.2s)
-    (20.6, 28.2, [
-        (20.6, "A", "WE ALL HAVE...", False),
-        (23.0, "B", "A HIDDEN\nLATENT POTENTIAL!", True),
-        (25.6, "C", "SOMEONE HAS TO\nAWAKEN IT...", False)
+    # Sentence 3: Hidden Latent Potential & Mentor (20.6s - 30.2s)
+    (20.6, 30.2, [
+        (20.8, "A", "WE HAVE A HIDDEN...", False),
+        (23.2, "B", "LATENT POTENTIAL!", True),
+        (26.8, "C", "A MENTOR HAS TO\nAWAKEN IT!", True)
     ]),
 
-    # Sentence 3 Climax: That is the Mentor (28.4s - 30.5s)
-    (28.4, 30.5, [
-        (28.4, "C", "THAT IS A MENTOR!", True)
-    ]),
-
-    # Sentence 4: Jambavan Speaks (30.8s - 38.6s)
-    (30.8, 38.6, [
+    # Sentence 4 Part 1: When Jambavan Reminds Him (30.4s - 36.8s)
+    (30.4, 36.8, [
         (30.8, "A", "WHEN JAMBAVAN...", False),
-        (33.5, "B", "CAME TO HANUMAN\nAND SAID...", False),
-        (36.0, "C", "YOU ARE POWERFUL!", True)
+        (33.8, "B", "REMINDS HIM...", True)
     ]),
 
-    # Sentence 4 Part 2: True Strength (38.8s - 47.0s)
-    (38.8, 47.0, [
-        (38.8, "A", "YOUR TRUE STRENGTH...", False),
-        (42.0, "B", "YOU DID NOT\nEVEN REALIZE!", True),
-        (44.6, "C", "ONLY BECAUSE HE AWAKENED HIM!", False)
+    # Sentence 4 Part 2: Hanuman Realizes True Strength (36.8s - 45.4s)
+    (36.8, 45.4, [
+        (37.2, "A", "HANUMAN REALIZES...", False),
+        (40.8, "C", "HIS TRUE STRENGTH!", True)
     ]),
 
-    # Sentence 5: Crossed the Ocean (47.2s - 53.2s)
-    (47.2, 53.2, [
-        (47.2, "A", "HE LEAPED ACROSS...", False),
-        (50.0, "B", "THE ENTIRE OCEAN\nAND FOUND SITA!", True)
+    # Sentence 5: Unconditional Loyalty & Dedication (45.4s - 59.2s)
+    (45.4, 59.2, [
+        (45.8, "A", "WHAT PEOPLE LACK TODAY...", False),
+        (51.0, "B", "IS UNCONDITIONAL...", False),
+        (54.5, "C", "LOYALTY AND DEDICATION!", True)
     ]),
 
-    # Sentence 5 Part 2: Without that mentor (53.5s - 60.2s)
-    (53.5, 60.2, [
-        (53.5, "A", "WITHOUT THAT MENTOR...", False),
-        (56.5, "C", "HE WOULD HAVE\nNEVER KNOWN!", True)
-    ]),
-
-    # Sentence 6: Greatest Lesson of Life (60.4s - 69.8s)
-    (60.4, 69.8, [
-        (60.4, "A", "THERE IS NO...", False),
-        (63.0, "B", "GREATER LESSON\nIN YOUR LIFE!", True),
-        (66.5, "C", "FIND YOUR MENTOR!", True)
-    ]),
-
-    # Outro Call to Action (70.0s - 73.9s)
-    (70.0, 73.9, [
-        (70.0, "C", "THE GREATEST LESSON\nOF LIFE!", True)
+    # Sentence 6: Life's Greatest Lesson (59.4s - 73.8s)
+    (59.4, 73.8, [
+        (59.8, "A", "THAT SELFLESS LOYALTY...", False),
+        (64.2, "B", "HANUMAN SHOWED...", False),
+        (68.0, "C", "IS LIFE'S GREATEST LESSON!", True)
     ])
 ]
 
@@ -305,10 +288,11 @@ subprocess.run([
 print(f"🎉 FINAL REEL 1 IN REFERENCE 3 STYLE EXPORTED: {final_out}")
 
 # Extract Verification QA Frames
-subprocess.run(["ffmpeg", "-y", "-ss", "5.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t5.5s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "14.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t14.5s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "18.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t18.5s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "25.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t25.0s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "36.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t36.5s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "51.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t51.0s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "5.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t5.0s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "11.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t11.5s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "18.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t18.0s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "28.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t28.0s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "42.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t42.0s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "56.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t56.0s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "69.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t69.5s.png")], check=True)
 print("✅ QA verification frames extracted successfully!")

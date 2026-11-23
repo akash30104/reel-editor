@@ -21,7 +21,7 @@
       {
         "speaker": "host",
         "start_sec": 0.0,
-        "end_sec": 8.0,
+        "end_sec": 8.6,
         "crop_x": 1530,
         "crop_y": 450,
         "crop_w": 2160,
@@ -29,7 +29,7 @@
       },
       {
         "speaker": "guest",
-        "start_sec": 8.0,
+        "start_sec": 8.6,
         "end_sec": 74.0,
         "crop_x": 190,
         "crop_y": 450,

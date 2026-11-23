@@ -115,9 +115,9 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 - **Canvas**: Pure black (`#000000`) 9:16 vertical canvas (`1080×1920 @ 30fps`).
 - **Framing & Aspect Ratio**: Center the 16:9 clip in the middle third ($Y = 656 \text{ to } 1264$, height $608\text{px}$, width $1080\text{px}$) letterbox style. This exact frame size must be preserved.
 - **Active Speaker Tracking**: The frame must dynamically switch to **whoever is actually talking**. Never show a listening speaker while another person is speaking:
-  - When the Host speaks (e.g. asking the question), crop and center the Host camera.
-  - When the Guest speaks (e.g. delivering the response/monologue), crop and center the Guest camera.
-  - Cut cleanly on speaker handoffs to preserve absolute speech-to-face synchronization.
+  - When the Host speaks ($0.0\text{s} - 8.6\text{s}$), crop and center the Host camera.
+  - When the Guest speaks ($8.6\text{s} - 74.0\text{s}$), crop and center the Guest camera.
+  - Cut cleanly on the natural speech pause ($t = 8.6\text{s}$) to preserve absolute speech-to-face synchronization.
 - **Gradient Fade**: Soft black gradient fade on the bottom edge of the video frame ($Y = 1174 \text{ to } 1264$, $90\text{px}$ fade height) dissolving the speaker's torso cleanly into the pure black lower canvas.
 - **Motion Protocol**: Static shot only. Absolutely **no jump cuts, zooms, punch-ins, or B-roll**.
 
