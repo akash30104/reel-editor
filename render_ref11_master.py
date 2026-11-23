@@ -63,17 +63,17 @@ SUBS_H = 180
 
 TOTAL_DUR = 74.0
 
-COLOR_FF8400 = (255, 132, 0, 255)
+COLOR_ORANGE = (255, 165, 0, 255) # True Pure Orange #FFA500
 COLOR_BLACK = (0, 0, 0, 255)
 
-print("🎬 Step 1: Generating Native Cocoa Reference 11 Header Banner (#FF8400)...")
+print("🎬 Step 1: Generating Native Cocoa Reference 11 Header Banner (#FFA500)...")
 banner_png = WORKSPACE / "ref11_master_banner.png"
 
 im = NSImage.alloc().initWithSize_((WIDTH, BANNER_H))
 im.lockFocus()
 
-# Fill #FF8400 (255, 132, 0)
-NSColor.colorWithDeviceRed_green_blue_alpha_(255.0/255.0, 132.0/255.0, 0.0/255.0, 1.0).set()
+# Fill #FFA500 True Pure Orange in sRGB (255, 165, 0)
+NSColor.colorWithSRGBRed_green_blue_alpha_(255.0/255.0, 165.0/255.0, 0.0/255.0, 1.0).set()
 NSRectFill(Cocoa.NSMakeRect(0, 0, WIDTH, BANNER_H))
 
 # 3px black borders
@@ -300,8 +300,8 @@ def render_word_frame(word):
     for dx, dy in [(-2, -2), (2, -2), (-2, 2), (2, 2), (0, 3), (0, -3), (3, 0), (-3, 0)]:
         draw.text((x + dx, y + dy), clean_word, font=f, fill=(0, 0, 0, 200), stroke_width=6, stroke_fill=COLOR_BLACK)
         
-    # Main text in signature #FF8400 with 7px solid black stroke
-    draw.text((x, y), clean_word, font=f, fill=COLOR_FF8400, stroke_width=7, stroke_fill=COLOR_BLACK)
+    # Main text in signature True Orange #FFA500 with 7px solid black stroke
+    draw.text((x, y), clean_word, font=f, fill=COLOR_ORANGE, stroke_width=7, stroke_fill=COLOR_BLACK)
     return im.tobytes()
 
 subs_mov = WORKSPACE / "ref11_master_subs.mov"

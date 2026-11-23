@@ -15,7 +15,7 @@
     "y_top": 408,
     "y_bottom": 558,
     "height": 150,
-    "background_color": "#FF8400",
+    "background_color": "#FFA500",
     "border_color": "#000000",
     "border_width_px": 3,
     "typography": {
@@ -62,7 +62,7 @@
     "pacing": "single_word_at_a_time",
     "font_family": "MyHandwriting",
     "font_size": 82,
-    "color": "#FF8400",
+    "color": "#FFA500",
     "stroke_color": "#000000",
     "stroke_width": 7,
     "y_position": 1340,
