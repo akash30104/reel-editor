@@ -111,9 +111,10 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 
 ---
 
-## 10. Reference 3 Master Specification (Minimalist Motivational Kinetic Short)
+## 10. Reference 3 Master Specification (Minimalist Motivational Kinetic Short) [LOCKED MASTER STANDARD]
 
-> **Trigger**: Whenever instructed to edit a raw video in **Reference 3** (`refeance 3` / `Reference 3 Style`), the editor must strictly execute the following parameters defined in `templates/template_ref3.json` and measured from `references/ref3/reference_3_source.mp4`.
+> [!IMPORTANT]
+> **PERMANENTLY LOCKED MASTER STANDARD**: Reference 3 style is officially locked. Whenever instructed to edit a raw video in **Reference 3** (`refeance 3` / `Reference 3 Style`), the editor must strictly execute the following parameters defined in `templates/template_ref3.json` and demonstrated in `render_ref3_kinetic.py`. No deviations in layout, color, audio standards, or subtitle motion are permitted.
 
 ### 1. Canvas & Camera
 - **Canvas**: Pure black (`#000000`) 9:16 vertical canvas (`1080×1920 @ 30fps`).

@@ -2,6 +2,8 @@
   "template_id": "template_ref3",
   "name": "Reference 3 - Minimalist Motivational Kinetic Short",
   "version": "1.0.0",
+  "status": "LOCKED_MASTER_STANDARD",
+  "locked": true,
   "canvas": {
     "width": 1080,
     "height": 1920,

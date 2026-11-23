@@ -102,5 +102,15 @@ reel-editor/
 
 ---
 
-## 🛠️ Customizing Settings
-All dimensions, color codes (`#EA8207`), font sizes, and volume ducking thresholds can be configured in [core/config.py](file:///core/config.py).
+## 🔒 Reference 3 Master Standard (Minimalist Motivational Kinetic Short)
+Permanently locked in `templates/template_ref3.json` and `rules.md` (Section 10):
+- **Canvas**: Pure black 9:16 vertical canvas (`1080x1920 @ 30fps`).
+- **Framing**: Middle third 16:9 letterbox (`1080x608`, $Y=656..1264$) with 90px soft black bottom gradient fade.
+- **Active Speaker Tracking**: Automatically cuts between Host and Guest on active speech.
+- **Subtitles**: Dynamic random-space kinetic subtitles (`L_MID`, `R_MID`, `B_CTR`, `L_TOP`, `R_TOP`, `L_LOW`, `R_LOW`), strictly 1 fast burst at a time (`0.8s - 1.6s`), Electric Yellow (`#FFE500`) Anton bold condensed font, 3.5px black stroke, and `-50ms` acoustic visual lead sync.
+- **Audio**: Broadcast dialogue at `-14.0 LUFS` with continuous mild instrumental BGM ducked at `-23 dB`. Zero watermarks.
+
+To render in Reference 3:
+```bash
+python render_ref3_kinetic.py
+```
