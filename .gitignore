@@ -33,3 +33,12 @@ assets/audio/*.wav
 *.txt
 *.log
 .DS_Store
+
+# Scratch Whisper dumps & test files
+check_raw_tamil.*
+clip_15_40.*
+test_audio_*
+raw_first60.json
+whisper_raw_0_45_ta.json
+my-video/
+tools/
