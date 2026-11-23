@@ -154,3 +154,48 @@ Before any reel is marked ready, `validate.py` automatically asserts:
   - **Razor-Sharp Acoustic Sync**: Subtitle triggers feature a `-50ms` visual lead time aligned directly to spoken syllable onsets. Words pop in sharply on beat with zero perceived lag.
   - **Hierarchy**: Emphasized/hook words scale dynamically (`1.2x to 1.35x`) larger for punchy emphasis.
 
+---
+
+## 11. Reference 4 Master Specification (Split-Screen Kinetic Highlight Banner Short) [LOCKED MASTER STANDARD]
+
+> [!IMPORTANT]
+> **PERMANENTLY LOCKED MASTER STANDARD**: Reference 4 style is officially locked. Whenever instructed to edit a raw video in **Reference 4** (`refeance 4` / `Reference 4 Style`), the editor must strictly execute the following parameters defined in `templates/template_ref4.json` and demonstrated in `render_ref4_splitscreen.py`. No deviations in framing, B-roll pacing, subtitle banner design, or outro card animation are permitted.
+
+### 1. Framing & B-Roll
+- **Main Layout (50/50 Vertical Split-Screen)**:
+  - Exact 50/50 vertical split-screen on a `1080×1920 @ 30fps` canvas.
+  - **Host Top Half**: Crop and center the host camera to `1080×960` occupying $Y = 0 \text{ to } 960$ (`crop=2160:1920:1530:120,scale=1080:960`).
+  - **Guest Bottom Half**: Crop and center the guest camera to `1080×960` occupying $Y = 960 \text{ to } 1920$ (`crop=2160:1920:190:120,scale=1080:960`).
+  - **Framing**: Static framing only.
+  - **Color Grade**: Warm natural studio grade (`eq=contrast=1.08:saturation=0.92:brightness=-0.01,colorbalance=rs=0.03:gs=0.01:bs=-0.03`).
+- **Cinematic B-Roll Cutaways**:
+  - Every **3–6 seconds**, cut to relevant topic footage or movie clips.
+  - Centered on a pure black 9:16 canvas (`1080×1920`) in **letterbox style** (`16:9` aspect ratio, `1080×608` centered at $Y = 656$).
+  - Smooth transitions alternating between split-screen dialogue and immersive visual cutaways.
+
+### 2. Subtitle Banner & Exact Placement
+- **Trigger Rule**: **Do NOT subtitle every word**. Display kinetic callout banners **ONLY** on key hooks, dates, percentages, and core takeaways.
+- **Anchor Position**: Full-width, semi-transparent dark horizontal strip (`rgba(12, 12, 12, 0.84)`) anchored across the **exact center seam** ($Y = 960$) between the two speakers ($Y = 885 \text{ to } 1035$, total height $150\text{px}$).
+- **Framing Borders**: Thin white horizontal top and bottom border lines (`2px`, `#FFFFFF`) framing the strip cleanly at $Y = 885$ and $Y = 1035$.
+- **Typography & Hierarchy**:
+  - **Supporting Words / Numbers**: Medium white bold-italic sans-serif (`Arial Bold Italic`, ~34px, `#FFFFFF`) positioned neatly above the main keyword ($Y = 902$).
+  - **Focal Keyword**: Large golden-yellow stylized/bold font (`Anton`, ~64px, `#FFCC00`) centered inside the strip ($Y = 948$) with a soft dark drop shadow and solid dark stroke outline (`#000000`).
+- **Animation**:
+  - Border lines and banner appear crisply on the beat.
+  - Supporting and focal words pop in sequentially as spoken, holding through the thought, and cut cleanly out at the end of the phrase.
+
+### 3. Audio & Outro
+- **Audio Master & Mandatory Mild Music**:
+  - Crisp, prominent dialogue normalized to broadcast standard **`-14.0 LUFS`** / **`-1.0 dBTP`**.
+  - **Mandatory mild background music**: Soft emotional instrumental flute/strings background music bed (`ramayan_flute_bgm.mp3`) mixed at **`-23 dB`** under speech with smooth head and tail fades.
+  - Strictly no whooshes, risers, or pop sound effects.
+  - **Zero Watermarks**: No watermark in top-right corner or anywhere on the frame.
+- **Outro Card (Last 4.5 Seconds)**:
+  - During the final 4.5 seconds ($t = \text{total\_dur} - 4.5\text{s}$ to end), cut cleanly to a pure black canvas.
+  - **Centered White Channel Card**: Clean rounded card (`760×340px`, `#FFFFFF`) with channel avatar (`"P"`, saffron circle `#EB8207`), channel title (`VIRAL PODCAST`, `Arial Bold` 36px), and subscriber count (`@tamilpodcast • 1.2M subscribers`, `Arial` 24px).
+  - **Animated Subscribe Button Click**:
+    - First 1.5s: Bright red `"SUBSCRIBE"` pill button (`#E62117`).
+    - After 1.5s: Transitions dynamically with a simulated click to dark gray `"🔔 SUBSCRIBED"` pill button (`#282828`).
+  - **Call to Action**: `"▶ Watch full video on YouTube"` centered below the card ($Y = 1140$) in crisp white `Arial Bold` 32px.
+
+

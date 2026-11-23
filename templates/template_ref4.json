@@ -1,0 +1,177 @@
+{
+  "template_id": "template_ref4",
+  "name": "Reference 4 - Split-Screen Kinetic Highlight Banner Short",
+  "version": "1.0.0",
+  "status": "LOCKED_MASTER_STANDARD",
+  "locked": true,
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "background_color": "#000000"
+  },
+  "framing_and_broll": {
+    "layout": "vertical_split_screen_50_50",
+    "host_camera": {
+      "placement": "top_half",
+      "x": 0,
+      "y": 0,
+      "width": 1080,
+      "height": 960,
+      "crop_x": 1530,
+      "crop_y": 120,
+      "crop_w": 2160,
+      "crop_h": 1920
+    },
+    "guest_camera": {
+      "placement": "bottom_half",
+      "x": 0,
+      "y": 960,
+      "width": 1080,
+      "height": 960,
+      "crop_x": 190,
+      "crop_y": 120,
+      "crop_w": 2160,
+      "crop_h": 1920
+    },
+    "motion": "static_framing_only",
+    "broll_cutaways": {
+      "enabled": true,
+      "pacing_interval_seconds": "every 3 to 6 seconds",
+      "canvas": "pure_black_9_16_letterbox",
+      "broll_aspect_ratio": "16:9",
+      "broll_width": 1080,
+      "broll_height": 608,
+      "broll_y_offset": 656
+    }
+  },
+  "color_grade": {
+    "style": "warm_natural_studio_grade",
+    "contrast": 1.08,
+    "saturation": 0.92,
+    "brightness": -0.01,
+    "colorbalance": "rs=0.03:gs=0.01:bs=-0.03",
+    "ffmpeg_eq_filter": "eq=contrast=1.08:saturation=0.92:brightness=-0.01,colorbalance=rs=0.03:gs=0.01:bs=-0.03"
+  },
+  "subtitle_banner": {
+    "trigger_mode": "key_hooks_dates_percentages_and_takeaways_only",
+    "subtitle_every_word": false,
+    "position": "center_seam_horizontal_strip",
+    "strip_y_center": 960,
+    "strip_y_top": 885,
+    "strip_y_bottom": 1035,
+    "strip_height": 150,
+    "strip_fill": "rgba(12, 12, 12, 0.84)",
+    "strip_borders": {
+      "top_line_color": "rgba(255, 255, 255, 1.0)",
+      "bottom_line_color": "rgba(255, 255, 255, 1.0)",
+      "line_width_px": 2
+    },
+    "typography": {
+      "supporting_text": {
+        "font_family": "Arial Bold Italic",
+        "font_size": 34,
+        "color": "#FFFFFF",
+        "position": "above_focal_keyword",
+        "y": 902
+      },
+      "focal_keyword": {
+        "font_family": "Anton",
+        "font_size": 64,
+        "color": "#FFCC00",
+        "stroke_color": "rgba(0, 0, 0, 0.86)",
+        "stroke_width": 2,
+        "drop_shadow": {
+          "color": "rgba(0, 0, 0, 0.78)",
+          "offset_x": 4,
+          "offset_y": 4
+        },
+        "position": "centered_in_strip",
+        "y": 948
+      }
+    },
+    "animation": {
+      "enter": "slide_or_expand_white_border_lines_on_beat",
+      "text": "pop_words_in_sequentially_as_spoken",
+      "exit": "clean_cut_out"
+    }
+  },
+  "audio_mastering": {
+    "dialogue_target_lufs": -14.0,
+    "dialogue_true_peak_dbtp": -1.0,
+    "bgm_mandatory": true,
+    "bgm_track": "assets/audio/ramayan_flute_bgm.mp3",
+    "bgm_style": "melodic_strings_and_flute",
+    "bgm_ducking_level_db": -23.0,
+    "sfx_enabled": false,
+    "watermark_enabled": false
+  },
+  "outro": {
+    "enabled": true,
+    "duration_seconds": 4.5,
+    "trigger_timing": "last 4.5 seconds (t = total_dur - 4.5s)",
+    "background_color": "#000000",
+    "channel_card": {
+      "shape": "rounded_rectangle",
+      "width": 760,
+      "height": 340,
+      "x0": 160,
+      "y0": 720,
+      "x1": 920,
+      "y1": 1060,
+      "corner_radius": 20,
+      "fill": "#FFFFFF",
+      "avatar": {
+        "cx": 270,
+        "cy": 840,
+        "radius": 52,
+        "fill": "#EB8207",
+        "text": "P"
+      },
+      "title": {
+        "text": "VIRAL PODCAST",
+        "font": "Arial Bold",
+        "size": 36,
+        "color": "#0F0F0F",
+        "x": 360,
+        "y": 810
+      },
+      "subtitle": {
+        "text": "@tamilpodcast • 1.2M subscribers",
+        "font": "Arial",
+        "size": 24,
+        "color": "#646464",
+        "x": 360,
+        "y": 856
+      },
+      "subscribe_button": {
+        "x0": 360,
+        "y0": 930,
+        "x1": 640,
+        "y1": 1000,
+        "radius": 35,
+        "state_initial": {
+          "duration_sec": 1.5,
+          "fill": "#E62117",
+          "text": "SUBSCRIBE",
+          "text_color": "#FFFFFF"
+        },
+        "state_clicked": {
+          "trigger_sec": 1.5,
+          "duration_sec": 3.0,
+          "fill": "#282828",
+          "text": "🔔 SUBSCRIBED",
+          "text_color": "#FFFFFF"
+        }
+      }
+    },
+    "cta_text": {
+      "text": "▶ Watch full video on YouTube",
+      "font": "Arial Bold",
+      "size": 32,
+      "color": "#FFFFFF",
+      "y": 1140,
+      "align": "center"
+    }
+  }
+}
