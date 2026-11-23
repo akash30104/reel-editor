@@ -10,8 +10,8 @@ Renders Reel 1 in strict accordance with Reference 3 Master Specification (rules
    - Static shot only: No jump cuts, zooms, or B-roll.
 2. COLOR & AUDIO:
    - Warm, slightly desaturated cinematic grade with deep blacks.
-   - Clean prominent dialogue over low-volume emotional instrumental BGM (-22 dB). No whooshes/pop SFX.
-   - Low-opacity logo watermark in the top-right corner of the video frame (X=1030, Y=680).
+   - Clean prominent dialogue over mandatory mild emotional instrumental BGM (-23 dB). No whooshes/pop SFX.
+   - Zero watermarks (clean 100% distraction-free frame).
 3. SUBTITLE STYLE & EXACT KINETIC PLACEMENT:
    - Font: Anton bold condensed, electric yellow (#FFE500), soft dark drop shadow.
    - Chunking: 1-3 words per beat with '...' and '!'.
@@ -100,15 +100,15 @@ for y in range(fade_start, fade_end):
 grad_im.save(grad_overlay_png)
 print(f"✅ Bottom gradient fade overlay saved: {grad_overlay_png}")
 
-# 3. Audio Master: Pro Dialogue + Low-Volume Emotional Instrumental BGM (-22 dB)
+# 3. Audio Master: Pro Dialogue + Low-Volume Emotional Instrumental BGM (-23 dB)
 # We use reel1_pro_mastered_audio.wav as dialogue master (-14 LUFS)
 pro_dialogue = WORKSPACE / "reel1_pro_mastered_audio.wav"
+bgm_music = ASSETS_DIR / "audio" / "ramayan_flute_bgm.mp3"
 
 # 4. Kinetic Subtitle Engine
 font_p = str(ASSETS_DIR / "fonts" / "Anton-Regular.ttf")
 font_base = ImageFont.truetype(font_p, 52)
 font_large = ImageFont.truetype(font_p, 74)
-font_wm = ImageFont.truetype(font_p, 26)
 
 # Placement Zones in 1080x1920 coordinates
 # All inside 16:9 frame (Y=656..1264)
@@ -182,10 +182,6 @@ KINETIC_CLUSTERS = [
 def render_kinetic_subtitles_frame(active_phrases):
     im = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
     draw = ImageDraw.Draw(im)
-
-    # Watermark in top-right of 16:9 video frame
-    wm_text = "AK"
-    draw.text((1030, 680), wm_text, font=font_wm, fill=(255, 255, 255, 100), align="right")
 
     if not active_phrases:
         return im.tobytes()
@@ -264,7 +260,9 @@ print(f"🎬 Assembling final Reel 1 in Reference 3 Style to: {final_out}")
 filter_complex = (
     f"[0:v]pad={WIDTH}:{HEIGHT}:0:{VID_Y}:color=black,setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709:range=tv[base];"
     f"[base][1:v]overlay=0:0[v_grad];"
-    f"[v_grad][2:v]overlay=0:0[v]"
+    f"[v_grad][2:v]overlay=0:0[v];"
+    f"[4:a]volume=0.06,afade=t=in:ss=0:d=1.0,afade=t=out:st=71.5:d=2.5[bgm];"
+    f"[3:a][bgm]amix=inputs=2:duration=first:dropout_transition=2:normalize=0[a]"
 )
 
 subprocess.run([
@@ -273,8 +271,9 @@ subprocess.run([
     "-i", str(grad_overlay_png),
     "-i", str(subs_mov),
     "-i", str(pro_dialogue),
+    "-i", str(bgm_music),
     "-filter_complex", filter_complex,
-    "-map", "[v]", "-map", "3:a",
+    "-map", "[v]", "-map", "[a]",
     "-c:v", "libx264", "-preset", "slow", "-crf", "18",
     "-pix_fmt", "yuv420p",
     "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", "-color_range", "tv",

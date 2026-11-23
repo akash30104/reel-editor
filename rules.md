@@ -11,6 +11,8 @@
 2. **Always Use `render.py`**: All final videos must be rendered through the single deterministic rendering script. Same input + same template = bit-exact identical output every time.
 3. **Never Edit Layout Manually**: All layout coordinates, fonts, and dimensions belong strictly inside the reference template file.
 4. **Always Run `validate.py` Before Delivering**: Every video must pass all validation checks. If any check fails, fix `edit_plan.json` or re-render until 100% compliant.
+5. **Mandatory Mild Background Music for ALL Videos**: Every single video without exception must have mild, subtle background music mixed beneath the dialogue (`-22 dB` to `-25 dB`). No raw dialogue-only video is ever permitted.
+6. **Zero Watermarks**: Strictly no logos, watermarks, or initials in the top-right corner or anywhere on the frame. The video canvas must be 100% clean and distraction-free.
 
 ---
 
@@ -83,7 +85,7 @@ Every video across all reference styles must follow this exact sequential order:
 ## 8. Audio Mastering Standards
 
 - **Dialogue (Primary)**: Speaker voice is the dominant track. Background noise removed, vocal clarity preserved, normalized to **`-14.0 LUFS`** (EBU R128 standard).
-- **Background Music (Bed)**: Ambient lo-fi track ducked to **`-20 dB to -25 dB`** under speech.
+- **Mild Background Music (Mandatory for ALL Videos)**: Every single video across all reference styles must have continuous mild background music (instrumental, flute, strings, or lo-fi bed) ducked to **`-22 dB to -25 dB`** under speech with smooth head (1.0s) and tail (2.0s) fades. Zero videos may be delivered with dead air or vocal-only silence.
 - **Continuity**: Continuous audio bed without abrupt jumps or gaps during visual cutaways.
 
 ---
@@ -101,9 +103,11 @@ Before any reel is marked ready, `validate.py` automatically asserts:
    - Word-by-word progressive reveal verified (timing offsets strictly sequential).
 4. **Audio Integrity**:
    - Zero audio gaps/silences during b-roll video or photo overlays.
+   - Background music is present and verified active across the entire video.
    - Background music loudness is between $-25\text{ dB}$ and $-20\text{ dB}$.
    - Voice loudness is $-14.0 \pm 0.5\text{ LUFS}$.
 5. **Sync Tolerance**: Audio-subtitle alignment drift $< 100\text{ms}$.
+6. **Watermark Enforcement**: Zero watermarks or corner initials present.
 
 ---
 
@@ -123,8 +127,8 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 
 ### 2. Color & Audio
 - **Cinematic Color Grade**: Warm, slightly desaturated cinematic grade with deep rich blacks (`eq=contrast=1.12:saturation=0.85:brightness=-0.02,colorbalance=rs=0.04:gs=0.02:bs=-0.04`).
-- **Audio Master**: Clean, crisp, prominent dialogue normalized to broadcast standard **`-14.0 LUFS`** / **`-1.0 dBTP`**. Ambient, low-volume emotional instrumental background music ducked to **`-22 dB`**. Strictly **no whooshes, risers, or pop sound effects**.
-- **Watermark**: Low-opacity logo or initials in the top-right corner of the 16:9 video frame ($X = 1030, Y = 680$, opacity $40\%$, soft shadow).
+- **Audio Master & Mandatory Mild Music**: Clean, crisp dialogue normalized to broadcast standard **`-14.0 LUFS`** / **`-1.0 dBTP`**. **Mild background music is strictly mandatory** across the entire video: continuous emotional instrumental flute/strings background music bed (`ramayan_flute_bgm.mp3`) mixed at **`-22 dB to -24 dB`** under speech with smooth 1.0s head fade and 2.0s tail fade. Strictly **no whooshes, risers, or pop sound effects**.
+- **Watermark**: **REMOVED / DISABLED**. Strictly **no watermark** in the top-right corner or anywhere on the frame. Clean, distraction-free aesthetic.
 
 ### 3. Subtitle Style & Exact Kinetic Placement
 - **Font & Fill**: Bold condensed sans-serif (**Anton** / **Impact**), vibrant **Electric Yellow (`#FFE500` / RGB: 255, 229, 0)** with a soft dark drop shadow (`rgba(0,0,0,0.85)` offset `4px, 4px`, blur `6px`). The yellow text color ensures ultra-high contrast and readability against both the background wall and clothing.

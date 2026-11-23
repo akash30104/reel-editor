@@ -59,23 +59,17 @@
   "audio_mastering": {
     "voice_target_lufs": -14.0,
     "voice_true_peak_dbtp": -1.0,
-    "bgm_style": "low_volume_emotional_instrumental",
-    "bgm_ducking_level_db": -22.0,
+    "bgm_mandatory": true,
+    "bgm_track": "assets/audio/ramayan_flute_bgm.mp3",
+    "bgm_style": "mild_emotional_instrumental_flute",
+    "bgm_ducking_level_db": -23.0,
     "sfx_enabled": false,
     "remove_noise": true
   },
   "watermark": {
-    "enabled": true,
-    "text": "AK",
-    "position": "top_right_video_frame",
-    "x": 1030,
-    "y": 680,
-    "align": "right",
-    "font_family": "Anton",
-    "font_path": "assets/fonts/Anton-Regular.ttf",
-    "font_size": 26,
-    "fill_color": "rgba(255, 255, 255, 0.40)",
-    "shadow": true
+    "enabled": false,
+    "text": "",
+    "position": "none"
   },
   "subtitles": {
     "style": "kinetic_dynamic_zones",
