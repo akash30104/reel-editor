@@ -1,0 +1,85 @@
+{
+  "template_id": "template_ref11",
+  "name": "Reference 11 - Single-Word Highlight Banner Short",
+  "version": "1.0.0",
+  "status": "LOCKED_MASTER_STANDARD",
+  "locked": true,
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "background_color": "#000000"
+  },
+  "header_banner": {
+    "enabled": true,
+    "y_top": 408,
+    "y_bottom": 558,
+    "height": 150,
+    "background_color": "#FF8400",
+    "border_color": "#000000",
+    "border_width_px": 3,
+    "typography": {
+      "font_family": "TamilSangamMN-Bold",
+      "line_1_size": 42,
+      "line_2_size": 38,
+      "text_color": "#000000",
+      "emojis_supported": true,
+      "line_1": "ராமாயணம் கற்றுத்தரும் பாடம் 🏹",
+      "line_2": "ஹனுமான் தரும் வாழ்க்கை தத்துவம்! 🔥"
+    }
+  },
+  "active_video_window": {
+    "y_top": 558,
+    "y_bottom": 1498,
+    "height": 940,
+    "framing_rule": "switch_camera_to_active_speaker",
+    "host_camera": {
+      "speaker": "woman_host",
+      "crop": "crop=1206:1050:2150:650",
+      "scale": "1080:940"
+    },
+    "guest_camera": {
+      "speaker": "man_guest",
+      "crop": "crop=1206:1050:450:750",
+      "scale": "1080:940"
+    },
+    "guest_punch_in": {
+      "trigger": "climax",
+      "crop": "crop=1048:913:530:820",
+      "scale": "1080:940"
+    },
+    "broll_cutaways": {
+      "enabled": true,
+      "pacing": "every 4 to 7 seconds",
+      "aspect_fill": "1080:940"
+    },
+    "color_grade": {
+      "style": "warm_natural_studio_grade",
+      "ffmpeg_filter": "eq=contrast=1.08:saturation=0.92:brightness=-0.01,colorbalance=rs=0.03:gs=0.01:bs=-0.03",
+      "hook_bw_snap": "first 0.6s B&W"
+    }
+  },
+  "subtitles": {
+    "pacing": "single_word_at_a_time",
+    "font_family": "MyHandwriting",
+    "font_size": 95,
+    "color": "#FF8400",
+    "stroke_color": "#000000",
+    "stroke_width": 8,
+    "y_position": 1350,
+    "speech_sync": {
+      "exact_acoustic_alignment": true,
+      "source": "precise_words.json"
+    }
+  },
+  "audio_mastering": {
+    "dialogue_target_lufs": -14.0,
+    "dialogue_true_peak_dbtp": -1.0,
+    "bgm_mandatory": true,
+    "bgm_track": "assets/audio/ramayan_flute_bgm.mp3",
+    "bgm_style": "melodic_strings_and_flute",
+    "bgm_ducking_level_db": -23.0,
+    "sfx_enabled": false,
+    "watermark_enabled": false
+  }
+}

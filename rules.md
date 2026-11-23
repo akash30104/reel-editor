@@ -196,4 +196,43 @@ Before any reel is marked ready, `validate.py` automatically asserts:
   - **Subscribe card is completely removed**.
   - Dialogue and split-screen interaction play naturally through to the decisive spoken climax and natural conclusion ($t = 74.0\text{s}$).
 
+## 12. Reference 11 Master Specification (Single-Word Highlight Banner Short) [LOCKED MASTER STANDARD]
+
+> [!IMPORTANT]
+> **PERMANENTLY LOCKED MASTER STANDARD**: Reference 11 style is officially locked. Whenever instructed to edit a raw video in **Reference 11** (`reference 11` / `11referance`), the editor must strictly execute the parameters defined in `templates/template_ref11.json` and executed in `render_ref11_master.py`.
+
+### 1. Canvas & Header Banner
+- **Canvas**: Exact 9:16 vertical canvas (`1080×1920 @ 30fps`).
+- **Top Black Bar**: Pure black canvas from $Y = 0 \text{ to } 408$.
+- **Persistent Header Banner**:
+  - **Position**: Anchored across $Y = 408 \text{ to } 558$ (height $150\text{px}$).
+  - **Background**: Exact signature orange **`#FF8400`** (`RGB: 255, 132, 0`).
+  - **Framing Borders**: 3px solid black border lines top ($Y = 408$) and bottom ($Y = 558$).
+  - **Typography**: Native Cocoa/AppKit shaped bold text (`TamilSangamMN-Bold` or `Montserrat Bold`, `#000000` solid black) with full color Apple Emojis on the right:
+    - Line 1: `ராமாயணம் கற்றுத்தரும் பாடம் 🏹` (size 42px)
+    - Line 2: `ஹனுமான் தரும் வாழ்க்கை தத்துவம்! 🔥` (size 38px)
+
+### 2. Active Video Window & Speaker Framing
+- **Dimensions & Placement**: $1080\times 940\text{px}$ window centered across $Y = 558 \text{ to } 1498$.
+- **Bottom Black Bar**: Pure black canvas from $Y = 1498 \text{ to } 1920$.
+- **Dynamic Speaker Switching**:
+  - **Host (Woman) Framing**: When Host speaks, cut to Host Woman Medium Close-Up centered in the $1080\times 940$ frame (`crop=1206:1050:2150:650,scale=1080:940`).
+  - **Guest (Man) Framing**: When Guest speaks, cut to Guest Man Medium Close-Up centered in the $1080\times 940$ frame (`crop=1206:1050:450:750,scale=1080:940`).
+  - **Climax Punch-in**: Subtle 1.15x punch-in on high-energy vocal peaks (`crop=1048:913:530:820,scale=1080:940`).
+- **Pacing & B-Roll Cutaways**:
+  - Visual cutaways every **4 to 7 seconds** alternating between speaker close-ups and thematic B-roll footage.
+  - First 0.6s begins in B&W snapping into warm natural studio color grade (`eq=contrast=1.08:saturation=0.92:brightness=-0.01,colorbalance=rs=0.03:gs=0.01:bs=-0.03`).
+
+### 3. Subtitle Pacing & Speech Synchronization
+- **Pacing**: **Fast single word / single punchy phrase at a time** (`ONLY ONE WORD AT A TIME` on screen).
+- **Typography**: User's signature handwriting font **`MyHandwriting.ttf`** (size 95pt).
+- **Color & Stroke**: Exact signature orange **`#FF8400`** with thick **`8px solid black stroke outline`** (`#000000`).
+- **Position**: Centered horizontally at lower third of the video window ($Y = 1350$).
+- **Exact Speech Sync**: Subtitles strictly align with acoustic speech onsets measured in `precise_words.json`. Words hold through their spoken duration and cut out cleanly.
+
+### 4. Audio Mastering
+- **Dialogue Target**: Normalized to broadcast standard **`-14.0 LUFS`** / **`-1.0 dBTP`**.
+- **Mandatory Mild Music**: Continuous emotional instrumental flute BGM (`ramayan_flute_bgm.mp3`) ducked to **`-23 dB`** under speech with smooth head/tail fades.
+- **Zero Watermarks**: No watermark in top-right corner or anywhere on the frame.
+
 
