@@ -113,8 +113,12 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 
 ### 1. Canvas & Camera
 - **Canvas**: Pure black (`#000000`) 9:16 vertical canvas (`1080×1920 @ 30fps`).
-- **Framing**: Center the 16:9 clip in the middle third ($Y = 656 \text{ to } 1264$, height $608\text{px}$) letterbox style.
-- **Gradient Fade**: Soft black gradient fade on the bottom edge of the video frame ($Y = 1174 \text{ to } 1264$, $90\text{px}$ fade height) dissolving the speaker's torso into the pure black lower canvas.
+- **Framing & Aspect Ratio**: Center the 16:9 clip in the middle third ($Y = 656 \text{ to } 1264$, height $608\text{px}$, width $1080\text{px}$) letterbox style. This exact frame size must be preserved.
+- **Active Speaker Tracking**: The frame must dynamically switch to **whoever is actually talking**. Never show a listening speaker while another person is speaking:
+  - When the Host speaks (e.g. asking the question), crop and center the Host camera.
+  - When the Guest speaks (e.g. delivering the response/monologue), crop and center the Guest camera.
+  - Cut cleanly on speaker handoffs to preserve absolute speech-to-face synchronization.
+- **Gradient Fade**: Soft black gradient fade on the bottom edge of the video frame ($Y = 1174 \text{ to } 1264$, $90\text{px}$ fade height) dissolving the speaker's torso cleanly into the pure black lower canvas.
 - **Motion Protocol**: Static shot only. Absolutely **no jump cuts, zooms, punch-ins, or B-roll**.
 
 ### 2. Color & Audio
@@ -123,9 +127,9 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 - **Watermark**: Low-opacity logo or initials in the top-right corner of the 16:9 video frame ($X = 1030, Y = 680$, opacity $40\%$, soft shadow).
 
 ### 3. Subtitle Style & Exact Kinetic Placement
-- **Font & Fill**: Bold condensed sans-serif (**Anton** / **Impact**), pure crisp white (`#FFFFFF`) with a soft dark drop shadow (`rgba(0,0,0,0.85)` offset `4px, 4px`, blur `6px`).
+- **Font & Fill**: Bold condensed sans-serif (**Anton** / **Impact**), vibrant **Electric Yellow (`#FFE500` / RGB: 255, 229, 0)** with a soft dark drop shadow (`rgba(0,0,0,0.85)` offset `4px, 4px`, blur `6px`). The yellow text color ensures ultra-high contrast and readability against both the background wall and clothing.
 - **Chunking & Pacing**: Rapid **1 to 3 words per beat**. Use `"..."` and `"!"` to control dramatic pacing and impact.
-- **Safe Zone Protection**: All text must reside strictly within the 16:9 video frame boundaries ($Y = 656 \text{ to } 1264$). **Never cover the speaker's face, eyes, or mouth** (Protected Face Exclusion Zone: $X = [380..700], Y = [670..1000]$).
+- **Safe Zone Protection**: All text must reside strictly within the 16:9 video frame boundaries ($Y = 656 \text{ to } 1264$). **Never cover the speaker's face, eyes, or mouth**.
 - **Dynamic Placement Zones (Rotated per phrase)**:
   - **Zone A (Left)**: Left of the speaker's head/shoulder ($X = 70 \text{ to } 390$, left-aligned, vertical center $Y \approx 820$).
   - **Zone B (Right)**: Right of the speaker's head/shoulder ($X = 690 \text{ to } 1010$, right-aligned, vertical center $Y \approx 820$).

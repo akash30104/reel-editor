@@ -16,6 +16,27 @@
     "y": 656,
     "aspect_ratio": "16:9",
     "motion": "static_only",
+    "active_speaker_tracking": true,
+    "speaker_switching": [
+      {
+        "speaker": "host",
+        "start_sec": 0.0,
+        "end_sec": 8.0,
+        "crop_x": 1530,
+        "crop_y": 450,
+        "crop_w": 2160,
+        "crop_h": 1215
+      },
+      {
+        "speaker": "guest",
+        "start_sec": 8.0,
+        "end_sec": 74.0,
+        "crop_x": 190,
+        "crop_y": 450,
+        "crop_w": 2160,
+        "crop_h": 1215
+      }
+    ],
     "allow_jump_cuts": false,
     "allow_zooms": false,
     "allow_broll": false,
@@ -61,7 +82,7 @@
     "font_family": "Anton",
     "font_path": "assets/fonts/Anton-Regular.ttf",
     "fallback_font_path": "assets/fonts/NotoSansTamil-Bold.ttf",
-    "primary_color": "#FFFFFF",
+    "primary_color": "#FFE500",
     "drop_shadow": {
       "enabled": true,
       "color": "rgba(0, 0, 0, 0.85)",

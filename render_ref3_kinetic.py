@@ -5,6 +5,7 @@ Renders Reel 1 in strict accordance with Reference 3 Master Specification (rules
 1. CANVAS & CAMERA:
    - Pure black 9:16 canvas (1080x1920 @ 30fps).
    - 16:9 video clip centered in the middle third (Y=656..1264, height 608px).
+   - Active speaker tracking: dynamically switch camera between Host (0s-8s) and Guest (8s-74s).
    - Soft black gradient fade on the bottom edge (height 90px, Y=1174..1264).
    - Static shot only: No jump cuts, zooms, or B-roll.
 2. COLOR & AUDIO:
@@ -12,7 +13,7 @@ Renders Reel 1 in strict accordance with Reference 3 Master Specification (rules
    - Clean prominent dialogue over low-volume emotional instrumental BGM (-22 dB). No whooshes/pop SFX.
    - Low-opacity logo watermark in the top-right corner of the video frame (X=1030, Y=680).
 3. SUBTITLE STYLE & EXACT KINETIC PLACEMENT:
-   - Font: Anton bold condensed, pure white (#FFFFFF), soft dark drop shadow.
+   - Font: Anton bold condensed, electric yellow (#FFE500), soft dark drop shadow.
    - Chunking: 1-3 words per beat with '...' and '!'.
    - Safe Zone: All text inside 16:9 frame, never covering speaker's face or eyes.
    - Placement Zones: Zone A (Left), Zone B (Right), Zone C (Bottom-Center).
@@ -40,29 +41,46 @@ VID_H = 608
 VID_Y = 656
 TOTAL_DUR = 74.0
 
-# 1. Base Static Video Generation
-# Crop guest to 16:9 centered (crop=2160:1215:1530:450,scale=1080:608:flags=lanczos)
-# Apply warm, slightly desaturated cinematic grade with deep blacks:
-# eq=contrast=1.12:saturation=0.85:brightness=-0.02,colorbalance=rs=0.04:gs=0.02:bs=-0.04
-base_cut_mp4 = WORKSPACE / "ref3_raw_guest_static.mp4"
+# 1. Base Video Generation with Active Speaker Tracking
+# - Host segment (0.0s - 8.0s): Host asks question -> Crop to host (X=1530)
+# - Guest segment (8.0s - 74.0s): Guest gives monologue -> Crop to guest (X=190)
+# Both cropped to 16:9 (2160x1215), scaled to 1080x608, and color-graded
+base_cut_mp4 = WORKSPACE / "ref3_speakers_base.mp4"
 if not base_cut_mp4.exists():
-    print("🎬 Extracting static 16:9 guest master shot from RAW_VIDEO...")
-    vf = (
+    print("🎬 Generating active-speaker base video (Host -> Guest)...")
+    host_mp4 = WORKSPACE / "ref3_cut_host.mp4"
+    guest_mp4 = WORKSPACE / "ref3_cut_guest.mp4"
+    vf_host = (
         "crop=2160:1215:1530:450,scale=1080:608:flags=lanczos,"
         "eq=contrast=1.12:saturation=0.85:brightness=-0.02,"
         "colorbalance=rs=0.04:gs=0.02:bs=-0.04,setsar=1,fps=30"
     )
+    vf_guest = (
+        "crop=2160:1215:190:450,scale=1080:608:flags=lanczos,"
+        "eq=contrast=1.12:saturation=0.85:brightness=-0.02,"
+        "colorbalance=rs=0.04:gs=0.02:bs=-0.04,setsar=1,fps=30"
+    )
     subprocess.run([
-        "ffmpeg", "-y",
-        "-ss", "1988.0", "-t", f"{TOTAL_DUR:.3f}",
-        "-i", str(RAW_VIDEO),
-        "-vf", vf, "-an",
+        "ffmpeg", "-y", "-ss", "1988.0", "-t", "8.0",
+        "-i", str(RAW_VIDEO), "-vf", vf_host, "-an",
         "-c:v", "libx264", "-preset", "fast", "-crf", "18",
-        "-pix_fmt", "yuv420p",
-        "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
-        str(base_cut_mp4)
-    ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    print(f"✅ Static shot extracted: {base_cut_mp4}")
+        "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
+        str(host_mp4)
+    ], check=True)
+    subprocess.run([
+        "ffmpeg", "-y", "-ss", "1996.0", "-t", "66.0",
+        "-i", str(RAW_VIDEO), "-vf", vf_guest, "-an",
+        "-c:v", "libx264", "-preset", "fast", "-crf", "18",
+        "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
+        str(guest_mp4)
+    ], check=True)
+    concat_txt = WORKSPACE / "ref3_speakers_concat.txt"
+    concat_txt.write_text(f"file '{host_mp4}'\nfile '{guest_mp4}'\n")
+    subprocess.run([
+        "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_txt),
+        "-c", "copy", str(base_cut_mp4)
+    ], check=True)
+    print(f"✅ Active-speaker base video ready: {base_cut_mp4}")
 
 # 2. Letterbox Canvas & Soft Black Bottom Gradient Fade
 # Generate a static alpha mask PNG that applies the bottom gradient fade and pads to 1080x1920
@@ -211,12 +229,12 @@ def render_kinetic_subtitles_frame(active_phrases):
             draw_x = x_base - text_w // 2
             draw_y = y_base - text_h // 2
 
-        # Soft dark drop shadow: multi-layer soft blur
-        for ox, oy, alpha in [(5, 5, 160), (4, 4, 130), (3, 3, 100), (2, 2, 70)]:
+        # Soft dark drop shadow: multi-layer soft blur for high legibility
+        for ox, oy, alpha in [(5, 5, 200), (4, 4, 160), (3, 3, 120), (2, 2, 80)]:
             draw.multiline_text((draw_x + ox, draw_y + oy), text, font=f, fill=(0, 0, 0, alpha), align=align)
 
-        # Crisp pure white text
-        draw.multiline_text((draw_x, draw_y), text, font=f, fill=(255, 255, 255, 255), align=align)
+        # Crisp vibrant electric yellow text (#FFE500 per Reference 3 specification)
+        draw.multiline_text((draw_x, draw_y), text, font=f, fill=(255, 229, 0, 255), align=align)
 
     return im.tobytes()
 
