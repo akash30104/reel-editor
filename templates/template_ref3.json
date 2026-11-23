@@ -74,17 +74,16 @@
     "position": "none"
   },
   "subtitles": {
-    "style": "kinetic_dynamic_zones",
+    "style": "clean_white_impact_torso",
     "language": "Tanglish",
     "visual_lead_ms": 60,
-    "font_family": "Anton",
-    "font_path": "assets/fonts/Anton-Regular.ttf",
-    "fallback_font_path": "assets/fonts/NotoSansTamil-Bold.ttf",
-    "primary_color": "#FFE500",
+    "font_family": "Impact",
+    "font_path": "/System/Library/Fonts/Supplemental/Impact.ttf",
+    "primary_color": "#FFFFFF",
     "stroke": {
       "enabled": true,
-      "width_px": 3,
-      "color": "rgba(0, 0, 0, 0.94)"
+      "width_px": 3.5,
+      "color": "#000000"
     },
     "drop_shadow": {
       "enabled": true,
@@ -93,22 +92,16 @@
       "offset_y": 4,
       "blur_radius": 6
     },
-    "display_mode": "random_spaces_kinetic",
+    "display_mode": "lower_chest_anchored",
     "max_bursts_on_screen": 1,
     "allow_phrase_stacking": false,
     "pacing": "fast_1_to_3_words",
-    "visual_lead_ms": 50,
-    "base_font_size": 54,
-    "hero_font_size": 68,
+    "base_font_size": 70,
+    "y_position": 1130,
     "safe_zone": {
       "video_top_y": 656,
       "video_bottom_y": 1264,
-      "speaker_face_protection_box": {
-        "x_min": 380,
-        "x_max": 700,
-        "y_min": 670,
-        "y_max": 1000
-      }
+      "face_clearance": "strictly_below_face_over_torso"
     },
     "safe_spaces": {
       "L_MID": {"x": 220, "y": 810, "max_w": 340, "align": "center"},

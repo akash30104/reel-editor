@@ -131,28 +131,16 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 - **Audio Master & Mandatory Mild Music**: Clean, crisp dialogue normalized to broadcast standard **`-14.0 LUFS`** / **`-1.0 dBTP`**. **Mild background music is strictly mandatory** across the entire video: continuous emotional instrumental flute/strings background music bed (`ramayan_flute_bgm.mp3`) mixed at **`-22 dB to -24 dB`** under speech with smooth 1.0s head fade and 2.0s tail fade. Strictly **no whooshes, risers, or pop sound effects**.
 - **Watermark**: **REMOVED / DISABLED**. Strictly **no watermark** in the top-right corner or anywhere on the frame. Clean, distraction-free aesthetic.
 
-### 3. Subtitle Style & Exact Kinetic Placement
-- **Language**: **TANGLISH (Romanized Tamil + English keywords matching spoken audio)**. Modeled directly on the Reference 3 video (`referance/referance 3/vidssave.com kisthenics podcast... 720P.mp4`):
-  - Spoken Tamil is transcribed phonetically in Roman script (e.g. `RAMAYANATHULA IRUNDHU...`, `NAAM ENNA...`, `HANUMAN-A PATHI MATTUM...`, `LATENT POTENTIAL IRUKKU!`, `SOLLAAMA KOLLAAMA POYITAANGA!`, `LOYALTY-E ILLA!`, `SELFLESS LOYALTY DHAAN!`, etc.).
-  - Spoken English phrases are rendered in English (`EVERYBODY IN THIS WORLD IS LIKE HANUMAN!`, `THAT'S THE MENTOR!`, `LOYALTY!`, `LIVE EXAMPLE!`).
-  - **Zero Content Mismatch**: Never fabricate mythical storylines or conceptual English summaries that do not match what the speaker is saying. Subtitles must strictly reflect the authentic spoken topic and real-life examples.
-- **Font & Fill**: Bold condensed sans-serif (**Anton** / **Impact**), vibrant **Electric Yellow (`#FFE500` / RGB: 255, 229, 0)** with a 3px dark stroke outline (`#000000`) and a multi-layer soft dark drop shadow (`rgba(0,0,0,0.85)` offset `4px, 4px`, blur `6px`). The yellow text color ensures ultra-high contrast and readability against both the background wall and clothing.
-- **Chunking & Pacing**: Rapid **1 to 3 words per beat**. Use `"..."` and `"!"` to control dramatic pacing and impact.
-- **Zero Latency / Visual Lead (-60ms to -80ms)**: Subtitle frames trigger with a 60ms to 80ms visual lead relative to the acoustic syllable onset. This compensates for human visual latency and ensures the viewer reads the text with crisp, instantaneous synchronization without any perceived lag or delay.
-- **Safe Zone Protection**: All text must reside strictly within the 16:9 video frame boundaries ($Y = 656 \text{ to } 1264$). **Never cover the speaker's face, eyes, or mouth**.
-- **Dynamic Random Spaces (Reference 3 Kinetic Specification)**:
-  - **Random Safe Spaces**: Subtitles dynamically pop in across safe spaces around the speaker inside the 16:9 frame:
-    * `L_MID`: Left of head/shoulder ($X \approx 220, Y \approx 810$).
-    * `R_MID`: Right of head/shoulder ($X \approx 860, Y \approx 810$).
-    * `B_CTR`: Bottom Center lower-third ($X = 540, Y \approx 1140$, above bottom gradient).
-    * `L_TOP`: Upper Left ($X \approx 220, Y \approx 740$).
-    * `R_TOP`: Upper Right ($X \approx 860, Y \approx 740$).
-    * `L_LOW`: Lower Left ($X \approx 250, Y \approx 1050$).
-    * `R_LOW`: Lower Right ($X \approx 830, Y \approx 1050$).
-  - **Strictly 1 Burst on Screen at a Time**: Exactly ONE burst is displayed on screen at any single moment. Never stack multiple phrases across different spaces at the same time. When the next burst triggers, the previous burst vanishes cleanly.
-  - **Fast Pacing**: Rapid 1 to 3 words per burst (`0.8s to 1.6s` per burst) for high-energy kinetic rhythm.
-  - **Razor-Sharp Acoustic Sync**: Subtitle triggers feature a `-50ms` visual lead time aligned directly to spoken syllable onsets. Words pop in sharply on beat with zero perceived lag.
-  - **Hierarchy**: Emphasized/hook words scale dynamically (`1.2x to 1.35x`) larger for punchy emphasis.
+### 3. Subtitle Style & Exact Placement [REFERENCE 3 LOCKED STANDARD]
+- **Language**: **TANGLISH (Romanized Tamil + English keywords matching spoken audio)**. Modeled directly on Reference 3 (`referance/referance 3/vidssave.com kisthenics podcast... 720P.mp4`):
+  - Spoken Tamil is transcribed phonetically in Roman script (e.g. `VANAKKAM GANESH...!`, `FINE BRO...!`, `ORU QUICK CRISP INTRO...`, `COLLEGE STUDENT...!`, `START FROM SCRATCH!`, `ZERO KNOWLEDGE..!`, `PRIVATE LIMITED COMPANY!`, etc.).
+  - Emotive punctuation (`...!`, `..`, `!`, `?`) gives the typography authentic kinetic energy.
+- **Font & Fill**: **Impact** (`/System/Library/Fonts/Supplemental/Impact.ttf`, size 64pt), **Pure White (`#FFFFFF`)** with crisp **`3.5px solid black outline` (`#000000`)** and multi-layer soft dark drop shadow (`rgba(0, 0, 0, 0.85)` offset `4px, 4px`, blur `6px`).
+- **Safe Zone & Face Protection Guarantee**:
+  - **NEVER COVER THE SPEAKER'S FACE, EYES, NOSE, OR MOUTH**.
+  - All subtitles are strictly anchored at the **lower chest / torso** ($Y \approx 1130$ on 1080x1920 canvas, local $Y \approx 474$ inside the 608px video window).
+  - Since the speaker's face is positioned at $Y = 750 \text{ to } 950$, placing subtitles at $Y \approx 1130$ guarantees over 180px of clear headroom, completely clear of the face.
+- **Pacing**: Rapid **1 to 3 words per burst** (`0.8s to 1.5s` per burst). Exactly ONE burst is displayed on screen at any single moment. When the next burst triggers, the previous burst vanishes cleanly.
 
 ---
 
