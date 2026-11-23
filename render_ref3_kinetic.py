@@ -12,13 +12,12 @@ Renders Reel 1 in strict accordance with Reference 3 Master Specification:
    - Warm, slightly desaturated cinematic grade with deep blacks.
    - Clean prominent dialogue (-14.0 LUFS) over mandatory mild emotional instrumental BGM (-23 dB). No whooshes/pop SFX.
    - Zero watermarks (clean 100% distraction-free frame).
-3. SUBTITLE STYLE & EXACT KINETIC PLACEMENT:
+3. SUBTITLE STYLE - STRICTLY 1 SENTENCE AT A TIME:
+   - "Only 1 sentence in the screen at the time" (Zero stacking, zero multiple zones simultaneously).
+   - Position: Lower Third Center (X=540, Y=1135), safely inside 16:9 frame, above gradient fade, never covering face.
    - Language: TANGLISH (Phonetic Romanized Tamil + English words matching spoken audio).
-   - Font: Anton bold condensed, electric yellow (#FFE500), dark drop shadow + stroke.
-   - Chunking: 1-3 words per beat with '...' and '!'.
-   - Safe Zone: All text inside 16:9 frame, never covering speaker's face or eyes.
-   - Placement Zones: Zone A (Left), Zone B (Right), Zone C (Bottom-Center).
-   - Hierarchy: Pop sharply on beat (-60ms visual lead for snappy sync), 1.4x scale hierarchy, cluster stacking across zones, clean reset on sentence boundaries.
+   - Font: Anton bold condensed, electric yellow (#FFE500), 3.5px solid dark stroke outline + multi-layer soft dark drop shadow.
+   - Timing: -60ms visual lead time for crisp, instantaneous synchronization.
 4. EXPORT:
    - /Users/pgi/Downloads/reels editor/export /Reel_1_Reference_3_Style.mp4
 """
@@ -100,179 +99,123 @@ if not grad_overlay_png.exists():
 pro_dialogue = WORKSPACE / "reel1_pro_mastered_audio.wav"
 bgm_music = ASSETS_DIR / "audio" / "ramayan_flute_bgm.mp3"
 
-# 4. Kinetic Subtitle Engine
+# 4. Single-Sentence Subtitle Engine (STRICTLY 1 SENTENCE AT A TIME)
 font_p = str(ASSETS_DIR / "fonts" / "Anton-Regular.ttf")
-font_base = ImageFont.truetype(font_p, 52)
-font_large = ImageFont.truetype(font_p, 72)
+font_std = ImageFont.truetype(font_p, 62)
+font_hero = ImageFont.truetype(font_p, 72)
 
-# Placement Zones in 1080x1920 coordinates
-# All safely inside 16:9 frame (Y=656..1264)
-# Zone A: Left of speaker (X=75, Y=785)
-# Zone B: Right of speaker (X=1005, Y=785, right-aligned)
-# Zone C: Bottom-Center (X=540, Y=1140, center-aligned, just above gradient fade)
-ZONES = {
-    "A": {"x": 75, "y": 785, "align": "left"},
-    "B": {"x": 1005, "y": 785, "align": "right"},
-    "C": {"x": 540, "y": 1140, "align": "center"}
-}
+# Precise Non-Overlapping Single Sentence Timeline
+# (start_sec, end_sec, text, is_hero_emphasis)
+# ONLY ONE sentence is active at any point in time!
+SINGLE_SENTENCES = [
+    # Host (0.0s - 8.6s)
+    (2.0, 4.3, "RAMAYANATHULA IRUNDHU...", False),
+    (4.3, 8.2, "NAAM ENNA VAAZHKAI PAADAM\nEDUTHUKKANUM?", True),
 
-# Authentic Spoken Tanglish Clusters with -60ms Visual Lead Time
-# Syllables matched directly to audio onset for instant snappy synchronization!
-KINETIC_CLUSTERS = [
-    # Cluster 1: Host asks Question (1.8s - 8.2s)
-    # Audio: "சரி இந்த ராமாயணத்துல இருந்து நாம் என்ன வாழ்க்கை பாடம் எடுத்துக்கணும்?"
-    (1.8, 8.2, [
-        (2.0, "A", "RAMAYANATHULA IRUNDHU...", False),
-        (3.7, "B", "NAAM ENNA...", False),
-        (4.4, "C", "VAAZHKAI PAADAM\nEDUTHUKKANUM?", True)
-    ]),
+    # Guest (8.6s - 74.0s)
+    (8.5, 10.4, "NAAN VANDHU...", False),
+    (10.4, 12.8, "HANUMAN-A PATHI MATTUM\nPESA NENAIKKIREN!", True),
+    (12.8, 15.4, "EVERYBODY IN THIS WORLD\nIS LIKE HANUMAN!", True),
 
-    # Cluster 2: Guest delivers Hook - Hanuman (8.3s - 15.3s)
-    # Audio: "நான் வந்து ஹனுமான பத்தி மட்டும் பேச நினைக்கிறேன்... Everybody in this world is like Hanuman!"
-    (8.3, 15.3, [
-        (8.5, "A", "NAAN VANDHU...", False),
-        (10.5, "B", "HANUMAN-A PATHI MATTUM\nPESA NENAIKKIREN!", True),
-        (13.0, "C", "EVERYBODY IN THIS WORLD\nIS LIKE HANUMAN!", True)
-    ]),
+    (15.7, 17.5, "NAMAKKULLA...", False),
+    (17.5, 19.1, "LATENT POTENTIAL IRUKKU!", True),
+    (19.1, 22.3, "SOMEONE HAS TO SHOW IT...\nTHAT'S THE MENTOR!", True),
 
-    # Cluster 3: Latent Potential & Mentor (15.5s - 22.3s)
-    # Audio: "நமக்குள்ள Latent potential இருக்கு, but someone has to come and show it to us that's the mentor"
-    (15.5, 22.3, [
-        (15.8, "A", "NAMAKKULLA...", False),
-        (16.3, "B", "LATENT POTENTIAL IRUKKU!", True),
-        (17.6, "C", "SOMEONE HAS TO SHOW IT...", False),
-        (19.2, "A", "THAT'S THE MENTOR!", True)
-    ]),
+    (22.4, 24.1, "MENTOR IRUNDHAA JAIKKALAAM!", False),
+    (24.1, 26.0, "RENDAAVADHU... LOYALTY!", True),
 
-    # Cluster 4: Winning with Mentor & Loyalty (22.4s - 26.0s)
-    # Audio: "மெண்டார் இருந்தா ஜெயிக்கலாம்... ரெண்டாவது Loyalty!"
-    (22.4, 26.0, [
-        (22.5, "B", "MENTOR IRUNDHAA JAIKKALAAM!", False),
-        (23.3, "A", "RENDAAVADHU...", False),
-        (23.9, "C", "LOYALTY!", True)
-    ]),
+    (26.2, 28.4, "INNAIKKU VANDHAVAR...", False),
+    (28.4, 30.2, "ROMBA VARUTHAPPATTAAR!", True),
+    (30.3, 33.0, "AVAR STAFF 2 YEARS\nVELA PAATHUTTU...", False),
+    (33.0, 36.0, "SOLLAAMA KOLLAAMA\nPOYITAANGA!", True),
 
-    # Cluster 5: Live Example - Friend's Staff Left After 2 Years (26.1s - 36.0s)
-    # Audio: "இன்னைக்கு வந்த கலைஞர்/நண்பர் வருத்தப்பட்டார்... ஏன்னா அவர் ஸ்டாஃப் 2 வருஷம் வேலை பார்த்துட்டு சொல்லாம வேலைய விட்டுட்டாங்க"
-    (26.1, 36.0, [
-        (26.2, "A", "INNAIKKU VANDHAVAR...", False),
-        (28.5, "B", "ROMBA VARUTHAPPATTAAR!", True),
-        (30.3, "C", "AVAR STAFF 2 YEARS\nVELA PAATHUTTU...", False),
-        (33.0, "A", "SOLLAAMA KOLLAAMA\nPOYITAANGA!", True)
-    ]),
+    (36.3, 38.0, "AVAR SOLLUMPODHU...", False),
+    (38.0, 40.0, "ROMBA UPSET AAYITAARU!", True),
+    (40.1, 42.2, "LOYAL-AA IRUNDHURUNDHAA...", False),
+    (42.2, 44.0, "AVANGA KOODAVE\nIRUNDHURUPPAANGA!", True),
 
-    # Cluster 6: If they had Loyalty (36.2s - 43.8s)
-    # Audio: "அவர் சொல்லும்போது ரொம்ப upset ஆயிட்டாரு... Loyal-ஆ இருந்திருந்தா அவங்க இருந்திருப்பாங்க"
-    (36.2, 43.8, [
-        (36.4, "B", "AVAR SOLLUMPODHU...", False),
-        (38.0, "A", "ROMBA UPSET AAYITAARU!", True),
-        (40.1, "B", "LOYAL-AA IRUNDHURUNDHAA...", False),
-        (42.3, "C", "AVANGA KOODAVE\nIRUNDHURUPPAANGA!", True)
-    ]),
+    (44.2, 46.8, "INNAIKKU PALA PERKITTA...", False),
+    (46.8, 48.8, "LOYALTY-E ILLA!", True),
+    (48.8, 55.4, "IDHU ORU LIVE EXAMPLE!", True),
 
-    # Cluster 7: People Lack Loyalty Today (44.0s - 55.4s)
-    # Audio: "இன்னைக்கு பல பேர்கிட்ட இல்லாதது என்னன்னா... Loyalty இல்ல! இது ஒரு Live Example!"
-    (44.0, 55.4, [
-        (44.2, "A", "INNAIKKU PALA PERKITTA...", False),
-        (47.0, "B", "LOYALTY-E ILLA!", True),
-        (48.9, "C", "IDHU ORU LIVE EXAMPLE!", True)
-    ]),
+    (55.8, 57.8, "AVAR SOLLUMPODHU...", False),
+    (57.8, 60.4, "ROMBA KASHTAMAA POCHU...", False),
+    (60.4, 63.6, "HANUMAN MAADHIRI\nLOYAL PEOPLE ENGEY?", True),
 
-    # Cluster 8: Hanuman's Loyalty vs Today (55.6s - 63.4s)
-    # Audio: "அவர் சொல்லும்போது எனக்கு ரொம்ப கஷ்டமா போச்சு... ஹனுமான் மாதிரி விசுவாசம் உள்ளவங்க எங்க?"
-    (55.6, 63.4, [
-        (55.8, "A", "AVAR SOLLUMPODHU...", False),
-        (57.9, "B", "ROMBA KASHTAMAA POCHU...", False),
-        (60.5, "C", "HANUMAN MAADHIRI\nLOYAL PEOPLE ENGEY?", True)
-    ]),
-
-    # Cluster 9: Climax - Life's Greatest Lesson (63.6s - 73.8s)
-    # Audio: "ஹனுமான் காட்டிய அந்த தன்னலமற்ற விசுவாசம் தான்... வாழ்க்கையின் மிகப்பெரிய பாடம்!"
-    (63.6, 73.8, [
-        (63.8, "A", "HANUMAN KAATTIYA...", False),
-        (65.9, "B", "SELFLESS LOYALTY DHAAN!", True),
-        (68.8, "C", "LIFE-ODA GREATEST LESSON!", True)
-    ])
+    (63.8, 65.8, "HANUMAN KAATTIYA...", False),
+    (65.8, 68.6, "SELFLESS LOYALTY DHAAN!", True),
+    (68.6, 73.8, "LIFE-ODA GREATEST LESSON!", True)
 ]
 
-def render_kinetic_subtitles_frame(active_zone_dict):
+def render_single_sentence_frame(sentence_tuple):
+    """
+    Renders exactly ONE sentence at Lower Third Center (X=540, Y=1135).
+    Safely within 16:9 frame, above gradient fade, never covering speaker's face.
+    """
     im = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
-    draw = ImageDraw.Draw(im)
-
-    if not active_zone_dict:
+    if not sentence_tuple:
         return im.tobytes()
 
-    for zone_id, (text, is_emph) in active_zone_dict.items():
-        f = font_large if is_emph else font_base
-        z_info = ZONES[zone_id]
-        x_base = z_info["x"]
-        y_base = z_info["y"]
-        align = z_info["align"]
+    text, is_hero = sentence_tuple
+    draw = ImageDraw.Draw(im)
+    f = font_hero if is_hero else font_std
 
-        bbox = draw.multiline_textbbox((0, 0), text, font=f, align=align)
-        text_w = bbox[2] - bbox[0]
-        text_h = bbox[3] - bbox[1]
+    # Measure text bounding box
+    bbox = draw.multiline_textbbox((0, 0), text, font=f, align="center")
+    text_w = bbox[2] - bbox[0]
+    text_h = bbox[3] - bbox[1]
 
-        if align == "left":
-            draw_x = x_base
-            draw_y = y_base - text_h // 2
-        elif align == "right":
-            draw_x = x_base - text_w
-            draw_y = y_base - text_h // 2
-        else: # center
-            draw_x = x_base - text_w // 2
-            draw_y = y_base - text_h // 2
+    # Center horizontally at X=540, center vertically at Y=1135
+    draw_x = 540 - text_w // 2
+    draw_y = 1135 - text_h // 2
 
-        # 1. Multi-layer soft dark drop shadow for cinematic depth
-        for ox, oy, alpha in [(6, 6, 220), (4, 4, 180), (2, 2, 140)]:
-            draw.multiline_text((draw_x + ox, draw_y + oy), text, font=f, fill=(0, 0, 0, alpha), align=align)
+    # 1. Multi-layer soft dark drop shadow
+    for ox, oy, alpha in [(6, 6, 220), (4, 4, 180), (2, 2, 140)]:
+        draw.multiline_text((draw_x + ox, draw_y + oy), text, font=f, fill=(0, 0, 0, alpha), align="center")
 
-        # 2. Clean 3px dark stroke outline to prevent background bleed
-        draw.multiline_text(
-            (draw_x, draw_y), text, font=f,
-            fill=(255, 229, 0, 255),
-            stroke_width=3,
-            stroke_fill=(0, 0, 0, 240),
-            align=align
-        )
+    # 2. Electric Yellow with 3.5px solid dark stroke outline
+    draw.multiline_text(
+        (draw_x, draw_y), text, font=f,
+        fill=(255, 229, 0, 255),
+        stroke_width=3,
+        stroke_fill=(0, 0, 0, 240),
+        align="center"
+    )
 
     return im.tobytes()
 
 # Render animated subtitles MOV with alpha
 subs_mov = WORKSPACE / "ref3_kinetic_subs.mov"
-print("🎬 Rendering dynamic kinetic subtitle stream...")
+print("🎬 Rendering dynamic 1-sentence-at-a-time subtitle stream...")
 proc = subprocess.Popen([
     "ffmpeg", "-y", "-f", "rawvideo", "-pix_fmt", "rgba", "-s", f"{WIDTH}x{HEIGHT}",
     "-framerate", "30", "-i", "-", "-c:v", "png", "-pix_fmt", "rgba", str(subs_mov)
 ], stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 total_frames = int(round(TOTAL_DUR * 30))
-blank_bytes = render_kinetic_subtitles_frame({})
+blank_bytes = render_single_sentence_frame(None)
 
 for f_idx in range(total_frames):
     t_sec = f_idx / 30.0
-    active_zone_dict = {}
+    active_sentence = None
 
-    # Find active cluster
-    for c_st, c_et, phrases in KINETIC_CLUSTERS:
-        if c_st <= t_sec < c_et:
-            # Add each phrase that has started up to t_sec into its zone
-            for p_st, zone, txt, is_emph in phrases:
-                if p_st <= t_sec:
-                    active_zone_dict[zone] = (txt, is_emph)
+    # Find the single active sentence at timestamp t_sec
+    for st, et, txt, is_hero in SINGLE_SENTENCES:
+        if st <= t_sec < et:
+            active_sentence = (txt, is_hero)
             break
 
-    raw_frame = render_kinetic_subtitles_frame(active_zone_dict) if active_zone_dict else blank_bytes
+    raw_frame = render_single_sentence_frame(active_sentence) if active_sentence else blank_bytes
     proc.stdin.write(raw_frame)
 
 proc.stdin.close()
 proc.wait()
-print(f"✅ Kinetic subtitles animated video rendered: {subs_mov}")
+print(f"✅ 1-sentence subtitle animated video rendered: {subs_mov}")
 
 # 5. Final Master Assembly:
 # Base 16:9 centered in 1080x1920 (pad=1080:1920:0:656:color=black)
 # Overlay bottom gradient fade (ref3_gradient_overlay.png)
-# Overlay kinetic subtitles (ref3_kinetic_subs.mov)
+# Overlay 1-sentence subtitles (ref3_kinetic_subs.mov)
 # Mux Pro Audio Master (-14 LUFS) with mild instrumental BGM (-23 dB)
 final_out = EXPORT_DIR / "Reel_1_Reference_3_Style.mp4"
 print(f"🎬 Assembling final Reel 1 in Reference 3 Style to: {final_out}")
@@ -307,13 +250,14 @@ subprocess.run([
 print(f"🎉 FINAL REEL 1 IN REFERENCE 3 STYLE EXPORTED: {final_out}")
 
 # Extract Verification QA Frames
-subprocess.run(["ffmpeg", "-y", "-ss", "5.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t5.0s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "11.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t11.5s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "18.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t18.0s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "24.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t24.5s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "33.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t33.5s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "42.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t42.5s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "50.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t50.0s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "61.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t61.0s.png")], check=True)
-subprocess.run(["ffmpeg", "-y", "-ss", "69.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_kinetic_t69.5s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "5.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t5.5s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "11.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t11.5s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "14.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t14.0s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "18.2", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t18.2s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "25.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t25.0s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "34.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t34.5s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "43.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t43.0s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "50.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t50.0s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "62.0", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t62.0s.png")], check=True)
+subprocess.run(["ffmpeg", "-y", "-ss", "70.5", "-i", str(final_out), "-vframes", "1", str(FRAMES_DIR / "qa_ref3_single_t70.5s.png")], check=True)
 print("✅ QA verification frames extracted successfully!")

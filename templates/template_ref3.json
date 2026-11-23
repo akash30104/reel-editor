@@ -91,13 +91,11 @@
       "offset_y": 4,
       "blur_radius": 6
     },
-    "base_font_size": 52,
-    "emphasis_scale": 1.4,
-    "chunking": {
-      "min_words": 1,
-      "max_words": 3,
-      "pacing_punctuation": ["...", "!"]
-    },
+    "display_mode": "single_sentence_at_a_time",
+    "max_sentences_on_screen": 1,
+    "allow_phrase_stacking": false,
+    "base_font_size": 62,
+    "hero_font_size": 72,
     "safe_zone": {
       "video_top_y": 656,
       "video_bottom_y": 1264,
@@ -108,39 +106,17 @@
         "y_max": 1000
       }
     },
-    "placement_zones": {
-      "zone_a": {
-        "name": "Left Shoulder",
-        "description": "Left of speaker head/shoulder",
-        "x_anchor": 70,
-        "y_center": 820,
-        "max_width": 320,
-        "align": "left"
-      },
-      "zone_b": {
-        "name": "Right Shoulder",
-        "description": "Right of speaker head/shoulder",
-        "x_anchor": 1010,
-        "y_center": 820,
-        "max_width": 320,
-        "align": "right"
-      },
-      "zone_c": {
-        "name": "Bottom-Center",
-        "description": "Lower third of video frame, above gradient",
-        "x_anchor": 540,
-        "y_center": 1180,
-        "max_width": 960,
-        "align": "center"
-      }
+    "placement": {
+      "name": "Lower Third Center",
+      "x_center": 540,
+      "y_center": 1135,
+      "max_width": 960,
+      "align": "center"
     },
     "animation_and_hierarchy": {
       "pop_sharp": true,
       "allow_slow_fades": false,
-      "sequential_clustering": {
-        "max_stacked_phrases": 3,
-        "clear_trigger": "sentence_start"
-      }
+      "single_sentence_transition": "crisp_cut"
     }
   }
 }

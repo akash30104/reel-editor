@@ -139,12 +139,12 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 - **Chunking & Pacing**: Rapid **1 to 3 words per beat**. Use `"..."` and `"!"` to control dramatic pacing and impact.
 - **Zero Latency / Visual Lead (-60ms to -80ms)**: Subtitle frames trigger with a 60ms to 80ms visual lead relative to the acoustic syllable onset. This compensates for human visual latency and ensures the viewer reads the text with crisp, instantaneous synchronization without any perceived lag or delay.
 - **Safe Zone Protection**: All text must reside strictly within the 16:9 video frame boundaries ($Y = 656 \text{ to } 1264$). **Never cover the speaker's face, eyes, or mouth**.
-- **Dynamic Placement Zones (Rotated per phrase)**:
-  - **Zone A (Left)**: Left of the speaker's head/shoulder ($X = 75 \text{ to } 390$, left-aligned, vertical center $Y \approx 785$).
-  - **Zone B (Right)**: Right of the speaker's head/shoulder ($X = 690 \text{ to } 1005$, right-aligned, vertical center $Y \approx 785$).
-  - **Zone C (Bottom-Center)**: Lower third of the video frame, directly above the bottom gradient ($X = 540$, center-aligned, vertical center $Y \approx 1140$).
+- **Strictly 1 Sentence at a Time Rule**:
+  - **Only 1 sentence on screen at a time**: Exactly one active sentence is displayed on screen at any single moment.
+  - **Zero visual clutter / No multi-zone stacking**: Never display multiple phrases or multiple zones simultaneously. Left/right/bottom simultaneous stacking is strictly prohibited.
+  - **Screen Placement**: Lower Third Center ($X = 540$, vertical center $Y \approx 1135$), safely inside the 16:9 video frame boundaries and directly above the bottom gradient fade, leaving the speaker's face and eyes completely unobstructed.
+  - **Clean Transitions**: When a sentence finishes and the next sentence begins, the previous sentence clears completely with a crisp cut.
 - **Hierarchy & Kinetic Animation**:
-  - **Pop-in Sharp**: Words pop onto the screen sharply on the exact spoken beat. Zero slow fades or blurry zooms.
-  - **Scale Hierarchy**: Emphasized/hook words scale **`1.4x`** larger than supporting words.
-  - **Cluster Stacking & Reset**: Stack 2 to 3 sequential phrases across different zones (e.g. Zone A $\rightarrow$ Zone B $\rightarrow$ Zone C) to form a brief visual kinetic cluster, then **clear all text cleanly** at the start of the next sentence. When a zone receives a new phrase within the same cluster, it cleanly updates that zone.
+  - **Pop-in Sharp**: Words pop onto the screen sharply on the exact spoken beat with `-60ms` visual lead time. Zero slow fades or blurry zooms.
+  - **Scale Hierarchy**: Emphasized/hook sentences scale **`1.15x to 1.2x`** larger for dynamic impact.
 
