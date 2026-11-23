@@ -196,8 +196,8 @@ Before any reel is marked ready, `validate.py` automatically asserts:
   - **Position**: Anchored across $Y = 408 \text{ to } 558$ (height $150\text{px}$).
   - **Background**: Exact signature orange **`#FF8400`** (`RGB: 255, 132, 0`).
   - **Framing Borders**: 3px solid black border lines top ($Y = 408$) and bottom ($Y = 558$).
-  - **Typography & Layout**: **Single-line title centered horizontally and vertically** inside the orange banner. Rendered via native Cocoa/AppKit (`TamilSangamMN-Bold`, size 46px, `#000000` solid black) with full color Apple Color Emojis:
-    - Title: `ராமாயணம் கற்றுத்தரும் பாடம் 🏹` (perfect center alignment at $X \approx 210.5, Y \approx 44.5$)
+  - **Typography & Layout**: **Single-line title in English centered horizontally and vertically** inside the orange banner. Rendered via native Cocoa/AppKit (`Montserrat-Bold` / System Bold, increased size **`56px`**, `#000000` solid black) with full color Apple Color Emoji on the right:
+    - Title: `Lessons from Ramayana 🏹` (perfect center alignment at $X \approx 147.0, Y \approx 41.0$)
 
 ### 2. Active Video Window & Speaker Framing
 - **Dimensions & Placement**: $1080\times 940\text{px}$ window centered across $Y = 558 \text{ to } 1498$.
@@ -212,7 +212,7 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 
 ### 3. Subtitle Pacing & Speech Synchronization
 - **Pacing**: **Fast single word / single punchy phrase at a time** (`ONLY ONE WORD AT A TIME` on screen).
-- **Typography**: User's signature handwriting font **`MyHandwriting.ttf`** (slightly decreased to size **`76pt`** for optimal screen balance).
+- **Typography**: User's signature handwriting font **`MyHandwriting.ttf`** (size **`82pt`** for bold screen presence).
 - **Color & Stroke**: Exact signature orange **`#FF8400`** with crisp **`7px solid black stroke outline`** (`#000000`).
 - **Position**: Centered horizontally at lower third of the video window ($Y = 1340$).
 - **Exact Speech Sync**: Subtitles strictly align with acoustic speech onsets measured in `precise_words.json`. Words hold through their spoken duration and cut out cleanly.

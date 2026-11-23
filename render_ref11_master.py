@@ -81,9 +81,9 @@ Cocoa.NSColor.blackColor().set()
 Cocoa.NSRectFill(Cocoa.NSMakeRect(0, 0, WIDTH, 3))
 Cocoa.NSRectFill(Cocoa.NSMakeRect(0, BANNER_H - 3, WIDTH, 3))
 
-font1 = NSFont.fontWithName_size_("TamilSangamMN-Bold", 46.0) or NSFont.boldSystemFontOfSize_(46.0)
+font1 = NSFont.fontWithName_size_("Montserrat-Bold", 56.0) or NSFont.boldSystemFontOfSize_(56.0)
 
-s1 = "ராமாயணம் கற்றுத்தரும் பாடம் 🏹"
+s1 = "Lessons from Ramayana 🏹"
 
 as1 = NSAttributedString.alloc().initWithString_attributes_(s1, {NSFontAttributeName: font1, NSForegroundColorAttributeName: Cocoa.NSColor.blackColor()})
 
@@ -270,7 +270,7 @@ SINGLE_WORDS = [
     (72.20, 74.00, "YOUR POWER! 🏹")
 ]
 
-font_hw = ImageFont.truetype("/Users/pgi/Library/Fonts/MyHandwriting.ttf", 76)
+font_hw = ImageFont.truetype("/Users/pgi/Library/Fonts/MyHandwriting.ttf", 82)
 font_fallback = ImageFont.truetype(str(ASSETS_DIR / "fonts" / "NotoSansTamil-Bold.ttf"), 60)
 
 def render_word_frame(word):

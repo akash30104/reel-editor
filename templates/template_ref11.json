@@ -19,12 +19,12 @@
     "border_color": "#000000",
     "border_width_px": 3,
     "typography": {
-      "font_family": "TamilSangamMN-Bold",
-      "font_size": 46,
+      "font_family": "Montserrat-Bold",
+      "font_size": 56,
       "text_color": "#000000",
       "emojis_supported": true,
       "layout": "single_line_centered",
-      "title": "ராமாயணம் கற்றுத்தரும் பாடம் 🏹"
+      "title": "Lessons from Ramayana 🏹"
     }
   },
   "active_video_window": {
@@ -61,7 +61,7 @@
   "subtitles": {
     "pacing": "single_word_at_a_time",
     "font_family": "MyHandwriting",
-    "font_size": 76,
+    "font_size": 82,
     "color": "#FF8400",
     "stroke_color": "#000000",
     "stroke_width": 7,
