@@ -35,9 +35,9 @@ import subprocess
 from pathlib import Path
 from PIL import Image, ImageFont, ImageDraw
 
-WORKSPACE = Path("/Users/pgi/.gemini/antigravity/scratch/reel-editor")
-RAW_VIDEO = Path("/Users/pgi/Downloads/reels editor/raw videos/202.MOV")
-EXPORT_DIR = Path("/Users/pgi/Downloads/reels editor/export ")
+WORKSPACE = Path(__file__).resolve().parent
+RAW_VIDEO = WORKSPACE / "RAW VIDEOS" / "IMG_2409.MOV"
+EXPORT_DIR = WORKSPACE / "EXPORT"
 FRAMES_DIR = EXPORT_DIR / "FRAMES"
 ASSETS_DIR = WORKSPACE / "assets"
 

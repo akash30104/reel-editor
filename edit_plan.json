@@ -1,0 +1,336 @@
+{
+  "project": "1 Lakh Job Challenge",
+  "template_file": "templates/template_ref3.json",
+  "template_id": "template_ref3",
+  "style_name": "Reference 3 - Minimalist Motivational Kinetic Short",
+  "raw_video": "RAW VIDEOS/IMG_2409.MOV",
+  "output_video": "EXPORT/Reel_Reference_3_Style.mp4",
+  "total_duration": 60.10,
+  "cuts": [
+    {
+      "id": 1,
+      "speaker": "host",
+      "start_sec": 0.0,
+      "end_sec": 5.60,
+      "duration": 5.60,
+      "raw_start": 3.60,
+      "raw_end": 9.20,
+      "crop": "crop=2160:1215:1680:450,scale=1080:608:flags=lanczos"
+    },
+    {
+      "id": 2,
+      "speaker": "guest",
+      "start_sec": 5.60,
+      "end_sec": 11.10,
+      "duration": 5.50,
+      "raw_start": 255.00,
+      "raw_end": 260.50,
+      "crop": "crop=2160:1215:140:450,scale=1080:608:flags=lanczos"
+    },
+    {
+      "id": 3,
+      "speaker": "guest",
+      "start_sec": 11.10,
+      "end_sec": 16.60,
+      "duration": 5.50,
+      "raw_start": 270.00,
+      "raw_end": 275.50,
+      "crop": "crop=2160:1215:140:450,scale=1080:608:flags=lanczos"
+    },
+    {
+      "id": 4,
+      "speaker": "guest",
+      "start_sec": 16.60,
+      "end_sec": 21.10,
+      "duration": 4.50,
+      "raw_start": 281.50,
+      "raw_end": 286.00,
+      "crop": "crop=2160:1215:140:450,scale=1080:608:flags=lanczos"
+    },
+    {
+      "id": 5,
+      "speaker": "guest",
+      "start_sec": 21.10,
+      "end_sec": 26.10,
+      "duration": 5.00,
+      "raw_start": 287.50,
+      "raw_end": 292.50,
+      "crop": "crop=2160:1215:140:450,scale=1080:608:flags=lanczos"
+    },
+    {
+      "id": 6,
+      "speaker": "guest",
+      "start_sec": 26.10,
+      "end_sec": 30.10,
+      "duration": 4.00,
+      "raw_start": 292.50,
+      "raw_end": 296.50,
+      "crop": "crop=2160:1215:140:450,scale=1080:608:flags=lanczos"
+    },
+    {
+      "id": 7,
+      "speaker": "guest",
+      "start_sec": 30.10,
+      "end_sec": 33.40,
+      "duration": 3.30,
+      "raw_start": 296.50,
+      "raw_end": 299.80,
+      "crop": "crop=2160:1215:140:450,scale=1080:608:flags=lanczos"
+    },
+    {
+      "id": 8,
+      "speaker": "guest",
+      "start_sec": 33.40,
+      "end_sec": 39.10,
+      "duration": 5.70,
+      "raw_start": 299.80,
+      "raw_end": 305.50,
+      "crop": "crop=2160:1215:140:450,scale=1080:608:flags=lanczos"
+    },
+    {
+      "id": 9,
+      "speaker": "guest",
+      "start_sec": 39.10,
+      "end_sec": 43.10,
+      "duration": 4.00,
+      "raw_start": 305.50,
+      "raw_end": 309.50,
+      "crop": "crop=2160:1215:140:450,scale=1080:608:flags=lanczos"
+    },
+    {
+      "id": 10,
+      "speaker": "guest",
+      "start_sec": 43.10,
+      "end_sec": 48.60,
+      "duration": 5.50,
+      "raw_start": 348.00,
+      "raw_end": 353.50,
+      "crop": "crop=2160:1215:140:450,scale=1080:608:flags=lanczos"
+    },
+    {
+      "id": 11,
+      "speaker": "guest",
+      "start_sec": 48.60,
+      "end_sec": 54.60,
+      "duration": 6.00,
+      "raw_start": 353.50,
+      "raw_end": 359.50,
+      "crop": "crop=2160:1215:140:450,scale=1080:608:flags=lanczos"
+    },
+    {
+      "id": 12,
+      "speaker": "guest",
+      "start_sec": 54.60,
+      "end_sec": 60.10,
+      "duration": 5.50,
+      "raw_start": 309.50,
+      "raw_end": 315.00,
+      "crop": "crop=2160:1215:140:450,scale=1080:608:flags=lanczos"
+    }
+  ],
+  "kinetic_bursts": [
+    {
+      "start": 0.40,
+      "end": 1.80,
+      "space": "L_MID",
+      "text": "UNGALUKKU EPPADI...",
+      "hero": false
+    },
+    {
+      "start": 1.80,
+      "end": 3.40,
+      "space": "R_MID",
+      "text": "INDHA IDEA VANDHADHU?",
+      "hero": true
+    },
+    {
+      "start": 3.40,
+      "end": 4.40,
+      "space": "L_LOW",
+      "text": "499 DAYS-LA...",
+      "hero": false
+    },
+    {
+      "start": 4.40,
+      "end": 5.50,
+      "space": "B_CTR",
+      "text": "1 LAKH JOBS CHALLENGE?!",
+      "hero": true
+    },
+    {
+      "start": 5.70,
+      "end": 7.40,
+      "space": "L_MID",
+      "text": "NAAN EN KAMPENILA...",
+      "hero": false
+    },
+    {
+      "start": 7.40,
+      "end": 9.20,
+      "space": "R_MID",
+      "text": "ORU 1000 PERUKKU...",
+      "hero": true
+    },
+    {
+      "start": 9.20,
+      "end": 11.00,
+      "space": "B_CTR",
+      "text": "VELAI VANGI THAREN!",
+      "hero": true
+    },
+    {
+      "start": 11.20,
+      "end": 12.80,
+      "space": "L_TOP",
+      "text": "AANAA...",
+      "hero": false
+    },
+    {
+      "start": 12.80,
+      "end": 14.60,
+      "space": "R_TOP",
+      "text": "DAY 7-LAYE 600+...",
+      "hero": true
+    },
+    {
+      "start": 14.60,
+      "end": 16.50,
+      "space": "B_CTR",
+      "text": "VELAI KUDUTHTHACHU!",
+      "hero": true
+    },
+    {
+      "start": 16.80,
+      "end": 18.60,
+      "space": "L_LOW",
+      "text": "1000 PERUKKU MUDIYUMNAA...",
+      "hero": false
+    },
+    {
+      "start": 18.60,
+      "end": 21.00,
+      "space": "R_LOW",
+      "text": "WHY NOT 10,000?!",
+      "hero": true
+    },
+    {
+      "start": 21.30,
+      "end": 23.40,
+      "space": "L_MID",
+      "text": "DAY 39-LA...",
+      "hero": false
+    },
+    {
+      "start": 23.40,
+      "end": 26.00,
+      "space": "B_CTR",
+      "text": "5,500 JOBS COMPLETED!",
+      "hero": true
+    },
+    {
+      "start": 26.30,
+      "end": 28.20,
+      "space": "R_MID",
+      "text": "DAY 40 MORNING...",
+      "hero": false
+    },
+    {
+      "start": 28.20,
+      "end": 30.00,
+      "space": "L_MID",
+      "text": "INSTAGRAM OPEN PANREN...",
+      "hero": false
+    },
+    {
+      "start": 30.20,
+      "end": 31.80,
+      "space": "R_TOP",
+      "text": "ACCOUNT BANNED!",
+      "hero": true
+    },
+    {
+      "start": 31.80,
+      "end": 33.30,
+      "space": "B_CTR",
+      "text": "EPPADI IRUKKUM?!",
+      "hero": true
+    },
+    {
+      "start": 33.60,
+      "end": 35.60,
+      "space": "L_TOP",
+      "text": "KASHTAPATTU BUILD PANNADHU...",
+      "hero": false
+    },
+    {
+      "start": 35.60,
+      "end": 37.20,
+      "space": "R_MID",
+      "text": "ORU NODIYILA POCHUNNA...",
+      "hero": false
+    },
+    {
+      "start": 37.20,
+      "end": 39.00,
+      "space": "B_CTR",
+      "text": "WHAT WILL YOU DO?!",
+      "hero": true
+    },
+    {
+      "start": 39.30,
+      "end": 41.00,
+      "space": "L_MID",
+      "text": "MARUBADIYUM AARAMBIPPEN!",
+      "hero": true
+    },
+    {
+      "start": 41.00,
+      "end": 43.00,
+      "space": "R_MID",
+      "text": "NEVER GIVE UP!",
+      "hero": true
+    },
+    {
+      "start": 43.30,
+      "end": 45.80,
+      "space": "L_LOW",
+      "text": "ORU NGO 20,000 JOBS...",
+      "hero": false
+    },
+    {
+      "start": 45.80,
+      "end": 48.50,
+      "space": "R_LOW",
+      "text": "MUDIVU PANNUMBODHU...",
+      "hero": false
+    },
+    {
+      "start": 48.80,
+      "end": 51.50,
+      "space": "L_MID",
+      "text": "NAAN ORU AALAA...",
+      "hero": false
+    },
+    {
+      "start": 51.50,
+      "end": 54.50,
+      "space": "B_CTR",
+      "text": "1 LAKH JOBS MISSION!",
+      "hero": true
+    },
+    {
+      "start": 54.80,
+      "end": 57.20,
+      "space": "R_TOP",
+      "text": "INDHA CHALLENGE...",
+      "hero": false
+    },
+    {
+      "start": 57.20,
+      "end": 60.00,
+      "space": "B_CTR",
+      "text": "DEFINITELY WE WILL WIN!",
+      "hero": true
+    }
+  ]
+}
