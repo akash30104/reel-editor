@@ -20,12 +20,11 @@
     "border_width_px": 3,
     "typography": {
       "font_family": "TamilSangamMN-Bold",
-      "line_1_size": 42,
-      "line_2_size": 38,
+      "font_size": 46,
       "text_color": "#000000",
       "emojis_supported": true,
-      "line_1": "ராமாயணம் கற்றுத்தரும் பாடம் 🏹",
-      "line_2": "ஹனுமான் தரும் வாழ்க்கை தத்துவம்! 🔥"
+      "layout": "single_line_centered",
+      "title": "ராமாயணம் கற்றுத்தரும் பாடம் 🏹"
     }
   },
   "active_video_window": {
@@ -62,11 +61,11 @@
   "subtitles": {
     "pacing": "single_word_at_a_time",
     "font_family": "MyHandwriting",
-    "font_size": 95,
+    "font_size": 76,
     "color": "#FF8400",
     "stroke_color": "#000000",
-    "stroke_width": 8,
-    "y_position": 1350,
+    "stroke_width": 7,
+    "y_position": 1340,
     "speech_sync": {
       "exact_acoustic_alignment": true,
       "source": "precise_words.json"

@@ -208,9 +208,8 @@ Before any reel is marked ready, `validate.py` automatically asserts:
   - **Position**: Anchored across $Y = 408 \text{ to } 558$ (height $150\text{px}$).
   - **Background**: Exact signature orange **`#FF8400`** (`RGB: 255, 132, 0`).
   - **Framing Borders**: 3px solid black border lines top ($Y = 408$) and bottom ($Y = 558$).
-  - **Typography**: Native Cocoa/AppKit shaped bold text (`TamilSangamMN-Bold` or `Montserrat Bold`, `#000000` solid black) with full color Apple Emojis on the right:
-    - Line 1: `ராமாயணம் கற்றுத்தரும் பாடம் 🏹` (size 42px)
-    - Line 2: `ஹனுமான் தரும் வாழ்க்கை தத்துவம்! 🔥` (size 38px)
+  - **Typography & Layout**: **Single-line title centered horizontally and vertically** inside the orange banner. Rendered via native Cocoa/AppKit (`TamilSangamMN-Bold`, size 46px, `#000000` solid black) with full color Apple Color Emojis:
+    - Title: `ராமாயணம் கற்றுத்தரும் பாடம் 🏹` (perfect center alignment at $X \approx 210.5, Y \approx 44.5$)
 
 ### 2. Active Video Window & Speaker Framing
 - **Dimensions & Placement**: $1080\times 940\text{px}$ window centered across $Y = 558 \text{ to } 1498$.
@@ -225,9 +224,9 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 
 ### 3. Subtitle Pacing & Speech Synchronization
 - **Pacing**: **Fast single word / single punchy phrase at a time** (`ONLY ONE WORD AT A TIME` on screen).
-- **Typography**: User's signature handwriting font **`MyHandwriting.ttf`** (size 95pt).
-- **Color & Stroke**: Exact signature orange **`#FF8400`** with thick **`8px solid black stroke outline`** (`#000000`).
-- **Position**: Centered horizontally at lower third of the video window ($Y = 1350$).
+- **Typography**: User's signature handwriting font **`MyHandwriting.ttf`** (slightly decreased to size **`76pt`** for optimal screen balance).
+- **Color & Stroke**: Exact signature orange **`#FF8400`** with crisp **`7px solid black stroke outline`** (`#000000`).
+- **Position**: Centered horizontally at lower third of the video window ($Y = 1340$).
 - **Exact Speech Sync**: Subtitles strictly align with acoustic speech onsets measured in `precise_words.json`. Words hold through their spoken duration and cut out cleanly.
 
 ### 4. Audio Mastering

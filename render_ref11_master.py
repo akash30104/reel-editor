@@ -81,21 +81,18 @@ Cocoa.NSColor.blackColor().set()
 Cocoa.NSRectFill(Cocoa.NSMakeRect(0, 0, WIDTH, 3))
 Cocoa.NSRectFill(Cocoa.NSMakeRect(0, BANNER_H - 3, WIDTH, 3))
 
-font1 = NSFont.fontWithName_size_("TamilSangamMN-Bold", 42.0) or NSFont.boldSystemFontOfSize_(42.0)
-font2 = NSFont.fontWithName_size_("TamilSangamMN-Bold", 38.0) or NSFont.boldSystemFontOfSize_(38.0)
+font1 = NSFont.fontWithName_size_("TamilSangamMN-Bold", 46.0) or NSFont.boldSystemFontOfSize_(46.0)
 
 s1 = "ராமாயணம் கற்றுத்தரும் பாடம் 🏹"
-s2 = "ஹனுமான் தரும் வாழ்க்கை தத்துவம்! 🔥"
 
 as1 = NSAttributedString.alloc().initWithString_attributes_(s1, {NSFontAttributeName: font1, NSForegroundColorAttributeName: Cocoa.NSColor.blackColor()})
-as2 = NSAttributedString.alloc().initWithString_attributes_(s2, {NSFontAttributeName: font2, NSForegroundColorAttributeName: Cocoa.NSColor.blackColor()})
 
 sz1 = as1.size()
-sz2 = as2.size()
 
-# In Cocoa coordinates, Y=0 is bottom
-as1.drawAtPoint_(((WIDTH - sz1.width) / 2.0, 80.0))
-as2.drawAtPoint_(((WIDTH - sz2.width) / 2.0, 20.0))
+# In Cocoa coordinates, Y=0 is bottom; center both horizontally and vertically
+x_pos = (WIDTH - sz1.width) / 2.0
+y_pos = (BANNER_H - sz1.height) / 2.0
+as1.drawAtPoint_((x_pos, y_pos))
 
 im.unlockFocus()
 
@@ -273,8 +270,8 @@ SINGLE_WORDS = [
     (72.20, 74.00, "YOUR POWER! 🏹")
 ]
 
-font_hw = ImageFont.truetype("/Users/pgi/Library/Fonts/MyHandwriting.ttf", 95)
-font_fallback = ImageFont.truetype(str(ASSETS_DIR / "fonts" / "NotoSansTamil-Bold.ttf"), 70)
+font_hw = ImageFont.truetype("/Users/pgi/Library/Fonts/MyHandwriting.ttf", 76)
+font_fallback = ImageFont.truetype(str(ASSETS_DIR / "fonts" / "NotoSansTamil-Bold.ttf"), 60)
 
 def render_word_frame(word):
     im = Image.new("RGBA", (WIDTH, SUBS_H), (0, 0, 0, 0))
@@ -293,18 +290,18 @@ def render_word_frame(word):
     w = draw.textlength(clean_word, font=f)
     if w > WIDTH - 80:
         # Scale down if very long
-        f = ImageFont.truetype("/Users/pgi/Library/Fonts/MyHandwriting.ttf", 75)
+        f = ImageFont.truetype("/Users/pgi/Library/Fonts/MyHandwriting.ttf", 62)
         w = draw.textlength(clean_word, font=f)
         
     x = (WIDTH - w) / 2
-    y = 35
+    y = 42
     
     # Multi-pass soft shadow + thick black outline
-    for dx, dy in [(-2, -2), (2, -2), (-2, 2), (2, 2), (0, 4), (0, -4), (4, 0), (-4, 0)]:
+    for dx, dy in [(-2, -2), (2, -2), (-2, 2), (2, 2), (0, 3), (0, -3), (3, 0), (-3, 0)]:
         draw.text((x + dx, y + dy), clean_word, font=f, fill=(0, 0, 0, 200), stroke_width=6, stroke_fill=COLOR_BLACK)
         
-    # Main text in signature #FF8400 with 8px solid black stroke
-    draw.text((x, y), clean_word, font=f, fill=COLOR_FF8400, stroke_width=8, stroke_fill=COLOR_BLACK)
+    # Main text in signature #FF8400 with 7px solid black stroke
+    draw.text((x, y), clean_word, font=f, fill=COLOR_FF8400, stroke_width=7, stroke_fill=COLOR_BLACK)
     return im.tobytes()
 
 subs_mov = WORKSPACE / "ref11_master_subs.mov"
@@ -369,10 +366,15 @@ qa_cues = [
     (70.0, "qa_ref11_climax_mentor_t70.0s.png")
 ]
 
+ARTIFACT_DIR = Path("/Users/pgi/.gemini/antigravity/brain/c7bb1df4-099d-491f-8aa1-5fa38d329638")
 for t, name in qa_cues:
+    out_frame = FRAMES_DIR / name
     subprocess.run([
         "ffmpeg", "-y", "-ss", str(t), "-i", str(final_output),
-        "-vframes", "1", str(FRAMES_DIR / name)
+        "-vframes", "1", str(out_frame)
     ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    if ARTIFACT_DIR.exists():
+        import shutil
+        shutil.copy(out_frame, ARTIFACT_DIR / name)
 
-print("✅ All QA frames extracted successfully!")
+print("✅ All QA frames extracted and copied to artifacts successfully!")
