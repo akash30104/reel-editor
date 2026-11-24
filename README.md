@@ -114,3 +114,19 @@ To render in Reference 3:
 ```bash
 python render_ref3_kinetic.py
 ```
+
+---
+
+## 🔒 Reference 11 Master Standard (Single-Word Highlight Banner Short)
+Permanently locked in `templates/template_ref11.json` and `rules.md` (Section 12):
+- **Canvas**: Exact 9:16 vertical canvas (`1080x1920 @ 30fps`) with strict SDR BT.709 color pipeline (`-pix_fmt yuv420p -color_primaries bt709 -color_trc bt709 -colorspace bt709`).
+- **Top Black Bar**: $Y = 0 \text{ to } 408$.
+- **Header Banner**: 1080x150 px banner anchored at $Y = 408..558$ with 3px black borders, signature orange background (`#FF8400`), and centered English bold title ("Lessons from Ramayana 🏹").
+- **Active Video Window**: Centered 1080x940 window at $Y = 558..1498$ with 100% continuous acoustic lip-sync (`raw_ss = 1988.0 + T`), active speaker switching (Host Woman / Guest Man), 1.15x climax punch-ins, and B-roll cutaways every 4-7 seconds.
+- **Subtitles**: Spoken Tanglish single-word/phrase bursts rendered in `MyHandwriting.ttf` (size 82pt) in signature orange (`#FF8400`) with 7px black outline and drop shadow at $Y = 1340$, speech-locked to Whisper acoustic timestamps.
+- **Audio**: Clean dialogue at `-14.0 LUFS` (`-1.0 dBTP`) with soft instrumental flute BGM ducked at `-23 dB`.
+
+To render in Reference 11:
+```bash
+python render_ref11_master.py
+```

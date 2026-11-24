@@ -8,14 +8,18 @@
     "width": 1080,
     "height": 1920,
     "fps": 30,
-    "background_color": "#000000"
+    "background_color": "#000000",
+    "color_space": "bt709",
+    "color_transfer": "bt709",
+    "color_primaries": "bt709",
+    "pixel_format": "yuv420p"
   },
   "header_banner": {
     "enabled": true,
     "y_top": 408,
     "y_bottom": 558,
     "height": 150,
-    "background_color": "#FFA500",
+    "background_color": "#FF8400",
     "border_color": "#000000",
     "border_width_px": 3,
     "typography": {
@@ -32,6 +36,7 @@
     "y_bottom": 1498,
     "height": 940,
     "framing_rule": "switch_camera_to_active_speaker",
+    "lip_sync_rule": "continuous_acoustic_timeline_lock",
     "host_camera": {
       "speaker": "woman_host",
       "crop": "crop=1206:1050:2150:650",
@@ -55,14 +60,15 @@
     "color_grade": {
       "style": "warm_natural_studio_grade",
       "ffmpeg_filter": "eq=contrast=1.08:saturation=0.92:brightness=-0.01,colorbalance=rs=0.03:gs=0.01:bs=-0.03",
-      "hook_bw_snap": "first 0.6s B&W"
+      "hook_bw_snap": "first 0.6s B&W",
+      "sdr_conversion_filter": "setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709,format=yuv420p"
     }
   },
   "subtitles": {
     "pacing": "single_word_at_a_time",
     "font_family": "MyHandwriting",
     "font_size": 82,
-    "color": "#FFA500",
+    "color": "#FF8400",
     "stroke_color": "#000000",
     "stroke_width": 7,
     "y_position": 1340,

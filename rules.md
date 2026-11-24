@@ -190,11 +190,11 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 > **PERMANENTLY LOCKED MASTER STANDARD**: Reference 11 style is officially locked. Whenever instructed to edit a raw video in **Reference 11** (`reference 11` / `11referance`), the editor must strictly execute the parameters defined in `templates/template_ref11.json` and executed in `render_ref11_master.py`.
 
 ### 1. Canvas & Header Banner
-- **Canvas**: Exact 9:16 vertical canvas (`1080×1920 @ 30fps`).
+- **Canvas**: Exact 9:16 vertical canvas (`1080×1920 @ 30fps`) encoded with strict SDR BT.709 color pipeline (`-pix_fmt yuv420p -color_primaries bt709 -color_trc bt709 -colorspace bt709`).
 - **Top Black Bar**: Pure black canvas from $Y = 0 \text{ to } 408$.
 - **Persistent Header Banner**:
   - **Position**: Anchored across $Y = 408 \text{ to } 558$ (height $150\text{px}$).
-  - **Background**: Exact signature true orange **`#FFA500`** (`RGB: 255, 165, 0`).
+  - **Background**: Exact signature true orange **`#FF8400`** (`RGB: 255, 132, 0`).
   - **Framing Borders**: 3px solid black border lines top ($Y = 408$) and bottom ($Y = 558$).
   - **Typography & Layout**: **Single-line title in English centered horizontally and vertically** inside the orange banner. Rendered via native Cocoa/AppKit (`Montserrat-Bold` / System Bold, increased size **`56px`**, `#000000` solid black) with full color Apple Color Emoji on the right:
     - Title: `Lessons from Ramayana 🏹` (perfect center alignment at $X \approx 147.0, Y \approx 41.0$)
@@ -202,6 +202,8 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 ### 2. Active Video Window & Speaker Framing
 - **Dimensions & Placement**: $1080\times 940\text{px}$ window centered across $Y = 558 \text{ to } 1498$.
 - **Bottom Black Bar**: Pure black canvas from $Y = 1498 \text{ to } 1920$.
+- **SDR BT.709 Normalization**:
+  - Raw footage from iPhone HDR/HLG (`bt2020nc / arib-std-b67`) must be normalized with `setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709,format=yuv420p` to prevent tone-mapping shifts that turn orange overlays red.
 - **Dynamic Speaker Switching**:
   - **Host (Woman) Framing**: When Host speaks, cut to Host Woman Medium Close-Up centered in the $1080\times 940$ frame (`crop=1206:1050:2150:650,scale=1080:940`).
   - **Guest (Man) Framing**: When Guest speaks, cut to Guest Man Medium Close-Up centered in the $1080\times 940$ frame (`crop=1206:1050:450:750,scale=1080:940`).
@@ -209,13 +211,15 @@ Before any reel is marked ready, `validate.py` automatically asserts:
 - **Pacing & B-Roll Cutaways**:
   - Visual cutaways every **4 to 7 seconds** alternating between speaker close-ups and thematic B-roll footage.
   - First 0.6s begins in B&W snapping into warm natural studio color grade (`eq=contrast=1.08:saturation=0.92:brightness=-0.01,colorbalance=rs=0.03:gs=0.01:bs=-0.03`).
+- **Acoustic Lip-Sync Rule**:
+  - Every speaker segment at timeline offset $T$ starts strictly at `raw_start = 1988.0 + T` for 100% continuous acoustic lip-sync.
 
 ### 3. Subtitle Pacing & Speech Synchronization
 - **Pacing**: **Fast single word / single punchy phrase at a time** (`ONLY ONE WORD AT A TIME` on screen).
 - **Typography**: User's signature handwriting font **`MyHandwriting.ttf`** (size **`82pt`** for bold screen presence).
-- **Color & Stroke**: Exact signature true orange **`#FFA500`** with crisp **`7px solid black stroke outline`** (`#000000`).
+- **Color & Stroke**: Exact signature true orange **`#FF8400`** (`RGB: 255, 132, 0`) with crisp **`7px solid black stroke outline`** (`#000000`) and soft drop shadow.
 - **Position**: Centered horizontally at lower third of the video window ($Y = 1340$).
-- **Exact Speech Sync**: Subtitles strictly align with acoustic speech onsets measured in `precise_words.json`. Words hold through their spoken duration and cut out cleanly.
+- **Exact Speech Sync**: Subtitles strictly align with acoustic speech onsets measured in `precise_words.json` / Whisper acoustic timestamps. Tanglish transcription avoids unsupported Tamil glyphs in handwriting fonts. Words hold through their spoken duration and cut out cleanly.
 
 ### 4. Audio Mastering
 - **Dialogue Target**: Normalized to broadcast standard **`-14.0 LUFS`** / **`-1.0 dBTP`**.
