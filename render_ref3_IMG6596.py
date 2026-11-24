@@ -8,20 +8,19 @@ Master Renderer for IMG_6596.MOV in Exact Reference 3 Style:
    - Video Window: 1080x608 (16:9 letterboxed) centered at Y = 656 to 1264
    - Soft black gradient fade at bottom of video window (Y = 1184 to 1264, 80px)
    - Active speaker camera tracking:
-     * Host Lokesh (Right speaker): crop=2080:1170:1710:420 -> scale=1080:608
-     * Ganesh (Left speaker): crop=2080:1170:50:420 -> scale=1080:608
-     * Ganesh Punch-in (1.15x): crop=1808:1017:186:496 -> scale=1080:608
+     * Host Lokesh (Left speaker, white shirt): crop=2080:1170:50:420 -> scale=1080:608
+     * Ganesh (Right speaker, light blue shirt, glasses): crop=2080:1170:1710:420 -> scale=1080:608
+     * Ganesh Punch-in (1.15x): crop=1808:1017:1840:480 -> scale=1080:608
      * Wide Two-Shot: scale=1080:608
 
 2. Subtitle Typography & Safe Placement:
-   - Font: Impact (/System/Library/Fonts/Supplemental/Impact.ttf, size 72)
+   - Font: Impact (/System/Library/Fonts/Supplemental/Impact.ttf, size 64)
    - Color: Pure White (#FFFFFF)
-   - Stroke: 3.5px solid black outline (#000000)
+   - Stroke: 4px solid black outline (#000000)
    - Drop Shadow: Multi-pass dark shadow (rgba(0, 0, 0, 220))
-   - Placement: Lower torso / bottom frame (Y = 1170 on 1080x1920 canvas)
+   - Placement: Lower chest / bottom of video frame (Y = 1170 on 1080x1920 canvas)
    - SAFETY GUARANTEE: NEVER ON THE FACE (speaker face is at Y = 750 to 950)
-   - Language: Tanglish with high-energy punctuation (e.g. COLLEGE STUDENT...!, PRIVATE LIMITED...!)
-   - Pacing: Fast 1 to 3 words per burst (0.8s to 1.5s per burst)
+   - Speech-locked sync: Every cue begins exactly when the speaker articulates the words
 
 3. Audio:
    - Dialogue normalized to broadcast standard -14.0 LUFS / -1.0 dBTP
@@ -35,6 +34,8 @@ Master Renderer for IMG_6596.MOV in Exact Reference 3 Style:
 import os
 import sys
 import json
+import re
+import shutil
 import subprocess
 from pathlib import Path
 from PIL import Image, ImageFont, ImageDraw
@@ -51,8 +52,8 @@ HEIGHT = 1920
 VIDEO_W = 1080
 VIDEO_H = 608
 VIDEO_Y = 656
-SUBS_Y = 1125
-SUBS_H = 160
+SUBS_Y = 1170
+SUBS_H = 140
 
 START_TIME = 176.0
 DURATION = 60.0
@@ -70,7 +71,6 @@ subprocess.run([
     "-i", str(RAW_VIDEO), "-vn", "-ac", "2", "-ar", "48000", str(raw_audio)
 ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-# Audio filter complex: normalize voice to -14 LUFS, duck BGM to -23 dB, merge
 subprocess.run([
     "ffmpeg", "-y",
     "-i", str(raw_audio),
@@ -91,20 +91,19 @@ COLOR_GRADE = "eq=contrast=1.08:saturation=0.95:brightness=-0.01,colorbalance=rs
 # Relative to START_TIME = 176.0
 CUTS = [
     # st_rel, dur, type
-    (0.0, 2.5, "host"),      # Host welcomes Ganesh
-    (2.5, 3.0, "ganesh"),    # Ganesh responds "Fine bro"
-    (5.5, 6.0, "host"),      # Host asks for quick crisp intro
-    (11.5, 7.0, "ganesh"),   # Ganesh: My name is Ganesh, College student, start company from scratch
-    (18.5, 3.5, "punch"),    # Ganesh punch-in: Zero knowledge, zero idea!
-    (22.0, 5.0, "ganesh"),   # Ganesh: Research founders on social media
-    (27.0, 5.5, "ganesh"),   # Ganesh: Lokesh bro meet panni connect aanom
-    (32.5, 4.5, "ganesh"),   # Ganesh: Mentoring kaga contact pannom
-    (37.0, 4.5, "host"),     # Host: Super Ganesh!
-    (41.5, 5.0, "host"),     # Host: Business started ah illa ideation stage ah?
-    (46.5, 5.0, "ganesh"),   # Ganesh: Business start pannitom, company registered
-    (51.5, 2.5, "host"),     # Host: Proprietary company ah?
-    (54.0, 3.0, "punch"),    # Ganesh punch-in: Private Limited company!
-    (57.0, 3.0, "wide")      # Host reaction / Wide Climax: College padikkumbothe Private Limited company ah?!
+    (0.0, 2.2, "host"),      # Host welcomes Ganesh (0.0 - 2.2s)
+    (2.2, 1.3, "ganesh"),    # Ganesh responds "Fine bro... super!" (2.2 - 3.5s)
+    (3.5, 8.3, "host"),      # Host asks for quick crisp intro (3.5 - 11.8s)
+    (11.8, 6.7, "ganesh"),   # Ganesh: My name is Ganesh, College student (11.8 - 18.5s)
+    (18.5, 3.1, "punch"),    # Ganesh punch-in: Zero knowledge, zero idea! (18.5 - 21.6s)
+    (21.6, 6.6, "ganesh"),   # Ganesh: Research founders on social media (21.6 - 28.2s)
+    (28.2, 4.3, "punch"),    # Ganesh punch-in: Lokesh bro meet panni connect aanom! (28.2 - 32.5s)
+    (32.5, 10.0, "ganesh"),  # Ganesh: Mentoring kaga contact pannom (32.5 - 42.5s)
+    (42.5, 3.7, "host"),     # Host: Business started ah illa ideation stage ah? (42.5 - 46.2s)
+    (46.2, 6.3, "ganesh"),   # Ganesh: Business start pannitom, company registered (46.2 - 52.5s)
+    (52.5, 1.7, "host"),     # Host: Proprietary company ah? (52.5 - 54.2s)
+    (54.2, 2.6, "punch"),    # Ganesh punch-in: Private Limited company! (54.2 - 56.8s)
+    (56.8, 3.2, "wide")      # Host reaction / Wide Climax: College padikkumbothe Private Limited company ah?! (56.8 - 60.0s)
 ]
 
 total_cuts_dur = sum(c[1] for c in CUTS)
@@ -112,126 +111,126 @@ assert abs(total_cuts_dur - DURATION) < 0.01, f"Cuts duration mismatch: {total_c
 
 video_track = WORKSPACE / "ref3_6596_video_track.mp4"
 
-if not video_track.exists():
-    cut_files = []
-    concat_list = WORKSPACE / "ref3_6596_concat.txt"
+# Force re-generation of cuts & video track
+cut_files = []
+concat_list = WORKSPACE / "ref3_6596_concat.txt"
 
-    for idx, (st_rel, dur, ctype) in enumerate(CUTS):
-        out_cut = WORKSPACE / f"ref3_6596_cut_{idx}.mp4"
-        cut_files.append(out_cut)
-        abs_st = START_TIME + st_rel
+for idx, (st_rel, dur, ctype) in enumerate(CUTS):
+    out_cut = WORKSPACE / f"ref3_6596_cut_{idx}.mp4"
+    cut_files.append(out_cut)
+    abs_st = START_TIME + st_rel
+    
+    if ctype == "host":
+        # Host Lokesh (Left speaker, white shirt)
+        crop = "crop=2080:1170:50:420,scale=1080:608:flags=lanczos"
+    elif ctype == "punch":
+        # Ganesh Punch-in 1.15x
+        crop = "crop=1808:1017:1840:480,scale=1080:608:flags=lanczos"
+    elif ctype == "ganesh":
+        # Ganesh (Right speaker, light blue shirt, glasses)
+        crop = "crop=2080:1170:1710:420,scale=1080:608:flags=lanczos"
+    else: # wide
+        crop = "scale=1080:608:flags=lanczos"
         
-        if ctype == "host":
-            crop = "crop=2080:1170:1710:420,scale=1080:608:flags=lanczos"
-        elif ctype == "punch":
-            crop = "crop=1808:1017:186:496,scale=1080:608:flags=lanczos"
-        elif ctype == "ganesh":
-            crop = "crop=2080:1170:50:420,scale=1080:608:flags=lanczos"
-        else: # wide
-            crop = "scale=1080:608:flags=lanczos"
-            
-        vf = f"{crop},{COLOR_GRADE},fps=30,setsar=1"
-        subprocess.run([
-            "ffmpeg", "-y", "-ss", f"{abs_st:.3f}", "-t", f"{dur:.3f}",
-            "-i", str(RAW_VIDEO),
-            "-vf", vf, "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
-            str(out_cut)
-        ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-    with open(concat_list, "w") as f:
-        for cf in cut_files:
-            f.write(f"file '{cf}'\n")
-
-    # Generate soft black bottom gradient PNG for video window (height 80px, width 1080)
-    gradient_png = WORKSPACE / "ref3_bottom_gradient.png"
-    grad_im = Image.new("RGBA", (1080, 80), (0, 0, 0, 0))
-    for y_g in range(80):
-        alpha = int(255 * (y_g / 79.0)**1.5)
-        for x_g in range(1080):
-            grad_im.putpixel((x_g, y_g), (0, 0, 0, alpha))
-    grad_im.save(gradient_png)
-
-    # Concat cuts, pad to 1080x1920 @ Y=656, and overlay soft bottom gradient at Y = 1184 (656 + 608 - 80 = 1184)
+    vf = f"{crop},{COLOR_GRADE},fps=30,setsar=1"
     subprocess.run([
-        "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_list),
-        "-i", str(gradient_png),
-        "-filter_complex",
-        f"[0:v]pad={WIDTH}:{HEIGHT}:0:{VIDEO_Y}:color=black[v_pad];"
-        f"[v_pad][1:v]overlay=0:1184[vout]",
-        "-map", "[vout]",
-        "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p",
-        "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
-        "-t", f"{DURATION:.3f}",
-        str(video_track)
+        "ffmpeg", "-y", "-ss", f"{abs_st:.3f}", "-t", f"{dur:.3f}",
+        "-i", str(RAW_VIDEO),
+        "-vf", vf, "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
+        str(out_cut)
     ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-else:
-    print(f"✅ Master visual track already exists: {video_track}")
+
+with open(concat_list, "w") as f:
+    for cf in cut_files:
+        f.write(f"file '{cf}'\n")
+
+# Generate soft black bottom gradient PNG for video window (height 80px, width 1080)
+gradient_png = WORKSPACE / "ref3_bottom_gradient.png"
+grad_im = Image.new("RGBA", (1080, 80), (0, 0, 0, 0))
+for y_g in range(80):
+    alpha = int(255 * (y_g / 79.0)**1.5)
+    for x_g in range(1080):
+        grad_im.putpixel((x_g, y_g), (0, 0, 0, alpha))
+grad_im.save(gradient_png)
+
+subprocess.run([
+    "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_list),
+    "-i", str(gradient_png),
+    "-filter_complex",
+    f"[0:v]pad={WIDTH}:{HEIGHT}:0:{VIDEO_Y}:color=black[v_pad];"
+    f"[v_pad][1:v]overlay=0:1184[vout]",
+    "-map", "[vout]",
+    "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p",
+    "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
+    "-t", f"{DURATION:.3f}",
+    str(video_track)
+], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 print(f"✅ Master 16:9 Letterboxed Visual Track ready: {video_track}")
 
-print("🎬 Step 3: Generating Pure White Impact Subtitles (Reference 3 Specification)...")
-# Exact Reference 3 Subtitle Specification:
-# Pure White (#FFFFFF) Impact font, 3.5px solid black outline, multi-pass soft drop shadow.
-# Anchored at lower chest/torso (Y = 1130 on canvas), COMPLETELY BELOW THE FACE!
+print("🎬 Step 3: Generating Pure White Impact Subtitles (Speech-Locked Acoustic Timestamps)...")
 
+# Exact speech-synchronized cues with acoustic onsets:
 SUBTITLE_CUES = [
-    # Host Intro
-    (0.0, 1.4, "VANAKKAM GANESH...!"),
-    (1.4, 2.5, "HOW ARE YOU?"),
+    # Host Intro (0.0s - 2.2s)
+    (0.0, 1.2, "VANAKKAM GANESH...!"),
+    (1.2, 2.2, "EPPADI IRUKKEENGA?"),
     
-    # Ganesh reply
-    (2.5, 4.0, "FINE BRO...!"),
-    (4.0, 5.5, "SUPER!"),
+    # Ganesh reply (2.2s - 3.5s)
+    (2.3, 3.5, "FINE BRO... SUPER!"),
     
-    # Host question
-    (5.5, 8.5, "ORU QUICK CRISP INTRO..."),
-    (8.5, 11.5, "UNNA PATHI...!"),
+    # Host question (3.5s - 11.8s)
+    (3.5, 6.4, "ORU QUICK CRISP INTRO..."),
+    (6.5, 9.2, "UNNA PATHI...!"),
+    (9.2, 11.8, "HOW YOU STARTED?"),
     
-    # Ganesh story
-    (11.5, 13.5, "EN PERU GANESH..."),
-    (13.5, 15.5, "COLLEGE STUDENT...!"),
-    (15.5, 18.5, "START FROM SCRATCH!"),
+    # Ganesh story (11.8s - 18.5s)
+    (12.1, 14.1, "EN PERU GANESH..."),
+    (14.1, 16.2, "COLLEGE STUDENT...!"),
+    (16.2, 18.5, "START FROM SCRATCH!"),
     
-    # High energy hook
-    (18.5, 20.2, "ZERO KNOWLEDGE..!"),
-    (20.2, 22.0, "ZERO IDEA..!"),
+    # High energy hook (18.5s - 21.6s)
+    (18.9, 20.2, "ZERO KNOWLEDGE..!"),
+    (20.2, 21.6, "ZERO IDEA..!"),
     
-    # Journey & Mentorship
-    (22.0, 24.5, "FOUNDERS AH..."),
-    (24.5, 27.0, "SOCIAL MEDIA LA RESEARCH!"),
-    (27.0, 29.8, "LOKESH BRO MEET PANNI..."),
-    (29.8, 32.5, "CONNECT AANOM!"),
-    (32.5, 34.8, "NEXT TIME..."),
-    (34.8, 37.0, "MENTORING KAGA!"),
+    # Research founders (21.6s - 28.2s)
+    (21.8, 24.8, "FOUNDERS AH..."),
+    (24.8, 28.2, "SOCIAL MEDIA LA RESEARCH!"),
     
-    # Host Question
-    (37.0, 39.5, "SUPER GANESH...!"),
-    (39.5, 41.5, "AWESOME!"),
-    (41.5, 44.0, "BUSINESS STARTED AH?"),
-    (44.0, 46.5, "IDEATION STAGE AH?"),
+    # Lokesh bro meet panni (28.2s - 32.5s)
+    (28.4, 30.6, "LOKESH BRO MEET PANNI..."),
+    (30.6, 32.5, "CONNECT AANOM!"),
     
-    # Ganesh Big Reveal
-    (46.5, 49.0, "BUSINESS START PANNITOM!"),
-    (49.0, 51.5, "COMPANY REGISTERED..!"),
+    # Mentoring & Journey (32.5s - 42.5s)
+    (33.0, 35.8, "MENTORING KAGA..."),
+    (35.8, 38.8, "CONTACT PANNOM!"),
+    (38.8, 42.2, "IDEA SHARE PANNOM...!"),
     
-    # Host Question
-    (51.5, 54.0, "PROPRIETARY COMPANY AH?"),
+    # Host Question (42.5s - 46.2s)
+    (42.8, 44.5, "BUSINESS STARTED AH?"),
+    (44.5, 46.2, "IDEATION STAGE AH?"),
     
-    # Ganesh Climax Punch
-    (54.0, 57.0, "PRIVATE LIMITED COMPANY!"),
+    # Ganesh Big Reveal (46.2s - 52.5s)
+    (46.3, 48.5, "BUSINESS START PANNITOM!"),
+    (48.5, 52.2, "COMPANY REGISTERED..!"),
     
-    # Host Viral Reaction
-    (57.0, 60.0, "IN COLLEGE DAYS-EH...?!")
+    # Host Question (52.5s - 54.2s)
+    (52.8, 54.2, "PROPRIETARY COMPANY AH?"),
+    
+    # Ganesh Climax Punch (54.2s - 56.8s)
+    (54.2, 56.8, "PRIVATE LIMITED COMPANY! 🔥"),
+    
+    # Host Viral Reaction (56.8s - 60.0s)
+    (57.2, 60.0, "COLLEGE DAYS-LA PRIVATE LIMITED-AH?! 🚀")
 ]
 
-font_impact = ImageFont.truetype(IMPACT_FONT_PATH, 64)
+font_impact = ImageFont.truetype(IMPACT_FONT_PATH, 62)
 
 def render_sub_frame(text):
     im = Image.new("RGBA", (WIDTH, SUBS_H), (0, 0, 0, 0))
     if not text:
         return im.tobytes()
         
-    import re
-    clean_text = re.sub(r'[^\w\s\?!,\'\.-]', '', text).strip()
+    clean_text = re.sub(r'[^A-Za-z0-9\s\?!\',\.\-]', '', text).strip()
     if not clean_text:
         return im.tobytes()
         
@@ -239,17 +238,18 @@ def render_sub_frame(text):
     w = draw.textlength(clean_text, font=font_impact)
     f = font_impact
     if w > WIDTH - 120:
-        f = ImageFont.truetype(IMPACT_FONT_PATH, 52)
+        scaled_size = max(44, int(62 * (WIDTH - 140) / w))
+        f = ImageFont.truetype(IMPACT_FONT_PATH, scaled_size)
         w = draw.textlength(clean_text, font=f)
         
     x = (WIDTH - w) / 2
-    y = 45 # Centered vertically in SUBS_H
+    y = 40 # Centered vertically in SUBS_H
     
     # Multi-directional soft drop shadow (rgba(0,0,0,220))
     for dx, dy in [(-3, -3), (3, -3), (-3, 3), (3, 3), (0, 4), (0, -4), (4, 0), (-4, 0)]:
         draw.text((x + dx, y + dy), clean_text, font=f, fill=(0, 0, 0, 220), stroke_width=4, stroke_fill=COLOR_BLACK)
         
-    # Solid Pure White text with 3.5px black outline
+    # Solid Pure White text with 4px black outline
     draw.text((x, y), clean_text, font=f, fill=COLOR_WHITE, stroke_width=4, stroke_fill=COLOR_BLACK)
     return im.tobytes()
 
@@ -301,17 +301,20 @@ print(f"🎉 MASTER REEL IN REFERENCE 3 EXPORTED TO: {final_output}")
 print("📸 Extracting QA Verification Frames...")
 qa_cues = [
     (1.0, "qa_ref3_6596_host_intro_t1.0s.png"),
-    (3.5, "qa_ref3_6596_ganesh_fine_t3.5s.png"),
-    (9.0, "qa_ref3_6596_host_crisp_t9.0s.png"),
-    (14.0, "qa_ref3_6596_ganesh_student_t14.0s.png"),
+    (2.8, "qa_ref3_6596_ganesh_fine_t2.8s.png"),
+    (5.0, "qa_ref3_6596_host_crisp_t5.0s.png"),
+    (13.0, "qa_ref3_6596_ganesh_enperu_t13.0s.png"),
+    (15.0, "qa_ref3_6596_ganesh_student_t15.0s.png"),
     (19.5, "qa_ref3_6596_punch_zeroknowledge_t19.5s.png"),
-    (25.0, "qa_ref3_6596_ganesh_research_t25.0s.png"),
-    (28.5, "qa_ref3_6596_ganesh_lokeshbro_t28.5s.png"),
-    (30.5, "qa_ref3_6596_ganesh_connect_t30.5s.png"),
-    (35.5, "qa_ref3_6596_ganesh_mentor_t35.5s.png"),
-    (42.5, "qa_ref3_6596_host_ideation_t42.5s.png"),
-    (48.0, "qa_ref3_6596_ganesh_registered_t48.0s.png"),
-    (55.0, "qa_ref3_6596_punch_privatelimited_t55.0s.png"),
+    (23.0, "qa_ref3_6596_ganesh_research_t23.0s.png"),
+    (29.5, "qa_ref3_6596_punch_lokeshbro_t29.5s.png"),
+    (31.5, "qa_ref3_6596_ganesh_connect_t31.5s.png"),
+    (34.5, "qa_ref3_6596_ganesh_mentor_t34.5s.png"),
+    (43.5, "qa_ref3_6596_host_ideation_t43.5s.png"),
+    (47.5, "qa_ref3_6596_ganesh_start_t47.5s.png"),
+    (50.0, "qa_ref3_6596_ganesh_registered_t50.0s.png"),
+    (53.5, "qa_ref3_6596_host_proprietary_t53.5s.png"),
+    (55.5, "qa_ref3_6596_punch_privatelimited_t55.5s.png"),
     (58.5, "qa_ref3_6596_climax_reaction_t58.5s.png")
 ]
 
@@ -322,7 +325,6 @@ for t, name in qa_cues:
         "-vframes", "1", str(out_frame)
     ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     if ARTIFACT_DIR.exists():
-        import shutil
         shutil.copy(out_frame, ARTIFACT_DIR / name)
 
 print("✅ All QA frames extracted and copied to artifacts successfully!")
