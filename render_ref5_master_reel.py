@@ -7,9 +7,10 @@ Features:
 - Strict 3-color palette: #FFF200 (Bright Yellow), #FFFFFF (Pure White), #0A0A0A (Jet Black)
 - Two-Tier Typography System:
   * Tier A: Stylized Kinetic Titles (Setup spaced Sans, Hero 175px Serif Italic in Yellow with drop shadow)
-  * Tier B: Conversational Subtitles (80px Sans Bold inside solid Jet Black box with rounded corners)
-- Dynamic Solid Bright Yellow Cards with Native Apple Color Emojis (Situationship, Infatuation, Dopamine, Oxytocin, Serotonin, No Stress)
-- 100% Real, Organic, Non-AI Contextual B-Rolls (Zero duplicate footage)
+  * Tier B: Ultra-Visible Big & Bold Conversational Subtitles (80-88px Arial Bold with stroke_width=2 inside solid Jet Black box)
+- Exactly ONE Single Caption on Screen at any moment (Zero duplicate cards / subtitles)
+- Dynamic Solid Bright Yellow Cards with Native Apple Color Emojis (Situationship, Infatuation, No Stress)
+- 100% Real, Organic, Non-AI Contextual B-Rolls:
   * Real Romantic Couple Embracing & Kissing (replacing AI neural network)
   * Cute Woman with Gorgeous Bouncy Curls Smiling (replacing previous clip)
   * Romantic Couple Walking on Beach at Sunset (replacing generic landscape)
@@ -46,12 +47,11 @@ SFX_POP = AUDIO_DIR / "pop.wav"
 SFX_RISER = AUDIO_DIR / "riser.wav"
 BGM_TRACK = AUDIO_DIR / "ref5_bgm.mp3"
 
-# Fonts
+# Fonts - High-Impact Heavy Bold Sans & High-Contrast Serif
 FONT_SERIF_ITALIC = str(FONTS_DIR / "PlayfairDisplay-Italic.ttf")
 FONT_SERIF_REG = str(FONTS_DIR / "PlayfairDisplay-Regular.ttf")
 FONT_SANS_REG = str(FONTS_DIR / "Montserrat-Regular.ttf")
-FONT_SANS_ITALIC = str(FONTS_DIR / "Montserrat-Italic.ttf")
-FONT_SUB = str(FONTS_DIR / "Inter-Variable.ttf")
+FONT_BOLD = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
 EMOJI_FONT = "/System/Library/Fonts/Apple Color Emoji.ttc"
 
 # Load emoji font at fixed strike 160
@@ -241,7 +241,7 @@ CUTS = [
 TOTAL_DURATION = sum(c["dur"] for c in CUTS)
 print(f"🎬 Scheduled Cuts: {len(CUTS)} | Total Timeline Duration: {TOTAL_DURATION:.2f}s")
 
-def render_emoji(char, target_size=80):
+def render_emoji(char, target_size=88):
     """Render Apple Color Emoji with embedded colors and Lanczos scaling."""
     im = Image.new("RGBA", (220, 220), (0, 0, 0, 0))
     draw = ImageDraw.Draw(im)
@@ -410,41 +410,42 @@ def render_typography_and_stickers_overlay():
     
     total_frames = int(TOTAL_DURATION * FPS)
     
-    # Subtitle timeline schedule with text & emoji
+    # EXACTLY ONE SINGLE CAPTION ON SCREEN AT ANY SECOND
     SCHEDULE = [
         # 0.0 - 2.9: Kinetic Title Hook (Wide Letter-Spacing Matching Reference)
         (0.0, 2.9, ("MODERN LOVE OR", "Confusion?", "🤔"), "kinetic_hook"),
-        # 2.9 - 5.1: Situationship is not love (Dynamic Yellow Card with Emoji)
+        # 2.9 - 5.1: Situationship is not love (Single Dynamic Yellow Card with Emoji)
         (2.9, 5.1, ("SITUATIONSHIP IS NOT LOVE", "💔"), "yellow_card_top"),
-        # 5.1 - 8.1: Reflection Question Beat (Person 1 B&W)
+        # 5.1 - 8.1: Reflection Question Beat (Person 1 B&W - Big Bold White Subtitle)
         (5.1, 6.5, ("IT IS A FEELING...", "💭"), "tier_b"),
         (6.5, 8.1, ("HOW DOES IT FEEL?", "❓"), "tier_b"),
         # 8.1 - 11.0: Extreme attraction (Kinetic Title)
         (8.1, 11.0, ("EXTREME STAGE OF", "Attraction", "❤️"), "kinetic_attraction"),
-        # 11.0 - 13.1: Infatuation (Dynamic Yellow Card with Emoji)
+        # 11.0 - 13.1: Infatuation (Single Dynamic Yellow Card with Emoji)
         (11.0, 13.1, ("EXTREME INFATUATION", "🔥"), "yellow_card_top"),
-        # 13.1 - 16.0: Chemical feeling (Tier B Subtitles over Real Couple Kiss)
+        # 13.1 - 16.0: Chemical feeling (Big Bold White Subtitles over Real Couple Kiss)
         (13.1, 14.5, ("LOVE IS BASICALLY", "🧬"), "tier_b"),
         (14.5, 16.0, ("A CHEMICAL REACTION", "🧪"), "tier_b"),
-        # 16.0 - 18.5: Dopamine (Dynamic Yellow Card with Emoji + Subtitle)
-        (16.0, 18.5, ("RUSH OF DOPAMINE", "⚡"), "dopamine_beat"),
-        # 18.5 - 21.5: Oxytocin (Dynamic Yellow Card with Emoji + Subtitle)
-        (18.5, 21.5, ("RUSH OF OXYTOCIN", "❤️"), "oxytocin_beat"),
-        # 21.5 - 25.9: Serotonin (Dynamic Yellow Card with Emoji + Subtitle)
-        (21.5, 23.8, ("SEROTONIN...", "✨"), "serotonin_beat1"),
-        (23.8, 25.9, ("THE SLEEP HORMONE", "😴"), "serotonin_beat2"),
-        # 25.9 - 32.9: Sleep well (Tier B Subtitles over Family Warmth)
+        # 16.0 - 18.5: Dopamine (SINGLE Big Bold White Subtitle at Bottom)
+        (16.0, 18.5, ("RUSH OF DOPAMINE", "⚡"), "tier_b"),
+        # 18.5 - 21.5: Oxytocin (SINGLE Big Bold White Subtitle at Bottom)
+        (18.5, 21.5, ("RUSH OF OXYTOCIN", "❤️"), "tier_b"),
+        # 21.5 - 25.9: Serotonin (SINGLE Big Bold White Subtitle at Bottom)
+        (21.5, 23.8, ("SEROTONIN...", "✨"), "tier_b"),
+        (23.8, 25.9, ("THE SLEEP HORMONE", "😴"), "tier_b"),
+        # 25.9 - 32.9: Sleep well (Big Bold White Subtitles in 4 clean beats)
         (25.9, 28.2, ("WHEN YOU'RE IN LOVE", "🥰"), "tier_b"),
         (28.2, 30.5, ("YOU SLEEP WELL", "🛌"), "tier_b"),
-        (30.5, 32.9, ("AROUND COMFORTABLE PEOPLE", "🤍"), "tier_b"),
+        (30.5, 31.7, ("AROUND...", "🤍"), "tier_b"),
+        (31.7, 32.9, ("COMFORTABLE PEOPLE", "🤍"), "tier_b"),
         # 32.9 - 33.9: Solid Jet Black pause (no graphic)
         (32.9, 33.9, ("", None), "none"),
         # 33.9 - 37.0: Weight question (Person 1 Punch In)
         (33.9, 35.4, ("MEN IN RELATIONSHIPS", "🤔"), "tier_b"),
         (35.4, 37.0, ("PUT ON WEIGHT... WHY?", "🍔"), "tier_b"),
-        # 37.0 - 40.5: Punchline: NO STRESS! (Dynamic Yellow Card with Sunglasses Emoji)
+        # 37.0 - 40.5: Punchline: NO STRESS! (SINGLE Dynamic Yellow Card at Bottom)
         (37.0, 40.5, ("BECAUSE NO STRESS!", "😎"), "punch_no_stress"),
-        # 40.5 - 46.1: Woman curls (Tier B Subtitles over Real Curly Hair Woman)
+        # 40.5 - 46.1: Woman curls (Big Bold White Subtitles over Real Curly Hair Woman)
         (40.5, 42.0, ("EVEN WOMEN!", "👩"), "tier_b"),
         (42.0, 43.8, ("SCIENTIFICALLY...", "🔬"), "tier_b"),
         (43.8, 46.1, ("HAIR GETS CURLIER!", "✨"), "tier_b"),
@@ -490,13 +491,14 @@ def render_typography_and_stickers_overlay():
             return sx, sx + total_w
 
         def draw_yellow_card(text, emoji=None, sy=480, max_w=940):
-            pad_x = 32
-            pad_y = 20
-            radius = 16
+            # Heavy Bold Sans Font for Yellow Card
+            pad_x = 34
+            pad_y = 22
+            radius = 18
             
             for sz in range(68, 44, -2):
-                f = ImageFont.truetype(FONT_SANS_REG, sz)
-                bb = draw.textbbox((0, 0), text, font=f)
+                f = ImageFont.truetype(FONT_BOLD, sz)
+                bb = draw.textbbox((0, 0), text, font=f, stroke_width=2)
                 tw = bb[2] - bb[0]
                 th = bb[3] - bb[1]
                 e_w = int(th * 1.15) if emoji else 0
@@ -512,44 +514,48 @@ def render_typography_and_stickers_overlay():
             draw.rounded_rectangle([sx - pad_x + 4, sy - pad_y + 4, sx + actual_total_w + pad_x + 4, sy + th + pad_y + 8], radius=radius, fill=COLOR_SHADOW)
             # Yellow Box
             draw.rounded_rectangle([sx - pad_x, sy - pad_y, sx + actual_total_w + pad_x, sy + th + pad_y + 4], radius=radius, fill=COLOR_YELLOW)
-            # Jet Black Text
-            draw.text((sx, sy - 2), text, font=f, fill=COLOR_BLACK)
+            # Extra Bold Jet Black Text
+            draw.text((sx, sy - 2), text, font=f, fill=COLOR_BLACK, stroke_width=2, stroke_fill=COLOR_BLACK)
             # Embedded Color Emoji
             if e_img:
                 ey = sy + (th - e_img.height) // 2
                 im.alpha_composite(e_img, (sx + tw + 20, ey))
 
-        def draw_boxed_sub(text, emoji=None, sy=1440):
-            f = ImageFont.truetype(FONT_SUB, 80)
-            bb = draw.textbbox((0, 0), text, font=f)
-            tw = bb[2] - bb[0]
-            th = bb[3] - bb[1]
+        def draw_boxed_sub(text, emoji=None, sy=1420):
+            # BIG & EXTRA BOLD Pure White Subtitle with stroke_width=2
+            pad_x = 36
+            pad_y = 22
+            radius = 18
             
-            if tw > 900:
-                f = ImageFont.truetype(FONT_SUB, 72)
-                bb = draw.textbbox((0, 0), text, font=f)
+            for sz in range(88, 64, -2):
+                f = ImageFont.truetype(FONT_BOLD, sz)
+                bb = draw.textbbox((0, 0), text, font=f, stroke_width=2)
                 tw = bb[2] - bb[0]
                 th = bb[3] - bb[1]
-                
-            pad_x = 34
-            pad_y = 20
-            radius = 16
-            
+                e_w = int(th * 1.15) if emoji else 0
+                total_w = tw + (22 + e_w if emoji else 0)
+                if total_w + 2 * pad_x <= 1000:
+                    break
+                    
             e_img = render_emoji(emoji, target_size=int(th * 1.15)) if emoji else None
-            total_w = tw + (20 + e_img.width if e_img else 0)
-            sx = (WIDTH - total_w) // 2
-            draw.rounded_rectangle([sx - pad_x, sy - pad_y, sx + total_w + pad_x, sy + th + pad_y + 4], radius=radius, fill=COLOR_BLACK)
-            draw.text((sx, sy - 2), text, font=f, fill=COLOR_WHITE)
+            actual_total_w = tw + (22 + e_img.width if e_img else 0)
+            sx = (WIDTH - actual_total_w) // 2
+            
+            # Solid Jet Black background box with rounded corners
+            draw.rounded_rectangle([sx - pad_x, sy - pad_y, sx + actual_total_w + pad_x, sy + th + pad_y + 6], radius=radius, fill=COLOR_BLACK)
+            
+            # BIG, EXTRA BOLD, PUNCHY Pure White Text
+            draw.text((sx, sy - 2), text, font=f, fill=COLOR_WHITE, stroke_width=2, stroke_fill=COLOR_WHITE)
+            
+            # Apple Color Emoji
             if e_img:
                 ey = sy + (th - e_img.height) // 2
-                im.alpha_composite(e_img, (sx + tw + 20, ey))
+                im.alpha_composite(e_img, (sx + tw + 22, ey))
 
         if style == "kinetic_hook":
-            # Line 1: Spaced Setup Text Matching User Reference Screenshot
             setup_txt, hero_txt, emoji = data
             draw_spaced_text(setup_txt, 380, f_title_setup, spacing=8)
             
-            # Line 2: 175px Yellow Serif Italic + Emoji
             bb2 = draw.textbbox((0, 0), hero_txt, font=f_title_hero)
             w2 = bb2[2] - bb2[0]
             h2 = bb2[3] - bb2[1]
@@ -586,46 +592,22 @@ def render_typography_and_stickers_overlay():
             
         elif style == "tier_b":
             text, emoji = data
-            draw_boxed_sub(text, emoji, sy=1440)
-            
-        elif style == "dopamine_beat":
-            text, emoji = data
-            draw_yellow_card(text, emoji, sy=480)
-            draw_boxed_sub(text, emoji, sy=1440)
-            
-        elif style == "oxytocin_beat":
-            text, emoji = data
-            draw_yellow_card(text, emoji, sy=480)
-            draw_boxed_sub(text, emoji, sy=1440)
-            
-        elif style == "serotonin_beat1":
-            text, emoji = data
-            draw_yellow_card(text, emoji, sy=480)
-            draw_boxed_sub(text, emoji, sy=1440)
-            
-        elif style == "serotonin_beat2":
-            text, emoji = data
-            draw_yellow_card(text, emoji, sy=480)
-            draw_boxed_sub(text, emoji, sy=1440)
+            draw_boxed_sub(text, emoji, sy=1420)
             
         elif style == "punch_no_stress":
             text, emoji = data
-            draw_yellow_card(text, emoji, sy=1440)
+            draw_yellow_card(text, emoji, sy=1420)
             
         elif style == "loop_ending":
             line1, line2, line3, emoji = data
-            
-            # Line 1: Spaced Setup Text
             draw_spaced_text(line1, 380, f_title_setup, spacing=6)
             
-            # Line 2: Huge Yellow Serif Italic 175px
             bb2 = draw.textbbox((0, 0), line2, font=f_title_hero)
             w2 = bb2[2] - bb2[0]
             hero_y = 490
             draw.text(((WIDTH - w2)//2 + 5, hero_y + 5), line2, font=f_title_hero, fill=COLOR_SHADOW)
             draw.text(((WIDTH - w2)//2, hero_y), line2, font=f_title_hero, fill=COLOR_YELLOW)
             
-            # Line 3: White Serif All-Caps 95px with Emoji
             bb3 = draw.textbbox((0, 0), line3, font=f_title_allcaps)
             w3 = bb3[2] - bb3[0]
             h3 = bb3[3] - bb3[1]
@@ -676,9 +658,9 @@ def composite_master(master_video, overlay_mov, pro_audio):
         (9.5, "qa_ref5_attraction_broll"),
         (12.0, "qa_ref5_infatuation_broll"),
         (14.5, "qa_ref5_real_couple_chem"),
-        (17.5, "qa_ref5_dopamine_yellow_card"),
-        (20.0, "qa_ref5_oxytocin_yellow_card"),
-        (23.5, "qa_ref5_serotonin_yellow_card"),
+        (17.5, "qa_ref5_dopamine_single_sub"),
+        (20.0, "qa_ref5_oxytocin_single_sub"),
+        (23.5, "qa_ref5_serotonin_single_sub"),
         (29.0, "qa_ref5_sleep_broll_subs"),
         (33.5, "qa_ref5_jet_black_pause"),
         (38.5, "qa_ref5_punchline_no_stress"),
@@ -700,7 +682,7 @@ def composite_master(master_video, overlay_mov, pro_audio):
 def main():
     t_start = time.time()
     print("=" * 70)
-    print("🚀 RENDERING MASTER INSTAGRAM REEL IN REF5 STYLE (V3 POLISHED)")
+    print("🚀 RENDERING MASTER INSTAGRAM REEL IN REF5 STYLE (V4 BIG & BOLD)")
     print("=" * 70)
     
     v_track = render_video_tracks()
