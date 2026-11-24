@@ -59,16 +59,14 @@ COLOR_GRADE = (
 )
 SDR_FILTER = "setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709,format=yuv420p"
 
-# Speaker Crops
-CROP_GUEST = "crop=1215:2160:2140:0,scale=1080:1920:flags=lanczos"
-CROP_GUEST_PUNCH = "crop=1050:1866:2220:147,scale=1080:1920:flags=lanczos"
-CROP_HOST = "crop=1215:2160:740:0,scale=1080:1920:flags=lanczos"
+# Speaker Crops - 100% Locked & Centered on Person 1 (Guest, X=2890)
+CROP_GUEST = "crop=1215:2160:2282:0,scale=1080:1920:flags=lanczos"
+CROP_GUEST_PUNCH = "crop=1050:1866:2365:100,scale=1080:1920:flags=lanczos"
 
 # External B-Rolls
 BROLL_PHONE = BROLLS_DIR / "broll_phone_dating.mp4"
 BROLL_COUPLE = BROLLS_DIR / "broll_couple.mp4"
 BROLL_BREAKUP = BROLLS_DIR / "broll_breakup.mp4"
-BROLL_MOVIE = Path("/Users/pgi/Downloads/vidssave.com Best love scene _ true love _ irugapatru movie _ #shorts #movie #love #emotional 1080P.mp4")
 BROLL_HABITS = Path("/Users/pgi/Downloads/From Klickpin.com- Sweet couple habits for people who love beauty for busy days for meaningful relationships-pin-id-1125688869368431907.mp4")
 BROLL_FOOD = Path("/Users/pgi/Downloads/From Klickpin.com- Refresh this smart comfort food roundup that look high-end but stay practical that balance trend comfort and everyday function.mp4")
 BROLL_SUNRISE = BROLLS_DIR / "broll_golden_sunrise.mp4"
@@ -76,7 +74,7 @@ BROLL_SUNRISE = BROLLS_DIR / "broll_golden_sunrise.mp4"
 # Cut Schedule Definition
 # Each cut: {type: "speaker"|"broll"|"black", dur: float, ...}
 CUTS = [
-    # 0.0s - 2.9s: Cold Open Hook Statement (Guest Punch)
+    # 0.0s - 2.9s: Cold Open Hook Statement (Person 1 Punch)
     {
         "id": "01_hook_q",
         "type": "speaker",
@@ -95,16 +93,16 @@ CUTS = [
         "dur": 2.20,
         "desc": "Situationship is NOT a modern love!"
     },
-    # 5.1s - 8.1s: Host Question - SELECTIVE B&W BEAT WITH VINTAGE GRAIN!
+    # 5.1s - 8.1s: Reflection Beat - SELECTIVE B&W BEAT WITH VINTAGE GRAIN (Person 1 Centered!)
     {
         "id": "03_question_bw",
         "type": "speaker_bw",
         "raw_ss": 149.10,
         "dur": 3.00,
-        "crop": CROP_HOST,
-        "desc": "What is the meaning of it? How does it feel?"
+        "crop": CROP_GUEST,
+        "desc": "It is a feeling... How does it feel?"
     },
-    # 8.1s - 11.0s: Extreme stage of attraction (B-Roll Couple)
+    # 8.1s - 11.0s: Extreme stage of attraction (B-Roll Couple Romance)
     {
         "id": "04_attraction_broll",
         "type": "broll",
@@ -124,12 +122,12 @@ CUTS = [
         "dur": 2.10,
         "desc": "Extreme stage of infatuation!"
     },
-    # 13.1s - 16.0s: Love is basically a chemical feeling (B-Roll Movie Scene)
+    # 13.1s - 16.0s: Love is basically a chemical feeling (B-Roll Couple Connection)
     {
         "id": "06_chem_movie",
         "type": "broll",
-        "broll": BROLL_MOVIE,
-        "broll_ss": 10.0,
+        "broll": BROLL_COUPLE,
+        "broll_ss": 11.5,
         "raw_audio_ss": 164.40,
         "dur": 2.90,
         "desc": "Love is basically a chemical feeling..."
@@ -144,7 +142,7 @@ CUTS = [
         "dur": 2.50,
         "desc": "Rush of Dopamine!"
     },
-    # 18.5s - 21.5s: Rush of Oxytocin! (Guest Talking Head Punch)
+    # 18.5s - 21.5s: Rush of Oxytocin! (Person 1 Medium Shot)
     {
         "id": "08_oxytocin",
         "type": "speaker",
@@ -180,7 +178,7 @@ CUTS = [
         "dur": 1.00,
         "desc": "1-Second Solid Jet Black Pause (#0A0A0A)"
     },
-    # 33.9s - 37.0s: Men in relationship put on weight (Guest Punch)
+    # 33.9s - 37.0s: Men in relationship put on weight (Person 1 Punch)
     {
         "id": "12_weight_q",
         "type": "speaker",
@@ -204,7 +202,7 @@ CUTS = [
         "id": "14_women_curls",
         "type": "broll",
         "broll": BROLL_COUPLE,
-        "broll_ss": 10.0,
+        "broll_ss": 13.5,
         "raw_audio_ss": 197.90,
         "dur": 5.60,
         "desc": "Even women! Scientifically hair gets healthier and curlier!"
@@ -340,13 +338,13 @@ def render_pro_audio():
     sfx_filter = (
         f"[1:a]asplit=2[hit_a][hit_b];"
         f"[3:a]asplit=3[pop_a][pop_b][pop_c];"
-        f"[hit_a]adelay=0|0,volume=0.9[sfx_hit0];"
-        f"[2:a]adelay=2900|2900,volume=0.8[sfx_w1];"
-        f"[pop_a]adelay=16000|16000,volume=0.85[sfx_pop1];"
-        f"[pop_b]adelay=18500|18500,volume=0.85[sfx_pop2];"
-        f"[pop_c]adelay=21500|21500,volume=0.85[sfx_pop3];"
-        f"[4:a]adelay=32900|32900,volume=0.9[sfx_rise];"
-        f"[hit_b]adelay=37000|37000,volume=1.0[sfx_hit1];"
+        f"[hit_a]adelay=0|0,volume=0.55[sfx_hit0];"
+        f"[2:a]adelay=2900|2900,volume=0.45[sfx_w1];"
+        f"[pop_a]adelay=16000|16000,volume=0.50[sfx_pop1];"
+        f"[pop_b]adelay=18500|18500,volume=0.50[sfx_pop2];"
+        f"[pop_c]adelay=21500|21500,volume=0.50[sfx_pop3];"
+        f"[4:a]adelay=32900|32900,volume=0.50[sfx_rise];"
+        f"[hit_b]adelay=37000|37000,volume=0.60[sfx_hit1];"
         f"[sfx_hit0][sfx_w1][sfx_pop1][sfx_pop2][sfx_pop3][sfx_rise][sfx_hit1]amix=inputs=7:normalize=0[all_sfx]"
     )
     sfx_track = WORKSPACE / "ref5_sfx_track.wav"
@@ -361,10 +359,10 @@ def render_pro_audio():
         "-map", "[all_sfx]", "-c:a", "pcm_s16le", str(sfx_track)
     ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     
-    # 3. Final Master Audio (-14 LUFS, Ducked BGM at -23dB)
+    # 3. Final Master Audio (-14 LUFS, Ducked BGM at mild level)
     pro_audio = WORKSPACE / "ref5_master_pro_audio.wav"
     master_filter = (
-        f"[1:a]volume=0.07,aloop=loop=-1:size=2e+09,afade=t=in:st=0:d=1.5,afade=t=out:st={TOTAL_DURATION-2.0}:d=2.0[bgm];"
+        f"[1:a]volume=0.018,aloop=loop=-1:size=2e+09,afade=t=in:st=0:d=1.5,afade=t=out:st={TOTAL_DURATION-2.0}:d=2.0[bgm];"
         f"[0:a][2:a]amix=inputs=2:normalize=0[dialogue_sfx];"
         f"[dialogue_sfx][bgm]amix=inputs=2:duration=first:dropout_transition=2,"
         f"loudnorm=I=-14.0:TP=-1.0:LRA=11[aout]"
@@ -378,19 +376,18 @@ def render_pro_audio():
         "-map", "[aout]", "-c:a", "pcm_s16le", str(pro_audio)
     ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     
-    print(f"✅ Pro Audio Engineered (-14 LUFS): {pro_audio}")
+    print(f"✅ Pro Audio Engineered (-14 LUFS, Mild Ambient BGM): {pro_audio}")
     return pro_audio
 
 def render_typography_and_stickers_overlay():
     print("\n--- GENERATING FRAME-BY-FRAME TYPOGRAPHY & STICKERS OVERLAY ---")
     overlay_mov = WORKSPACE / "ref5_overlay_track.mov"
     
-    # Load fonts
-    f_title_setup = ImageFont.truetype(FONT_SANS_REG, 52)
-    f_title_hero = ImageFont.truetype(FONT_SERIF_ITALIC, 110)
-    f_title_allcaps = ImageFont.truetype(FONT_SERIF_REG, 64)
-    f_box_text = ImageFont.truetype(FONT_SANS_REG, 48)
-    f_sub = ImageFont.truetype(FONT_SUB, 50)
+    # Load fonts - Prominent, high-readability sizes
+    f_title_setup = ImageFont.truetype(FONT_SANS_REG, 70)
+    f_title_hero = ImageFont.truetype(FONT_SERIF_ITALIC, 115)
+    f_title_allcaps = ImageFont.truetype(FONT_SERIF_REG, 80)
+    f_box_text = ImageFont.truetype(FONT_SANS_REG, 58)
     
     # Load stickers
     sticker_dopamine = Image.open(STICKERS_DIR / "sticker_dopamine.png").convert("RGBA")
@@ -401,36 +398,43 @@ def render_typography_and_stickers_overlay():
     total_frames = int(TOTAL_DURATION * FPS)
     
     # Subtitle timeline schedule (t_start, t_end, text, style)
-    # style: "tier_b" (conversational boxed), "tier_a" (kinetic title), "box_punch" (yellow box)
     SCHEDULE = [
         # 0.0 - 2.9: Kinetic Title Hook
         (0.0, 2.9, ("MODERN LOVE OR", "Modern Confusion?"), "kinetic_hook"),
         # 2.9 - 5.1: Situationship is not love
         (2.9, 5.1, "SITUATIONSHIP IS NOT LOVE", "yellow_box"),
-        # 5.1 - 8.1: Question
-        (5.1, 8.1, "what is the meaning of it?", "tier_b"),
+        # 5.1 - 8.1: Reflection Question Beat (Person 1 B&W)
+        (5.1, 6.5, "IT IS A FEELING...", "tier_b"),
+        (6.5, 8.1, "HOW DOES IT FEEL?", "tier_b"),
         # 8.1 - 11.0: Extreme attraction
         (8.1, 11.0, ("EXTREME STAGE OF", "Attraction ❤️"), "kinetic_attraction"),
         # 11.0 - 13.1: Infatuation
         (11.0, 13.1, "EXTREME INFATUATION", "yellow_box"),
         # 13.1 - 16.0: Chemical feeling
-        (13.1, 16.0, "love is basically a chemical feeling", "tier_b"),
+        (13.1, 14.5, "LOVE IS BASICALLY", "tier_b"),
+        (14.5, 16.0, "A CHEMICAL FEELING", "tier_b"),
         # 16.0 - 18.5: Dopamine
-        (16.0, 18.5, "the rush of dopamine ⚡", "sticker_dopamine"),
+        (16.0, 18.5, "RUSH OF DOPAMINE ⚡", "sticker_dopamine"),
         # 18.5 - 21.5: Oxytocin
-        (18.5, 21.5, "the rush of oxytocin ❤️", "sticker_oxytocin"),
+        (18.5, 21.5, "RUSH OF OXYTOCIN ❤️", "sticker_oxytocin"),
         # 21.5 - 25.9: Serotonin
-        (21.5, 25.9, "serotonin is the sleep hormone", "sticker_serotonin"),
+        (21.5, 23.8, "SEROTONIN...", "sticker_serotonin"),
+        (23.8, 25.9, "THE SLEEP HORMONE 💤", "sticker_serotonin"),
         # 25.9 - 32.9: Sleep well
-        (25.9, 32.9, "when you are in love, you sleep well", "tier_b"),
+        (25.9, 28.2, "WHEN YOU'RE IN LOVE", "tier_b"),
+        (28.2, 30.5, "YOU SLEEP WELL", "tier_b"),
+        (30.5, 32.9, "AROUND COMFORTABLE PEOPLE", "tier_b"),
         # 32.9 - 33.9: Solid Jet Black pause (no graphic)
         (32.9, 33.9, "", "none"),
         # 33.9 - 37.0: Weight question
-        (33.9, 37.0, "men in happy relationships put on weight...", "tier_b"),
+        (33.9, 35.4, "MEN IN RELATIONSHIPS", "tier_b"),
+        (35.4, 37.0, "PUT ON WEIGHT... WHY?", "tier_b"),
         # 37.0 - 40.5: Punchline: NO STRESS!
         (37.0, 40.5, "BECAUSE NO STRESS!", "punch_no_stress"),
         # 40.5 - 46.1: Woman curls
-        (40.5, 46.1, "scientifically, a woman's hair gets healthier", "tier_b"),
+        (40.5, 42.0, "EVEN WOMEN!", "tier_b"),
+        (42.0, 43.8, "SCIENTIFICALLY...", "tier_b"),
+        (43.8, 46.1, "HAIR GETS CURLIER!", "tier_b"),
         # 46.1 - 48.6: Clean Loop Ending
         (46.1, 48.6, ("REAL LOVE IS", "Peace of Mind", "ZERO STRESS"), "loop_ending")
     ]
@@ -461,6 +465,21 @@ def render_typography_and_stickers_overlay():
         im = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
         draw = ImageDraw.Draw(im)
         
+        def draw_boxed_sub(text, sy=1440):
+            # Dynamic high-retention sizing (defaults to 68px, scales smoothly if needed)
+            for sz in range(68, 46, -2):
+                f = ImageFont.truetype(FONT_SUB, sz)
+                bb = draw.textbbox((0, 0), text, font=f)
+                w = bb[2] - bb[0]
+                h = bb[3] - bb[1]
+                if w <= 920:
+                    break
+            pad_x = 28
+            pad_y = 16
+            sx = (WIDTH - w) // 2
+            draw.rounded_rectangle([sx - pad_x, sy - pad_y, sx + w + pad_x, sy + h + pad_y + 4], radius=14, fill=COLOR_BLACK)
+            draw.text((sx, sy - 2), text, font=f, fill=COLOR_WHITE)
+
         if style == "kinetic_hook":
             # Tier A: White Sans setup + Huge Yellow Serif Italic hero
             setup_txt, hero_txt = data
@@ -471,8 +490,8 @@ def render_typography_and_stickers_overlay():
             
             bb2 = draw.textbbox((0, 0), hero_txt, font=f_title_hero)
             w2 = bb2[2] - bb2[0]
-            draw.text(((WIDTH - w2)//2 + 4, 454), hero_txt, font=f_title_hero, fill=COLOR_SHADOW)
-            draw.text(((WIDTH - w2)//2, 450), hero_txt, font=f_title_hero, fill=COLOR_YELLOW)
+            draw.text(((WIDTH - w2)//2 + 4, 464), hero_txt, font=f_title_hero, fill=COLOR_SHADOW)
+            draw.text(((WIDTH - w2)//2, 460), hero_txt, font=f_title_hero, fill=COLOR_YELLOW)
             
         elif style == "yellow_box":
             # Solid Bright Yellow box with Jet Black text
@@ -482,8 +501,8 @@ def render_typography_and_stickers_overlay():
             bh = bb[3] - bb[1]
             bx = (WIDTH - bw) // 2
             by = 480
-            draw.rounded_rectangle([bx - 26, by - 16, bx + bw + 26, by + bh + 16], radius=12, fill=COLOR_SHADOW)
-            draw.rounded_rectangle([bx - 24, by - 14, bx + bw + 24, by + bh + 14], radius=12, fill=COLOR_YELLOW)
+            draw.rounded_rectangle([bx - 28, by - 16, bx + bw + 28, by + bh + 16], radius=14, fill=COLOR_SHADOW)
+            draw.rounded_rectangle([bx - 26, by - 14, bx + bw + 26, by + bh + 14], radius=14, fill=COLOR_YELLOW)
             draw.text((bx, by - 4), box_txt, font=f_box_text, fill=COLOR_BLACK)
             
         elif style == "kinetic_attraction":
@@ -495,71 +514,35 @@ def render_typography_and_stickers_overlay():
             
             bb2 = draw.textbbox((0, 0), hero_txt, font=f_title_hero)
             w2 = bb2[2] - bb2[0]
-            draw.text(((WIDTH - w2)//2 + 4, 454), hero_txt, font=f_title_hero, fill=COLOR_SHADOW)
-            draw.text(((WIDTH - w2)//2, 450), hero_txt, font=f_title_hero, fill=COLOR_YELLOW)
+            draw.text(((WIDTH - w2)//2 + 4, 464), hero_txt, font=f_title_hero, fill=COLOR_SHADOW)
+            draw.text(((WIDTH - w2)//2, 460), hero_txt, font=f_title_hero, fill=COLOR_YELLOW)
             
         elif style == "tier_b":
-            # Tier B: Standard Boxed Conversational Subtitles (lower third)
-            sub_txt = data
-            bb = draw.textbbox((0, 0), sub_txt, font=f_sub)
-            sw = bb[2] - bb[0]
-            sh = bb[3] - bb[1]
-            sx = (WIDTH - sw) // 2
-            sy = 1450
-            draw.rounded_rectangle([sx - 20, sy - 12, sx + sw + 20, sy + sh + 14], radius=8, fill=COLOR_BLACK)
-            draw.text((sx, sy - 3), sub_txt, font=f_sub, fill=COLOR_WHITE)
+            # Tier B: Standard Boxed Conversational Subtitles (lower third, 68px font)
+            draw_boxed_sub(data, sy=1440)
             
         elif style == "sticker_dopamine":
-            # Boxed subtitle + floating Dopamine 3D sticker
-            sub_txt = data
-            bb = draw.textbbox((0, 0), sub_txt, font=f_sub)
-            sw = bb[2] - bb[0]
-            sh = bb[3] - bb[1]
-            sx = (WIDTH - sw) // 2
-            sy = 1450
-            draw.rounded_rectangle([sx - 20, sy - 12, sx + sw + 20, sy + sh + 14], radius=8, fill=COLOR_BLACK)
-            draw.text((sx, sy - 3), sub_txt, font=f_sub, fill=COLOR_WHITE)
-            
-            # Place sticker upper center
+            draw_boxed_sub(data, sy=1440)
             im.alpha_composite(sticker_dopamine, dest=((WIDTH - sticker_dopamine.width)//2, 450))
             
         elif style == "sticker_oxytocin":
-            sub_txt = data
-            bb = draw.textbbox((0, 0), sub_txt, font=f_sub)
-            sw = bb[2] - bb[0]
-            sh = bb[3] - bb[1]
-            sx = (WIDTH - sw) // 2
-            sy = 1450
-            draw.rounded_rectangle([sx - 20, sy - 12, sx + sw + 20, sy + sh + 14], radius=8, fill=COLOR_BLACK)
-            draw.text((sx, sy - 3), sub_txt, font=f_sub, fill=COLOR_WHITE)
-            
+            draw_boxed_sub(data, sy=1440)
             im.alpha_composite(sticker_oxytocin, dest=((WIDTH - sticker_oxytocin.width)//2, 450))
             
         elif style == "sticker_serotonin":
-            sub_txt = data
-            bb = draw.textbbox((0, 0), sub_txt, font=f_sub)
-            sw = bb[2] - bb[0]
-            sh = bb[3] - bb[1]
-            sx = (WIDTH - sw) // 2
-            sy = 1450
-            draw.rounded_rectangle([sx - 20, sy - 12, sx + sw + 20, sy + sh + 14], radius=8, fill=COLOR_BLACK)
-            draw.text((sx, sy - 3), sub_txt, font=f_sub, fill=COLOR_WHITE)
-            
+            draw_boxed_sub(data, sy=1440)
             im.alpha_composite(sticker_serotonin, dest=((WIDTH - sticker_serotonin.width)//2, 450))
             
         elif style == "punch_no_stress":
-            # Stamp sticker_no_stress at center
             im.alpha_composite(sticker_no_stress, dest=((WIDTH - sticker_no_stress.width)//2, 550))
-            
-            # Lower third highlight box
             punch_txt = "BECAUSE NO STRESS!"
             bb = draw.textbbox((0, 0), punch_txt, font=f_box_text)
             bw = bb[2] - bb[0]
             bh = bb[3] - bb[1]
             bx = (WIDTH - bw) // 2
-            by = 1450
-            draw.rounded_rectangle([bx - 26, by - 16, bx + bw + 26, by + bh + 16], radius=12, fill=COLOR_SHADOW)
-            draw.rounded_rectangle([bx - 24, by - 14, bx + bw + 24, by + bh + 14], radius=12, fill=COLOR_YELLOW)
+            by = 1440
+            draw.rounded_rectangle([bx - 28, by - 16, bx + bw + 28, by + bh + 16], radius=14, fill=COLOR_SHADOW)
+            draw.rounded_rectangle([bx - 26, by - 14, bx + bw + 26, by + bh + 14], radius=14, fill=COLOR_YELLOW)
             draw.text((bx, by - 4), punch_txt, font=f_box_text, fill=COLOR_BLACK)
             
         elif style == "loop_ending":
