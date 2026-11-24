@@ -1,0 +1,679 @@
+{
+  "text": " What should we take from Ramayana? I am talking about Hanuman. Everybody is like Hanuman. We have a lot of potential. But someone has to come and show it to us. I will tell you that I am the example of that. I am getting used to it. I am saying that I am confident. Hanuman is like Hanuman. He is the only one who asks me. Hanuman is not like Hanuman. Hanuman is like Hanuman.",
+  "segments": [
+    {
+      "id": 0,
+      "seek": 0,
+      "start": 2.639999999999997,
+      "end": 3.9,
+      "text": " What should we take from Ramayana?",
+      "tokens": [
+        50364,
+        708,
+        820,
+        321,
+        747,
+        490,
+        9078,
+        320,
+        2095,
+        30,
+        50664
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.5380086104075114,
+      "compression_ratio": 1.2598425196850394,
+      "no_speech_prob": 0.555890679359436,
+      "words": [
+        {
+          "word": " What",
+          "start": 2.639999999999997,
+          "end": 3.16,
+          "probability": 0.18964682519435883
+        },
+        {
+          "word": " should",
+          "start": 3.16,
+          "end": 3.16,
+          "probability": 0.2789040803909302
+        },
+        {
+          "word": " we",
+          "start": 3.16,
+          "end": 3.16,
+          "probability": 0.876305341720581
+        },
+        {
+          "word": " take",
+          "start": 3.16,
+          "end": 3.16,
+          "probability": 0.5131256580352783
+        },
+        {
+          "word": " from",
+          "start": 3.16,
+          "end": 3.22,
+          "probability": 0.822343111038208
+        },
+        {
+          "word": " Ramayana?",
+          "start": 3.22,
+          "end": 3.9,
+          "probability": 0.7587631444136301
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "seek": 0,
+      "start": 7.78,
+      "end": 14.66,
+      "text": " I am talking about Hanuman. Everybody is like Hanuman.",
+      "tokens": [
+        50664,
+        286,
+        669,
+        1417,
+        466,
+        7820,
+        6829,
+        13,
+        7646,
+        307,
+        411,
+        7820,
+        6829,
+        13,
+        51114
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.5380086104075114,
+      "compression_ratio": 1.2598425196850394,
+      "no_speech_prob": 0.555890679359436,
+      "words": [
+        {
+          "word": " I",
+          "start": 7.78,
+          "end": 8.3,
+          "probability": 0.3158595860004425
+        },
+        {
+          "word": " am",
+          "start": 8.3,
+          "end": 8.3,
+          "probability": 0.13140901923179626
+        },
+        {
+          "word": " talking",
+          "start": 8.3,
+          "end": 10.72,
+          "probability": 0.15003101527690887
+        },
+        {
+          "word": " about",
+          "start": 10.72,
+          "end": 10.84,
+          "probability": 0.8414977788925171
+        },
+        {
+          "word": " Hanuman.",
+          "start": 10.84,
+          "end": 11.2,
+          "probability": 0.8646863996982574
+        },
+        {
+          "word": " Everybody",
+          "start": 13.36,
+          "end": 13.88,
+          "probability": 0.5080113410949707
+        },
+        {
+          "word": " is",
+          "start": 13.88,
+          "end": 14.18,
+          "probability": 0.7831896543502808
+        },
+        {
+          "word": " like",
+          "start": 14.18,
+          "end": 14.32,
+          "probability": 0.9152934551239014
+        },
+        {
+          "word": " Hanuman.",
+          "start": 14.32,
+          "end": 14.66,
+          "probability": 0.9462043046951294
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "seek": 0,
+      "start": 15.68,
+      "end": 19.4,
+      "text": " We have a lot of potential. But someone has to come and show it to us.",
+      "tokens": [
+        51114,
+        492,
+        362,
+        257,
+        688,
+        295,
+        3995,
+        13,
+        583,
+        1580,
+        575,
+        281,
+        808,
+        293,
+        855,
+        309,
+        281,
+        505,
+        13,
+        51364
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.5380086104075114,
+      "compression_ratio": 1.2598425196850394,
+      "no_speech_prob": 0.555890679359436,
+      "words": [
+        {
+          "word": " We",
+          "start": 15.68,
+          "end": 16.2,
+          "probability": 0.45359018445014954
+        },
+        {
+          "word": " have",
+          "start": 16.2,
+          "end": 16.4,
+          "probability": 0.8617839217185974
+        },
+        {
+          "word": " a",
+          "start": 16.4,
+          "end": 16.44,
+          "probability": 0.3172551989555359
+        },
+        {
+          "word": " lot",
+          "start": 16.44,
+          "end": 16.54,
+          "probability": 0.5222118496894836
+        },
+        {
+          "word": " of",
+          "start": 16.54,
+          "end": 17.1,
+          "probability": 0.9743714332580566
+        },
+        {
+          "word": " potential.",
+          "start": 17.1,
+          "end": 17.1,
+          "probability": 0.48336994647979736
+        },
+        {
+          "word": " But",
+          "start": 17.96,
+          "end": 18.06,
+          "probability": 0.4754258096218109
+        },
+        {
+          "word": " someone",
+          "start": 18.06,
+          "end": 18.32,
+          "probability": 0.7671692371368408
+        },
+        {
+          "word": " has",
+          "start": 18.32,
+          "end": 18.5,
+          "probability": 0.9165516495704651
+        },
+        {
+          "word": " to",
+          "start": 18.5,
+          "end": 18.64,
+          "probability": 0.9731851816177368
+        },
+        {
+          "word": " come",
+          "start": 18.64,
+          "end": 18.82,
+          "probability": 0.8943372368812561
+        },
+        {
+          "word": " and",
+          "start": 18.82,
+          "end": 18.94,
+          "probability": 0.9040066599845886
+        },
+        {
+          "word": " show",
+          "start": 18.94,
+          "end": 19.1,
+          "probability": 0.9579751491546631
+        },
+        {
+          "word": " it",
+          "start": 19.1,
+          "end": 19.22,
+          "probability": 0.7852346301078796
+        },
+        {
+          "word": " to",
+          "start": 19.22,
+          "end": 19.32,
+          "probability": 0.7888431549072266
+        },
+        {
+          "word": " us.",
+          "start": 19.32,
+          "end": 19.4,
+          "probability": 0.9937082529067993
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "seek": 4940,
+      "start": 50.42,
+      "end": 52.76,
+      "text": " I will tell you that I am the example of that.",
+      "tokens": [
+        50364,
+        286,
+        486,
+        980,
+        291,
+        300,
+        286,
+        669,
+        264,
+        1365,
+        295,
+        300,
+        13,
+        50664
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.9618676029034515,
+      "compression_ratio": 1.7768595041322315,
+      "no_speech_prob": 0.4797203540802002,
+      "words": [
+        {
+          "word": " I",
+          "start": 50.42,
+          "end": 51.26,
+          "probability": 0.26770809292793274
+        },
+        {
+          "word": " will",
+          "start": 51.26,
+          "end": 51.4,
+          "probability": 0.25731727480888367
+        },
+        {
+          "word": " tell",
+          "start": 51.4,
+          "end": 51.4,
+          "probability": 0.3239938020706177
+        },
+        {
+          "word": " you",
+          "start": 51.4,
+          "end": 51.4,
+          "probability": 0.5946963429450989
+        },
+        {
+          "word": " that",
+          "start": 51.4,
+          "end": 51.48,
+          "probability": 0.19875818490982056
+        },
+        {
+          "word": " I",
+          "start": 51.48,
+          "end": 51.9,
+          "probability": 0.5152292847633362
+        },
+        {
+          "word": " am",
+          "start": 51.9,
+          "end": 52.06,
+          "probability": 0.31274905800819397
+        },
+        {
+          "word": " the",
+          "start": 52.06,
+          "end": 52.06,
+          "probability": 0.18025852739810944
+        },
+        {
+          "word": " example",
+          "start": 52.06,
+          "end": 52.42,
+          "probability": 0.17375528812408447
+        },
+        {
+          "word": " of",
+          "start": 52.42,
+          "end": 52.68,
+          "probability": 0.2347596436738968
+        },
+        {
+          "word": " that.",
+          "start": 52.68,
+          "end": 52.76,
+          "probability": 0.0369926355779171
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "seek": 4940,
+      "start": 53.38,
+      "end": 61.48,
+      "text": " I am getting used to it. I am saying that I am confident.",
+      "tokens": [
+        50664,
+        286,
+        669,
+        1242,
+        1143,
+        281,
+        309,
+        13,
+        286,
+        669,
+        1566,
+        300,
+        286,
+        669,
+        6679,
+        13,
+        51014
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.9618676029034515,
+      "compression_ratio": 1.7768595041322315,
+      "no_speech_prob": 0.4797203540802002,
+      "words": [
+        {
+          "word": " I",
+          "start": 53.38,
+          "end": 54.22,
+          "probability": 0.5276422500610352
+        },
+        {
+          "word": " am",
+          "start": 54.22,
+          "end": 54.22,
+          "probability": 0.3979022800922394
+        },
+        {
+          "word": " getting",
+          "start": 54.22,
+          "end": 55.6,
+          "probability": 0.0005262622726149857
+        },
+        {
+          "word": " used",
+          "start": 55.6,
+          "end": 55.6,
+          "probability": 0.1902700811624527
+        },
+        {
+          "word": " to",
+          "start": 55.6,
+          "end": 57.36,
+          "probability": 0.9637835025787354
+        },
+        {
+          "word": " it.",
+          "start": 57.36,
+          "end": 57.36,
+          "probability": 0.168405681848526
+        },
+        {
+          "word": " I",
+          "start": 57.54,
+          "end": 58.36,
+          "probability": 0.3269113600254059
+        },
+        {
+          "word": " am",
+          "start": 58.36,
+          "end": 58.36,
+          "probability": 0.21092773973941803
+        },
+        {
+          "word": " saying",
+          "start": 58.36,
+          "end": 58.36,
+          "probability": 0.16805849969387054
+        },
+        {
+          "word": " that",
+          "start": 58.36,
+          "end": 60.7,
+          "probability": 0.2626144587993622
+        },
+        {
+          "word": " I",
+          "start": 60.7,
+          "end": 60.8,
+          "probability": 0.5128848552703857
+        },
+        {
+          "word": " am",
+          "start": 60.8,
+          "end": 61.3,
+          "probability": 0.25566208362579346
+        },
+        {
+          "word": " confident.",
+          "start": 61.3,
+          "end": 61.48,
+          "probability": 0.08343595266342163
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "seek": 4940,
+      "start": 62.42,
+      "end": 66.42,
+      "text": " Hanuman is like Hanuman. He is the only one who asks me.",
+      "tokens": [
+        51014,
+        7820,
+        6829,
+        307,
+        411,
+        7820,
+        6829,
+        13,
+        634,
+        307,
+        264,
+        787,
+        472,
+        567,
+        8962,
+        385,
+        13,
+        51214
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.9618676029034515,
+      "compression_ratio": 1.7768595041322315,
+      "no_speech_prob": 0.4797203540802002,
+      "words": [
+        {
+          "word": " Hanuman",
+          "start": 62.42,
+          "end": 63.2,
+          "probability": 0.4975405684672296
+        },
+        {
+          "word": " is",
+          "start": 63.2,
+          "end": 63.2,
+          "probability": 0.5105004906654358
+        },
+        {
+          "word": " like",
+          "start": 63.2,
+          "end": 63.2,
+          "probability": 0.072393998503685
+        },
+        {
+          "word": " Hanuman.",
+          "start": 63.2,
+          "end": 64.24,
+          "probability": 0.49512396939098835
+        },
+        {
+          "word": " He",
+          "start": 64.76,
+          "end": 65.5,
+          "probability": 0.23288880288600922
+        },
+        {
+          "word": " is",
+          "start": 65.5,
+          "end": 65.96,
+          "probability": 0.39444589614868164
+        },
+        {
+          "word": " the",
+          "start": 65.96,
+          "end": 65.96,
+          "probability": 0.1322801560163498
+        },
+        {
+          "word": " only",
+          "start": 65.96,
+          "end": 65.96,
+          "probability": 0.3566543161869049
+        },
+        {
+          "word": " one",
+          "start": 65.96,
+          "end": 65.96,
+          "probability": 0.46812504529953003
+        },
+        {
+          "word": " who",
+          "start": 65.96,
+          "end": 66.12,
+          "probability": 0.4894115626811981
+        },
+        {
+          "word": " asks",
+          "start": 66.12,
+          "end": 66.18,
+          "probability": 0.02457447536289692
+        },
+        {
+          "word": " me.",
+          "start": 66.18,
+          "end": 66.42,
+          "probability": 0.5774054527282715
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "seek": 4940,
+      "start": 68.36,
+      "end": 73.98,
+      "text": " Hanuman is not like Hanuman. Hanuman is like Hanuman.",
+      "tokens": [
+        51214,
+        7820,
+        6829,
+        307,
+        406,
+        411,
+        7820,
+        6829,
+        13,
+        7820,
+        6829,
+        307,
+        411,
+        7820,
+        6829,
+        13,
+        51564
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.9618676029034515,
+      "compression_ratio": 1.7768595041322315,
+      "no_speech_prob": 0.4797203540802002,
+      "words": [
+        {
+          "word": " Hanuman",
+          "start": 68.36,
+          "end": 69.2,
+          "probability": 0.6849598586559296
+        },
+        {
+          "word": " is",
+          "start": 69.2,
+          "end": 69.28,
+          "probability": 0.5315867066383362
+        },
+        {
+          "word": " not",
+          "start": 69.28,
+          "end": 69.56,
+          "probability": 0.31241950392723083
+        },
+        {
+          "word": " like",
+          "start": 69.56,
+          "end": 69.56,
+          "probability": 0.20147216320037842
+        },
+        {
+          "word": " Hanuman.",
+          "start": 69.56,
+          "end": 71.56,
+          "probability": 0.6201995015144348
+        },
+        {
+          "word": " Hanuman",
+          "start": 72.6,
+          "end": 73.44,
+          "probability": 0.8097543716430664
+        },
+        {
+          "word": " is",
+          "start": 73.44,
+          "end": 73.7,
+          "probability": 0.7632534503936768
+        },
+        {
+          "word": " like",
+          "start": 73.7,
+          "end": 73.76,
+          "probability": 0.34238317608833313
+        },
+        {
+          "word": " Hanuman.",
+          "start": 73.76,
+          "end": 73.98,
+          "probability": 0.8430149555206299
+        }
+      ]
+    }
+  ],
+  "language": "ta"
+}

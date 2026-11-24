@@ -1,0 +1,70 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: BannerBox,Arial,10,&H200A0A0A,&H00000000,&H00FFFFFF,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: BorderLine,Arial,10,&H00FFFFFF,&H00000000,&H00FFFFFF,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: SupText,Arial,42,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,1,0,0,100,100,0,0,1,2,2,8,20,20,20,1
+Style: MainTamil,Tamil Sangam MN,90,&H0000D7FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3,4,8,20,20,20,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+
+; 01. Hook 1: Lesson from Ramayana
+Dialogue: 0,0:00:00.80,0:00:04.20,BannerBox,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 260 l 0 260{\p0}
+Dialogue: 1,0:00:00.80,0:00:04.20,BorderLine,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 1,0:00:00.80,0:00:04.20,BorderLine,,0,0,0,,{\pos(0,1090)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 2,0:00:00.80,0:00:04.20,SupText,,0,0,0,,{\pos(540,865)}LESSON FROM RAMAYANA
+Dialogue: 2,0:00:00.80,0:00:04.20,MainTamil,,0,0,0,,{\pos(540,945)}என்ன கத்துக்கணும்?
+
+; 02. Hook 2: Everybody is Hanuman
+Dialogue: 0,0:00:09.00,0:00:12.80,BannerBox,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 260 l 0 260{\p0}
+Dialogue: 1,0:00:09.00,0:00:12.80,BorderLine,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 1,0:00:09.00,0:00:12.80,BorderLine,,0,0,0,,{\pos(0,1090)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 2,0:00:09.00,0:00:12.80,SupText,,0,0,0,,{\pos(540,865)}EVERY HUMAN BEING
+Dialogue: 2,0:00:09.00,0:00:12.80,MainTamil,,0,0,0,,{\pos(540,945)}ஒவ்வொருத்தரும் அனுமன்!
+
+; 03. Takeaway 1: Latent Potential
+Dialogue: 0,0:00:17.00,0:00:20.80,BannerBox,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 260 l 0 260{\p0}
+Dialogue: 1,0:00:17.00,0:00:20.80,BorderLine,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 1,0:00:17.00,0:00:20.80,BorderLine,,0,0,0,,{\pos(0,1090)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 2,0:00:17.00,0:00:20.80,SupText,,0,0,0,,{\pos(540,865)}HIDDEN POWER
+Dialogue: 2,0:00:17.00,0:00:20.80,MainTamil,,0,0,0,,{\pos(540,945)}LATENT POTENTIAL!
+
+; 04. Principle: Unconditional Loyalty
+Dialogue: 0,0:00:25.00,0:00:29.20,BannerBox,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 260 l 0 260{\p0}
+Dialogue: 1,0:00:25.00,0:00:29.20,BorderLine,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 1,0:00:25.00,0:00:29.20,BorderLine,,0,0,0,,{\pos(0,1090)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 2,0:00:25.00,0:00:29.20,SupText,,0,0,0,,{\pos(540,865)}THE GREATEST PRINCIPLE
+Dialogue: 2,0:00:25.00,0:00:29.20,MainTamil,,0,0,0,,{\pos(540,945)}UNCONDITIONAL LOYALTY
+
+; 05. Live Example: 2 Years Work
+Dialogue: 0,0:00:34.50,0:00:38.80,BannerBox,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 260 l 0 260{\p0}
+Dialogue: 1,0:00:34.50,0:00:38.80,BorderLine,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 1,0:00:34.50,0:00:38.80,BorderLine,,0,0,0,,{\pos(0,1090)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 2,0:00:34.50,0:00:38.80,SupText,,0,0,0,,{\pos(540,865)}AFTER 2 YEARS OF WORK
+Dialogue: 2,0:00:34.50,0:00:38.80,MainTamil,,0,0,0,,{\pos(540,945)}சொல்லாம கொள்ளாம போயிட்டாங்க!
+
+; 06. Reality: Loyalty stands by you
+Dialogue: 0,0:00:44.00,0:00:48.20,BannerBox,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 260 l 0 260{\p0}
+Dialogue: 1,0:00:44.00,0:00:48.20,BorderLine,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 1,0:00:44.00,0:00:48.20,BorderLine,,0,0,0,,{\pos(0,1090)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 2,0:00:44.00,0:00:48.20,SupText,,0,0,0,,{\pos(540,865)}IN TODAY'S WORLD
+Dialogue: 2,0:00:44.00,0:00:48.20,MainTamil,,0,0,0,,{\pos(540,945)}LOYALTY STANDS BY YOU!
+
+; 07. Rare Quality: No Loyalty
+Dialogue: 0,0:00:54.00,0:00:58.50,BannerBox,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 260 l 0 260{\p0}
+Dialogue: 1,0:00:54.00,0:00:58.50,BorderLine,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 1,0:00:54.00,0:00:58.50,BorderLine,,0,0,0,,{\pos(0,1090)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 2,0:00:54.00,0:00:58.50,SupText,,0,0,0,,{\pos(540,865)}A RARE QUALITY
+Dialogue: 2,0:00:54.00,0:00:58.50,MainTamil,,0,0,0,,{\pos(540,945)}LOYALTY-E இல்ல!
+
+; 08. Climax: Selfless Dedication
+Dialogue: 0,0:00:64.80,0:00:69.20,BannerBox,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 260 l 0 260{\p0}
+Dialogue: 1,0:00:64.80,0:00:69.20,BorderLine,,0,0,0,,{\pos(0,830)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 1,0:00:64.80,0:00:69.20,BorderLine,,0,0,0,,{\pos(0,1090)\p1}m 0 0 l 1080 0 l 1080 2 l 0 2{\p0}
+Dialogue: 2,0:00:64.80,0:00:69.20,SupText,,0,0,0,,{\pos(540,865)}LIFE'S GREATEST TRUTH
+Dialogue: 2,0:00:64.80,0:00:69.20,MainTamil,,0,0,0,,{\pos(540,945)}SELFLESS DEDICATION!

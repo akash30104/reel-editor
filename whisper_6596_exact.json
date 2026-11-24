@@ -1,0 +1,1437 @@
+{
+  "text": " Hello, I am. Super Ganesh. So, Ganesh, how did you meet Ganesh? And who did you meet with us? My name is Ganesh, I am a student. I started a company and I didn't have any idea and knowledge. So, I started a company and started a company and started a company. I met with Ganesh and I met with Ganesh. So, I contacted them and told them to be able to podcast. And then, I started to talk about mentoring. Super, super. So, you have no idea? No, I started a business. I registered a business company for 2 months. Is it a business company? You are a proprietor? No, I am a private company. Oh, you are a private company. You are a private company. Men get out. You get out that secret, that's why you are.",
+  "segments": [
+    {
+      "id": 0,
+      "seek": 0,
+      "start": 0.0,
+      "end": 2.1,
+      "text": " Hello, I am.",
+      "tokens": [
+        50365,
+        2425,
+        11,
+        286,
+        669,
+        13,
+        50465
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.7246679241737622,
+      "compression_ratio": 1.7862068965517242,
+      "no_speech_prob": 7.440672522562863e-10,
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.0,
+          "probability": 0.06788406521081924
+        },
+        {
+          "word": " I",
+          "start": 0.0,
+          "end": 0.0,
+          "probability": 0.1767326444387436
+        },
+        {
+          "word": " am.",
+          "start": 0.0,
+          "end": 2.1,
+          "probability": 0.5008238554000854
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "seek": 0,
+      "start": 2.1,
+      "end": 3.0,
+      "text": " Super Ganesh.",
+      "tokens": [
+        50465,
+        4548,
+        460,
+        12779,
+        71,
+        13,
+        50565
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.7246679241737622,
+      "compression_ratio": 1.7862068965517242,
+      "no_speech_prob": 7.440672522562863e-10,
+      "words": [
+        {
+          "word": " Super",
+          "start": 2.1,
+          "end": 2.44,
+          "probability": 0.022068388760089874
+        },
+        {
+          "word": " Ganesh.",
+          "start": 2.44,
+          "end": 3.0,
+          "probability": 0.8459194501241049
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "seek": 0,
+      "start": 3.1,
+      "end": 7.06,
+      "text": " So, Ganesh, how did you meet Ganesh?",
+      "tokens": [
+        50565,
+        407,
+        11,
+        460,
+        12779,
+        71,
+        11,
+        577,
+        630,
+        291,
+        1677,
+        460,
+        12779,
+        71,
+        30,
+        50765
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.7246679241737622,
+      "compression_ratio": 1.7862068965517242,
+      "no_speech_prob": 7.440672522562863e-10,
+      "words": [
+        {
+          "word": " So,",
+          "start": 3.1,
+          "end": 3.56,
+          "probability": 0.3212008774280548
+        },
+        {
+          "word": " Ganesh,",
+          "start": 3.96,
+          "end": 4.24,
+          "probability": 0.7300703128178915
+        },
+        {
+          "word": " how",
+          "start": 4.68,
+          "end": 4.74,
+          "probability": 0.10560761392116547
+        },
+        {
+          "word": " did",
+          "start": 4.74,
+          "end": 6.08,
+          "probability": 0.3694073259830475
+        },
+        {
+          "word": " you",
+          "start": 6.08,
+          "end": 6.58,
+          "probability": 0.49453482031822205
+        },
+        {
+          "word": " meet",
+          "start": 6.58,
+          "end": 6.74,
+          "probability": 0.791286289691925
+        },
+        {
+          "word": " Ganesh?",
+          "start": 6.74,
+          "end": 7.06,
+          "probability": 0.84770534435908
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "seek": 0,
+      "start": 7.18,
+      "end": 8.82,
+      "text": " And who did you meet with us?",
+      "tokens": [
+        50765,
+        400,
+        567,
+        630,
+        291,
+        1677,
+        365,
+        505,
+        30,
+        50965
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.7246679241737622,
+      "compression_ratio": 1.7862068965517242,
+      "no_speech_prob": 7.440672522562863e-10,
+      "words": [
+        {
+          "word": " And",
+          "start": 7.18,
+          "end": 7.4,
+          "probability": 0.2806244194507599
+        },
+        {
+          "word": " who",
+          "start": 7.4,
+          "end": 7.98,
+          "probability": 0.13743044435977936
+        },
+        {
+          "word": " did",
+          "start": 7.98,
+          "end": 8.28,
+          "probability": 0.10081467032432556
+        },
+        {
+          "word": " you",
+          "start": 8.28,
+          "end": 8.54,
+          "probability": 0.6370403170585632
+        },
+        {
+          "word": " meet",
+          "start": 8.54,
+          "end": 8.54,
+          "probability": 0.3148239552974701
+        },
+        {
+          "word": " with",
+          "start": 8.54,
+          "end": 8.68,
+          "probability": 0.3480319082736969
+        },
+        {
+          "word": " us?",
+          "start": 8.68,
+          "end": 8.82,
+          "probability": 0.20649997889995575
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "seek": 0,
+      "start": 11.6,
+      "end": 15.14,
+      "text": " My name is Ganesh, I am a student.",
+      "tokens": [
+        50965,
+        1222,
+        1315,
+        307,
+        460,
+        12779,
+        71,
+        11,
+        286,
+        669,
+        257,
+        3107,
+        13,
+        51165
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.7246679241737622,
+      "compression_ratio": 1.7862068965517242,
+      "no_speech_prob": 7.440672522562863e-10,
+      "words": [
+        {
+          "word": " My",
+          "start": 11.6,
+          "end": 12.2,
+          "probability": 0.009560762904584408
+        },
+        {
+          "word": " name",
+          "start": 12.2,
+          "end": 12.4,
+          "probability": 0.9969280362129211
+        },
+        {
+          "word": " is",
+          "start": 12.4,
+          "end": 13.96,
+          "probability": 0.9455429911613464
+        },
+        {
+          "word": " Ganesh,",
+          "start": 13.96,
+          "end": 14.4,
+          "probability": 0.9985779523849487
+        },
+        {
+          "word": " I",
+          "start": 14.52,
+          "end": 14.62,
+          "probability": 0.8353129625320435
+        },
+        {
+          "word": " am",
+          "start": 14.62,
+          "end": 14.82,
+          "probability": 0.7594119310379028
+        },
+        {
+          "word": " a",
+          "start": 14.82,
+          "end": 14.94,
+          "probability": 0.8409765958786011
+        },
+        {
+          "word": " student.",
+          "start": 14.94,
+          "end": 15.14,
+          "probability": 0.980509877204895
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "seek": 0,
+      "start": 16.16,
+      "end": 20.96,
+      "text": " I started a company and I didn't have any idea and knowledge.",
+      "tokens": [
+        51165,
+        286,
+        1409,
+        257,
+        2237,
+        293,
+        286,
+        994,
+        380,
+        362,
+        604,
+        1558,
+        293,
+        3601,
+        13,
+        51465
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.7246679241737622,
+      "compression_ratio": 1.7862068965517242,
+      "no_speech_prob": 7.440672522562863e-10,
+      "words": [
+        {
+          "word": " I",
+          "start": 16.16,
+          "end": 16.64,
+          "probability": 0.3567308187484741
+        },
+        {
+          "word": " started",
+          "start": 16.64,
+          "end": 17.12,
+          "probability": 0.28173235058784485
+        },
+        {
+          "word": " a",
+          "start": 17.12,
+          "end": 17.3,
+          "probability": 0.6641795635223389
+        },
+        {
+          "word": " company",
+          "start": 17.3,
+          "end": 17.92,
+          "probability": 0.6488237977027893
+        },
+        {
+          "word": " and",
+          "start": 17.92,
+          "end": 18.8,
+          "probability": 0.20205259323120117
+        },
+        {
+          "word": " I",
+          "start": 18.8,
+          "end": 19.36,
+          "probability": 0.19096288084983826
+        },
+        {
+          "word": " didn't",
+          "start": 19.36,
+          "end": 20.16,
+          "probability": 0.6477751582860947
+        },
+        {
+          "word": " have",
+          "start": 20.16,
+          "end": 20.18,
+          "probability": 0.5413529872894287
+        },
+        {
+          "word": " any",
+          "start": 20.18,
+          "end": 20.28,
+          "probability": 0.38124656677246094
+        },
+        {
+          "word": " idea",
+          "start": 20.28,
+          "end": 20.48,
+          "probability": 0.8622730374336243
+        },
+        {
+          "word": " and",
+          "start": 20.48,
+          "end": 20.72,
+          "probability": 0.32800185680389404
+        },
+        {
+          "word": " knowledge.",
+          "start": 20.72,
+          "end": 20.96,
+          "probability": 0.9668937921524048
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "seek": 0,
+      "start": 21.5,
+      "end": 27.28,
+      "text": " So, I started a company and started a company and started a company.",
+      "tokens": [
+        51465,
+        407,
+        11,
+        286,
+        1409,
+        257,
+        2237,
+        293,
+        1409,
+        257,
+        2237,
+        293,
+        1409,
+        257,
+        2237,
+        13,
+        51765
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.7246679241737622,
+      "compression_ratio": 1.7862068965517242,
+      "no_speech_prob": 7.440672522562863e-10,
+      "words": [
+        {
+          "word": " So,",
+          "start": 21.5,
+          "end": 21.86,
+          "probability": 0.601233720779419
+        },
+        {
+          "word": " I",
+          "start": 22.02,
+          "end": 22.14,
+          "probability": 0.36227065324783325
+        },
+        {
+          "word": " started",
+          "start": 22.14,
+          "end": 22.44,
+          "probability": 0.39082449674606323
+        },
+        {
+          "word": " a",
+          "start": 22.44,
+          "end": 22.56,
+          "probability": 0.5813114643096924
+        },
+        {
+          "word": " company",
+          "start": 22.56,
+          "end": 23.2,
+          "probability": 0.6225139498710632
+        },
+        {
+          "word": " and",
+          "start": 23.2,
+          "end": 23.8,
+          "probability": 0.31702953577041626
+        },
+        {
+          "word": " started",
+          "start": 23.8,
+          "end": 23.8,
+          "probability": 0.595656156539917
+        },
+        {
+          "word": " a",
+          "start": 23.8,
+          "end": 23.92,
+          "probability": 0.541426420211792
+        },
+        {
+          "word": " company",
+          "start": 23.92,
+          "end": 23.92,
+          "probability": 0.47067517042160034
+        },
+        {
+          "word": " and",
+          "start": 23.92,
+          "end": 24.28,
+          "probability": 0.23767642676830292
+        },
+        {
+          "word": " started",
+          "start": 24.28,
+          "end": 24.48,
+          "probability": 0.5887963175773621
+        },
+        {
+          "word": " a",
+          "start": 24.48,
+          "end": 25.66,
+          "probability": 0.5754367113113403
+        },
+        {
+          "word": " company.",
+          "start": 25.66,
+          "end": 27.28,
+          "probability": 0.6798264980316162
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "seek": 2728,
+      "start": 27.28,
+      "end": 31.36,
+      "text": " I met with Ganesh and I met with Ganesh.",
+      "tokens": [
+        50365,
+        286,
+        1131,
+        365,
+        460,
+        12779,
+        71,
+        293,
+        286,
+        1131,
+        365,
+        460,
+        12779,
+        71,
+        13,
+        50565
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.736196025034015,
+      "compression_ratio": 1.6390532544378698,
+      "no_speech_prob": 1.463682473834549e-11,
+      "words": [
+        {
+          "word": " I",
+          "start": 27.28,
+          "end": 27.28,
+          "probability": 0.14757969975471497
+        },
+        {
+          "word": " met",
+          "start": 27.28,
+          "end": 27.28,
+          "probability": 0.5034855604171753
+        },
+        {
+          "word": " with",
+          "start": 27.28,
+          "end": 27.28,
+          "probability": 0.10526927560567856
+        },
+        {
+          "word": " Ganesh",
+          "start": 27.28,
+          "end": 28.38,
+          "probability": 0.3141483839523668
+        },
+        {
+          "word": " and",
+          "start": 28.38,
+          "end": 28.38,
+          "probability": 0.07472484558820724
+        },
+        {
+          "word": " I",
+          "start": 28.38,
+          "end": 28.56,
+          "probability": 0.2095000445842743
+        },
+        {
+          "word": " met",
+          "start": 28.56,
+          "end": 28.8,
+          "probability": 0.6155503392219543
+        },
+        {
+          "word": " with",
+          "start": 28.8,
+          "end": 29.48,
+          "probability": 0.4665471911430359
+        },
+        {
+          "word": " Ganesh.",
+          "start": 29.48,
+          "end": 31.36,
+          "probability": 0.652689884416759
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "seek": 2728,
+      "start": 31.36,
+      "end": 34.58,
+      "text": " So, I contacted them and told them to be able to podcast.",
+      "tokens": [
+        50565,
+        407,
+        11,
+        286,
+        21546,
+        552,
+        293,
+        1907,
+        552,
+        281,
+        312,
+        1075,
+        281,
+        7367,
+        13,
+        50765
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.736196025034015,
+      "compression_ratio": 1.6390532544378698,
+      "no_speech_prob": 1.463682473834549e-11,
+      "words": [
+        {
+          "word": " So,",
+          "start": 31.36,
+          "end": 31.56,
+          "probability": 0.2409658432006836
+        },
+        {
+          "word": " I",
+          "start": 31.56,
+          "end": 31.9,
+          "probability": 0.31523922085762024
+        },
+        {
+          "word": " contacted",
+          "start": 31.9,
+          "end": 32.76,
+          "probability": 0.4391463100910187
+        },
+        {
+          "word": " them",
+          "start": 32.76,
+          "end": 33.16,
+          "probability": 0.35336312651634216
+        },
+        {
+          "word": " and",
+          "start": 33.16,
+          "end": 33.48,
+          "probability": 0.258985698223114
+        },
+        {
+          "word": " told",
+          "start": 33.48,
+          "end": 33.72,
+          "probability": 0.4533795416355133
+        },
+        {
+          "word": " them",
+          "start": 33.72,
+          "end": 33.9,
+          "probability": 0.43590179085731506
+        },
+        {
+          "word": " to",
+          "start": 33.9,
+          "end": 34.18,
+          "probability": 0.5256863832473755
+        },
+        {
+          "word": " be",
+          "start": 34.18,
+          "end": 34.18,
+          "probability": 0.0994822233915329
+        },
+        {
+          "word": " able",
+          "start": 34.18,
+          "end": 34.26,
+          "probability": 0.5023028254508972
+        },
+        {
+          "word": " to",
+          "start": 34.26,
+          "end": 34.38,
+          "probability": 0.9987982511520386
+        },
+        {
+          "word": " podcast.",
+          "start": 34.38,
+          "end": 34.58,
+          "probability": 0.280143678188324
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "seek": 2728,
+      "start": 36.44,
+      "end": 38.2,
+      "text": " And then, I started to talk about mentoring.",
+      "tokens": [
+        50765,
+        400,
+        550,
+        11,
+        286,
+        1409,
+        281,
+        751,
+        466,
+        30257,
+        13,
+        51065
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.736196025034015,
+      "compression_ratio": 1.6390532544378698,
+      "no_speech_prob": 1.463682473834549e-11,
+      "words": [
+        {
+          "word": " And",
+          "start": 36.44,
+          "end": 36.84,
+          "probability": 0.09999735653400421
+        },
+        {
+          "word": " then,",
+          "start": 36.84,
+          "end": 36.88,
+          "probability": 0.42111849784851074
+        },
+        {
+          "word": " I",
+          "start": 37.14,
+          "end": 37.16,
+          "probability": 0.520996630191803
+        },
+        {
+          "word": " started",
+          "start": 37.16,
+          "end": 37.66,
+          "probability": 0.015642058104276657
+        },
+        {
+          "word": " to",
+          "start": 37.66,
+          "end": 37.66,
+          "probability": 0.19429510831832886
+        },
+        {
+          "word": " talk",
+          "start": 37.66,
+          "end": 37.66,
+          "probability": 0.523626983165741
+        },
+        {
+          "word": " about",
+          "start": 37.66,
+          "end": 37.66,
+          "probability": 0.46951109170913696
+        },
+        {
+          "word": " mentoring.",
+          "start": 37.66,
+          "end": 38.2,
+          "probability": 0.19361621141433716
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "seek": 2728,
+      "start": 41.18,
+      "end": 42.08,
+      "text": " Super, super.",
+      "tokens": [
+        51065,
+        4548,
+        11,
+        1687,
+        13,
+        51165
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.736196025034015,
+      "compression_ratio": 1.6390532544378698,
+      "no_speech_prob": 1.463682473834549e-11,
+      "words": [
+        {
+          "word": " Super,",
+          "start": 41.18,
+          "end": 41.8,
+          "probability": 0.0313844196498394
+        },
+        {
+          "word": " super.",
+          "start": 42.0,
+          "end": 42.08,
+          "probability": 0.45228633284568787
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "seek": 2728,
+      "start": 42.58,
+      "end": 45.66,
+      "text": " So, you have no idea?",
+      "tokens": [
+        51165,
+        407,
+        11,
+        291,
+        362,
+        572,
+        1558,
+        30,
+        51365
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.736196025034015,
+      "compression_ratio": 1.6390532544378698,
+      "no_speech_prob": 1.463682473834549e-11,
+      "words": [
+        {
+          "word": " So,",
+          "start": 42.58,
+          "end": 43.08,
+          "probability": 0.4495290219783783
+        },
+        {
+          "word": " you",
+          "start": 43.46,
+          "end": 43.64,
+          "probability": 0.1696225106716156
+        },
+        {
+          "word": " have",
+          "start": 43.64,
+          "end": 43.88,
+          "probability": 0.23920120298862457
+        },
+        {
+          "word": " no",
+          "start": 43.88,
+          "end": 44.26,
+          "probability": 0.19955666363239288
+        },
+        {
+          "word": " idea?",
+          "start": 44.26,
+          "end": 45.66,
+          "probability": 0.8316959142684937
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "seek": 2728,
+      "start": 46.36,
+      "end": 47.4,
+      "text": " No, I started a business.",
+      "tokens": [
+        51365,
+        883,
+        11,
+        286,
+        1409,
+        257,
+        1606,
+        13,
+        51465
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.736196025034015,
+      "compression_ratio": 1.6390532544378698,
+      "no_speech_prob": 1.463682473834549e-11,
+      "words": [
+        {
+          "word": " No,",
+          "start": 46.36,
+          "end": 46.9,
+          "probability": 0.6680952310562134
+        },
+        {
+          "word": " I",
+          "start": 47.02,
+          "end": 47.1,
+          "probability": 0.45704472064971924
+        },
+        {
+          "word": " started",
+          "start": 47.1,
+          "end": 47.24,
+          "probability": 0.7535467743873596
+        },
+        {
+          "word": " a",
+          "start": 47.24,
+          "end": 47.34,
+          "probability": 0.139130637049675
+        },
+        {
+          "word": " business.",
+          "start": 47.34,
+          "end": 47.4,
+          "probability": 0.9587759375572205
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "seek": 2728,
+      "start": 48.88,
+      "end": 51.84,
+      "text": " I registered a business company for 2 months.",
+      "tokens": [
+        51465,
+        286,
+        13968,
+        257,
+        1606,
+        2237,
+        337,
+        568,
+        2493,
+        13,
+        51665
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.736196025034015,
+      "compression_ratio": 1.6390532544378698,
+      "no_speech_prob": 1.463682473834549e-11,
+      "words": [
+        {
+          "word": " I",
+          "start": 48.88,
+          "end": 49.5,
+          "probability": 0.25537264347076416
+        },
+        {
+          "word": " registered",
+          "start": 49.5,
+          "end": 49.8,
+          "probability": 0.34548911452293396
+        },
+        {
+          "word": " a",
+          "start": 49.8,
+          "end": 49.8,
+          "probability": 0.2912273705005646
+        },
+        {
+          "word": " business",
+          "start": 49.8,
+          "end": 50.0,
+          "probability": 0.7762591242790222
+        },
+        {
+          "word": " company",
+          "start": 50.0,
+          "end": 50.96,
+          "probability": 0.7157593369483948
+        },
+        {
+          "word": " for",
+          "start": 50.96,
+          "end": 51.24,
+          "probability": 0.7780590653419495
+        },
+        {
+          "word": " 2",
+          "start": 51.24,
+          "end": 51.64,
+          "probability": 0.40820473432540894
+        },
+        {
+          "word": " months.",
+          "start": 51.64,
+          "end": 51.84,
+          "probability": 0.9769492745399475
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "seek": 2728,
+      "start": 52.76,
+      "end": 53.44,
+      "text": " Is it a business company?",
+      "tokens": [
+        51665,
+        1119,
+        309,
+        257,
+        1606,
+        2237,
+        30,
+        51765
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.736196025034015,
+      "compression_ratio": 1.6390532544378698,
+      "no_speech_prob": 1.463682473834549e-11,
+      "words": [
+        {
+          "word": " Is",
+          "start": 52.76,
+          "end": 53.02,
+          "probability": 0.37262314558029175
+        },
+        {
+          "word": " it",
+          "start": 53.02,
+          "end": 53.02,
+          "probability": 0.8670026659965515
+        },
+        {
+          "word": " a",
+          "start": 53.02,
+          "end": 53.02,
+          "probability": 0.6077501177787781
+        },
+        {
+          "word": " business",
+          "start": 53.02,
+          "end": 53.12,
+          "probability": 0.1327415108680725
+        },
+        {
+          "word": " company?",
+          "start": 53.12,
+          "end": 53.44,
+          "probability": 0.19916127622127533
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "seek": 5344,
+      "start": 53.44,
+      "end": 54.12,
+      "text": " You are a proprietor?",
+      "tokens": [
+        50365,
+        509,
+        366,
+        257,
+        27881,
+        284,
+        30,
+        50465
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.6183921178181966,
+      "compression_ratio": 1.25,
+      "no_speech_prob": 3.777722301645525e-10,
+      "words": [
+        {
+          "word": " You",
+          "start": 53.44,
+          "end": 53.44,
+          "probability": 0.08001892268657684
+        },
+        {
+          "word": " are",
+          "start": 53.44,
+          "end": 53.44,
+          "probability": 0.33167022466659546
+        },
+        {
+          "word": " a",
+          "start": 53.44,
+          "end": 53.58,
+          "probability": 0.33049458265304565
+        },
+        {
+          "word": " proprietor?",
+          "start": 53.58,
+          "end": 54.12,
+          "probability": 0.5235366635024548
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "seek": 5344,
+      "start": 54.24,
+      "end": 56.1,
+      "text": " No, I am a private company.",
+      "tokens": [
+        50465,
+        883,
+        11,
+        286,
+        669,
+        257,
+        4551,
+        2237,
+        13,
+        50565
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.6183921178181966,
+      "compression_ratio": 1.25,
+      "no_speech_prob": 3.777722301645525e-10,
+      "words": [
+        {
+          "word": " No,",
+          "start": 54.24,
+          "end": 54.76,
+          "probability": 0.5356190800666809
+        },
+        {
+          "word": " I",
+          "start": 55.04,
+          "end": 55.08,
+          "probability": 0.44074177742004395
+        },
+        {
+          "word": " am",
+          "start": 55.08,
+          "end": 55.28,
+          "probability": 0.29387131333351135
+        },
+        {
+          "word": " a",
+          "start": 55.28,
+          "end": 55.46,
+          "probability": 0.7681269645690918
+        },
+        {
+          "word": " private",
+          "start": 55.46,
+          "end": 55.72,
+          "probability": 0.8683796525001526
+        },
+        {
+          "word": " company.",
+          "start": 55.72,
+          "end": 56.1,
+          "probability": 0.08029680699110031
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "seek": 5344,
+      "start": 56.739999999999995,
+      "end": 59.04,
+      "text": " Oh, you are a private company.",
+      "tokens": [
+        50565,
+        876,
+        11,
+        291,
+        366,
+        257,
+        4551,
+        2237,
+        13,
+        50665
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.6183921178181966,
+      "compression_ratio": 1.25,
+      "no_speech_prob": 3.777722301645525e-10,
+      "words": [
+        {
+          "word": " Oh,",
+          "start": 56.739999999999995,
+          "end": 57.26,
+          "probability": 0.2579572796821594
+        },
+        {
+          "word": " you",
+          "start": 57.74,
+          "end": 58.1,
+          "probability": 0.33515623211860657
+        },
+        {
+          "word": " are",
+          "start": 58.1,
+          "end": 58.2,
+          "probability": 0.31505629420280457
+        },
+        {
+          "word": " a",
+          "start": 58.2,
+          "end": 58.64,
+          "probability": 0.2936141788959503
+        },
+        {
+          "word": " private",
+          "start": 58.64,
+          "end": 58.86,
+          "probability": 0.8970497250556946
+        },
+        {
+          "word": " company.",
+          "start": 58.86,
+          "end": 59.04,
+          "probability": 0.3280678987503052
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "seek": 5904,
+      "start": 59.04,
+      "end": 59.56,
+      "text": " You are a private company.",
+      "tokens": [
+        50365,
+        509,
+        366,
+        257,
+        4551,
+        2237,
+        13,
+        50565
+      ],
+      "temperature": 1.0,
+      "avg_logprob": -2.5887769971575056,
+      "compression_ratio": 1.3388429752066116,
+      "no_speech_prob": 5.823751203504202e-12,
+      "words": [
+        {
+          "word": " You",
+          "start": 59.04,
+          "end": 59.04,
+          "probability": 0.009483014233410358
+        },
+        {
+          "word": " are",
+          "start": 59.04,
+          "end": 59.12,
+          "probability": 0.010038953274488449
+        },
+        {
+          "word": " a",
+          "start": 59.12,
+          "end": 59.22,
+          "probability": 0.06568523496389389
+        },
+        {
+          "word": " private",
+          "start": 59.22,
+          "end": 59.34,
+          "probability": 6.9786447056685574e-06
+        },
+        {
+          "word": " company.",
+          "start": 59.34,
+          "end": 59.56,
+          "probability": 0.008384237997233868
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "seek": 5904,
+      "start": 59.64,
+      "end": 59.64,
+      "text": "",
+      "tokens": [],
+      "temperature": 1.0,
+      "avg_logprob": -2.5887769971575056,
+      "compression_ratio": 1.3388429752066116,
+      "no_speech_prob": 5.823751203504202e-12,
+      "words": []
+    },
+    {
+      "id": 20,
+      "seek": 5904,
+      "start": 59.64,
+      "end": 59.8,
+      "text": " Men get out.",
+      "tokens": [
+        50665,
+        6685,
+        483,
+        484,
+        13,
+        50765
+      ],
+      "temperature": 1.0,
+      "avg_logprob": -2.5887769971575056,
+      "compression_ratio": 1.3388429752066116,
+      "no_speech_prob": 5.823751203504202e-12,
+      "words": [
+        {
+          "word": " Men",
+          "start": 59.64,
+          "end": 59.64,
+          "probability": 2.4462717192363925e-05
+        },
+        {
+          "word": " get",
+          "start": 59.64,
+          "end": 59.64,
+          "probability": 0.005510443355888128
+        },
+        {
+          "word": " out.",
+          "start": 59.64,
+          "end": 59.8,
+          "probability": 0.0217900313436985
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "seek": 5904,
+      "start": 59.92,
+      "end": 59.98,
+      "text": " You get out that secret, that's why you are.",
+      "tokens": [
+        50765,
+        509,
+        483,
+        484,
+        300,
+        4054,
+        11,
+        300,
+        311,
+        983,
+        291,
+        366,
+        13,
+        50865
+      ],
+      "temperature": 1.0,
+      "avg_logprob": -2.5887769971575056,
+      "compression_ratio": 1.3388429752066116,
+      "no_speech_prob": 5.823751203504202e-12,
+      "words": [
+        {
+          "word": " You",
+          "start": 59.92,
+          "end": 59.98,
+          "probability": 0.022207200527191162
+        },
+        {
+          "word": " get",
+          "start": 59.98,
+          "end": 59.98,
+          "probability": 0.029907574877142906
+        },
+        {
+          "word": " out",
+          "start": 59.98,
+          "end": 59.98,
+          "probability": 0.5985043048858643
+        },
+        {
+          "word": " that",
+          "start": 59.98,
+          "end": 59.98,
+          "probability": 0.00051627226639539
+        },
+        {
+          "word": " secret,",
+          "start": 59.98,
+          "end": 59.98,
+          "probability": 0.000680677592754364
+        },
+        {
+          "word": " that's",
+          "start": 59.98,
+          "end": 59.98,
+          "probability": 0.18504862627014518
+        },
+        {
+          "word": " why",
+          "start": 59.98,
+          "end": 59.98,
+          "probability": 0.028135497123003006
+        },
+        {
+          "word": " you",
+          "start": 59.98,
+          "end": 59.98,
+          "probability": 0.1440916806459427
+        },
+        {
+          "word": " are.",
+          "start": 59.98,
+          "end": 59.98,
+          "probability": 0.09298770874738693
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "seek": 5904,
+      "start": 59.98,
+      "end": 59.98,
+      "text": "",
+      "tokens": [],
+      "temperature": 1.0,
+      "avg_logprob": -2.5887769971575056,
+      "compression_ratio": 1.3388429752066116,
+      "no_speech_prob": 5.823751203504202e-12,
+      "words": []
+    },
+    {
+      "id": 23,
+      "seek": 5904,
+      "start": 59.98,
+      "end": 59.98,
+      "text": "",
+      "tokens": [],
+      "temperature": 1.0,
+      "avg_logprob": -2.5887769971575056,
+      "compression_ratio": 1.3388429752066116,
+      "no_speech_prob": 5.823751203504202e-12,
+      "words": []
+    },
+    {
+      "id": 24,
+      "seek": 5998,
+      "start": 59.96,
+      "end": 59.96,
+      "text": "",
+      "tokens": [],
+      "temperature": 0.0,
+      "avg_logprob": -0.4407987991968791,
+      "compression_ratio": 0.5555555555555556,
+      "no_speech_prob": 1.3578524415969184e-10,
+      "words": []
+    }
+  ],
+  "language": "en"
+}

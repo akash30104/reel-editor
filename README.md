@@ -130,3 +130,25 @@ To render in Reference 11:
 ```bash
 python render_ref11_master.py
 ```
+
+---
+
+## 🎬 Batch Renderer: 4 High-Retention Reels from `IMG_6596.MOV` (Reference 11 Style)
+Run the automated multi-reel pipeline:
+```bash
+python render_4_reels_6596_ref11.py
+```
+
+### Deliverables & Spoken Tanglish Specifications:
+1. **Reel 1: Student to Founder 🚀** (`Raw 176.0s - 236.0s`, 60.0s)
+   - *Topic*: From college student with zero idea to founding a registered company.
+   - *Spoken Tanglish*: `VANAKKAM`, `NALLA`, `IRUKKEN`, `SUPER`, `GANESH`, `STUDENT`, `SCRATCH-LA`, `COMPANY`, `START`, `ZERO`, `IDEA`, `ZERO`, `KNOWLEDGE`, `LOKESH`, `BRO-VA`, `PODCAST`, `MENTOR`, `BUSINESS`, `REGISTERED`, `PROPRIETARY-AA?`, `PRIVATE`, `LIMITED`.
+2. **Reel 2: Why Register Pvt Ltd? 🏢** (`Raw 236.0s - 296.0s`, 60.0s)
+   - *Topic*: LLP vs Private Limited, auditor compliance, and why venture investors prefer Pvt Ltd.
+   - *Spoken Tanglish*: `YAAR`, `ADVICE`, `PVT`, `LTD`, `FIRST-LA`, `LLP`, `LIMITED`, `LIABILITY`, `PARTNERSHIP`, `RENDU`, `PERU`, `AUDITOR`, `COMPLIANCE`, `RULES`, `BENEFITS`, `FUNDING`, `INVESTORS`, `PREFER`, `PVT`, `LTD`, `SCALING`.
+3. **Reel 3: Business vs Entrepreneur 💡** (`Raw 296.0s - 356.0s`, 60.0s)
+   - *Topic*: Traditional businessman vs innovative entrepreneur, creating brand value vs quick revenue.
+   - *Spoken Tanglish*: `BIG`, `QUESTION`, `BUSINESSMAN-AA`, `ENTREPRENEUR-AA`, `BRAND`, `VALUE`, `MONEY`, `PAIN`, `SOLVE`, `TRUST`, `REPUTATION`, `EXISTING`, `MODEL`, `REPLICATE`, `NEW`, `SYSTEM`, `UNSEEN`, `PROBLEM`.
+4. **Reel 4: Venture vs Traditional Trade 🚀** (`Raw 356.0s - 416.0s`, 60.0s)
+   - *Topic*: Solving problems at profit, linear vs exponential return, creating new market value.
+   - *Spoken Tanglish*: `EXISTING`, `PRODUCT`, `FIRST-MOVER`, `INNOVATION`, `VENTURE`, `SOLVING`, `PROBLEMS`, `PROFIT`, `TRADITIONAL`, `NO`, `INNOVATION`, `LINEAR`, `EXPONENTIALLY`, `BIG`, `HIGH`, `VALUE`, `CLARITY`.

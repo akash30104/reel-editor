@@ -1,0 +1,98 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: BannerBox,Arial,10,&H200A0A0A,&H00000000,&H00FFFFFF,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: BorderLine,Arial,10,&H00FFFFFF,&H00000000,&H00FFFFFF,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: SupText,Arial,56,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,1,0,0,100,100,0,0,1,2,3,8,20,20,20,1
+Style: MainTamil,Tamil Sangam MN,115,&H0000D7FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,4,5,8,20,20,20,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+
+; 01. Hook 1: Lesson from Ramayana (Spoken 3.54s - 5.90s)
+Dialogue: 0,0:00:03.50,0:00:06.80,BannerBox,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 360 l 0 360{\p0}
+Dialogue: 1,0:00:03.50,0:00:06.80,BorderLine,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 1,0:00:03.50,0:00:06.80,BorderLine,,0,0,0,,{\pos(0,1140)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 2,0:00:03.50,0:00:06.80,SupText,,0,0,0,,{\pos(540,815)}LESSON FROM RAMAYANA
+Dialogue: 2,0:00:03.50,0:00:06.80,MainTamil,,0,0,0,,{\pos(540,915)}என்ன கத்துக்கணும்?
+
+; 02. Hook 2: Hanuman Topic (Spoken 10.76s - 13.00s)
+Dialogue: 0,0:00:10.50,0:00:13.00,BannerBox,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 360 l 0 360{\p0}
+Dialogue: 1,0:00:10.50,0:00:13.00,BorderLine,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 1,0:00:10.50,0:00:13.00,BorderLine,,0,0,0,,{\pos(0,1140)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 2,0:00:10.50,0:00:13.00,SupText,,0,0,0,,{\pos(540,815)}EVERY HUMAN BEING
+Dialogue: 2,0:00:10.50,0:00:13.00,MainTamil,,0,0,0,,{\pos(540,915)}ஹனுமான் மாதிரி!
+
+; 03. Core Statement: Everybody is like Hanuman (Spoken 13.24s - 14.68s)
+Dialogue: 0,0:00:13.10,0:00:15.80,BannerBox,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 360 l 0 360{\p0}
+Dialogue: 1,0:00:13.10,0:00:15.80,BorderLine,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 1,0:00:13.10,0:00:15.80,BorderLine,,0,0,0,,{\pos(0,1140)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 2,0:00:13.10,0:00:15.80,SupText,,0,0,0,,{\pos(540,815)}EVERYBODY IN THIS WORLD
+Dialogue: 2,0:00:13.10,0:00:15.80,MainTamil,,0,0,0,,{\pos(540,915)}IS LIKE HANUMAN!
+
+; 04. Takeaway 1: Latent Potential (Spoken 16.06s - 17.82s)
+Dialogue: 0,0:00:16.00,0:00:17.50,BannerBox,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 360 l 0 360{\p0}
+Dialogue: 1,0:00:16.00,0:00:17.50,BorderLine,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 1,0:00:16.00,0:00:17.50,BorderLine,,0,0,0,,{\pos(0,1140)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 2,0:00:16.00,0:00:17.50,SupText,,0,0,0,,{\pos(540,815)}HIDDEN STRENGTH
+Dialogue: 2,0:00:16.00,0:00:17.50,MainTamil,,0,0,0,,{\pos(540,915)}LATENT POTENTIAL!
+
+; 05. The Mentor (Spoken 20.80s - 23.20s)
+Dialogue: 0,0:00:20.80,0:00:23.20,BannerBox,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 360 l 0 360{\p0}
+Dialogue: 1,0:00:20.80,0:00:23.20,BorderLine,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 1,0:00:20.80,0:00:23.20,BorderLine,,0,0,0,,{\pos(0,1140)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 2,0:00:20.80,0:00:23.20,SupText,,0,0,0,,{\pos(540,815)}TO AWAKEN YOUR POWER
+Dialogue: 2,0:00:20.80,0:00:23.20,MainTamil,,0,0,0,,{\pos(540,915)}THAT'S THE MENTOR!
+
+; 06. Principle: Unconditional Loyalty (Spoken 23.50s - 26.50s)
+Dialogue: 0,0:00:23.50,0:00:26.50,BannerBox,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 360 l 0 360{\p0}
+Dialogue: 1,0:00:23.50,0:00:26.50,BorderLine,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 1,0:00:23.50,0:00:26.50,BorderLine,,0,0,0,,{\pos(0,1140)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 2,0:00:23.50,0:00:26.50,SupText,,0,0,0,,{\pos(540,815)}GREATEST PRINCIPLE
+Dialogue: 2,0:00:23.50,0:00:26.50,MainTamil,,0,0,0,,{\pos(540,915)}UNCONDITIONAL LOYALTY
+
+; 07. Real Life Story: Staff Left After 2 Years (Spoken 31.88s - 36.00s)
+Dialogue: 0,0:00:31.50,0:00:36.50,BannerBox,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 360 l 0 360{\p0}
+Dialogue: 1,0:00:31.50,0:00:36.50,BorderLine,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 1,0:00:31.50,0:00:36.50,BorderLine,,0,0,0,,{\pos(0,1140)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 2,0:00:31.50,0:00:36.50,SupText,,0,0,0,,{\pos(540,815)}AFTER 2 YEARS OF WORK
+Dialogue: 2,0:00:31.50,0:00:36.50,MainTamil,,0,0,0,,{\pos(540,915)}சொல்லாம போயிட்டாங்க!
+
+; 08. Loyalty Value (Spoken 41.24s - 44.00s)
+Dialogue: 0,0:00:41.50,0:00:44.50,BannerBox,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 360 l 0 360{\p0}
+Dialogue: 1,0:00:41.50,0:00:44.50,BorderLine,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 1,0:00:41.50,0:00:44.50,BorderLine,,0,0,0,,{\pos(0,1140)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 2,0:00:41.50,0:00:44.50,SupText,,0,0,0,,{\pos(540,815)}IF THEY HAD LOYALTY
+Dialogue: 2,0:00:41.50,0:00:44.50,MainTamil,,0,0,0,,{\pos(540,915)}THEY WOULD STAY!
+
+; 09. Reality of Today (Spoken 44.50s - 48.80s)
+Dialogue: 0,0:00:44.80,0:00:49.00,BannerBox,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 360 l 0 360{\p0}
+Dialogue: 1,0:00:44.80,0:00:49.00,BorderLine,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 1,0:00:44.80,0:00:49.00,BorderLine,,0,0,0,,{\pos(0,1140)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 2,0:00:44.80,0:00:49.00,SupText,,0,0,0,,{\pos(540,815)}IN TODAY'S WORLD
+Dialogue: 2,0:00:44.80,0:00:49.00,MainTamil,,0,0,0,,{\pos(540,915)}LOYALTY-E இல்ல!
+
+; 10. Rare Quality (Spoken 54.50s - 59.00s)
+Dialogue: 0,0:00:54.50,0:00:59.00,BannerBox,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 360 l 0 360{\p0}
+Dialogue: 1,0:00:54.50,0:00:59.00,BorderLine,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 1,0:00:54.50,0:00:59.00,BorderLine,,0,0,0,,{\pos(0,1140)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 2,0:00:54.50,0:00:59.00,SupText,,0,0,0,,{\pos(540,815)}A RARE QUALITY
+Dialogue: 2,0:00:54.50,0:00:59.00,MainTamil,,0,0,0,,{\pos(540,915)}LOYAL PEOPLE ENGEY?
+
+; 11. Hanuman's Way (Spoken 64.00s - 68.50s)
+Dialogue: 0,0:00:64.00,0:00:68.50,BannerBox,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 360 l 0 360{\p0}
+Dialogue: 1,0:00:64.00,0:00:68.50,BorderLine,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 1,0:00:64.00,0:00:68.50,BorderLine,,0,0,0,,{\pos(0,1140)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 2,0:00:64.00,0:00:68.50,SupText,,0,0,0,,{\pos(540,815)}HANUMAN'S WAY
+Dialogue: 2,0:00:64.00,0:00:68.50,MainTamil,,0,0,0,,{\pos(540,915)}SELFLESS LOYALTY!
+
+; 12. Final Climax Lesson (Spoken 68.60s - 73.80s)
+Dialogue: 0,0:00:68.60,0:00:73.80,BannerBox,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 360 l 0 360{\p0}
+Dialogue: 1,0:00:68.60,0:00:73.80,BorderLine,,0,0,0,,{\pos(0,780)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 1,0:00:68.60,0:00:73.80,BorderLine,,0,0,0,,{\pos(0,1140)\p1}m 0 0 l 1080 0 l 1080 3 l 0 3{\p0}
+Dialogue: 2,0:00:68.60,0:00:73.80,SupText,,0,0,0,,{\pos(540,815)}LIFE'S TRUTH
+Dialogue: 2,0:00:68.60,0:00:73.80,MainTamil,,0,0,0,,{\pos(540,915)}GREATEST LESSON!

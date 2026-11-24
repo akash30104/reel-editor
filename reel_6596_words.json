@@ -1,0 +1,841 @@
+[
+  {
+    "id": 0,
+    "seek": 0,
+    "start": 0.0,
+    "end": 29.62,
+    "text": " I am a research founder, started from scratch with zero knowledge, private limited company registered in college",
+    "tokens": [
+      50364,
+      286,
+      669,
+      257,
+      2132,
+      14917,
+      11,
+      1409,
+      490,
+      8459,
+      365,
+      4018,
+      3601,
+      11,
+      4551,
+      5567,
+      2237,
+      13968,
+      294,
+      3859,
+      51464
+    ],
+    "temperature": 0.0,
+    "avg_logprob": -0.8313864003057065,
+    "compression_ratio": 1.1789473684210525,
+    "no_speech_prob": 0.10944529622793198,
+    "words": [
+      {
+        "word": " I",
+        "start": 0.0,
+        "end": 2.74,
+        "probability": 0.034034837037324905
+      },
+      {
+        "word": " am",
+        "start": 2.74,
+        "end": 13.08,
+        "probability": 0.24860812723636627
+      },
+      {
+        "word": " a",
+        "start": 13.08,
+        "end": 14.2,
+        "probability": 0.055320728570222855
+      },
+      {
+        "word": " research",
+        "start": 14.2,
+        "end": 15.04,
+        "probability": 0.0007804444176144898
+      },
+      {
+        "word": " founder,",
+        "start": 15.04,
+        "end": 15.3,
+        "probability": 0.5763875842094421
+      },
+      {
+        "word": " started",
+        "start": 15.3,
+        "end": 15.3,
+        "probability": 0.010745706036686897
+      },
+      {
+        "word": " from",
+        "start": 15.3,
+        "end": 18.6,
+        "probability": 0.14230677485466003
+      },
+      {
+        "word": " scratch",
+        "start": 18.6,
+        "end": 19.34,
+        "probability": 0.9701031446456909
+      },
+      {
+        "word": " with",
+        "start": 19.34,
+        "end": 19.64,
+        "probability": 0.014787241816520691
+      },
+      {
+        "word": " zero",
+        "start": 19.64,
+        "end": 20.08,
+        "probability": 0.00021918994025327265
+      },
+      {
+        "word": " knowledge,",
+        "start": 20.08,
+        "end": 21.02,
+        "probability": 0.44537293910980225
+      },
+      {
+        "word": " private",
+        "start": 21.86,
+        "end": 24.48,
+        "probability": 1.5182716197159607e-05
+      },
+      {
+        "word": " limited",
+        "start": 24.48,
+        "end": 24.86,
+        "probability": 5.114103259984404e-05
+      },
+      {
+        "word": " company",
+        "start": 24.86,
+        "end": 24.86,
+        "probability": 0.018420718610286713
+      },
+      {
+        "word": " registered",
+        "start": 24.86,
+        "end": 25.0,
+        "probability": 1.9262140995124355e-05
+      },
+      {
+        "word": " in",
+        "start": 25.0,
+        "end": 25.58,
+        "probability": 0.1801794022321701
+      },
+      {
+        "word": " college",
+        "start": 25.58,
+        "end": 29.62,
+        "probability": 0.00014410083531402051
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "seek": 2962,
+    "start": 29.62,
+    "end": 41.4,
+    "text": " I met my location bro, I contacted him after that, he gave me an idea to broadcast our video, next time we will be monitoring and mentoring him",
+    "tokens": [
+      50364,
+      286,
+      1131,
+      452,
+      4914,
+      2006,
+      11,
+      286,
+      21546,
+      796,
+      934,
+      300,
+      11,
+      415,
+      2729,
+      385,
+      364,
+      1558,
+      281,
+      9975,
+      527,
+      960,
+      11,
+      958,
+      565,
+      321,
+      486,
+      312,
+      11028,
+      293,
+      30257,
+      796,
+      50964
+    ],
+    "temperature": 0.0,
+    "avg_logprob": -0.7050292465712998,
+    "compression_ratio": 1.7523364485981308,
+    "no_speech_prob": 0.7320642471313477,
+    "words": [
+      {
+        "word": " I",
+        "start": 29.62,
+        "end": 29.62,
+        "probability": 0.10030356049537659
+      },
+      {
+        "word": " met",
+        "start": 29.62,
+        "end": 29.62,
+        "probability": 0.5115353465080261
+      },
+      {
+        "word": " my",
+        "start": 29.62,
+        "end": 29.72,
+        "probability": 0.05666397511959076
+      },
+      {
+        "word": " location",
+        "start": 29.72,
+        "end": 29.72,
+        "probability": 0.3434916138648987
+      },
+      {
+        "word": " bro,",
+        "start": 29.72,
+        "end": 29.94,
+        "probability": 0.6698931455612183
+      },
+      {
+        "word": " I",
+        "start": 30.6,
+        "end": 30.92,
+        "probability": 0.3455536663532257
+      },
+      {
+        "word": " contacted",
+        "start": 30.92,
+        "end": 31.12,
+        "probability": 0.05568867549300194
+      },
+      {
+        "word": " him",
+        "start": 31.12,
+        "end": 31.38,
+        "probability": 0.8159618973731995
+      },
+      {
+        "word": " after",
+        "start": 31.38,
+        "end": 31.5,
+        "probability": 0.3881444036960602
+      },
+      {
+        "word": " that,",
+        "start": 31.5,
+        "end": 32.2,
+        "probability": 0.6304294466972351
+      },
+      {
+        "word": " he",
+        "start": 33.1,
+        "end": 34.0,
+        "probability": 0.2524654269218445
+      },
+      {
+        "word": " gave",
+        "start": 34.0,
+        "end": 34.0,
+        "probability": 0.2427912950515747
+      },
+      {
+        "word": " me",
+        "start": 34.0,
+        "end": 34.0,
+        "probability": 0.8273187279701233
+      },
+      {
+        "word": " an",
+        "start": 34.0,
+        "end": 34.0,
+        "probability": 0.446198046207428
+      },
+      {
+        "word": " idea",
+        "start": 34.0,
+        "end": 34.0,
+        "probability": 0.9776642918586731
+      },
+      {
+        "word": " to",
+        "start": 34.0,
+        "end": 34.0,
+        "probability": 0.34303921461105347
+      },
+      {
+        "word": " broadcast",
+        "start": 34.0,
+        "end": 34.78,
+        "probability": 0.19943852722644806
+      },
+      {
+        "word": " our",
+        "start": 34.78,
+        "end": 35.1,
+        "probability": 0.11484626680612564
+      },
+      {
+        "word": " video,",
+        "start": 35.1,
+        "end": 35.1,
+        "probability": 0.13846458494663239
+      },
+      {
+        "word": " next",
+        "start": 35.1,
+        "end": 36.88,
+        "probability": 0.20478379726409912
+      },
+      {
+        "word": " time",
+        "start": 36.88,
+        "end": 37.12,
+        "probability": 0.5404728651046753
+      },
+      {
+        "word": " we",
+        "start": 37.12,
+        "end": 37.78,
+        "probability": 0.5554611682891846
+      },
+      {
+        "word": " will",
+        "start": 37.78,
+        "end": 37.8,
+        "probability": 0.5507373809814453
+      },
+      {
+        "word": " be",
+        "start": 37.8,
+        "end": 38.26,
+        "probability": 0.2607169449329376
+      },
+      {
+        "word": " monitoring",
+        "start": 38.26,
+        "end": 38.26,
+        "probability": 0.5391206741333008
+      },
+      {
+        "word": " and",
+        "start": 38.26,
+        "end": 38.94,
+        "probability": 0.376406192779541
+      },
+      {
+        "word": " mentoring",
+        "start": 38.94,
+        "end": 40.26,
+        "probability": 0.43251514434814453
+      },
+      {
+        "word": " him",
+        "start": 40.26,
+        "end": 41.4,
+        "probability": 0.44341668486595154
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "seek": 2962,
+    "start": 41.4,
+    "end": 46.04,
+    "text": " So you started business or are you in the ideation stage?",
+    "tokens": [
+      50964,
+      407,
+      291,
+      1409,
+      1606,
+      420,
+      366,
+      291,
+      294,
+      264,
+      1153,
+      399,
+      3233,
+      30,
+      51214
+    ],
+    "temperature": 0.0,
+    "avg_logprob": -0.7050292465712998,
+    "compression_ratio": 1.7523364485981308,
+    "no_speech_prob": 0.7320642471313477,
+    "words": [
+      {
+        "word": " So",
+        "start": 41.4,
+        "end": 41.68,
+        "probability": 0.03219126909971237
+      },
+      {
+        "word": " you",
+        "start": 41.68,
+        "end": 43.68,
+        "probability": 0.3157993257045746
+      },
+      {
+        "word": " started",
+        "start": 43.68,
+        "end": 43.98,
+        "probability": 0.40029457211494446
+      },
+      {
+        "word": " business",
+        "start": 43.98,
+        "end": 44.52,
+        "probability": 0.35847288370132446
+      },
+      {
+        "word": " or",
+        "start": 44.52,
+        "end": 45.36,
+        "probability": 0.2474866658449173
+      },
+      {
+        "word": " are",
+        "start": 45.36,
+        "end": 45.46,
+        "probability": 0.44967788457870483
+      },
+      {
+        "word": " you",
+        "start": 45.46,
+        "end": 45.46,
+        "probability": 0.9521942734718323
+      },
+      {
+        "word": " in",
+        "start": 45.46,
+        "end": 45.46,
+        "probability": 0.43588006496429443
+      },
+      {
+        "word": " the",
+        "start": 45.46,
+        "end": 45.46,
+        "probability": 0.43592941761016846
+      },
+      {
+        "word": " ideation",
+        "start": 45.46,
+        "end": 45.82,
+        "probability": 0.5089842528104782
+      },
+      {
+        "word": " stage?",
+        "start": 45.82,
+        "end": 46.04,
+        "probability": 0.8823992609977722
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "seek": 2962,
+    "start": 46.76,
+    "end": 51.86,
+    "text": " No, we started business, we registered as a business company and it took about 2 months",
+    "tokens": [
+      51214,
+      883,
+      11,
+      321,
+      1409,
+      1606,
+      11,
+      321,
+      13968,
+      382,
+      257,
+      1606,
+      2237,
+      293,
+      309,
+      1890,
+      466,
+      568,
+      2493,
+      51514
+    ],
+    "temperature": 0.0,
+    "avg_logprob": -0.7050292465712998,
+    "compression_ratio": 1.7523364485981308,
+    "no_speech_prob": 0.7320642471313477,
+    "words": [
+      {
+        "word": " No,",
+        "start": 46.76,
+        "end": 46.9,
+        "probability": 0.4919135570526123
+      },
+      {
+        "word": " we",
+        "start": 47.04,
+        "end": 47.18,
+        "probability": 0.9316533803939819
+      },
+      {
+        "word": " started",
+        "start": 47.18,
+        "end": 47.72,
+        "probability": 0.6480674147605896
+      },
+      {
+        "word": " business,",
+        "start": 47.72,
+        "end": 48.38,
+        "probability": 0.6453330516815186
+      },
+      {
+        "word": " we",
+        "start": 48.48,
+        "end": 49.02,
+        "probability": 0.17630696296691895
+      },
+      {
+        "word": " registered",
+        "start": 49.02,
+        "end": 49.9,
+        "probability": 0.542325496673584
+      },
+      {
+        "word": " as",
+        "start": 49.9,
+        "end": 49.9,
+        "probability": 0.1155846118927002
+      },
+      {
+        "word": " a",
+        "start": 49.9,
+        "end": 49.92,
+        "probability": 0.8899551630020142
+      },
+      {
+        "word": " business",
+        "start": 49.92,
+        "end": 50.06,
+        "probability": 0.5840860605239868
+      },
+      {
+        "word": " company",
+        "start": 50.06,
+        "end": 50.46,
+        "probability": 0.8504205942153931
+      },
+      {
+        "word": " and",
+        "start": 50.46,
+        "end": 51.14,
+        "probability": 0.3061474859714508
+      },
+      {
+        "word": " it",
+        "start": 51.14,
+        "end": 51.26,
+        "probability": 0.37680739164352417
+      },
+      {
+        "word": " took",
+        "start": 51.26,
+        "end": 51.26,
+        "probability": 0.30503544211387634
+      },
+      {
+        "word": " about",
+        "start": 51.26,
+        "end": 51.32,
+        "probability": 0.27044442296028137
+      },
+      {
+        "word": " 2",
+        "start": 51.32,
+        "end": 51.66,
+        "probability": 0.6630275249481201
+      },
+      {
+        "word": " months",
+        "start": 51.66,
+        "end": 51.86,
+        "probability": 0.9673328399658203
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "seek": 2962,
+    "start": 52.620000000000005,
+    "end": 53.82,
+    "text": " Are you a registered or a proprietary?",
+    "tokens": [
+      51514,
+      2014,
+      291,
+      257,
+      13968,
+      420,
+      257,
+      38992,
+      30,
+      51614
+    ],
+    "temperature": 0.0,
+    "avg_logprob": -0.7050292465712998,
+    "compression_ratio": 1.7523364485981308,
+    "no_speech_prob": 0.7320642471313477,
+    "words": [
+      {
+        "word": " Are",
+        "start": 52.36,
+        "end": 52.66,
+        "probability": 0.025641005486249924
+      },
+      {
+        "word": " you",
+        "start": 52.66,
+        "end": 53.26,
+        "probability": 0.9838616251945496
+      },
+      {
+        "word": " a",
+        "start": 53.26,
+        "end": 53.26,
+        "probability": 0.3361492156982422
+      },
+      {
+        "word": " registered",
+        "start": 53.26,
+        "end": 53.26,
+        "probability": 0.37096670269966125
+      },
+      {
+        "word": " or",
+        "start": 53.26,
+        "end": 53.56,
+        "probability": 0.5358486175537109
+      },
+      {
+        "word": " a",
+        "start": 53.56,
+        "end": 53.56,
+        "probability": 0.47946929931640625
+      },
+      {
+        "word": " proprietary?",
+        "start": 53.56,
+        "end": 53.82,
+        "probability": 0.5541976094245911
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "seek": 2962,
+    "start": 54.5,
+    "end": 56.78,
+    "text": " No, we registered as a private limited company",
+    "tokens": [
+      51614,
+      883,
+      11,
+      321,
+      13968,
+      382,
+      257,
+      4551,
+      5567,
+      2237,
+      51764
+    ],
+    "temperature": 0.0,
+    "avg_logprob": -0.7050292465712998,
+    "compression_ratio": 1.7523364485981308,
+    "no_speech_prob": 0.7320642471313477,
+    "words": [
+      {
+        "word": " No,",
+        "start": 54.5,
+        "end": 54.8,
+        "probability": 0.8416325449943542
+      },
+      {
+        "word": " we",
+        "start": 55.06,
+        "end": 55.16,
+        "probability": 0.7303125262260437
+      },
+      {
+        "word": " registered",
+        "start": 55.16,
+        "end": 55.3,
+        "probability": 0.6079128980636597
+      },
+      {
+        "word": " as",
+        "start": 55.3,
+        "end": 55.36,
+        "probability": 0.7811455726623535
+      },
+      {
+        "word": " a",
+        "start": 55.36,
+        "end": 55.46,
+        "probability": 0.9193266034126282
+      },
+      {
+        "word": " private",
+        "start": 55.46,
+        "end": 55.68,
+        "probability": 0.9209356904029846
+      },
+      {
+        "word": " limited",
+        "start": 55.68,
+        "end": 55.88,
+        "probability": 0.9195034503936768
+      },
+      {
+        "word": " company",
+        "start": 55.88,
+        "end": 56.78,
+        "probability": 0.9843839406967163
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "seek": 5678,
+    "start": 56.78,
+    "end": 59.6,
+    "text": " Oh, you registered as a private limited company when you were studying in college?",
+    "tokens": [
+      50364,
+      876,
+      11,
+      291,
+      13968,
+      382,
+      257,
+      4551,
+      5567,
+      2237,
+      562,
+      291,
+      645,
+      7601,
+      294,
+      3859,
+      30,
+      50514
+    ],
+    "temperature": 0.0,
+    "avg_logprob": -0.4156535299200761,
+    "compression_ratio": 1.025,
+    "no_speech_prob": 0.4227476119995117,
+    "words": [
+      {
+        "word": " Oh,",
+        "start": 56.78,
+        "end": 57.34,
+        "probability": 0.3458617627620697
+      },
+      {
+        "word": " you",
+        "start": 57.76,
+        "end": 58.04,
+        "probability": 0.10686509311199188
+      },
+      {
+        "word": " registered",
+        "start": 58.04,
+        "end": 58.52,
+        "probability": 0.0004813712148461491
+      },
+      {
+        "word": " as",
+        "start": 58.52,
+        "end": 58.58,
+        "probability": 0.08253350108861923
+      },
+      {
+        "word": " a",
+        "start": 58.58,
+        "end": 58.66,
+        "probability": 0.8967323899269104
+      },
+      {
+        "word": " private",
+        "start": 58.66,
+        "end": 58.82,
+        "probability": 0.8993354439735413
+      },
+      {
+        "word": " limited",
+        "start": 58.82,
+        "end": 59.0,
+        "probability": 1.5034059288154822e-05
+      },
+      {
+        "word": " company",
+        "start": 59.0,
+        "end": 59.34,
+        "probability": 0.0028771660290658474
+      },
+      {
+        "word": " when",
+        "start": 59.34,
+        "end": 59.6,
+        "probability": 0.3829156756401062
+      },
+      {
+        "word": " you",
+        "start": 59.6,
+        "end": 59.6,
+        "probability": 0.8057792782783508
+      },
+      {
+        "word": " were",
+        "start": 59.6,
+        "end": 59.6,
+        "probability": 0.3833729028701782
+      },
+      {
+        "word": " studying",
+        "start": 59.6,
+        "end": 59.6,
+        "probability": 0.6201983690261841
+      },
+      {
+        "word": " in",
+        "start": 59.6,
+        "end": 59.6,
+        "probability": 0.1983463317155838
+      },
+      {
+        "word": " college?",
+        "start": 59.6,
+        "end": 59.6,
+        "probability": 0.8666506409645081
+      }
+    ]
+  }
+]
