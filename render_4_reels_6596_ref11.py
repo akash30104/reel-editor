@@ -1,31 +1,26 @@
 #!/usr/bin/env python3
 """
 render_4_reels_6596_ref11.py
-Renders 4 High-Retention Reels from IMG_6596.MOV in Locked Reference 11 Style:
+Master Producer for 4 High-Retention Reels from IMG_6596.MOV in Locked Reference 11 Style:
 
-Reel 1: Student to Founder 🚀 (58.0s)
-Reel 2: Business vs Startup 💡 (65.0s)
-Reel 3: Revenue vs Real Profit 💰 (65.0s)
-Reel 4: Service vs Product Scalability 🏢 (67.0s)
+Reel 1: Student to Founder 🚀 (Raw: 176.0s - 236.0s, 60.0s)
+Reel 2: Why Register Pvt Ltd? 🏢 (Raw: 236.0s - 296.0s, 60.0s)
+Reel 3: Business vs Entrepreneur 💡 (Raw: 296.0s - 356.0s, 60.0s)
+Reel 4: Venture vs Traditional Trade 🚀 (Raw: 356.0s - 416.0s, 60.0s)
 
-Strictly adheres to:
-1. Canvas 1080x1920 @ 30fps with pure black letterboxing (Top Y=0..408, Bottom Y=1498..1920)
-2. Header Banner: Y=408..558 (Height 150px) in Signature Orange #FF8400 (RGB: 255, 132, 0)
-3. Active Video Window: Y=558..1498 (Height 940px)
-   - Strict SDR BT.709 color pipeline (stripping iPhone HDR/HLG/BT.2020 tags)
-   - 100% continuous acoustic lip-sync (every speaker cut starts at raw_start + timeline_elapsed)
-   - Framing for IMG_6596.MOV (3840x2160):
-     * Host Lokesh (Left speaker, white shirt): crop=2010:1750:200:300,scale=1080:940
-     * Guest Ganesh (Right speaker, light blue shirt): crop=2010:1750:1650:300,scale=1080:940
-     * Guest Ganesh 1.15x Punch-in: crop=1748:1522:1780:414,scale=1080:940
-   - B-roll cutaways every 4 to 7 seconds
-4. Subtitles:
-   - Handwriting font MyHandwriting.ttf (size 82pt)
-   - Signature Orange #FF8400 with 7px solid black stroke & shadow
-   - Lower third placement (Y=1340)
-5. Audio:
-   - Dialogue normalized to broadcast standard -14.0 LUFS / -1.0 dBTP
-   - Subtle background music ducked at -23 dB
+Key Professional Enhancements:
+1. Speech-Locked Acoustic Synchronization: Derived directly from Whisper millisecond audio alignment.
+2. Rich Warm Studio Color Grading:
+   - curves=master='0/0.02 0.5/0.52 1/0.98' (lifted clean blacks, smooth rolloff)
+   - eq=contrast=1.16:saturation=1.25:brightness=0.015 (rich vibrant color)
+   - colorbalance=rs=0.04:gs=0.02:bs=-0.04 (warm studio skin tones, neutral whites)
+   - unsharp=5:5:0.6:5:5:0.0 (high-frequency luma definition on faces & clothing)
+   - setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709,format=yuv420p (SDR BT.709 bitstream lock)
+3. Header Banner: #FF8400 Signature Orange, 3px black borders, centered bold English title with Apple Color Emoji.
+4. Subtitles: MyHandwriting.ttf in #FF8400 Orange with 7px solid black outline & multi-angle shadow.
+   - Dynamic scaling ensures max width <= 860px (zero edge overflow).
+5. Curated Contextual B-Rolls: Business, startup documents, craftsmanship, market crowds, and golden sunrise.
+6. Pro Audio: Dialogue normalized to -14.0 LUFS (-1.0 dBTP) with ducked BGM at -23 dB.
 """
 
 import os
@@ -57,19 +52,27 @@ BANNER_Y = 408
 BANNER_H = 150
 VIDEO_Y = 558
 VIDEO_H = 940
-SUBS_Y = 1250
+SUBS_Y = 1260
 SUBS_H = 180
 
 COLOR_ORANGE_RGBA = (255, 132, 0, 255) # Signature #FF8400
 COLOR_BLACK = (0, 0, 0, 255)
 
+# Cinematic warm studio grade
+COLOR_GRADE = (
+    "curves=master='0/0.02 0.5/0.52 1/0.98',"
+    "eq=contrast=1.16:saturation=1.25:brightness=0.015,"
+    "colorbalance=rs=0.04:gs=0.02:bs=-0.04,"
+    "unsharp=5:5:0.6:5:5:0.0"
+)
 SDR_FILTER = "setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709,format=yuv420p"
-COLOR_GRADE = "eq=contrast=1.08:saturation=0.92:brightness=-0.01,colorbalance=rs=0.03:gs=0.01:bs=-0.03"
 
 CROPS = {
-    "host": "crop=2010:1750:200:300,scale=1080:940:flags=lanczos",
-    "guest": "crop=2010:1750:1650:300,scale=1080:940:flags=lanczos",
-    "punch": "crop=1748:1522:1780:414,scale=1080:940:flags=lanczos",
+    "host": "crop=2010:1750:1650:300,scale=1080:940:flags=lanczos",
+    "host_punch": "crop=1748:1522:1780:414,scale=1080:940:flags=lanczos",
+    "guest": "crop=2010:1750:200:300,scale=1080:940:flags=lanczos",
+    "punch": "crop=1748:1522:330:414,scale=1080:940:flags=lanczos",
+    "wide": "crop=2480:2160:680:0,scale=1080:940:flags=lanczos",
 }
 
 def generate_header_banner(title_text, out_png):
@@ -111,7 +114,6 @@ def generate_subtitles_mov(words_list, total_dur, out_mov):
     dummy = Image.new("RGBA", (1, 1))
     draw_dummy = ImageDraw.Draw(dummy)
     
-    # Pre-render word frames with dynamic font scaling to guarantee zero overflow (max width 860px)
     cache = {}
     for w in words_list:
         word = w["word"].strip()
@@ -135,7 +137,7 @@ def generate_subtitles_mov(words_list, total_dur, out_mov):
             # 8-direction shadow
             for dx, dy in [(-3, -3), (3, -3), (-3, 3), (3, 3), (0, 4), (0, -4), (4, 0), (-4, 0)]:
                 draw.text((x + dx, y + dy), word, font=f, fill=(0, 0, 0, 200), stroke_width=6, stroke_fill=COLOR_BLACK)
-            # Main #FF8400 text with 7px black outline
+            # Main #FF8400 text with 7px solid black stroke
             draw.text((x, y), word, font=f, fill=COLOR_ORANGE_RGBA, stroke_width=7, stroke_fill=COLOR_BLACK)
             cache[word] = im.tobytes()
             
@@ -278,135 +280,175 @@ def render_reel(reel_id, title, raw_base_ss, total_dur, cut_specs, words_list, o
     print(f"📸 QA verification frames extracted for Reel {reel_id}")
 
 # ==============================================================================
-# DEFINITIONS FOR THE 4 REELS
+# SPEECH-LOCKED DEFINITIONS FOR THE 4 REELS
 # ==============================================================================
 
 REELS_CONFIG = [
+    # --------------------------------------------------------------------------
+    # REEL 1: Student to Founder 🚀
+    # Raw Window: 176.0s to 236.0s (60.0s)
+    # --------------------------------------------------------------------------
     {
         "id": 1,
         "title": "Student to Founder 🚀",
-        "raw_base_ss": 16.0,
-        "total_dur": 58.0,
+        "raw_base_ss": 176.0,
+        "total_dur": 60.0,
         "out_mp4": EXPORT_DIR / "Reel_6596_1_Student_To_Founder.mp4",
         "cuts": [
-            {"type": "guest", "timeline_st": 0.0,  "dur": 5.0, "broll": None, "bw_hook": True},
-            {"type": "broll", "timeline_st": 5.0,  "dur": 4.0, "broll": BROLL_DIR / "broll_business.mp4"},
-            {"type": "guest", "timeline_st": 9.0,  "dur": 7.0, "broll": None},
-            {"type": "host",  "timeline_st": 16.0, "dur": 5.0, "broll": None},
-            {"type": "guest", "timeline_st": 21.0, "dur": 5.5, "broll": None},
-            {"type": "host",  "timeline_st": 26.5, "dur": 4.5, "broll": None},
-            {"type": "guest", "timeline_st": 31.0, "dur": 5.5, "broll": None},
-            {"type": "host",  "timeline_st": 36.5, "dur": 4.5, "broll": None},
-            {"type": "punch", "timeline_st": 41.0, "dur": 7.0, "broll": None},
-            {"type": "broll", "timeline_st": 48.0, "dur": 6.0, "broll": BROLL_DIR / "broll_golden_sunrise.mp4"},
-            {"type": "guest", "timeline_st": 54.0, "dur": 4.0, "broll": None},
+            {"type": "host",  "timeline_st": 0.0,  "dur": 2.0, "broll": None, "bw_hook": True},
+            {"type": "guest", "timeline_st": 2.0,  "dur": 1.5, "broll": None},
+            {"type": "host",  "timeline_st": 3.5,  "dur": 8.5, "broll": None},
+            {"type": "guest", "timeline_st": 12.0, "dur": 6.5, "broll": None},
+            {"type": "punch", "timeline_st": 18.5, "dur": 3.1, "broll": None},
+            {"type": "broll", "timeline_st": 21.6, "dur": 6.6, "broll": BROLL_DIR / "broll_business.mp4"},
+            {"type": "punch", "timeline_st": 28.2, "dur": 4.3, "broll": None},
+            {"type": "guest", "timeline_st": 32.5, "dur": 10.0, "broll": None},
+            {"type": "host",  "timeline_st": 42.5, "dur": 3.7, "broll": None},
+            {"type": "guest", "timeline_st": 46.2, "dur": 6.3, "broll": None},
+            {"type": "host",  "timeline_st": 52.5, "dur": 1.7, "broll": None},
+            {"type": "punch", "timeline_st": 54.2, "dur": 2.6, "broll": None},
+            {"type": "broll", "timeline_st": 56.8, "dur": 3.2, "broll": BROLL_DIR / "broll_golden_sunrise.mp4"},
         ],
         "words": [
-            {"start": 0.3, "end": 2.2, "word": "STUDENT FOUNDER"},
-            {"start": 2.3, "end": 4.8, "word": "START-UP COMPANY"},
-            {"start": 5.0, "end": 8.8, "word": "ZERO KNOWLEDGE"},
-            {"start": 9.2, "end": 12.0, "word": "MET LOKESH BRO"},
-            {"start": 12.2, "end": 15.5, "word": "CONNECT AANOM!"},
-            {"start": 16.2, "end": 20.5, "word": "MENTORING TALK"},
-            {"start": 21.2, "end": 25.8, "word": "IDEAS DISCUSS PANNI"},
-            {"start": 26.8, "end": 30.5, "word": "BUSINESS STARTED AH?"},
-            {"start": 31.2, "end": 33.6, "word": "COLLEGE-LA IRUKKUMBODHE"},
-            {"start": 33.7, "end": 36.2, "word": "REGISTER PANNITOM!"},
-            {"start": 36.8, "end": 40.5, "word": "PROPRIETARY AH?"},
-            {"start": 41.2, "end": 47.5, "word": "PVT LTD COMPANY!"},
-            {"start": 48.2, "end": 53.5, "word": "STUDENT TO FOUNDER"},
-            {"start": 54.0, "end": 57.5, "word": "MASS JOURNEY!"}
+            {"start": 0.1, "end": 1.5, "word": "GANESH BRO WELCOME!"},
+            {"start": 2.0, "end": 3.0, "word": "SUPER BRO FINE!"},
+            {"start": 3.6, "end": 8.0, "word": "TELL YOUR QUICK INTRO"},
+            {"start": 8.3, "end": 11.5, "word": "WHO ARE YOU?"},
+            {"start": 12.7, "end": 15.5, "word": "MY NAME IS GANESH"},
+            {"start": 16.4, "end": 19.3, "word": "COLLEGE 2ND YEAR"},
+            {"start": 19.7, "end": 21.2, "word": "ZERO IDEA & KNOWLEDGE"},
+            {"start": 21.8, "end": 24.5, "word": "RESEARCH ON SOCIAL MEDIA"},
+            {"start": 24.8, "end": 27.2, "word": "STARTED MY RESEARCH"},
+            {"start": 27.3, "end": 29.9, "word": "MET LOKESH BRO!"},
+            {"start": 30.1, "end": 35.8, "word": "CONNECTED ON PODCAST"},
+            {"start": 36.1, "end": 38.9, "word": "TALKED ABOUT MENTORING"},
+            {"start": 39.1, "end": 40.5, "word": "DISCUSSED STARTUP PLANS"},
+            {"start": 41.0, "end": 42.0, "word": "SUPER!"},
+            {"start": 42.9, "end": 46.2, "word": "BUSINESS STARTED AH?"},
+            {"start": 46.3, "end": 48.5, "word": "BUSINESS START PANNITOM!"},
+            {"start": 49.7, "end": 52.4, "word": "COMPANY REGISTERED"},
+            {"start": 52.5, "end": 54.2, "word": "PROPRIETARY AH?"},
+            {"start": 54.3, "end": 56.5, "word": "PRIVATE LIMITED COMPANY!"},
+            {"start": 57.0, "end": 59.5, "word": "COLLEGE-LA PRIVATE LIMITED!"}
         ]
     },
+    # --------------------------------------------------------------------------
+    # REEL 2: Why Register Pvt Ltd? 🏢
+    # Raw Window: 236.0s to 296.0s (60.0s)
+    # --------------------------------------------------------------------------
     {
         "id": 2,
-        "title": "Business vs Startup 💡",
-        "raw_base_ss": 345.0,
-        "total_dur": 65.0,
+        "title": "Why Register Pvt Ltd? 🏢",
+        "raw_base_ss": 236.0,
+        "total_dur": 60.0,
         "out_mp4": EXPORT_DIR / "Reel_6596_2_Business_Vs_Startup.mp4",
         "cuts": [
-            {"type": "host",  "timeline_st": 0.0,  "dur": 7.0, "broll": None, "bw_hook": True},
-            {"type": "guest", "timeline_st": 7.0,  "dur": 6.0, "broll": None},
-            {"type": "broll", "timeline_st": 13.0, "dur": 5.0, "broll": BROLL_DIR / "broll_business.mp4"},
-            {"type": "guest", "timeline_st": 18.0, "dur": 9.0, "broll": None},
-            {"type": "punch", "timeline_st": 27.0, "dur": 8.0, "broll": None},
-            {"type": "host",  "timeline_st": 35.0, "dur": 7.0, "broll": None},
-            {"type": "broll", "timeline_st": 42.0, "dur": 6.0, "broll": BROLL_DIR / "broll_crowd_promenade.mp4"},
-            {"type": "guest", "timeline_st": 48.0, "dur": 10.0, "broll": None},
-            {"type": "punch", "timeline_st": 58.0, "dur": 7.0, "broll": None},
+            {"type": "host",  "timeline_st": 0.0,  "dur": 2.5, "broll": None, "bw_hook": True},
+            {"type": "guest", "timeline_st": 2.5,  "dur": 4.0, "broll": None},
+            {"type": "host",  "timeline_st": 6.5,  "dur": 2.0, "broll": None},
+            {"type": "guest", "timeline_st": 8.5,  "dur": 3.5, "broll": None},
+            {"type": "host",  "timeline_st": 12.0, "dur": 1.5, "broll": None},
+            {"type": "guest", "timeline_st": 13.5, "dur": 2.5, "broll": None},
+            {"type": "broll", "timeline_st": 16.0, "dur": 6.0, "broll": BROLL_DIR / "broll_business.mp4"},
+            {"type": "guest", "timeline_st": 22.0, "dur": 9.0, "broll": None},
+            {"type": "host",  "timeline_st": 31.0, "dur": 2.0, "broll": None},
+            {"type": "punch", "timeline_st": 33.0, "dur": 8.0, "broll": None},
+            {"type": "broll", "timeline_st": 41.0, "dur": 5.5, "broll": BROLL_DIR / "broll_watch_repair.mp4"},
+            {"type": "host_punch", "timeline_st": 46.5, "dur": 13.5, "broll": None},
         ],
         "words": [
-            {"start": 0.4, "end": 3.2, "word": "BUSINESS VS STARTUP"},
-            {"start": 3.4, "end": 6.6, "word": "PERIYA DIFFERENCE!"},
-            {"start": 7.2, "end": 12.5, "word": "BUSINESS MAN WORK"},
-            {"start": 13.0, "end": 17.5, "word": "EXISTING MODEL"},
-            {"start": 18.2, "end": 26.5, "word": "INNOVATION IRUKKANUM!"},
-            {"start": 27.2, "end": 34.5, "word": "ADHU DHAAN VENTURE!"},
-            {"start": 35.2, "end": 41.5, "word": "SOLVING PEOPLE'S PROBLEM"},
-            {"start": 42.2, "end": 47.5, "word": "MAKING PROFIT"},
-            {"start": 48.2, "end": 57.5, "word": "TRUE ENTREPRENEURSHIP"},
-            {"start": 58.2, "end": 64.5, "word": "SCALABLE INNOVATION!"}
+            {"start": 0.1, "end": 1.5, "word": "WHO ADVISED PVT LTD?"},
+            {"start": 3.2, "end": 5.8, "word": "FIRST WE THOUGHT LLP"},
+            {"start": 6.9, "end": 7.8, "word": "WHAT IS LLP?"},
+            {"start": 9.6, "end": 11.5, "word": "LIMITED LIABILITY PARTNERSHIP"},
+            {"start": 12.1, "end": 13.1, "word": "HOW MANY PARTNERS?"},
+            {"start": 13.3, "end": 15.3, "word": "TWO PARTNERS REQUIRED"},
+            {"start": 16.8, "end": 21.0, "word": "LLP VS PRIVATE LIMITED"},
+            {"start": 21.3, "end": 23.5, "word": "AUDIT & COMPLIANCE RULES"},
+            {"start": 24.8, "end": 28.5, "word": "DOCUMENTATION PROCESS"},
+            {"start": 29.6, "end": 32.7, "word": "WHAT IS THE BENEFIT?"},
+            {"start": 33.1, "end": 37.3, "word": "WHEN RAISING FUNDING"},
+            {"start": 37.5, "end": 40.5, "word": "INVESTORS PREFER PVT LTD!"},
+            {"start": 42.7, "end": 45.5, "word": "HUGE ADVANTAGE FOR SCALING"},
+            {"start": 46.6, "end": 47.3, "word": "SUPER!"},
+            {"start": 47.6, "end": 50.8, "word": "START REAL COMPANY FROM COLLEGE"},
+            {"start": 51.1, "end": 54.2, "word": "START A REAL BUSINESS"},
+            {"start": 54.5, "end": 59.5, "word": "BUILT FOR BIG GROWTH!"}
         ]
     },
+    # --------------------------------------------------------------------------
+    # REEL 3: Business vs Entrepreneur 💡
+    # Raw Window: 296.0s to 356.0s (60.0s)
+    # --------------------------------------------------------------------------
     {
         "id": 3,
-        "title": "Revenue vs Real Profit 💰",
-        "raw_base_ss": 1680.0,
-        "total_dur": 65.0,
+        "title": "Business vs Entrepreneur 💡",
+        "raw_base_ss": 296.0,
+        "total_dur": 60.0,
         "out_mp4": EXPORT_DIR / "Reel_6596_3_Revenue_Vs_Profit.mp4",
         "cuts": [
-            {"type": "host",  "timeline_st": 0.0,  "dur": 6.5, "broll": None, "bw_hook": True},
-            {"type": "guest", "timeline_st": 6.5,  "dur": 5.5, "broll": None},
-            {"type": "broll", "timeline_st": 12.0, "dur": 5.5, "broll": BROLL_DIR / "broll_clock.mp4"},
-            {"type": "guest", "timeline_st": 17.5, "dur": 8.5, "broll": None},
-            {"type": "punch", "timeline_st": 26.0, "dur": 8.0, "broll": None},
-            {"type": "host",  "timeline_st": 34.0, "dur": 7.0, "broll": None},
-            {"type": "broll", "timeline_st": 41.0, "dur": 7.0, "broll": BROLL_DIR / "broll_golden_sunrise.mp4"},
-            {"type": "guest", "timeline_st": 48.0, "dur": 10.0, "broll": None},
-            {"type": "punch", "timeline_st": 58.0, "dur": 7.0, "broll": None},
+            {"type": "host",  "timeline_st": 0.0,  "dur": 5.0, "broll": None, "bw_hook": True},
+            {"type": "guest", "timeline_st": 5.0,  "dur": 11.0, "broll": None},
+            {"type": "host",  "timeline_st": 16.0, "dur": 3.5, "broll": None},
+            {"type": "broll", "timeline_st": 19.5, "dur": 6.5, "broll": BROLL_DIR / "broll_crowd_promenade.mp4"},
+            {"type": "guest", "timeline_st": 26.0, "dur": 10.5, "broll": None},
+            {"type": "host",  "timeline_st": 36.5, "dur": 2.5, "broll": None},
+            {"type": "host",  "timeline_st": 39.0, "dur": 10.0, "broll": None},
+            {"type": "broll", "timeline_st": 49.0, "dur": 5.0, "broll": BROLL_DIR / "broll_clock.mp4"},
+            {"type": "host_punch", "timeline_st": 54.0, "dur": 6.0, "broll": None},
         ],
         "words": [
-            {"start": 0.4, "end": 3.0, "word": "REVENUE VS PROFIT"},
-            {"start": 3.2, "end": 6.2, "word": "REALITY CHECK!"},
-            {"start": 6.8, "end": 11.5, "word": "10 LAKHS REVENUE"},
-            {"start": 12.2, "end": 17.0, "word": "SALES AND MARKETING"},
-            {"start": 17.8, "end": 25.5, "word": "5 LAKHS EXPENSE POIDUM!"},
-            {"start": 26.2, "end": 33.5, "word": "REAL PROFIT 5 LAKHS!"},
-            {"start": 34.2, "end": 40.5, "word": "UNIT ECONOMICS"},
-            {"start": 41.2, "end": 47.5, "word": "SUSTAINABLE CASH FLOW"},
-            {"start": 48.2, "end": 57.5, "word": "REVENUE IS VANITY"},
-            {"start": 58.2, "end": 64.5, "word": "PROFIT IS SANITY!"}
+            {"start": 0.1, "end": 1.4, "word": "FIRST BIG QUESTION"},
+            {"start": 2.4, "end": 4.6, "word": "WANT TO BE A BUSINESSMAN?"},
+            {"start": 6.1, "end": 7.8, "word": "I AM A BUSINESSMAN"},
+            {"start": 8.3, "end": 10.5, "word": "FOCUS ON BRAND VALUE"},
+            {"start": 10.8, "end": 13.5, "word": "NOT JUST MAKING MONEY"},
+            {"start": 13.6, "end": 15.5, "word": "WANT TO BE A REAL FOUNDER"},
+            {"start": 17.0, "end": 18.8, "word": "HOW DO YOU LOOK AT BRAND?"},
+            {"start": 20.8, "end": 24.5, "word": "SOLVING CUSTOMER NEEDS"},
+            {"start": 27.5, "end": 35.5, "word": "BRAND IS REPUTATION & TRUST"},
+            {"start": 36.5, "end": 37.5, "word": "EXACTLY!"},
+            {"start": 39.7, "end": 43.0, "word": "BUSINESS VS ENTREPRENEUR!"},
+            {"start": 43.6, "end": 48.8, "word": "BUSINESSMAN WORKS EXISTING MODEL"},
+            {"start": 49.1, "end": 54.0, "word": "REPLICATES EXISTING REVENUE"},
+            {"start": 54.3, "end": 56.0, "word": "ENTREPRENEUR IS DIFFERENT"},
+            {"start": 56.1, "end": 59.8, "word": "ENTREPRENEUR SOLVES UNSEEN PROBLEMS!"}
         ]
     },
+    # --------------------------------------------------------------------------
+    # REEL 4: Venture vs Traditional Trade 🚀
+    # Raw Window: 356.0s to 416.0s (60.0s)
+    # --------------------------------------------------------------------------
     {
         "id": 4,
-        "title": "Service vs Scalability 🏢",
-        "raw_base_ss": 848.0,
-        "total_dur": 67.0,
+        "title": "Venture vs Traditional Trade 🚀",
+        "raw_base_ss": 356.0,
+        "total_dur": 60.0,
         "out_mp4": EXPORT_DIR / "Reel_6596_4_Service_To_Scale.mp4",
         "cuts": [
-            {"type": "host",  "timeline_st": 0.0,  "dur": 7.0, "broll": None, "bw_hook": True},
-            {"type": "guest", "timeline_st": 7.0,  "dur": 7.0, "broll": None},
-            {"type": "broll", "timeline_st": 14.0, "dur": 6.0, "broll": BROLL_DIR / "broll_business.mp4"},
-            {"type": "guest", "timeline_st": 20.0, "dur": 8.0, "broll": None},
-            {"type": "host",  "timeline_st": 28.0, "dur": 8.0, "broll": None},
-            {"type": "punch", "timeline_st": 36.0, "dur": 8.0, "broll": None},
-            {"type": "broll", "timeline_st": 44.0, "dur": 7.0, "broll": BROLL_DIR / "broll_watch_repair.mp4"},
-            {"type": "guest", "timeline_st": 51.0, "dur": 9.0, "broll": None},
-            {"type": "punch", "timeline_st": 60.0, "dur": 7.0, "broll": None},
+            {"type": "guest", "timeline_st": 0.0,  "dur": 6.0, "broll": None, "bw_hook": True},
+            {"type": "host",  "timeline_st": 6.0,  "dur": 7.5, "broll": None},
+            {"type": "punch", "timeline_st": 13.5, "dur": 6.5, "broll": None},
+            {"type": "broll", "timeline_st": 20.0, "dur": 6.0, "broll": BROLL_DIR / "broll_business.mp4"},
+            {"type": "guest", "timeline_st": 26.0, "dur": 8.0, "broll": None},
+            {"type": "punch", "timeline_st": 34.0, "dur": 8.5, "broll": None},
+            {"type": "host",  "timeline_st": 42.5, "dur": 5.0, "broll": None},
+            {"type": "broll", "timeline_st": 47.5, "dur": 6.0, "broll": BROLL_DIR / "broll_golden_sunrise.mp4"},
+            {"type": "punch", "timeline_st": 53.5, "dur": 6.5, "broll": None},
         ],
         "words": [
-            {"start": 0.4, "end": 3.2, "word": "CLIENT VALUE"},
-            {"start": 3.5, "end": 6.8, "word": "SOFTWARE DEVELOPMENT"},
-            {"start": 7.2, "end": 13.5, "word": "PROVIDING SERVICES"},
-            {"start": 14.2, "end": 19.5, "word": "DIGITAL MARKETING"},
-            {"start": 20.2, "end": 27.5, "word": "CLIENTS RETENTION"},
-            {"start": 28.2, "end": 35.5, "word": "HIRING SOLID TEAM"},
-            {"start": 36.2, "end": 39.5, "word": "INITIAL 4-5 MONTHS"},
-            {"start": 39.6, "end": 43.5, "word": "HARD WORK & GRIND!"},
-            {"start": 44.2, "end": 50.5, "word": "FOUNDATION IS KEY"},
-            {"start": 51.2, "end": 59.5, "word": "BUSINESS SUSTAIN AAGUM"},
-            {"start": 60.2, "end": 66.5, "word": "HOW AGENCIES SCALE!"}
+            {"start": 0.1, "end": 2.9, "word": "NO EXISTING PRODUCT"},
+            {"start": 3.4, "end": 5.8, "word": "FIRST-MOVER INNOVATION"},
+            {"start": 6.6, "end": 10.5, "word": "CREATING NEW VALUE"},
+            {"start": 14.4, "end": 22.0, "word": "INNOVATION IN WHOLE BUSINESS"},
+            {"start": 22.5, "end": 25.8, "word": "IT BECOMES A VENTURE!"},
+            {"start": 26.5, "end": 32.0, "word": "SOLVING PROBLEMS AT PROFIT"},
+            {"start": 32.4, "end": 34.2, "word": "TRADITIONAL BUSINESS NO INNOVATION"},
+            {"start": 34.6, "end": 38.5, "word": "VALUE RETURN IS LINEAR"},
+            {"start": 38.9, "end": 42.5, "word": "NOT EXPONENTIALLY HIGH"},
+            {"start": 47.2, "end": 50.5, "word": "NEW SOLUTION FOR REAL PAIN"},
+            {"start": 50.6, "end": 56.0, "word": "SOLVING EXPONENTIALLY BIG PROBLEMS"},
+            {"start": 56.5, "end": 59.5, "word": "EXPONENTIALLY HIGH VALUE!"}
         ]
     }
 ]
