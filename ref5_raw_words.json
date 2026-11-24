@@ -1,0 +1,822 @@
+[
+  {
+    "word": "Okay,",
+    "start": 123.0,
+    "end": 123.78
+  },
+  {
+    "word": "situ",
+    "start": 124.66,
+    "end": 124.98
+  },
+  {
+    "word": "is",
+    "start": 124.98,
+    "end": 125.1
+  },
+  {
+    "word": "an",
+    "start": 125.1,
+    "end": 125.2
+  },
+  {
+    "word": "issue.",
+    "start": 125.2,
+    "end": 125.36
+  },
+  {
+    "word": "Abhding",
+    "start": 125.6,
+    "end": 125.88
+  },
+  {
+    "word": "is",
+    "start": 125.88,
+    "end": 126.02
+  },
+  {
+    "word": "a",
+    "start": 126.02,
+    "end": 126.22
+  },
+  {
+    "word": "modern",
+    "start": 126.22,
+    "end": 126.82
+  },
+  {
+    "word": "term",
+    "start": 126.82,
+    "end": 127.28
+  },
+  {
+    "word": "to",
+    "start": 127.28,
+    "end": 127.8
+  },
+  {
+    "word": "the",
+    "start": 127.8,
+    "end": 127.92
+  },
+  {
+    "word": "word",
+    "start": 127.92,
+    "end": 128.14
+  },
+  {
+    "word": "Confucian.",
+    "start": 128.14,
+    "end": 128.96
+  },
+  {
+    "word": "Modern",
+    "start": 131.94,
+    "end": 132.58
+  },
+  {
+    "word": "love",
+    "start": 132.58,
+    "end": 132.9
+  },
+  {
+    "word": "or",
+    "start": 132.9,
+    "end": 133.78
+  },
+  {
+    "word": "modern",
+    "start": 133.78,
+    "end": 134.16
+  },
+  {
+    "word": "confusion?",
+    "start": 134.16,
+    "end": 134.76
+  },
+  {
+    "word": "Situationship",
+    "start": 135.92,
+    "end": 136.34
+  },
+  {
+    "word": "is",
+    "start": 136.34,
+    "end": 136.48
+  },
+  {
+    "word": "not",
+    "start": 136.48,
+    "end": 136.94
+  },
+  {
+    "word": "a",
+    "start": 136.94,
+    "end": 136.94
+  },
+  {
+    "word": "modern",
+    "start": 136.94,
+    "end": 137.76
+  },
+  {
+    "word": "love.",
+    "start": 137.76,
+    "end": 138.04
+  },
+  {
+    "word": "Love",
+    "start": 138.28,
+    "end": 138.56
+  },
+  {
+    "word": "is",
+    "start": 138.56,
+    "end": 138.56
+  },
+  {
+    "word": "not",
+    "start": 138.56,
+    "end": 138.56
+  },
+  {
+    "word": "a",
+    "start": 138.56,
+    "end": 138.56
+  },
+  {
+    "word": "love.",
+    "start": 138.56,
+    "end": 138.68
+  },
+  {
+    "word": "It",
+    "start": 139.44,
+    "end": 139.46
+  },
+  {
+    "word": "is",
+    "start": 139.46,
+    "end": 139.82
+  },
+  {
+    "word": "not",
+    "start": 139.82,
+    "end": 139.82
+  },
+  {
+    "word": "a",
+    "start": 139.82,
+    "end": 142.0
+  },
+  {
+    "word": "love.",
+    "start": 142.0,
+    "end": 142.0
+  },
+  {
+    "word": "Love",
+    "start": 143.54,
+    "end": 144.18
+  },
+  {
+    "word": "is",
+    "start": 144.18,
+    "end": 144.74
+  },
+  {
+    "word": "a",
+    "start": 144.74,
+    "end": 146.14
+  },
+  {
+    "word": "meaning",
+    "start": 146.14,
+    "end": 146.42
+  },
+  {
+    "word": "of",
+    "start": 146.42,
+    "end": 147.84
+  },
+  {
+    "word": "it.",
+    "start": 147.84,
+    "end": 148.0
+  },
+  {
+    "word": "It",
+    "start": 149.16,
+    "end": 149.56
+  },
+  {
+    "word": "is",
+    "start": 149.56,
+    "end": 149.7
+  },
+  {
+    "word": "a",
+    "start": 149.7,
+    "end": 149.86
+  },
+  {
+    "word": "feeling.",
+    "start": 149.86,
+    "end": 150.12
+  },
+  {
+    "word": "How",
+    "start": 150.88,
+    "end": 151.12
+  },
+  {
+    "word": "does",
+    "start": 151.12,
+    "end": 151.22
+  },
+  {
+    "word": "it",
+    "start": 151.22,
+    "end": 151.34
+  },
+  {
+    "word": "feel?",
+    "start": 151.34,
+    "end": 151.54
+  },
+  {
+    "word": "It",
+    "start": 151.54,
+    "end": 152.02
+  },
+  {
+    "word": "is",
+    "start": 152.02,
+    "end": 153.04
+  },
+  {
+    "word": "an",
+    "start": 153.04,
+    "end": 153.22
+  },
+  {
+    "word": "extreme",
+    "start": 153.22,
+    "end": 153.58
+  },
+  {
+    "word": "stage",
+    "start": 153.58,
+    "end": 154.16
+  },
+  {
+    "word": "of",
+    "start": 154.16,
+    "end": 154.42
+  },
+  {
+    "word": "attraction.",
+    "start": 154.42,
+    "end": 154.94
+  },
+  {
+    "word": "Okay,",
+    "start": 156.42,
+    "end": 156.64
+  },
+  {
+    "word": "Abhara.",
+    "start": 157.3,
+    "end": 157.58
+  },
+  {
+    "word": "Extreme",
+    "start": 158.1,
+    "end": 158.36
+  },
+  {
+    "word": "stage",
+    "start": 158.36,
+    "end": 158.64
+  },
+  {
+    "word": "of",
+    "start": 158.64,
+    "end": 159.06
+  },
+  {
+    "word": "infatuation.",
+    "start": 159.06,
+    "end": 160.1
+  },
+  {
+    "word": "Abhara.",
+    "start": 160.54,
+    "end": 160.8
+  },
+  {
+    "word": "Are",
+    "start": 161.64,
+    "end": 162.26
+  },
+  {
+    "word": "there",
+    "start": 162.26,
+    "end": 162.38
+  },
+  {
+    "word": "any",
+    "start": 162.38,
+    "end": 162.5
+  },
+  {
+    "word": "poachas",
+    "start": 162.5,
+    "end": 162.92
+  },
+  {
+    "word": "like",
+    "start": 162.92,
+    "end": 163.36
+  },
+  {
+    "word": "they",
+    "start": 163.36,
+    "end": 164.2
+  },
+  {
+    "word": "share?",
+    "start": 164.2,
+    "end": 164.44
+  },
+  {
+    "word": "Love",
+    "start": 164.44,
+    "end": 164.7
+  },
+  {
+    "word": "is",
+    "start": 164.7,
+    "end": 164.86
+  },
+  {
+    "word": "basically",
+    "start": 164.86,
+    "end": 165.08
+  },
+  {
+    "word": "a",
+    "start": 165.08,
+    "end": 165.18
+  },
+  {
+    "word": "chemical",
+    "start": 165.18,
+    "end": 165.44
+  },
+  {
+    "word": "feeling.",
+    "start": 165.44,
+    "end": 165.72
+  },
+  {
+    "word": "Rashav",
+    "start": 167.28,
+    "end": 167.64
+  },
+  {
+    "word": "Dopam",
+    "start": 167.64,
+    "end": 168.04
+  },
+  {
+    "word": "in.",
+    "start": 168.04,
+    "end": 168.28
+  },
+  {
+    "word": "Rashav",
+    "start": 168.8,
+    "end": 169.52
+  },
+  {
+    "word": "Oxytocin.",
+    "start": 169.52,
+    "end": 170.02
+  },
+  {
+    "word": "Oxytocin.",
+    "start": 170.28,
+    "end": 170.88
+  },
+  {
+    "word": "Oxytocin.",
+    "start": 171.76,
+    "end": 172.48
+  },
+  {
+    "word": "Oxytocin.",
+    "start": 172.52,
+    "end": 173.12
+  },
+  {
+    "word": "Abhara.",
+    "start": 173.28,
+    "end": 173.52
+  },
+  {
+    "word": "Seroton.",
+    "start": 173.9,
+    "end": 174.2
+  },
+  {
+    "word": "Seroton",
+    "start": 175.26,
+    "end": 175.98
+  },
+  {
+    "word": "is",
+    "start": 175.98,
+    "end": 176.34
+  },
+  {
+    "word": "steep",
+    "start": 176.34,
+    "end": 176.66
+  },
+  {
+    "word": "hormone.",
+    "start": 176.66,
+    "end": 177.1
+  },
+  {
+    "word": "It",
+    "start": 177.56,
+    "end": 177.62
+  },
+  {
+    "word": "is",
+    "start": 177.62,
+    "end": 177.7
+  },
+  {
+    "word": "relaxed.",
+    "start": 177.7,
+    "end": 178.04
+  },
+  {
+    "word": "Yes.",
+    "start": 178.5,
+    "end": 178.6
+  },
+  {
+    "word": "Okay.",
+    "start": 179.12,
+    "end": 179.24
+  },
+  {
+    "word": "When",
+    "start": 179.24,
+    "end": 179.58
+  },
+  {
+    "word": "you",
+    "start": 179.58,
+    "end": 179.7
+  },
+  {
+    "word": "are",
+    "start": 179.7,
+    "end": 179.74
+  },
+  {
+    "word": "in",
+    "start": 179.74,
+    "end": 179.8
+  },
+  {
+    "word": "love,",
+    "start": 179.8,
+    "end": 179.92
+  },
+  {
+    "word": "you",
+    "start": 180.1,
+    "end": 180.1
+  },
+  {
+    "word": "sleep",
+    "start": 180.1,
+    "end": 180.68
+  },
+  {
+    "word": "well.",
+    "start": 180.68,
+    "end": 180.94
+  },
+  {
+    "word": "I",
+    "start": 181.36,
+    "end": 181.62
+  },
+  {
+    "word": "am",
+    "start": 181.62,
+    "end": 181.74
+  },
+  {
+    "word": "things.",
+    "start": 181.74,
+    "end": 181.9
+  },
+  {
+    "word": "Yes.",
+    "start": 182.32,
+    "end": 182.44
+  },
+  {
+    "word": "When",
+    "start": 182.52,
+    "end": 182.58
+  },
+  {
+    "word": "you",
+    "start": 182.58,
+    "end": 182.68
+  },
+  {
+    "word": "are",
+    "start": 182.68,
+    "end": 182.68
+  },
+  {
+    "word": "comfortable",
+    "start": 182.68,
+    "end": 182.94
+  },
+  {
+    "word": "with",
+    "start": 182.94,
+    "end": 183.08
+  },
+  {
+    "word": "you",
+    "start": 183.08,
+    "end": 183.22
+  },
+  {
+    "word": "sleep",
+    "start": 183.22,
+    "end": 183.3
+  },
+  {
+    "word": "well.",
+    "start": 183.3,
+    "end": 183.52
+  },
+  {
+    "word": "You",
+    "start": 184.1,
+    "end": 184.48
+  },
+  {
+    "word": "sleep",
+    "start": 184.48,
+    "end": 184.72
+  },
+  {
+    "word": "well",
+    "start": 184.72,
+    "end": 184.94
+  },
+  {
+    "word": "when",
+    "start": 184.94,
+    "end": 185.02
+  },
+  {
+    "word": "you",
+    "start": 185.02,
+    "end": 185.1
+  },
+  {
+    "word": "are",
+    "start": 185.1,
+    "end": 185.24
+  },
+  {
+    "word": "around",
+    "start": 185.24,
+    "end": 185.4
+  },
+  {
+    "word": "with",
+    "start": 185.4,
+    "end": 185.52
+  },
+  {
+    "word": "comfortable",
+    "start": 185.52,
+    "end": 185.82
+  },
+  {
+    "word": "people.",
+    "start": 185.82,
+    "end": 186.12
+  },
+  {
+    "word": "No.",
+    "start": 186.68,
+    "end": 186.76
+  },
+  {
+    "word": "All",
+    "start": 186.82,
+    "end": 186.92
+  },
+  {
+    "word": "these",
+    "start": 186.92,
+    "end": 187.06
+  },
+  {
+    "word": "hormones",
+    "start": 187.06,
+    "end": 187.3
+  },
+  {
+    "word": "are",
+    "start": 187.3,
+    "end": 187.48
+  },
+  {
+    "word": "stagnated",
+    "start": 187.48,
+    "end": 187.92
+  },
+  {
+    "word": "when",
+    "start": 187.92,
+    "end": 188.42
+  },
+  {
+    "word": "you",
+    "start": 188.42,
+    "end": 188.6
+  },
+  {
+    "word": "have",
+    "start": 188.6,
+    "end": 188.76
+  },
+  {
+    "word": "a",
+    "start": 188.76,
+    "end": 188.82
+  },
+  {
+    "word": "good",
+    "start": 188.82,
+    "end": 188.9
+  },
+  {
+    "word": "relationship.",
+    "start": 188.9,
+    "end": 189.2
+  },
+  {
+    "word": "Men,",
+    "start": 189.98,
+    "end": 190.08
+  },
+  {
+    "word": "in",
+    "start": 190.48,
+    "end": 190.72
+  },
+  {
+    "word": "relationship,",
+    "start": 190.72,
+    "end": 191.14
+  },
+  {
+    "word": "happy",
+    "start": 191.48,
+    "end": 191.84
+  },
+  {
+    "word": "relationship,",
+    "start": 191.84,
+    "end": 192.32
+  },
+  {
+    "word": "tend",
+    "start": 192.66,
+    "end": 193.3
+  },
+  {
+    "word": "to",
+    "start": 193.3,
+    "end": 193.52
+  },
+  {
+    "word": "put",
+    "start": 193.52,
+    "end": 193.7
+  },
+  {
+    "word": "on",
+    "start": 193.7,
+    "end": 193.88
+  },
+  {
+    "word": "weight.",
+    "start": 193.88,
+    "end": 194.08
+  },
+  {
+    "word": "Why?",
+    "start": 194.78,
+    "end": 195.08
+  },
+  {
+    "word": "Because",
+    "start": 195.6,
+    "end": 195.9
+  },
+  {
+    "word": "no",
+    "start": 195.9,
+    "end": 196.16
+  },
+  {
+    "word": "stress.",
+    "start": 196.16,
+    "end": 196.4
+  },
+  {
+    "word": "Even",
+    "start": 197.96,
+    "end": 198.44
+  },
+  {
+    "word": "women.",
+    "start": 198.44,
+    "end": 198.78
+  },
+  {
+    "word": "Yeah,",
+    "start": 199.38,
+    "end": 199.58
+  },
+  {
+    "word": "women.",
+    "start": 199.66,
+    "end": 199.86
+  },
+  {
+    "word": "They",
+    "start": 200.24,
+    "end": 200.4
+  },
+  {
+    "word": "scientifically",
+    "start": 200.4,
+    "end": 200.92
+  },
+  {
+    "word": "say",
+    "start": 200.92,
+    "end": 201.32
+  },
+  {
+    "word": "a",
+    "start": 201.32,
+    "end": 201.5
+  },
+  {
+    "word": "woman's",
+    "start": 201.5,
+    "end": 202.04
+  },
+  {
+    "word": "hair",
+    "start": 202.04,
+    "end": 202.16
+  },
+  {
+    "word": "gets",
+    "start": 202.16,
+    "end": 202.52
+  },
+  {
+    "word": "curlier.",
+    "start": 202.52,
+    "end": 203.4
+  },
+  {
+    "word": "Oh.",
+    "start": 204.02,
+    "end": 204.22
+  }
+]
