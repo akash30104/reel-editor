@@ -16,8 +16,8 @@ Key Professional Enhancements:
    - colorbalance=rs=0.04:gs=0.02:bs=-0.04 (warm studio skin tones, neutral whites)
    - unsharp=5:5:0.6:5:5:0.0 (high-frequency luma definition on faces & clothing)
    - setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709,format=yuv420p (SDR BT.709 bitstream lock)
-3. Header Banner: #FF8400 Signature Orange, 3px black borders, centered bold English title with Apple Color Emoji.
-4. Subtitles: MyHandwriting.ttf in #FF8400 Orange with 7px solid black outline & multi-angle shadow.
+3. Header Banner: #F38300 Authentic Reference 11 Orange, 3px black borders, centered bold English title with Apple Color Emoji.
+4. Subtitles: MyHandwriting.ttf in #F38300 Orange with 4px solid black outline & multi-angle shadow.
    - Dynamic scaling ensures max width <= 860px (zero edge overflow).
 5. Curated Contextual B-Rolls: Business, startup documents, craftsmanship, market crowds, and golden sunrise.
 6. Pro Audio: Dialogue normalized to -14.0 LUFS (-1.0 dBTP) with ducked BGM at -23 dB.
@@ -55,7 +55,7 @@ VIDEO_H = 940
 SUBS_Y = 1260
 SUBS_H = 180
 
-COLOR_ORANGE_RGBA = (255, 132, 0, 255) # Signature #FF8400
+COLOR_ORANGE_RGBA = (245, 142, 0, 255) # Calibrated encode -> exact Ref 11 [243, 140, 0] #F38C00 subtitle
 COLOR_BLACK = (0, 0, 0, 255)
 
 # Cinematic warm studio grade
@@ -76,19 +76,10 @@ CROPS = {
 }
 
 def generate_header_banner(title_text, out_png):
+    # 1. Native macOS typography & Apple Color Emoji rendered onto transparent layer
     im = NSImage.alloc().initWithSize_((WIDTH, BANNER_H))
     im.lockFocus()
     
-    # Fill #FF8400 Signature Orange in sRGB
-    NSColor.colorWithSRGBRed_green_blue_alpha_(255.0/255.0, 132.0/255.0, 0.0/255.0, 1.0).set()
-    NSRectFill(Cocoa.NSMakeRect(0, 0, WIDTH, BANNER_H))
-    
-    # 3px black borders
-    NSColor.blackColor().set()
-    NSRectFill(Cocoa.NSMakeRect(0, 0, WIDTH, 3))
-    NSRectFill(Cocoa.NSMakeRect(0, BANNER_H - 3, WIDTH, 3))
-    
-    # Title Text in bold black
     font = NSFont.boldSystemFontOfSize_(56.0)
     attrs = {
         NSFontAttributeName: font,
@@ -105,8 +96,25 @@ def generate_header_banner(title_text, out_png):
     im.unlockFocus()
     rep = NSBitmapImageRep.imageRepWithData_(im.TIFFRepresentation())
     png_data = rep.representationUsingType_properties_(Cocoa.NSPNGFileType, {})
-    png_data.writeToFile_atomically_(str(out_png), True)
-    print(f"✅ Header banner created: {out_png}")
+    
+    temp_text = WORKSPACE / f"temp_banner_text_{int(time.time()*1000)}.png"
+    png_data.writeToFile_atomically_(str(temp_text), True)
+    
+    # 2. PIL Banner with calibrated Ref 11 Orange (245, 132, 0) -> encodes to exact Ref 11 [243, 131, 0] #F38300
+    banner = Image.new("RGBA", (WIDTH, BANNER_H), (245, 132, 0, 255))
+    draw = ImageDraw.Draw(banner)
+    # 3px solid black borders top & bottom
+    draw.rectangle([0, 0, WIDTH, 2], fill=(0, 0, 0, 255))
+    draw.rectangle([0, BANNER_H - 3, WIDTH, BANNER_H], fill=(0, 0, 0, 255))
+    
+    # Composite title text with emoji cleanly over banner
+    text_img = Image.open(temp_text).convert("RGBA")
+    banner.alpha_composite(text_img)
+    banner.save(str(out_png))
+    
+    if temp_text.exists():
+        temp_text.unlink()
+    print(f"✅ Header banner created (Exact Ref 11 #F38300): {out_png}")
 
 def bridge_words(words_list, max_gap=0.45):
     sorted_words = sorted(words_list, key=lambda x: x["start"])
@@ -153,7 +161,7 @@ def generate_subtitles_mov(words_list, total_dur, out_mov):
             # 8-direction shadow
             for dx, dy in [(-3, -3), (3, -3), (-3, 3), (3, 3), (0, 3), (0, -3), (3, 0), (-3, 0)]:
                 draw.text((x + dx, y + dy), word, font=f, fill=(0, 0, 0, 210), stroke_width=4, stroke_fill=COLOR_BLACK)
-            # Main #FF8400 text with 4px solid black stroke
+            # Main #F38300 text with 4px solid black stroke
             draw.text((x, y), word, font=f, fill=COLOR_ORANGE_RGBA, stroke_width=4, stroke_fill=COLOR_BLACK)
             cache[word] = im.tobytes()
             
