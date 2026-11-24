@@ -7,10 +7,11 @@ Master Renderer for Reel 1 in Reference 11 Style:
    - Canvas: 1080x1920 @ 30 fps
    - Top black bar: Y = 0 to 408
    - Header Banner: Y = 408 to 558 (Height 150px)
-     * Background: Exact Reference 11 Orange #F38300 (RGB: 243, 131, 0)
+     * Background: Signature Reference 11 Orange #FF8400 (RGB: 255, 132, 0)
      * 3px solid black border lines top and bottom
      * Clean English Title: "Lessons from Ramayana 🏹"
    - Active Video Window: Y = 558 to 1498 (Height 940px, centered)
+     * Strict SDR BT.709 color pipeline (strips all iPhone HDR/HLG/BT.2020 tags so orange never displays as red)
      * 100% Acoustic Lip-Sync: Every speaker cut starts at 1988.0 + timeline_elapsed
      * Speaker framing:
        - Host Woman: crop=1206:1050:2150:650 -> scale=1080:940
@@ -23,7 +24,7 @@ Master Renderer for Reel 1 in Reference 11 Style:
 2. Subtitles:
    - Dynamic fast single-word / 2-word bursts
    - Font: User's handwriting font MyHandwriting.ttf
-   - Color: Exact signature #F38300 (RGB: 243, 131, 0) with 7px solid black stroke & drop shadow
+   - Color: Signature Orange #FF8400 (RGB: 255, 132, 0) with 7px solid black stroke & drop shadow
    - Placement: Lower third of video window (Y = 1340)
    - Accurate Spoken Tanglish: Strictly synchronized with Whisper millisecond acoustic speech timestamps
 
@@ -63,18 +64,18 @@ SUBS_H = 180
 
 TOTAL_DUR = 74.0
 
-# Exact Reference 11 Orange sampled directly from Reference 11 videos:
-COLOR_ORANGE_RGBA = (243, 131, 0, 255) # #F38300
+# Vibrant Reference 11 Signature Orange #FF8400:
+COLOR_ORANGE_RGBA = (255, 132, 0, 255) # #FF8400
 COLOR_BLACK = (0, 0, 0, 255)
 
-print("🎬 Step 1: Generating Native Reference 11 Header Banner (#F38300)...")
+print("🎬 Step 1: Generating Native Reference 11 Header Banner (#FF8400)...")
 banner_png = WORKSPACE / "ref11_master_banner.png"
 
 im = NSImage.alloc().initWithSize_((WIDTH, BANNER_H))
 im.lockFocus()
 
-# Fill #F38300 Reference 11 Orange in sRGB (243, 131, 0)
-NSColor.colorWithSRGBRed_green_blue_alpha_(243.0/255.0, 131.0/255.0, 0.0/255.0, 1.0).set()
+# Fill #FF8400 Reference 11 Orange in sRGB (255, 132, 0)
+NSColor.colorWithSRGBRed_green_blue_alpha_(255.0/255.0, 132.0/255.0, 0.0/255.0, 1.0).set()
 NSRectFill(Cocoa.NSMakeRect(0, 0, WIDTH, BANNER_H))
 
 # 3px black borders
@@ -99,10 +100,9 @@ png_data = rep.representationUsingType_properties_(Cocoa.NSPNGFileType, {})
 png_data.writeToFile_atomically_(str(banner_png), True)
 print(f"✅ Header Banner saved: {banner_png}")
 
-print("🎬 Step 2: Preparing Video Visual Track (Exact 100% Lip-Sync Alignment)...")
+print("🎬 Step 2: Preparing Video Visual Track (Exact 100% Lip-Sync Alignment + SDR BT.709)...")
 ref11_video_track = WORKSPACE / "ref11_visual_track.mp4"
 
-# Force fresh cut render for perfect A/V lip-sync:
 # Timeline starts at 1988.0s in 202.MOV. Every speaker segment at timeline T has raw_ss = 1988.0 + T!
 CUT_SPECS = [
     {"type": "host",   "timeline_st": 0.0,  "dur": 7.8, "broll": None, "bw_hook": True},
@@ -128,6 +128,7 @@ cut_files = []
 concat_list = WORKSPACE / "ref11_cuts_concat.txt"
 
 COLOR_GRADE = "eq=contrast=1.08:saturation=0.92:brightness=-0.01,colorbalance=rs=0.03:gs=0.01:bs=-0.03"
+SDR_FILTER = "setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709,format=yuv420p"
 
 for idx, cut in enumerate(CUT_SPECS):
     out_cut = WORKSPACE / f"ref11_mcut_{idx}.mp4"
@@ -137,32 +138,33 @@ for idx, cut in enumerate(CUT_SPECS):
     raw_ss = 1988.0 + t_st
     
     if cut["type"] == "broll":
-        vf = f"scale=1080:940:force_original_aspect_ratio=increase,crop=1080:940,fps=30,setsar=1,{COLOR_GRADE}"
+        vf = f"scale=1080:940:force_original_aspect_ratio=increase,crop=1080:940,fps=30,setsar=1,{COLOR_GRADE},{SDR_FILTER}"
         cmd = [
             "ffmpeg", "-y", "-ss", "0.0", "-t", f"{dur:.3f}", "-stream_loop", "-1",
             "-i", cut["broll"],
-            "-vf", vf, "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", str(out_cut)
+            "-vf", vf, "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
+            "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
+            str(out_cut)
         ]
     else:
         if cut["type"] == "host":
-            # Host Woman centered MCU
             crop = "crop=1206:1050:2150:650,scale=1080:940:flags=lanczos"
         elif cut["type"] == "punch":
-            # Guest Man 1.15x Punch-in
             crop = "crop=1048:913:530:820,scale=1080:940:flags=lanczos"
         else:
-            # Guest Man standard MCU
             crop = "crop=1206:1050:450:750,scale=1080:940:flags=lanczos"
             
         if cut.get("bw_hook"):
-            vf = f"{crop},hue=s='if(lt(t,0.6),0,1)',{COLOR_GRADE},fps=30,setsar=1"
+            vf = f"{crop},hue=s='if(lt(t,0.6),0,1)',{COLOR_GRADE},{SDR_FILTER},fps=30,setsar=1"
         else:
-            vf = f"{crop},{COLOR_GRADE},fps=30,setsar=1"
+            vf = f"{crop},{COLOR_GRADE},{SDR_FILTER},fps=30,setsar=1"
             
         cmd = [
             "ffmpeg", "-y", "-ss", f"{raw_ss:.3f}", "-t", f"{dur:.3f}",
             "-i", str(RAW_VIDEO),
-            "-vf", vf, "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", str(out_cut)
+            "-vf", vf, "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
+            "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
+            str(out_cut)
         ]
     subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
@@ -172,14 +174,14 @@ with open(concat_list, "w") as f:
 
 subprocess.run([
     "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_list),
-    "-vf", f"pad={WIDTH}:{HEIGHT}:0:{VIDEO_Y}:color=black",
+    "-vf", f"pad={WIDTH}:{HEIGHT}:0:{VIDEO_Y}:color=black,{SDR_FILTER}",
     "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p",
     "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
     str(ref11_video_track)
 ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 print(f"✅ Master visual track assembled: {ref11_video_track}")
 
-print("🎬 Step 3: Generating Accurate Tanglish Spoken Subtitles Video (MyHandwriting.ttf in #F38300)...")
+print("🎬 Step 3: Generating Accurate Tanglish Spoken Subtitles Video (MyHandwriting.ttf in #FF8400)...")
 
 # Exact spoken Tamil/Tanglish words matching whisper acoustic timestamps:
 SPEECH_SYNCED_WORDS = [
@@ -281,7 +283,7 @@ def render_word_frame(word):
     for dx, dy in [(-3, -3), (3, -3), (-3, 3), (3, 3), (0, 4), (0, -4), (4, 0), (-4, 0)]:
         draw.text((x + dx, y + dy), clean_word, font=f, fill=(0, 0, 0, 200), stroke_width=6, stroke_fill=COLOR_BLACK)
         
-    # Main text in signature Reference 11 Orange #F38300 with 7px solid black stroke
+    # Main text in signature Reference 11 Orange #FF8400 with 7px solid black stroke
     draw.text((x, y), clean_word, font=f, fill=COLOR_ORANGE_RGBA, stroke_width=7, stroke_fill=COLOR_BLACK)
     return im.tobytes()
 
@@ -320,7 +322,7 @@ subprocess.run([
     "-i", str(PRO_AUDIO),
     "-filter_complex",
     f"[0:v][1:v]overlay=0:{BANNER_Y}:shortest=1[v_banner];"
-    f"[v_banner][2:v]overlay=0:{SUBS_Y}:shortest=1[v]",
+    f"[v_banner][2:v]overlay=0:{SUBS_Y}:shortest=1,{SDR_FILTER}[v]",
     "-map", "[v]", "-map", "3:a",
     "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p",
     "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
