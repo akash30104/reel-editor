@@ -118,11 +118,11 @@ def generate_subtitles_mov(words_list, total_dur, out_mov):
     for w in words_list:
         word = w["word"].strip()
         if word not in cache:
-            sz = 95
+            sz = 56
             f = ImageFont.truetype(str(FONT_PATH), sz)
             bbox = draw_dummy.textbbox((0, 0), word, font=f)
             tw = bbox[2] - bbox[0]
-            while tw > 860 and sz > 36:
+            while tw > 760 and sz > 30:
                 sz -= 2
                 f = ImageFont.truetype(str(FONT_PATH), sz)
                 bbox = draw_dummy.textbbox((0, 0), word, font=f)
@@ -135,10 +135,10 @@ def generate_subtitles_mov(words_list, total_dur, out_mov):
             y = (SUBS_H - th) // 2 - 5
             
             # 8-direction shadow
-            for dx, dy in [(-4, -4), (4, -4), (-4, 4), (4, 4), (0, 5), (0, -5), (5, 0), (-5, 0)]:
-                draw.text((x + dx, y + dy), word, font=f, fill=(0, 0, 0, 220), stroke_width=7, stroke_fill=COLOR_BLACK)
-            # Main #FF8400 text with 7px solid black stroke
-            draw.text((x, y), word, font=f, fill=COLOR_ORANGE_RGBA, stroke_width=7, stroke_fill=COLOR_BLACK)
+            for dx, dy in [(-3, -3), (3, -3), (-3, 3), (3, 3), (0, 3), (0, -3), (3, 0), (-3, 0)]:
+                draw.text((x + dx, y + dy), word, font=f, fill=(0, 0, 0, 210), stroke_width=4, stroke_fill=COLOR_BLACK)
+            # Main #FF8400 text with 4px solid black stroke
+            draw.text((x, y), word, font=f, fill=COLOR_ORANGE_RGBA, stroke_width=4, stroke_fill=COLOR_BLACK)
             cache[word] = im.tobytes()
             
     empty_frame = Image.new("RGBA", (WIDTH, SUBS_H), (0, 0, 0, 0)).tobytes()
@@ -264,7 +264,7 @@ def render_reel(reel_id, title, raw_base_ss, total_dur, cut_specs, words_list, o
         f"[0:v][1:v]overlay=0:{BANNER_Y}:shortest=1[v_banner];"
         f"[v_banner][2:v]overlay=0:{SUBS_Y}:shortest=1,{SDR_FILTER}[v]",
         "-map", "[v]", "-map", "3:a",
-        "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p",
+        "-c:v", "libx264", "-preset", "fast", "-crf", "18", "-pix_fmt", "yuv420p",
         "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
         "-c:a", "aac", "-b:a", "256k", "-shortest",
         str(out_mp4)
@@ -288,104 +288,232 @@ def render_reel(reel_id, title, raw_base_ss, total_dur, cut_specs, words_list, o
     print(f"📸 QA verification frames extracted for Reel {reel_id}")
 
 # ==============================================================================
-# SPEECH-LOCKED DEFINITIONS FOR THE 4 REELS (ONE WORD AT A TIME)
+# SPEECH-LOCKED DEFINITIONS FOR THE 4 REELS (ONE WORD AT A TIME - 50ms VAD SYNC)
 # ==============================================================================
 
-def make_single_word_events(phrases):
-    events = []
-    for p in phrases:
-        st, et, words_str = p
-        words = words_str.split()
-        if not words:
-            continue
-        dur = et - st
-        w_dur = dur / len(words)
-        for i, w in enumerate(words):
-            w_st = st + i * w_dur
-            w_et = w_st + w_dur
-            events.append({
-                "start": round(w_st, 2),
-                "end": round(w_et, 2),
-                "word": w.strip().upper()
-            })
-    return events
-
-# Reel 1: Student to Founder 🚀 (Phonetic Tanglish Speech-Locked)
-R1_PHRASES = [
-    (0.0, 1.8, "VANAKKAM NALLA IRUKKEN"),
-    (2.0, 3.8, "SUPER GANESH"),
-    (4.2, 7.8, "GANESH PATHI SOLLUNGA EPPADI MEET SEIDHOM"),
-    (8.0, 11.8, "CRISP-AA CHINNA INTRO SOLLUNGA"),
-    (12.2, 15.8, "SARI EN PEYAR GANESH NAAN STUDENT"),
-    (16.2, 19.8, "SCRATCH-LA IRUNDHU COMPANY START PANNEN"),
-    (20.2, 23.8, "ENAKKU ZERO IDEA ZERO KNOWLEDGE"),
-    (24.2, 27.8, "SOCIAL MEDIA-LA RESEARCH PANNEN"),
-    (28.2, 31.8, "LOKESH BRO-VA MEET PANNEN CONNECT AANOM"),
-    (32.2, 35.8, "PODCAST-LA CONNECT AAGI KETTOAM"),
-    (36.2, 39.8, "AVANGA ENAKKU MENTOR PANNAANGA"),
-    (40.2, 43.8, "NAANGA REGULAR-AA PESI DISCUSSED"),
-    (44.2, 47.8, "BUSINESS START PANNITTEENGALA AAMAAM START PANNITTOM"),
-    (48.2, 51.8, "COMPANY REGISTER PANNIYACHU"),
-    (52.2, 54.0, "PROPRIETARY-AA?"),
-    (54.2, 56.5, "ILLA PRIVATE LIMITED"),
-    (56.8, 59.8, "COLLEGE PADIKKUM BODHEY PRIVATE LIMITED"),
+# Reel 1: Student to Founder 🚀
+R1_WORDS = [
+    {"start": 0.00, "end": 0.35, "word": "VANAKKAM"},
+    {"start": 0.50, "end": 1.10, "word": "NALLA"},
+    {"start": 1.10, "end": 1.75, "word": "IRUKKEN"},
+    {"start": 2.40, "end": 3.00, "word": "SUPER"},
+    {"start": 3.50, "end": 4.40, "word": "GANESH"},
+    {"start": 4.40, "end": 5.50, "word": "PATHI"},
+    {"start": 6.25, "end": 7.20, "word": "SOLLUNGA"},
+    {"start": 7.20, "end": 8.20, "word": "EPPADI"},
+    {"start": 8.20, "end": 9.20, "word": "MEET"},
+    {"start": 10.35, "end": 11.00, "word": "NEENGA"},
+    {"start": 11.00, "end": 11.75, "word": "YAARU?"},
+    {"start": 12.40, "end": 12.80, "word": "SARI"},
+    {"start": 13.15, "end": 13.65, "word": "EN"},
+    {"start": 13.70, "end": 14.00, "word": "PEYAR"},
+    {"start": 14.00, "end": 14.40, "word": "GANESH"},
+    {"start": 14.55, "end": 15.00, "word": "NAAN"},
+    {"start": 15.00, "end": 15.55, "word": "STUDENT"},
+    {"start": 16.25, "end": 17.00, "word": "COMPANY"},
+    {"start": 17.00, "end": 17.65, "word": "SCRATCH-LA"},
+    {"start": 17.70, "end": 18.20, "word": "IRUNDHU"},
+    {"start": 18.35, "end": 18.75, "word": "START"},
+    {"start": 18.90, "end": 19.25, "word": "PANNEN"},
+    {"start": 19.50, "end": 20.30, "word": "ZERO"},
+    {"start": 20.30, "end": 21.25, "word": "IDEA"},
+    {"start": 22.10, "end": 22.70, "word": "ZERO"},
+    {"start": 22.70, "end": 23.30, "word": "KNOWLEDGE"},
+    {"start": 24.55, "end": 25.10, "word": "SOCIAL"},
+    {"start": 25.40, "end": 26.30, "word": "MEDIA-LA"},
+    {"start": 26.40, "end": 27.00, "word": "RESEARCH"},
+    {"start": 27.05, "end": 27.95, "word": "PANNEN"},
+    {"start": 28.45, "end": 28.95, "word": "LOKESH"},
+    {"start": 28.95, "end": 29.45, "word": "BRO-VA"},
+    {"start": 29.50, "end": 30.15, "word": "MEET"},
+    {"start": 31.50, "end": 32.60, "word": "PODCAST-LA"},
+    {"start": 32.70, "end": 33.40, "word": "CONNECT"},
+    {"start": 33.80, "end": 34.35, "word": "KETTOAM"},
+    {"start": 35.30, "end": 36.10, "word": "MENTOR"},
+    {"start": 36.80, "end": 38.25, "word": "PANNAANGA"},
+    {"start": 39.50, "end": 40.10, "word": "REGULAR-AA"},
+    {"start": 40.10, "end": 40.60, "word": "PESI"},
+    {"start": 43.05, "end": 43.70, "word": "SUPER!"},
+    {"start": 43.70, "end": 44.45, "word": "BUSINESS"},
+    {"start": 44.95, "end": 45.40, "word": "START"},
+    {"start": 45.40, "end": 45.90, "word": "PANNITTEENGALA?"},
+    {"start": 46.80, "end": 47.30, "word": "AAMAAM"},
+    {"start": 47.85, "end": 48.30, "word": "START"},
+    {"start": 48.85, "end": 49.30, "word": "PANNITTOM!"},
+    {"start": 49.45, "end": 50.00, "word": "COMPANY"},
+    {"start": 50.05, "end": 50.75, "word": "REGISTER"},
+    {"start": 50.85, "end": 51.55, "word": "PANNIYACHU!"},
+    {"start": 52.95, "end": 54.30, "word": "PROPRIETARY-AA?"},
+    {"start": 54.60, "end": 55.00, "word": "ILLA!"},
+    {"start": 55.00, "end": 55.50, "word": "PRIVATE"},
+    {"start": 55.50, "end": 56.00, "word": "LIMITED!"},
+    {"start": 58.15, "end": 58.55, "word": "COLLEGE"},
+    {"start": 58.55, "end": 58.95, "word": "PADIKKUM"},
+    {"start": 58.95, "end": 59.35, "word": "BODHEY"},
+    {"start": 59.35, "end": 59.75, "word": "PVT-LTD!"},
 ]
 
-# Reel 2: Why Register Pvt Ltd? 🏢 (Phonetic Tanglish Speech-Locked)
-R2_PHRASES = [
-    (0.0, 3.8, "YAAR INDHA PRIVATE LIMITED ADVICE PANNANGA"),
-    (4.0, 7.8, "FIRST-LA NAANGA LLP PANNALAAM NU VANDHOM"),
-    (8.0, 11.5, "LLP-NA ENNA LIMITED LIABILITY PARTNERSHIP"),
-    (11.8, 15.5, "ETHANA PARTNERS IRUKEENGA RENDU PERU"),
-    (15.8, 19.8, "LLP PANNALAAM NU YOSICHOM KADAISIYILA"),
-    (20.0, 23.8, "PVT LTD PANNOM AUDITOR KITTA PESUMBODHU"),
-    (24.0, 27.8, "AUDIT COMPLIANCE RULES PROCESS IRUKKU"),
-    (28.0, 31.8, "AANAAL BENEFITS NERAYA IRUKKUM"),
-    (32.0, 35.8, "FUTURE-LA FUNDING RAISE PANREENGALA"),
-    (36.0, 40.0, "INVESTORS VANDHU PVT LTD PREFER PANNUVAANGA"),
-    (40.5, 44.5, "COLLEGE-LA ORU BRAND PVT LTD MASSIVE BENEFIT"),
-    (45.0, 48.0, "SUPER SO COLLEGE PADIKKUMBODHEY"),
-    (48.5, 52.5, "REAL COMPANY START PANNA MUDIVU PANNITTEENGA"),
-    (53.0, 56.5, "PROPER-AA START PANNITTEENGA"),
-    (57.0, 59.8, "BUILT FOR MASSIVE SCALE"),
+# Reel 2: Why Register Pvt Ltd? 🏢
+R2_WORDS = [
+    {"start": 0.35, "end": 0.75, "word": "YAAR"},
+    {"start": 0.75, "end": 1.15, "word": "INDHA"},
+    {"start": 1.20, "end": 1.65, "word": "PRIVATE"},
+    {"start": 1.65, "end": 2.10, "word": "LIMITED"},
+    {"start": 2.10, "end": 2.50, "word": "ADVICE"},
+    {"start": 3.25, "end": 3.55, "word": "PANNANGA?"},
+    {"start": 3.85, "end": 4.35, "word": "FIRST-U"},
+    {"start": 4.35, "end": 4.85, "word": "VANDHU"},
+    {"start": 5.25, "end": 5.90, "word": "NAANGA"},
+    {"start": 5.90, "end": 6.55, "word": "LLP"},
+    {"start": 7.10, "end": 7.50, "word": "LLP-NA"},
+    {"start": 7.50, "end": 7.95, "word": "ENNA?"},
+    {"start": 9.80, "end": 10.30, "word": "LIMITED"},
+    {"start": 10.30, "end": 10.80, "word": "LIABILITY"},
+    {"start": 10.80, "end": 11.25, "word": "PARTNERSHIP"},
+    {"start": 11.65, "end": 11.95, "word": "ETHANA"},
+    {"start": 11.95, "end": 12.25, "word": "PARTNERS?"},
+    {"start": 12.50, "end": 13.00, "word": "RENDU"},
+    {"start": 13.00, "end": 13.50, "word": "PERU!"},
+    {"start": 14.85, "end": 15.40, "word": "LLP"},
+    {"start": 16.00, "end": 16.75, "word": "YOSICHOM"},
+    {"start": 16.80, "end": 17.40, "word": "KADAISIYILA"},
+    {"start": 18.60, "end": 19.10, "word": "PVT"},
+    {"start": 19.10, "end": 19.65, "word": "LTD"},
+    {"start": 19.65, "end": 20.20, "word": "PANNOM"},
+    {"start": 21.35, "end": 21.95, "word": "AUDITOR"},
+    {"start": 23.00, "end": 23.60, "word": "PESUMBODHU"},
+    {"start": 23.60, "end": 24.20, "word": "COMPLIANCE"},
+    {"start": 24.20, "end": 24.80, "word": "NERAYA"},
+    {"start": 25.60, "end": 26.20, "word": "RULES"},
+    {"start": 26.20, "end": 26.80, "word": "DOCUMENTATION"},
+    {"start": 27.30, "end": 28.10, "word": "PROCESS"},
+    {"start": 28.20, "end": 28.75, "word": "AANAAL"},
+    {"start": 28.75, "end": 29.35, "word": "BENEFITS"},
+    {"start": 29.85, "end": 30.60, "word": "NERAYA"},
+    {"start": 30.60, "end": 31.35, "word": "IRUKKUM!"},
+    {"start": 31.40, "end": 31.90, "word": "FUNDING"},
+    {"start": 31.90, "end": 32.45, "word": "RAISE"},
+    {"start": 33.10, "end": 34.60, "word": "PANREENGALA?"},
+    {"start": 34.95, "end": 36.00, "word": "INVESTORS"},
+    {"start": 36.00, "end": 37.00, "word": "VANDHU"},
+    {"start": 37.85, "end": 38.25, "word": "PVT"},
+    {"start": 38.25, "end": 38.65, "word": "LTD"},
+    {"start": 38.65, "end": 39.05, "word": "DHAAN"},
+    {"start": 40.30, "end": 40.85, "word": "PREFER"},
+    {"start": 40.85, "end": 41.40, "word": "PANNUVAANGA!"},
+    {"start": 42.05, "end": 42.75, "word": "COLLEGE-LA"},
+    {"start": 43.40, "end": 44.05, "word": "BRAND"},
+    {"start": 44.05, "end": 44.65, "word": "MASSIVE"},
+    {"start": 44.65, "end": 45.30, "word": "BENEFIT!"},
+    {"start": 48.90, "end": 49.65, "word": "SUPER!"},
+    {"start": 49.65, "end": 50.50, "word": "COLLEGE"},
+    {"start": 51.00, "end": 51.75, "word": "PADIKKUMBODHEY"},
+    {"start": 51.85, "end": 52.50, "word": "REAL"},
+    {"start": 52.50, "end": 53.20, "word": "COMPANY"},
+    {"start": 53.20, "end": 53.85, "word": "START"},
+    {"start": 53.85, "end": 54.55, "word": "PANNITTEENGA!"},
+    {"start": 56.40, "end": 57.05, "word": "PROPER-AA"},
+    {"start": 57.05, "end": 57.75, "word": "START"},
+    {"start": 58.30, "end": 58.75, "word": "BUILT"},
+    {"start": 58.75, "end": 59.20, "word": "FOR"},
+    {"start": 59.20, "end": 59.75, "word": "SCALE!"},
 ]
 
-# Reel 3: Business vs Entrepreneur 💡 (Phonetic Tanglish Speech-Locked)
-R3_PHRASES = [
-    (0.0, 3.8, "FIRST BIG QUESTION NEENGA BUSINESSMAN-AA"),
-    (4.0, 7.8, "ILLA ENTREPRENEUR-AA NAAN BUSINESSMAN DHAAN"),
-    (8.0, 11.8, "BRAND VALUE CREATE PANNANUM"),
-    (12.0, 15.8, "VERUM MONEY MATTUM ILLA"),
-    (16.0, 19.8, "UNGA VIEW-LA BRAND-NA ENNA"),
-    (20.0, 24.0, "CUSTOMER PAIN SOLVE PANRADHU TRUST REPUTATION"),
-    (24.5, 28.0, "EXACTLY BUSINESSMAN VS ENTREPRENEUR"),
-    (28.5, 32.0, "BUSINESSMAN EXISTING MODEL-LA WORK PANRAVAR"),
-    (32.5, 36.0, "ALREADY PROVEN REVENUE GENERATE PANRAVAR"),
-    (36.5, 40.0, "THIRUMBI ADHA REPLICATE PANRAVAR BUSINESSMAN"),
-    (40.5, 44.0, "AANAAL ENTREPRENEUR ENNA PANRAAR"),
-    (44.5, 48.0, "ENTREPRENEUR NEW SYSTEM CREATE PANRAVAR"),
-    (48.5, 52.5, "MARKET-LA ILLAADHA SOLUTION CREATE PANRAVAR"),
-    (53.0, 56.5, "UNSEEN PROBLEM-A SOLVE PANRAVAR ENTREPRENEUR"),
-    (57.0, 59.8, "THAT IS THE CORE DIFFERENCE"),
+# Reel 3: Business vs Entrepreneur 💡
+R3_WORDS = [
+    {"start": 0.40, "end": 0.80, "word": "FIRST"},
+    {"start": 0.80, "end": 1.25, "word": "BIG"},
+    {"start": 1.25, "end": 1.70, "word": "QUESTION"},
+    {"start": 1.75, "end": 2.35, "word": "NEENGA"},
+    {"start": 2.85, "end": 3.75, "word": "BUSINESSMAN-AA?"},
+    {"start": 4.00, "end": 4.50, "word": "ILLA"},
+    {"start": 4.50, "end": 5.70, "word": "ENTREPRENEUR-AA?"},
+    {"start": 6.10, "end": 6.65, "word": "NAAN"},
+    {"start": 6.65, "end": 7.25, "word": "BUSINESSMAN"},
+    {"start": 7.25, "end": 7.85, "word": "DHAAN!"},
+    {"start": 10.15, "end": 10.75, "word": "BRAND"},
+    {"start": 10.75, "end": 11.40, "word": "VALUE"},
+    {"start": 11.40, "end": 12.10, "word": "BUILD"},
+    {"start": 12.50, "end": 13.40, "word": "PANNANUM"},
+    {"start": 13.85, "end": 14.50, "word": "VERUM"},
+    {"start": 14.50, "end": 15.15, "word": "MONEY"},
+    {"start": 15.55, "end": 16.25, "word": "ILLA"},
+    {"start": 17.45, "end": 17.95, "word": "UNGA"},
+    {"start": 17.95, "end": 18.50, "word": "VIEW-LA"},
+    {"start": 18.50, "end": 19.00, "word": "BRAND-NA"},
+    {"start": 19.00, "end": 19.50, "word": "ENNA?"},
+    {"start": 21.15, "end": 21.75, "word": "CUSTOMER"},
+    {"start": 21.75, "end": 22.30, "word": "PAIN"},
+    {"start": 22.30, "end": 22.90, "word": "SOLVE"},
+    {"start": 23.60, "end": 24.35, "word": "TRUST"},
+    {"start": 27.65, "end": 28.60, "word": "EXACTLY!"},
+    {"start": 29.95, "end": 30.70, "word": "BUSINESSMAN"},
+    {"start": 30.70, "end": 31.40, "word": "VS"},
+    {"start": 31.40, "end": 32.95, "word": "ENTREPRENEUR!"},
+    {"start": 36.55, "end": 37.20, "word": "EXISTING"},
+    {"start": 37.20, "end": 37.85, "word": "MODEL-LA"},
+    {"start": 37.85, "end": 38.50, "word": "WORK"},
+    {"start": 39.85, "end": 40.55, "word": "ALREADY"},
+    {"start": 40.55, "end": 41.50, "word": "REVENUE"},
+    {"start": 41.50, "end": 42.30, "word": "GENERATE"},
+    {"start": 42.30, "end": 43.10, "word": "SYSTEM"},
+    {"start": 43.85, "end": 44.60, "word": "REPLICATE"},
+    {"start": 44.60, "end": 45.40, "word": "PANRAVAR"},
+    {"start": 46.20, "end": 47.35, "word": "BUSINESSMAN!"},
+    {"start": 49.10, "end": 49.95, "word": "ENTREPRENEUR"},
+    {"start": 49.95, "end": 50.80, "word": "DIFFERENT"},
+    {"start": 51.15, "end": 51.85, "word": "UNSEEN"},
+    {"start": 51.85, "end": 52.90, "word": "PROBLEM-KU"},
+    {"start": 52.90, "end": 54.00, "word": "SOLUTION!"},
+    {"start": 56.45, "end": 57.10, "word": "MARKET-LA"},
+    {"start": 57.10, "end": 57.80, "word": "ILLAADHA"},
+    {"start": 57.80, "end": 58.50, "word": "SOLUTION!"},
 ]
 
-# Reel 4: Venture vs Traditional Trade 🚀 (Phonetic Tanglish Speech-Locked)
-R4_PHRASES = [
-    (0.0, 4.0, "EXISTING PRODUCT ILLAMA FIRST-MOVER PRODUCT"),
-    (4.2, 8.0, "AVAR DHAAN ENTREPRENEUR PUDHU VALUE"),
-    (8.5, 12.0, "EXISTING REPLICATE PANRAVAR TRADITIONAL BUSINESS"),
-    (12.5, 16.0, "BUSINESS-LA INNOVATION IRUNDHAA"),
-    (16.5, 20.0, "ADHU DHAAN REAL VENTURE"),
-    (20.5, 24.0, "ENTREPRENEURSHIP-NA SOLVING PROBLEMS AT PROFIT"),
-    (24.5, 28.0, "TRADITIONAL BUSINESS-LA NO INNOVATION"),
-    (28.5, 32.0, "VALUE RETURN NORMAL-AA LINEAR-AA IRUKKUM"),
-    (32.5, 36.0, "AANAAL VENTURE-LA PUDHU SOLUTION"),
-    (36.5, 40.0, "MARKET-A EXPAND PANRADHU"),
-    (40.5, 44.5, "EXPONENTIALLY BIG PROBLEM-A SOLVE PANNUM"),
-    (45.0, 48.5, "EXPONENTIALLY HIGH VALUE RETURN"),
-    (49.0, 53.0, "MASSIVE VALUATION SCALING IMPACT"),
-    (53.5, 56.5, "IDHU DHAAN VENTURE DIFFERENCE"),
-    (57.0, 59.8, "SUPER CLARITY IS POWER"),
+# Reel 4: Venture vs Traditional Trade 🚀
+R4_WORDS = [
+    {"start": 0.80, "end": 1.30, "word": "EXISTING"},
+    {"start": 1.30, "end": 1.85, "word": "PRODUCT"},
+    {"start": 2.30, "end": 3.15, "word": "FIRST-MOVER"},
+    {"start": 3.60, "end": 4.35, "word": "PRODUCT"},
+    {"start": 4.35, "end": 5.15, "word": "INNOVATION"},
+    {"start": 5.20, "end": 6.05, "word": "ENTREPRENEUR"},
+    {"start": 7.00, "end": 7.75, "word": "NEW"},
+    {"start": 7.75, "end": 8.50, "word": "VALUE"},
+    {"start": 8.50, "end": 9.25, "word": "CREATE"},
+    {"start": 9.25, "end": 10.05, "word": "PANRAAR"},
+    {"start": 11.35, "end": 12.10, "word": "BUSINESS-LA"},
+    {"start": 12.10, "end": 12.85, "word": "INNOVATION"},
+    {"start": 14.60, "end": 15.50, "word": "IRUNDHAA"},
+    {"start": 15.50, "end": 16.50, "word": "VENTURE!"},
+    {"start": 18.00, "end": 18.85, "word": "ENTREPRENEURSHIP"},
+    {"start": 19.75, "end": 20.55, "word": "SOLVING"},
+    {"start": 20.55, "end": 21.35, "word": "PROBLEMS"},
+    {"start": 21.35, "end": 21.75, "word": "AT"},
+    {"start": 21.75, "end": 22.20, "word": "PROFIT"},
+    {"start": 24.00, "end": 24.90, "word": "TRADITIONAL"},
+    {"start": 24.90, "end": 25.85, "word": "BUSINESS"},
+    {"start": 26.70, "end": 27.10, "word": "NO"},
+    {"start": 27.10, "end": 27.55, "word": "INNOVATION"},
+    {"start": 28.15, "end": 28.75, "word": "VALUE"},
+    {"start": 28.75, "end": 29.35, "word": "RETURN"},
+    {"start": 29.35, "end": 30.00, "word": "LINEAR-AA"},
+    {"start": 30.80, "end": 32.10, "word": "IRUKKUM"},
+    {"start": 33.55, "end": 34.10, "word": "VENTURE"},
+    {"start": 35.45, "end": 36.05, "word": "NEW"},
+    {"start": 36.05, "end": 36.65, "word": "SOLUTION"},
+    {"start": 37.75, "end": 38.45, "word": "MARKET"},
+    {"start": 40.00, "end": 41.00, "word": "EXPAND"},
+    {"start": 42.40, "end": 43.85, "word": "SOLVING"},
+    {"start": 47.90, "end": 49.35, "word": "EXPONENTIALLY"},
+    {"start": 49.35, "end": 50.05, "word": "BIG"},
+    {"start": 50.05, "end": 50.80, "word": "PROBLEM"},
+    {"start": 53.20, "end": 54.00, "word": "VALUE"},
+    {"start": 54.00, "end": 55.30, "word": "EXPONENTIALLY"},
+    {"start": 55.30, "end": 56.58, "word": "HIGH!"},
+    {"start": 56.85, "end": 57.50, "word": "CORE"},
+    {"start": 57.50, "end": 58.50, "word": "DIFFERENCE!"},
+    {"start": 58.50, "end": 59.65, "word": "SUPER!"},
 ]
 
 REELS_CONFIG = [
@@ -401,16 +529,16 @@ REELS_CONFIG = [
             {"type": "host",  "timeline_st": 3.5,  "dur": 8.5, "broll": None},
             {"type": "guest", "timeline_st": 12.0, "dur": 6.5, "broll": None},
             {"type": "punch", "timeline_st": 18.5, "dur": 3.1, "broll": None},
-            {"type": "broll", "timeline_st": 21.6, "dur": 6.6, "broll": BROLL_DIR / "broll_business.mp4"},
+            {"type": "broll", "timeline_st": 21.6, "dur": 6.6, "broll": BROLL_DIR / "broll_laptop_coding.mp4"},
             {"type": "punch", "timeline_st": 28.2, "dur": 4.3, "broll": None},
             {"type": "guest", "timeline_st": 32.5, "dur": 10.0, "broll": None},
             {"type": "host",  "timeline_st": 42.5, "dur": 3.7, "broll": None},
             {"type": "guest", "timeline_st": 46.2, "dur": 6.3, "broll": None},
             {"type": "host",  "timeline_st": 52.5, "dur": 1.7, "broll": None},
             {"type": "punch", "timeline_st": 54.2, "dur": 2.6, "broll": None},
-            {"type": "broll", "timeline_st": 56.8, "dur": 3.2, "broll": BROLL_DIR / "broll_golden_sunrise.mp4"},
+            {"type": "broll", "timeline_st": 56.8, "dur": 3.2, "broll": BROLL_DIR / "broll_contract_signing.mp4"},
         ],
-        "words": make_single_word_events(R1_PHRASES)
+        "words": R1_WORDS
     },
     {
         "id": 2,
@@ -425,14 +553,14 @@ REELS_CONFIG = [
             {"type": "guest", "timeline_st": 8.5,  "dur": 3.5, "broll": None},
             {"type": "host",  "timeline_st": 12.0, "dur": 1.5, "broll": None},
             {"type": "guest", "timeline_st": 13.5, "dur": 2.5, "broll": None},
-            {"type": "broll", "timeline_st": 16.0, "dur": 6.0, "broll": BROLL_DIR / "broll_business.mp4"},
+            {"type": "broll", "timeline_st": 16.0, "dur": 6.0, "broll": BROLL_DIR / "broll_contract_signing.mp4"},
             {"type": "guest", "timeline_st": 22.0, "dur": 9.0, "broll": None},
             {"type": "host",  "timeline_st": 31.0, "dur": 2.0, "broll": None},
             {"type": "punch", "timeline_st": 33.0, "dur": 8.0, "broll": None},
-            {"type": "broll", "timeline_st": 41.0, "dur": 5.5, "broll": BROLL_DIR / "broll_watch_repair.mp4"},
+            {"type": "broll", "timeline_st": 41.0, "dur": 5.5, "broll": BROLL_DIR / "broll_investor_handshake.mp4"},
             {"type": "host_punch", "timeline_st": 46.5, "dur": 13.5, "broll": None},
         ],
-        "words": make_single_word_events(R2_PHRASES)
+        "words": R2_WORDS
     },
     {
         "id": 3,
@@ -444,14 +572,14 @@ REELS_CONFIG = [
             {"type": "host",  "timeline_st": 0.0,  "dur": 5.0, "broll": None, "bw_hook": True},
             {"type": "guest", "timeline_st": 5.0,  "dur": 11.0, "broll": None},
             {"type": "host",  "timeline_st": 16.0, "dur": 3.5, "broll": None},
-            {"type": "broll", "timeline_st": 19.5, "dur": 6.5, "broll": BROLL_DIR / "broll_crowd_promenade.mp4"},
+            {"type": "broll", "timeline_st": 19.5, "dur": 6.5, "broll": BROLL_DIR / "broll_business.mp4"},
             {"type": "guest", "timeline_st": 26.0, "dur": 10.5, "broll": None},
             {"type": "host",  "timeline_st": 36.5, "dur": 2.5, "broll": None},
             {"type": "host",  "timeline_st": 39.0, "dur": 10.0, "broll": None},
-            {"type": "broll", "timeline_st": 49.0, "dur": 5.0, "broll": BROLL_DIR / "broll_clock.mp4"},
+            {"type": "broll", "timeline_st": 49.0, "dur": 5.0, "broll": BROLL_DIR / "broll_startup_team.mp4"},
             {"type": "host_punch", "timeline_st": 54.0, "dur": 6.0, "broll": None},
         ],
-        "words": make_single_word_events(R3_PHRASES)
+        "words": R3_WORDS
     },
     {
         "id": 4,
@@ -463,14 +591,14 @@ REELS_CONFIG = [
             {"type": "guest", "timeline_st": 0.0,  "dur": 6.0, "broll": None, "bw_hook": True},
             {"type": "host",  "timeline_st": 6.0,  "dur": 7.5, "broll": None},
             {"type": "punch", "timeline_st": 13.5, "dur": 6.5, "broll": None},
-            {"type": "broll", "timeline_st": 20.0, "dur": 6.0, "broll": BROLL_DIR / "broll_business.mp4"},
+            {"type": "broll", "timeline_st": 20.0, "dur": 6.0, "broll": BROLL_DIR / "broll_stock_growth.mp4"},
             {"type": "guest", "timeline_st": 26.0, "dur": 8.0, "broll": None},
             {"type": "punch", "timeline_st": 34.0, "dur": 8.5, "broll": None},
             {"type": "host",  "timeline_st": 42.5, "dur": 5.0, "broll": None},
-            {"type": "broll", "timeline_st": 47.5, "dur": 6.0, "broll": BROLL_DIR / "broll_golden_sunrise.mp4"},
+            {"type": "broll", "timeline_st": 47.5, "dur": 6.0, "broll": BROLL_DIR / "broll_city_skyline.mp4"},
             {"type": "punch", "timeline_st": 53.5, "dur": 6.5, "broll": None},
         ],
-        "words": make_single_word_events(R4_PHRASES)
+        "words": R4_WORDS
     }
 ]
 
