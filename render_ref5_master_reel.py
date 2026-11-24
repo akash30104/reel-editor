@@ -6,10 +6,13 @@ Source: IMG_4246.MOV (4K 60fps) -> 9:16 Vertical (1080x1920 @ 30fps)
 Features:
 - Strict 3-color palette: #FFF200 (Bright Yellow), #FFFFFF (Pure White), #0A0A0A (Jet Black)
 - Two-Tier Typography System:
-  * Tier A: Stylized Kinetic Titles (Setup 80px Sans, Hero 175px Serif Italic in Yellow with drop shadow)
+  * Tier A: Stylized Kinetic Titles (Setup spaced Sans, Hero 175px Serif Italic in Yellow with drop shadow)
   * Tier B: Conversational Subtitles (80px Sans Bold inside solid Jet Black box with rounded corners)
-- Native Apple Color Emoji integration rendered with embedded colors & Lanczos scaling
-- 70%+ Contextual, Non-Repeating B-Roll (10 unique B-roll clips accurately matching spoken narrative)
+- Dynamic Solid Bright Yellow Cards with Native Apple Color Emojis (Situationship, Infatuation, Dopamine, Oxytocin, Serotonin, No Stress)
+- 100% Real, Organic, Non-AI Contextual B-Rolls (Zero duplicate footage)
+  * Real Romantic Couple Embracing & Kissing (replacing AI neural network)
+  * Cute Woman with Gorgeous Bouncy Curls Smiling (replacing previous clip)
+  * Romantic Couple Walking on Beach at Sunset (replacing generic landscape)
 - Selective Color / B&W Beat at intense question
 - 1-Second Solid Jet Black Pause (#0A0A0A) before punchline
 - Broadcast-grade pro audio (-14 LUFS, ducked mild ambient BGM, SFX hits/whooshes/pops/risers)
@@ -34,7 +37,6 @@ FRAMES_DIR.mkdir(parents=True, exist_ok=True)
 
 FONTS_DIR = WORKSPACE / "assets" / "fonts"
 AUDIO_DIR = WORKSPACE / "assets" / "audio"
-STICKERS_DIR = WORKSPACE / "assets" / "stickers"
 BROLLS_DIR = WORKSPACE / "assets" / "brolls"
 
 # Audio Assets
@@ -78,19 +80,19 @@ SDR_FILTER = "setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709,f
 CROP_GUEST = "crop=1215:2160:2282:0,scale=1080:1920:flags=lanczos"
 CROP_GUEST_PUNCH = "crop=1050:1866:2365:100,scale=1080:1920:flags=lanczos"
 
-# External B-Rolls - 100% Unique & Accurately Matched
+# External B-Rolls - 100% Unique, Real Human Narrative, Zero AI
 BROLL_PHONE = BROLLS_DIR / "broll_phone_dating.mp4"
 BROLL_COUPLE = BROLLS_DIR / "broll_couple.mp4"
 BROLL_BREAKUP = BROLLS_DIR / "broll_breakup.mp4"
-BROLL_NEURAL = Path("/Users/pgi/Downloads/From Klickpin.com- Sweet couple habits for people who love beauty for busy days for meaningful relationships-pin-id-1125688869368431907.mp4")
+BROLL_CHEM_COUPLE = BROLLS_DIR / "broll_chemical_couple.mp4"
 BROLL_FIRE = BROLLS_DIR / "broll_night_fire.mp4"
 BROLL_SEROTONIN = Path("/Users/pgi/Downloads/From Klickpin.com- 11 Stylish clean girl makeup ideas that help you create a polished look with very simple and affordable details for beginners w.mp4")
 BROLL_COMFORT = BROLLS_DIR / "broll_family.mp4"
 BROLL_FOOD = Path("/Users/pgi/Downloads/From Klickpin.com- Refresh this smart comfort food roundup that look high-end but stay practical that balance trend comfort and everyday function.mp4")
-BROLL_CURLY_HAIR = BROLLS_DIR / "broll_curly_hair.mp4"
-BROLL_SUNRISE = BROLLS_DIR / "broll_golden_sunrise.mp4"
+BROLL_CURLY_HAIR = BROLLS_DIR / "broll_curly_hair_v2.mp4"
+BROLL_PEACE_COUPLE = BROLLS_DIR / "broll_peaceful_couple_ending.mp4"
 
-# Cut Schedule Definition - 15 Planned Cuts with 10 Distinct B-Rolls
+# Cut Schedule Definition - 15 Planned Cuts with 10 Distinct Real-Life B-Rolls
 CUTS = [
     # 0.0s - 2.9s: Cold Open Hook Statement (Person 1 Punch In)
     {
@@ -140,12 +142,12 @@ CUTS = [
         "dur": 2.10,
         "desc": "Extreme stage of infatuation!"
     },
-    # 13.1s - 16.0s: Love is basically a chemical feeling (B-Roll Brain Neural Synapses)
+    # 13.1s - 16.0s: Love is basically a chemical feeling (B-Roll Real Couple Romance & Kiss)
     {
         "id": "06_chem_movie",
         "type": "broll",
-        "broll": BROLL_NEURAL,
-        "broll_ss": 1.0,
+        "broll": BROLL_CHEM_COUPLE,
+        "broll_ss": 2.0,
         "raw_audio_ss": 164.40,
         "dur": 2.90,
         "desc": "Love is basically a chemical feeling..."
@@ -215,24 +217,24 @@ CUTS = [
         "dur": 3.50,
         "desc": "BECAUSE NO STRESS!"
     },
-    # 40.5s - 46.1s: Even women! Scientifically hair gets curlier (B-Roll Curly Hair Smiling Woman)
+    # 40.5s - 46.1s: Even women! Scientifically hair gets curlier (B-Roll Radiant Curly Hair Woman)
     {
         "id": "14_women_curls",
         "type": "broll",
         "broll": BROLL_CURLY_HAIR,
-        "broll_ss": 1.0,
+        "broll_ss": 1.5,
         "raw_audio_ss": 197.90,
         "dur": 5.60,
         "desc": "Even women! Scientifically hair gets healthier and curlier!"
     },
-    # 46.1s - 48.6s: Aspirational Clean Loop Ending (B-Roll Sunrise + Kinetic 3-Line Title)
+    # 46.1s - 48.6s: Aspirational Clean Loop Ending (B-Roll Peaceful Couple on Beach Sunset)
     {
         "id": "15_loop_ending",
         "type": "broll",
-        "broll": BROLL_SUNRISE,
-        "broll_ss": 7.0,
+        "broll": BROLL_PEACE_COUPLE,
+        "broll_ss": 5.0,
         "dur": 2.50,
-        "desc": "Aspirational Loop Ending"
+        "desc": "Aspirational Loop Ending - Couple Peace of Mind"
     }
 ]
 
@@ -264,7 +266,6 @@ def render_video_tracks():
             dur = cut["dur"]
             
             if cut["type"] == "black":
-                # Solid Jet Black #0A0A0A screen
                 cmd = [
                     "ffmpeg", "-y", "-f", "lavfi",
                     "-i", f"color=c=0x0A0A0A:s={WIDTH}x{HEIGHT}:d={dur:.3f}:r={FPS}",
@@ -281,7 +282,6 @@ def render_video_tracks():
                     "-pix_fmt", "yuv420p", str(cut_mp4)
                 ]
             elif cut["type"] == "speaker_bw":
-                # Selective Color / B&W Beat with vintage film grain
                 crop = cut["crop"]
                 vf = f"{crop},hue=s=0,curves=master='0/0.05 0.5/0.5 1/0.95',noise=alls=15:allf=t+u,{SDR_FILTER},fps={FPS},setsar=1"
                 cmd = [
@@ -323,7 +323,6 @@ def render_pro_audio():
         dur = cut["dur"]
         
         if cut["type"] == "black" or cut["id"] == "15_loop_ending":
-            # Generate silence for pause and ending
             cmd = [
                 "ffmpeg", "-y", "-f", "lavfi", "-i", f"anullsrc=r=48000:cl=stereo:d={dur:.3f}",
                 "-c:a", "pcm_s16le", str(out_wav)
@@ -355,14 +354,7 @@ def render_pro_audio():
         "-c:a", "pcm_s16le", str(raw_dialogue)
     ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     
-    # Synchronize SFX triggers:
-    # 0.0s: Hit SFX (Hook start)
-    # 2.9s: Whoosh SFX (Cut to broll)
-    # 16.0s: Pop SFX (Dopamine sticker)
-    # 18.5s: Pop SFX (Oxytocin sticker)
-    # 21.5s: Pop SFX (Serotonin sticker)
-    # 32.9s: Riser SFX (Black pause)
-    # 37.0s: Hit SFX (Punchline "No Stress!")
+    # Synchronize SFX triggers
     sfx_filter = (
         f"[1:a]asplit=2[hit_a][hit_b];"
         f"[3:a]asplit=3[pop_a][pop_b][pop_c];"
@@ -411,59 +403,52 @@ def render_typography_and_stickers_overlay():
     print("\n--- GENERATING FRAME-BY-FRAME TYPOGRAPHY & STICKERS OVERLAY ---")
     overlay_mov = WORKSPACE / "ref5_overlay_track.mov"
     
-    # Load fonts
-    f_title_setup = ImageFont.truetype(FONT_SANS_REG, 80)
+    # Fonts
+    f_title_setup = ImageFont.truetype(FONT_SANS_REG, 75)
     f_title_hero = ImageFont.truetype(FONT_SERIF_ITALIC, 175)
     f_title_allcaps = ImageFont.truetype(FONT_SERIF_REG, 95)
-    f_box_text = ImageFont.truetype(FONT_SANS_REG, 72)
-    
-    # Load stickers
-    sticker_dopamine = Image.open(STICKERS_DIR / "sticker_dopamine.png").convert("RGBA")
-    sticker_oxytocin = Image.open(STICKERS_DIR / "sticker_oxytocin.png").convert("RGBA")
-    sticker_serotonin = Image.open(STICKERS_DIR / "sticker_serotonin.png").convert("RGBA")
-    sticker_no_stress = Image.open(STICKERS_DIR / "sticker_no_stress.png").convert("RGBA")
     
     total_frames = int(TOTAL_DURATION * FPS)
     
     # Subtitle timeline schedule with text & emoji
     SCHEDULE = [
-        # 0.0 - 2.9: Kinetic Title Hook
+        # 0.0 - 2.9: Kinetic Title Hook (Wide Letter-Spacing Matching Reference)
         (0.0, 2.9, ("MODERN LOVE OR", "Confusion?", "🤔"), "kinetic_hook"),
-        # 2.9 - 5.1: Situationship is not love
-        (2.9, 5.1, ("SITUATIONSHIP IS NOT LOVE", "💔"), "yellow_box"),
+        # 2.9 - 5.1: Situationship is not love (Dynamic Yellow Card with Emoji)
+        (2.9, 5.1, ("SITUATIONSHIP IS NOT LOVE", "💔"), "yellow_card_top"),
         # 5.1 - 8.1: Reflection Question Beat (Person 1 B&W)
         (5.1, 6.5, ("IT IS A FEELING...", "💭"), "tier_b"),
         (6.5, 8.1, ("HOW DOES IT FEEL?", "❓"), "tier_b"),
-        # 8.1 - 11.0: Extreme attraction
+        # 8.1 - 11.0: Extreme attraction (Kinetic Title)
         (8.1, 11.0, ("EXTREME STAGE OF", "Attraction", "❤️"), "kinetic_attraction"),
-        # 11.0 - 13.1: Infatuation
-        (11.0, 13.1, ("EXTREME INFATUATION", "🔥"), "yellow_box"),
-        # 13.1 - 16.0: Chemical feeling
+        # 11.0 - 13.1: Infatuation (Dynamic Yellow Card with Emoji)
+        (11.0, 13.1, ("EXTREME INFATUATION", "🔥"), "yellow_card_top"),
+        # 13.1 - 16.0: Chemical feeling (Tier B Subtitles over Real Couple Kiss)
         (13.1, 14.5, ("LOVE IS BASICALLY", "🧬"), "tier_b"),
         (14.5, 16.0, ("A CHEMICAL REACTION", "🧪"), "tier_b"),
-        # 16.0 - 18.5: Dopamine
-        (16.0, 18.5, ("RUSH OF DOPAMINE", "⚡"), "sticker_dopamine"),
-        # 18.5 - 21.5: Oxytocin
-        (18.5, 21.5, ("RUSH OF OXYTOCIN", "❤️"), "sticker_oxytocin"),
-        # 21.5 - 25.9: Serotonin
-        (21.5, 23.8, ("SEROTONIN...", "✨"), "sticker_serotonin"),
-        (23.8, 25.9, ("THE SLEEP HORMONE", "😴"), "sticker_serotonin"),
-        # 25.9 - 32.9: Sleep well
+        # 16.0 - 18.5: Dopamine (Dynamic Yellow Card with Emoji + Subtitle)
+        (16.0, 18.5, ("RUSH OF DOPAMINE", "⚡"), "dopamine_beat"),
+        # 18.5 - 21.5: Oxytocin (Dynamic Yellow Card with Emoji + Subtitle)
+        (18.5, 21.5, ("RUSH OF OXYTOCIN", "❤️"), "oxytocin_beat"),
+        # 21.5 - 25.9: Serotonin (Dynamic Yellow Card with Emoji + Subtitle)
+        (21.5, 23.8, ("SEROTONIN...", "✨"), "serotonin_beat1"),
+        (23.8, 25.9, ("THE SLEEP HORMONE", "😴"), "serotonin_beat2"),
+        # 25.9 - 32.9: Sleep well (Tier B Subtitles over Family Warmth)
         (25.9, 28.2, ("WHEN YOU'RE IN LOVE", "🥰"), "tier_b"),
         (28.2, 30.5, ("YOU SLEEP WELL", "🛌"), "tier_b"),
         (30.5, 32.9, ("AROUND COMFORTABLE PEOPLE", "🤍"), "tier_b"),
         # 32.9 - 33.9: Solid Jet Black pause (no graphic)
         (32.9, 33.9, ("", None), "none"),
-        # 33.9 - 37.0: Weight question
+        # 33.9 - 37.0: Weight question (Person 1 Punch In)
         (33.9, 35.4, ("MEN IN RELATIONSHIPS", "🤔"), "tier_b"),
         (35.4, 37.0, ("PUT ON WEIGHT... WHY?", "🍔"), "tier_b"),
-        # 37.0 - 40.5: Punchline: NO STRESS!
+        # 37.0 - 40.5: Punchline: NO STRESS! (Dynamic Yellow Card with Sunglasses Emoji)
         (37.0, 40.5, ("BECAUSE NO STRESS!", "😎"), "punch_no_stress"),
-        # 40.5 - 46.1: Woman curls
+        # 40.5 - 46.1: Woman curls (Tier B Subtitles over Real Curly Hair Woman)
         (40.5, 42.0, ("EVEN WOMEN!", "👩"), "tier_b"),
         (42.0, 43.8, ("SCIENTIFICALLY...", "🔬"), "tier_b"),
         (43.8, 46.1, ("HAIR GETS CURLIER!", "✨"), "tier_b"),
-        # 46.1 - 48.6: Clean Loop Ending
+        # 46.1 - 48.6: Clean Loop Ending (Peaceful Couple on Beach + Kinetic Title)
         (46.1, 48.6, ("REAL LOVE IS", "Peace of Mind", "ZERO STRESS", "🧘"), "loop_ending")
     ]
     
@@ -493,14 +478,53 @@ def render_typography_and_stickers_overlay():
         im = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
         draw = ImageDraw.Draw(im)
         
+        def draw_spaced_text(text, y, font, spacing=8, color=COLOR_WHITE, shadow_color=COLOR_SHADOW):
+            char_widths = [draw.textbbox((0, 0), ch, font=font)[2] - draw.textbbox((0, 0), ch, font=font)[0] for ch in text]
+            total_w = sum(char_widths) + (len(text) - 1) * spacing
+            sx = (WIDTH - total_w) // 2
+            cur_x = sx
+            for ch, w in zip(text, char_widths):
+                draw.text((cur_x + 3, y + 3), ch, font=font, fill=shadow_color)
+                draw.text((cur_x, y), ch, font=font, fill=color)
+                cur_x += w + spacing
+            return sx, sx + total_w
+
+        def draw_yellow_card(text, emoji=None, sy=480, max_w=940):
+            pad_x = 32
+            pad_y = 20
+            radius = 16
+            
+            for sz in range(68, 44, -2):
+                f = ImageFont.truetype(FONT_SANS_REG, sz)
+                bb = draw.textbbox((0, 0), text, font=f)
+                tw = bb[2] - bb[0]
+                th = bb[3] - bb[1]
+                e_w = int(th * 1.15) if emoji else 0
+                total_content_w = tw + (20 + e_w if emoji else 0)
+                if total_content_w + 2 * pad_x <= max_w:
+                    break
+                    
+            e_img = render_emoji(emoji, target_size=int(th * 1.15)) if emoji else None
+            actual_total_w = tw + (20 + e_img.width if e_img else 0)
+            sx = (WIDTH - actual_total_w) // 2
+            
+            # Shadow
+            draw.rounded_rectangle([sx - pad_x + 4, sy - pad_y + 4, sx + actual_total_w + pad_x + 4, sy + th + pad_y + 8], radius=radius, fill=COLOR_SHADOW)
+            # Yellow Box
+            draw.rounded_rectangle([sx - pad_x, sy - pad_y, sx + actual_total_w + pad_x, sy + th + pad_y + 4], radius=radius, fill=COLOR_YELLOW)
+            # Jet Black Text
+            draw.text((sx, sy - 2), text, font=f, fill=COLOR_BLACK)
+            # Embedded Color Emoji
+            if e_img:
+                ey = sy + (th - e_img.height) // 2
+                im.alpha_composite(e_img, (sx + tw + 20, ey))
+
         def draw_boxed_sub(text, emoji=None, sy=1440):
-            # 80px high-impact conversational subtitles
             f = ImageFont.truetype(FONT_SUB, 80)
             bb = draw.textbbox((0, 0), text, font=f)
             tw = bb[2] - bb[0]
             th = bb[3] - bb[1]
             
-            # If text is too wide for screen, scale slightly
             if tw > 900:
                 f = ImageFont.truetype(FONT_SUB, 72)
                 bb = draw.textbbox((0, 0), text, font=f)
@@ -511,13 +535,8 @@ def render_typography_and_stickers_overlay():
             pad_y = 20
             radius = 16
             
-            e_img = None
-            if emoji:
-                e_img = render_emoji(emoji, target_size=int(th * 1.15))
-                total_w = tw + 20 + e_img.width
-            else:
-                total_w = tw
-                
+            e_img = render_emoji(emoji, target_size=int(th * 1.15)) if emoji else None
+            total_w = tw + (20 + e_img.width if e_img else 0)
             sx = (WIDTH - total_w) // 2
             draw.rounded_rectangle([sx - pad_x, sy - pad_y, sx + total_w + pad_x, sy + th + pad_y + 4], radius=radius, fill=COLOR_BLACK)
             draw.text((sx, sy - 2), text, font=f, fill=COLOR_WHITE)
@@ -525,52 +544,15 @@ def render_typography_and_stickers_overlay():
                 ey = sy + (th - e_img.height) // 2
                 im.alpha_composite(e_img, (sx + tw + 20, ey))
 
-        def draw_yellow_box(text, emoji=None, sy=480):
-            f = ImageFont.truetype(FONT_SANS_REG, 72)
-            bb = draw.textbbox((0, 0), text, font=f)
-            tw = bb[2] - bb[0]
-            th = bb[3] - bb[1]
-            
-            if tw > 920:
-                f = ImageFont.truetype(FONT_SANS_REG, 64)
-                bb = draw.textbbox((0, 0), text, font=f)
-                tw = bb[2] - bb[0]
-                th = bb[3] - bb[1]
-                
-            pad_x = 36
-            pad_y = 22
-            radius = 16
-            
-            e_img = None
-            if emoji:
-                e_img = render_emoji(emoji, target_size=int(th * 1.15))
-                total_w = tw + 20 + e_img.width
-            else:
-                total_w = tw
-                
-            sx = (WIDTH - total_w) // 2
-            # Drop shadow
-            draw.rounded_rectangle([sx - pad_x + 3, sy - pad_y + 3, sx + total_w + pad_x + 3, sy + th + pad_y + 7], radius=radius, fill=COLOR_SHADOW)
-            # Solid Bright Yellow box
-            draw.rounded_rectangle([sx - pad_x, sy - pad_y, sx + total_w + pad_x, sy + th + pad_y + 4], radius=radius, fill=COLOR_YELLOW)
-            # Jet Black text
-            draw.text((sx, sy - 2), text, font=f, fill=COLOR_BLACK)
-            if e_img:
-                ey = sy + (th - e_img.height) // 2
-                im.alpha_composite(e_img, (sx + tw + 20, ey))
-
         if style == "kinetic_hook":
-            # Tier A: Setup 80px White Sans + Hero 175px Yellow Serif Italic + Emoji
+            # Line 1: Spaced Setup Text Matching User Reference Screenshot
             setup_txt, hero_txt, emoji = data
-            bb1 = draw.textbbox((0, 0), setup_txt, font=f_title_setup)
-            w1 = bb1[2] - bb1[0]
-            draw.text(((WIDTH - w1)//2 + 4, 384), setup_txt, font=f_title_setup, fill=COLOR_SHADOW)
-            draw.text(((WIDTH - w1)//2, 380), setup_txt, font=f_title_setup, fill=COLOR_WHITE)
+            draw_spaced_text(setup_txt, 380, f_title_setup, spacing=8)
             
+            # Line 2: 175px Yellow Serif Italic + Emoji
             bb2 = draw.textbbox((0, 0), hero_txt, font=f_title_hero)
             w2 = bb2[2] - bb2[0]
             h2 = bb2[3] - bb2[1]
-            
             e_img = render_emoji(emoji, target_size=int(h2 * 0.85)) if emoji else None
             total_w2 = w2 + (25 + e_img.width if e_img else 0)
             sx2 = (WIDTH - total_w2) // 2
@@ -581,21 +563,17 @@ def render_typography_and_stickers_overlay():
                 ey = hero_y + (h2 - e_img.height) // 2
                 im.alpha_composite(e_img, (sx2 + w2 + 25, ey))
             
-        elif style == "yellow_box":
+        elif style == "yellow_card_top":
             box_txt, emoji = data
-            draw_yellow_box(box_txt, emoji, sy=480)
+            draw_yellow_card(box_txt, emoji, sy=480)
             
         elif style == "kinetic_attraction":
             setup_txt, hero_txt, emoji = data
-            bb1 = draw.textbbox((0, 0), setup_txt, font=f_title_setup)
-            w1 = bb1[2] - bb1[0]
-            draw.text(((WIDTH - w1)//2 + 4, 384), setup_txt, font=f_title_setup, fill=COLOR_SHADOW)
-            draw.text(((WIDTH - w1)//2, 380), setup_txt, font=f_title_setup, fill=COLOR_WHITE)
+            draw_spaced_text(setup_txt, 380, f_title_setup, spacing=6)
             
             bb2 = draw.textbbox((0, 0), hero_txt, font=f_title_hero)
             w2 = bb2[2] - bb2[0]
             h2 = bb2[3] - bb2[1]
-            
             e_img = render_emoji(emoji, target_size=int(h2 * 0.85)) if emoji else None
             total_w2 = w2 + (25 + e_img.width if e_img else 0)
             sx2 = (WIDTH - total_w2) // 2
@@ -610,35 +588,35 @@ def render_typography_and_stickers_overlay():
             text, emoji = data
             draw_boxed_sub(text, emoji, sy=1440)
             
-        elif style == "sticker_dopamine":
+        elif style == "dopamine_beat":
             text, emoji = data
+            draw_yellow_card(text, emoji, sy=480)
             draw_boxed_sub(text, emoji, sy=1440)
-            im.alpha_composite(sticker_dopamine, dest=((WIDTH - sticker_dopamine.width)//2, 450))
             
-        elif style == "sticker_oxytocin":
+        elif style == "oxytocin_beat":
             text, emoji = data
+            draw_yellow_card(text, emoji, sy=480)
             draw_boxed_sub(text, emoji, sy=1440)
-            im.alpha_composite(sticker_oxytocin, dest=((WIDTH - sticker_oxytocin.width)//2, 450))
             
-        elif style == "sticker_serotonin":
+        elif style == "serotonin_beat1":
             text, emoji = data
+            draw_yellow_card(text, emoji, sy=480)
             draw_boxed_sub(text, emoji, sy=1440)
-            im.alpha_composite(sticker_serotonin, dest=((WIDTH - sticker_serotonin.width)//2, 450))
+            
+        elif style == "serotonin_beat2":
+            text, emoji = data
+            draw_yellow_card(text, emoji, sy=480)
+            draw_boxed_sub(text, emoji, sy=1440)
             
         elif style == "punch_no_stress":
             text, emoji = data
-            im.alpha_composite(sticker_no_stress, dest=((WIDTH - sticker_no_stress.width)//2, 550))
-            draw_yellow_box(text, emoji, sy=1440)
+            draw_yellow_card(text, emoji, sy=1440)
             
         elif style == "loop_ending":
-            # 3-Line Kinetic Title: White Sans + Huge Yellow Serif + White Serif All-Caps
             line1, line2, line3, emoji = data
             
-            # Line 1: White Sans 80px
-            bb1 = draw.textbbox((0, 0), line1, font=f_title_setup)
-            w1 = bb1[2] - bb1[0]
-            draw.text(((WIDTH - w1)//2 + 4, 384), line1, font=f_title_setup, fill=COLOR_SHADOW)
-            draw.text(((WIDTH - w1)//2, 380), line1, font=f_title_setup, fill=COLOR_WHITE)
+            # Line 1: Spaced Setup Text
+            draw_spaced_text(line1, 380, f_title_setup, spacing=6)
             
             # Line 2: Huge Yellow Serif Italic 175px
             bb2 = draw.textbbox((0, 0), line2, font=f_title_hero)
@@ -697,15 +675,15 @@ def composite_master(master_video, overlay_mov, pro_audio):
         (6.5, "qa_ref5_selective_bw_beat"),
         (9.5, "qa_ref5_attraction_broll"),
         (12.0, "qa_ref5_infatuation_broll"),
-        (14.5, "qa_ref5_neural_broll"),
-        (17.5, "qa_ref5_sticker_dopamine"),
-        (20.0, "qa_ref5_sticker_oxytocin"),
-        (23.5, "qa_ref5_sticker_serotonin"),
+        (14.5, "qa_ref5_real_couple_chem"),
+        (17.5, "qa_ref5_dopamine_yellow_card"),
+        (20.0, "qa_ref5_oxytocin_yellow_card"),
+        (23.5, "qa_ref5_serotonin_yellow_card"),
         (29.0, "qa_ref5_sleep_broll_subs"),
         (33.5, "qa_ref5_jet_black_pause"),
         (38.5, "qa_ref5_punchline_no_stress"),
-        (43.5, "qa_ref5_curly_hair_broll"),
-        (47.5, "qa_ref5_clean_loop_ending")
+        (43.5, "qa_ref5_curly_hair_woman"),
+        (47.5, "qa_ref5_peaceful_couple_ending")
     ]
     
     print("\n📸 Extracting QA Verification Frames...")
@@ -722,7 +700,7 @@ def composite_master(master_video, overlay_mov, pro_audio):
 def main():
     t_start = time.time()
     print("=" * 70)
-    print("🚀 RENDERING MASTER INSTAGRAM REEL IN REF5 STYLE FROM IMG_4246.MOV")
+    print("🚀 RENDERING MASTER INSTAGRAM REEL IN REF5 STYLE (V3 POLISHED)")
     print("=" * 70)
     
     v_track = render_video_tracks()
