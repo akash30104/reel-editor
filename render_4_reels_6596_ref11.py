@@ -118,7 +118,7 @@ def generate_subtitles_mov(words_list, total_dur, out_mov):
     for w in words_list:
         word = w["word"].strip()
         if word not in cache:
-            sz = 78
+            sz = 95
             f = ImageFont.truetype(str(FONT_PATH), sz)
             bbox = draw_dummy.textbbox((0, 0), word, font=f)
             tw = bbox[2] - bbox[0]
@@ -135,8 +135,8 @@ def generate_subtitles_mov(words_list, total_dur, out_mov):
             y = (SUBS_H - th) // 2 - 5
             
             # 8-direction shadow
-            for dx, dy in [(-3, -3), (3, -3), (-3, 3), (3, 3), (0, 4), (0, -4), (4, 0), (-4, 0)]:
-                draw.text((x + dx, y + dy), word, font=f, fill=(0, 0, 0, 200), stroke_width=6, stroke_fill=COLOR_BLACK)
+            for dx, dy in [(-4, -4), (4, -4), (-4, 4), (4, 4), (0, 5), (0, -5), (5, 0), (-5, 0)]:
+                draw.text((x + dx, y + dy), word, font=f, fill=(0, 0, 0, 220), stroke_width=7, stroke_fill=COLOR_BLACK)
             # Main #FF8400 text with 7px solid black stroke
             draw.text((x, y), word, font=f, fill=COLOR_ORANGE_RGBA, stroke_width=7, stroke_fill=COLOR_BLACK)
             cache[word] = im.tobytes()
@@ -153,7 +153,7 @@ def generate_subtitles_mov(words_list, total_dur, out_mov):
         t = f_idx / fps
         active_word = None
         for w in words_list:
-            if w["start"] <= t <= w["end"]:
+            if w["start"] <= t < w["end"]:
                 active_word = w["word"].strip()
                 break
         if active_word and active_word in cache:
@@ -163,6 +163,7 @@ def generate_subtitles_mov(words_list, total_dur, out_mov):
             
     p.stdin.close()
     p.wait()
+    print(f"✅ Single-word subtitles track generated ({len(words_list)} words): {out_mov}")
     print(f"✅ Subtitles track generated: {out_mov}")
 
 def render_reel(reel_id, title, raw_base_ss, total_dur, cut_specs, words_list, out_mp4):
@@ -270,8 +271,15 @@ def render_reel(reel_id, title, raw_base_ss, total_dur, cut_specs, words_list, o
     ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     print(f"🎉 MASTER REEL {reel_id} DELIVERED: {out_mp4}")
     
-    # QA Frames
-    for snap_t in [5.0, 15.0, 30.0, total_dur - 5.0]:
+    # QA Frames showing active single-word subtitles
+    qa_snaps = {
+        1: [1.2, 4.0, 13.0, 55.0],
+        2: [1.0, 5.0, 38.0, 56.0],
+        3: [1.0, 7.0, 28.0, 58.0],
+        4: [2.0, 4.0, 24.0, 58.0]
+    }.get(reel_id, [5.0, 15.0, 30.0, total_dur - 5.0])
+    
+    for snap_t in qa_snaps:
         frame_out = FRAMES_DIR / f"qa_reel_{reel_id}_t{snap_t:.1f}s.png"
         subprocess.run([
             "ffmpeg", "-y", "-ss", f"{snap_t:.1f}", "-i", str(out_mp4),
@@ -280,14 +288,113 @@ def render_reel(reel_id, title, raw_base_ss, total_dur, cut_specs, words_list, o
     print(f"📸 QA verification frames extracted for Reel {reel_id}")
 
 # ==============================================================================
-# SPEECH-LOCKED DEFINITIONS FOR THE 4 REELS
+# SPEECH-LOCKED DEFINITIONS FOR THE 4 REELS (ONE WORD AT A TIME)
 # ==============================================================================
 
+def make_single_word_events(phrases):
+    events = []
+    for p in phrases:
+        st, et, words_str = p
+        words = words_str.split()
+        if not words:
+            continue
+        dur = et - st
+        w_dur = dur / len(words)
+        for i, w in enumerate(words):
+            w_st = st + i * w_dur
+            w_et = w_st + w_dur
+            events.append({
+                "start": round(w_st, 2),
+                "end": round(w_et, 2),
+                "word": w.strip().upper()
+            })
+    return events
+
+# Reel 1: Student to Founder 🚀
+R1_PHRASES = [
+    (0.1, 1.5, "GANESH BRO WELCOME!"),
+    (2.0, 3.0, "SUPER BRO FINE!"),
+    (3.6, 5.8, "TELL YOUR QUICK INTRO"),
+    (6.0, 8.0, "WHO ARE YOU?"),
+    (8.3, 11.5, "CRISP AND FAST INTRO PLEASE"),
+    (12.7, 15.5, "MY NAME IS GANESH"),
+    (16.4, 19.3, "COLLEGE SECOND YEAR STUDENT"),
+    (19.7, 21.2, "ZERO IDEA ZERO KNOWLEDGE"),
+    (21.8, 24.5, "STARTED RESEARCH ONLINE"),
+    (24.8, 27.2, "SEARCHED ON SOCIAL MEDIA"),
+    (27.3, 29.9, "THEN MET LOKESH BRO!"),
+    (30.1, 35.8, "CONNECTED ON PODCAST SHOW"),
+    (36.1, 38.9, "ASKED ABOUT MENTORSHIP"),
+    (39.1, 40.8, "DISCUSSED STARTUP PLANS"),
+    (41.0, 42.0, "SUPER!"),
+    (42.9, 46.2, "SO BUSINESS STARTED AH?"),
+    (46.3, 48.5, "YES BUSINESS STARTED!"),
+    (49.7, 52.4, "COMPANY REGISTERED NOW"),
+    (52.5, 54.2, "PROPRIETARY AH?"),
+    (54.3, 56.5, "PRIVATE LIMITED COMPANY!"),
+    (57.0, 59.5, "COLLEGE-LA PRIVATE LIMITED!"),
+]
+
+# Reel 2: Why Register Pvt Ltd? 🏢
+R2_PHRASES = [
+    (0.1, 1.5, "WHO ADVISED PRIVATE LIMITED?"),
+    (3.2, 5.8, "FIRST WE THOUGHT LLP"),
+    (6.9, 7.8, "WHAT IS LLP?"),
+    (9.6, 11.5, "LIMITED LIABILITY PARTNERSHIP"),
+    (12.1, 13.1, "HOW MANY PARTNERS?"),
+    (13.3, 15.3, "MINIMUM TWO PARTNERS"),
+    (16.8, 21.0, "LLP VERSUS PRIVATE LIMITED"),
+    (21.3, 23.5, "AUDIT AND COMPLIANCE"),
+    (24.8, 28.5, "DOCUMENTATION PROCESS RULES"),
+    (29.6, 32.7, "WHAT IS THE BENEFIT?"),
+    (33.1, 37.3, "WHEN RAISING VENTURE FUNDING"),
+    (37.5, 40.5, "INVESTORS PREFER PVT LTD!"),
+    (42.7, 45.5, "HUGE ADVANTAGE FOR SCALING"),
+    (46.6, 47.3, "SUPER!"),
+    (47.6, 50.8, "STARTING REAL COMPANY EARLY"),
+    (51.1, 54.2, "DIRECTLY FROM COLLEGE"),
+    (54.5, 59.5, "BUILT FOR MASSIVE GROWTH!"),
+]
+
+# Reel 3: Business vs Entrepreneur 💡
+R3_PHRASES = [
+    (0.1, 1.4, "FIRST BIG QUESTION"),
+    (2.4, 4.6, "WANT TO BE BUSINESSMAN?"),
+    (6.1, 7.8, "I AM A BUSINESSMAN"),
+    (8.3, 10.5, "FOCUS ON BRAND VALUE"),
+    (10.8, 13.5, "NOT JUST MAKING MONEY"),
+    (13.6, 15.5, "WANT TO BUILD LEGACY"),
+    (17.0, 18.8, "HOW YOU LOOK AT BRAND?"),
+    (20.8, 24.5, "SOLVING CUSTOMER PAIN"),
+    (27.5, 31.5, "BRAND IS PURE TRUST"),
+    (32.0, 35.5, "AND LONG-TERM REPUTATION"),
+    (36.5, 37.5, "EXACTLY!"),
+    (39.7, 43.0, "BUSINESS VS ENTREPRENEUR!"),
+    (43.6, 48.8, "BUSINESSMAN WORKS EXISTING MODEL"),
+    (49.1, 54.0, "REPLICATES PROVEN REVENUE"),
+    (54.3, 56.0, "ENTREPRENEUR IS DIFFERENT"),
+    (56.1, 59.8, "ENTREPRENEUR SOLVES UNSEEN PROBLEMS!"),
+]
+
+# Reel 4: Venture vs Traditional Trade 🚀
+R4_PHRASES = [
+    (0.1, 2.9, "NO EXISTING PRODUCT EXISTS"),
+    (3.4, 5.8, "FIRST-MOVER INNOVATION"),
+    (6.6, 10.5, "ENTREPRENEUR CREATES NEW VALUE"),
+    (14.4, 17.5, "INNOVATION ACROSS BUSINESS"),
+    (18.0, 22.0, "BECOMES A REAL VENTURE"),
+    (22.5, 25.8, "THAT IS ENTREPRENEURSHIP!"),
+    (26.5, 29.5, "SOLVING PROBLEMS AT PROFIT"),
+    (30.0, 34.0, "TRADITIONAL BUSINESS NO INNOVATION"),
+    (34.6, 38.5, "VALUE RETURN IS LINEAR"),
+    (38.9, 42.5, "NOT EXPONENTIALLY HIGH"),
+    (43.0, 46.5, "JUST NORMAL RETURN"),
+    (47.2, 50.5, "NEW SOLUTION FOR REAL PAIN"),
+    (50.6, 55.0, "SOLVING EXPONENTIALLY BIG PROBLEMS"),
+    (55.5, 59.5, "EXPONENTIALLY HIGH VALUE!"),
+]
+
 REELS_CONFIG = [
-    # --------------------------------------------------------------------------
-    # REEL 1: Student to Founder 🚀
-    # Raw Window: 176.0s to 236.0s (60.0s)
-    # --------------------------------------------------------------------------
     {
         "id": 1,
         "title": "Student to Founder 🚀",
@@ -309,33 +416,8 @@ REELS_CONFIG = [
             {"type": "punch", "timeline_st": 54.2, "dur": 2.6, "broll": None},
             {"type": "broll", "timeline_st": 56.8, "dur": 3.2, "broll": BROLL_DIR / "broll_golden_sunrise.mp4"},
         ],
-        "words": [
-            {"start": 0.1, "end": 1.5, "word": "GANESH BRO WELCOME!"},
-            {"start": 2.0, "end": 3.0, "word": "SUPER BRO FINE!"},
-            {"start": 3.6, "end": 8.0, "word": "TELL YOUR QUICK INTRO"},
-            {"start": 8.3, "end": 11.5, "word": "WHO ARE YOU?"},
-            {"start": 12.7, "end": 15.5, "word": "MY NAME IS GANESH"},
-            {"start": 16.4, "end": 19.3, "word": "COLLEGE 2ND YEAR"},
-            {"start": 19.7, "end": 21.2, "word": "ZERO IDEA & KNOWLEDGE"},
-            {"start": 21.8, "end": 24.5, "word": "RESEARCH ON SOCIAL MEDIA"},
-            {"start": 24.8, "end": 27.2, "word": "STARTED MY RESEARCH"},
-            {"start": 27.3, "end": 29.9, "word": "MET LOKESH BRO!"},
-            {"start": 30.1, "end": 35.8, "word": "CONNECTED ON PODCAST"},
-            {"start": 36.1, "end": 38.9, "word": "TALKED ABOUT MENTORING"},
-            {"start": 39.1, "end": 40.5, "word": "DISCUSSED STARTUP PLANS"},
-            {"start": 41.0, "end": 42.0, "word": "SUPER!"},
-            {"start": 42.9, "end": 46.2, "word": "BUSINESS STARTED AH?"},
-            {"start": 46.3, "end": 48.5, "word": "BUSINESS START PANNITOM!"},
-            {"start": 49.7, "end": 52.4, "word": "COMPANY REGISTERED"},
-            {"start": 52.5, "end": 54.2, "word": "PROPRIETARY AH?"},
-            {"start": 54.3, "end": 56.5, "word": "PRIVATE LIMITED COMPANY!"},
-            {"start": 57.0, "end": 59.5, "word": "COLLEGE-LA PRIVATE LIMITED!"}
-        ]
+        "words": make_single_word_events(R1_PHRASES)
     },
-    # --------------------------------------------------------------------------
-    # REEL 2: Why Register Pvt Ltd? 🏢
-    # Raw Window: 236.0s to 296.0s (60.0s)
-    # --------------------------------------------------------------------------
     {
         "id": 2,
         "title": "Why Register Pvt Ltd? 🏢",
@@ -356,30 +438,8 @@ REELS_CONFIG = [
             {"type": "broll", "timeline_st": 41.0, "dur": 5.5, "broll": BROLL_DIR / "broll_watch_repair.mp4"},
             {"type": "host_punch", "timeline_st": 46.5, "dur": 13.5, "broll": None},
         ],
-        "words": [
-            {"start": 0.1, "end": 1.5, "word": "WHO ADVISED PVT LTD?"},
-            {"start": 3.2, "end": 5.8, "word": "FIRST WE THOUGHT LLP"},
-            {"start": 6.9, "end": 7.8, "word": "WHAT IS LLP?"},
-            {"start": 9.6, "end": 11.5, "word": "LIMITED LIABILITY PARTNERSHIP"},
-            {"start": 12.1, "end": 13.1, "word": "HOW MANY PARTNERS?"},
-            {"start": 13.3, "end": 15.3, "word": "TWO PARTNERS REQUIRED"},
-            {"start": 16.8, "end": 21.0, "word": "LLP VS PRIVATE LIMITED"},
-            {"start": 21.3, "end": 23.5, "word": "AUDIT & COMPLIANCE RULES"},
-            {"start": 24.8, "end": 28.5, "word": "DOCUMENTATION PROCESS"},
-            {"start": 29.6, "end": 32.7, "word": "WHAT IS THE BENEFIT?"},
-            {"start": 33.1, "end": 37.3, "word": "WHEN RAISING FUNDING"},
-            {"start": 37.5, "end": 40.5, "word": "INVESTORS PREFER PVT LTD!"},
-            {"start": 42.7, "end": 45.5, "word": "HUGE ADVANTAGE FOR SCALING"},
-            {"start": 46.6, "end": 47.3, "word": "SUPER!"},
-            {"start": 47.6, "end": 50.8, "word": "START REAL COMPANY FROM COLLEGE"},
-            {"start": 51.1, "end": 54.2, "word": "START A REAL BUSINESS"},
-            {"start": 54.5, "end": 59.5, "word": "BUILT FOR BIG GROWTH!"}
-        ]
+        "words": make_single_word_events(R2_PHRASES)
     },
-    # --------------------------------------------------------------------------
-    # REEL 3: Business vs Entrepreneur 💡
-    # Raw Window: 296.0s to 356.0s (60.0s)
-    # --------------------------------------------------------------------------
     {
         "id": 3,
         "title": "Business vs Entrepreneur 💡",
@@ -397,28 +457,8 @@ REELS_CONFIG = [
             {"type": "broll", "timeline_st": 49.0, "dur": 5.0, "broll": BROLL_DIR / "broll_clock.mp4"},
             {"type": "host_punch", "timeline_st": 54.0, "dur": 6.0, "broll": None},
         ],
-        "words": [
-            {"start": 0.1, "end": 1.4, "word": "FIRST BIG QUESTION"},
-            {"start": 2.4, "end": 4.6, "word": "WANT TO BE A BUSINESSMAN?"},
-            {"start": 6.1, "end": 7.8, "word": "I AM A BUSINESSMAN"},
-            {"start": 8.3, "end": 10.5, "word": "FOCUS ON BRAND VALUE"},
-            {"start": 10.8, "end": 13.5, "word": "NOT JUST MAKING MONEY"},
-            {"start": 13.6, "end": 15.5, "word": "WANT TO BE A REAL FOUNDER"},
-            {"start": 17.0, "end": 18.8, "word": "HOW DO YOU LOOK AT BRAND?"},
-            {"start": 20.8, "end": 24.5, "word": "SOLVING CUSTOMER NEEDS"},
-            {"start": 27.5, "end": 35.5, "word": "BRAND IS REPUTATION & TRUST"},
-            {"start": 36.5, "end": 37.5, "word": "EXACTLY!"},
-            {"start": 39.7, "end": 43.0, "word": "BUSINESS VS ENTREPRENEUR!"},
-            {"start": 43.6, "end": 48.8, "word": "BUSINESSMAN WORKS EXISTING MODEL"},
-            {"start": 49.1, "end": 54.0, "word": "REPLICATES EXISTING REVENUE"},
-            {"start": 54.3, "end": 56.0, "word": "ENTREPRENEUR IS DIFFERENT"},
-            {"start": 56.1, "end": 59.8, "word": "ENTREPRENEUR SOLVES UNSEEN PROBLEMS!"}
-        ]
+        "words": make_single_word_events(R3_PHRASES)
     },
-    # --------------------------------------------------------------------------
-    # REEL 4: Venture vs Traditional Trade 🚀
-    # Raw Window: 356.0s to 416.0s (60.0s)
-    # --------------------------------------------------------------------------
     {
         "id": 4,
         "title": "Venture vs Traditional Trade 🚀",
@@ -436,20 +476,7 @@ REELS_CONFIG = [
             {"type": "broll", "timeline_st": 47.5, "dur": 6.0, "broll": BROLL_DIR / "broll_golden_sunrise.mp4"},
             {"type": "punch", "timeline_st": 53.5, "dur": 6.5, "broll": None},
         ],
-        "words": [
-            {"start": 0.1, "end": 2.9, "word": "NO EXISTING PRODUCT"},
-            {"start": 3.4, "end": 5.8, "word": "FIRST-MOVER INNOVATION"},
-            {"start": 6.6, "end": 10.5, "word": "CREATING NEW VALUE"},
-            {"start": 14.4, "end": 22.0, "word": "INNOVATION IN WHOLE BUSINESS"},
-            {"start": 22.5, "end": 25.8, "word": "IT BECOMES A VENTURE!"},
-            {"start": 26.5, "end": 32.0, "word": "SOLVING PROBLEMS AT PROFIT"},
-            {"start": 32.4, "end": 34.2, "word": "TRADITIONAL BUSINESS NO INNOVATION"},
-            {"start": 34.6, "end": 38.5, "word": "VALUE RETURN IS LINEAR"},
-            {"start": 38.9, "end": 42.5, "word": "NOT EXPONENTIALLY HIGH"},
-            {"start": 47.2, "end": 50.5, "word": "NEW SOLUTION FOR REAL PAIN"},
-            {"start": 50.6, "end": 56.0, "word": "SOLVING EXPONENTIALLY BIG PROBLEMS"},
-            {"start": 56.5, "end": 59.5, "word": "EXPONENTIALLY HIGH VALUE!"}
-        ]
+        "words": make_single_word_events(R4_PHRASES)
     }
 ]
 
